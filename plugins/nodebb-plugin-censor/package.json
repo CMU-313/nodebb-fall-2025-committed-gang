@@ -1,0 +1,9 @@
+{
+  "name": "nodebb-plugin-censor",
+  "version": "1.0.0",
+  "description": "Automatically censors profanity in posts",
+  "main": "library.js",
+  "license": "GPL-3.0",
+  "keywords": ["nodebb", "plugin", "censor", "profanity"],
+  "nbbpm": { "compatibility": "^4.0.0" }
+}
