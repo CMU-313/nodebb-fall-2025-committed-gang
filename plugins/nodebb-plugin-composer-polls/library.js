@@ -3,6 +3,7 @@
 const db = require.main.require('./src/database');
 const utils = require.main.require('./src/utils');
 
+
 const POLL_TYPES = new Set(['single', 'multi', 'ranked']);
 const POLL_VISIBILITY = new Set(['anonymous', 'public']);
 const POLL_MIN_OPTIONS = 2;
@@ -10,6 +11,38 @@ const POLL_MAX_OPTIONS = 10;
 const OPTION_MAX_LENGTH = 120;
 
 const plugin = {};
+const Benchpress = require.main.require('benchpressjs');
+
+
+// Save poll data when post is created (step 2)
+plugin.savePoll = async function (postData) {
+    if (postData.poll) {
+        await db.setObject(`poll:${postData.pid}`, postData.poll);
+    }
+    return postData;
+};
+
+
+
+// Attach poll when posts are fetched
+plugin.attachPoll = async function(posts) {
+    const postArray = Array.isArray(posts) ? posts : [posts];
+
+    for (let post of postArray) {
+        const poll = await db.getObject(`poll:${post.pid}`);
+        if (poll) {
+            post.poll = poll;
+
+            // Render plugin partial for posts that have a poll
+            post.pollHTML = await Benchpress.render('nodebb-composer-polls/post', { poll });
+        }
+    }
+
+    return Array.isArray(posts) ? postArray : postArray[0];
+};
+
+
+
 
 plugin.addPollFormattingOption = async function (payload) {
 	if (!payload || !Array.isArray(payload.options)) {
@@ -36,6 +69,26 @@ plugin.addPollFormattingOption = async function (payload) {
 			},
 		});
 	}
+
+	return payload;
+};
+
+// --- server-side: sanitize poll from the composer (runs before topic/post is created) ---
+plugin.handleComposerCheck = async function (payload) {
+	// payload is the composer payload on the server; the composer data lives at payload.data
+	if (!payload || !payload.data || !payload.data.poll) {
+		return payload;
+	}
+
+	// Ensure we have a numeric uid (author)
+	if (!utils.isNumber(payload.data.uid)) {
+		throw new Error('[[composer-polls:errors.invalid-author]]');
+	}
+
+	// Sanitize poll and attach as _poll so later hooks (action:topic.post) can persist it
+	const sanitized = sanitizePollConfig(payload.data.poll, parseInt(payload.data.uid, 10));
+	payload.data._poll = sanitized;
+	delete payload.data.poll;
 
 	return payload;
 };

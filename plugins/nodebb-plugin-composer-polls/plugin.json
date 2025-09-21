@@ -5,9 +5,12 @@
 	"library": "./library.js",
 	"hooks": [
 		{ "hook": "filter:composer.formatting", "method": "addPollFormattingOption" },
-		{ "hook": "filter:topic.post", "method": "handleTopicPost" },
+  		{ "hook": "filter:composer.check", "method": "handleComposerCheck" },
 		{ "hook": "action:topic.post", "method": "onTopicPost" },
-		{ "hook": "filter:topics.addPostData", "method": "attachPollToPosts" }
+		{ "hook": "filter:topics.addPostData", "method": "attachPollToPosts" }, 
+		{"hook": "action:post.save", "method": "savePoll"},
+		{"hook": "filter:post.get", "method": "attachPoll"}, 
+		{"hook": "filter:posts.get", "method": "attachPoll"}
 	],
 	"scripts": [
 		"./static/lib/composer-polls.js"

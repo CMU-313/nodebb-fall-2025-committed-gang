@@ -44,22 +44,51 @@ require([
 		setPoll(uuid, null);
 	});
 
+		// Ensure the poll (if present in the composer UI) is forwarded in payload.composerData
 	hooks.on('filter:composer.submit', (payload) => {
-		if (!payload || !payload.postData || !payload.composerData) {
+			if (!payload || !payload.composerData) {
 			return payload;
 		}
 
+		// Only attach poll for new topic posts
 		if (payload.action !== 'topics.post') {
 			delete payload.composerData.poll;
 			return payload;
 		}
 
-		const poll = payload.postData.pollConfig;
-		if (poll && Array.isArray(poll.options) && poll.options.length >= MIN_OPTIONS) {
-			payload.composerData.poll = poll;
+		const composerEl = $(document.activeElement).closest('.composer');
+		const pollEl = composerEl.find('.composer-polls-post');
+
+		console.log('Composer poll element:', pollEl);
+		console.log('Inputs:', pollEl.find('.composer-polls-option-input'));
+
+		const pollData = {
+			type: pollEl.find('input[name="composer-poll-type"]:checked').val(),
+			options: [],
+			visibility: pollEl.find('.composer-polls-visibility').val(),
+			closesAt: pollEl.find('input[name="composer-polls-close-mode"]:checked').val() === 'date'
+				? pollEl.find('.composer-polls-close-input').val()
+				: null,
+		};
+
+		pollEl.find('.composer-polls-option-input').each((i, el) => {
+			pollData.options.push({ text: $(el).val(), position: i + 1 });
+		});
+
+		$('.composer-polls-option-input').each(function(i, el) {
+			pollData.options.push({
+				text: $(el).val(),
+				position: i + 1
+			});
+		});
+
+		if (pollData.options.length >= 2) {
+			payload.composerData.poll = pollData;
 		} else {
 			delete payload.composerData.poll;
 		}
+
+		console.log('[poll plugin] Attaching poll to submit payload:', payload.composerData.poll);
 
 		return payload;
 	});
