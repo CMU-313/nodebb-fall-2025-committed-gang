@@ -1,28 +1,60 @@
 'use strict';
 
-const bannedWords = ['badword', 'curse', 'swear'];
+let bannedWords = ['badword', 'curse', 'swear'];
+const replacement = '****';
 
-function mask(text) {
-  return bannedWords.reduce((acc, word) => {
-    const regex = new RegExp(`\\b${word}\\b`, 'gi');
-    return acc.replace(regex, '****');
-  }, text);
+const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+
+const buildRegex = (words) => {
+  const parts = words
+    .map(w => w.trim())
+    .filter(Boolean)
+    .map(escapeRegExp)
+    .sort((a, b) => b.length - a.length);
+  if (!parts.length) return null;
+  return new RegExp(`\\b(?:${parts.join('|')})\\b`, 'gi');
+};
+
+let RX = buildRegex(bannedWords);
+
+function maskSkippingCode(text) {
+  if (!text || !RX) return text;
+
+  const codeRx = /(```[\s\S]*?```|`[^`]*`)/g;
+  let out = [];
+  let last = 0;
+  let m;
+
+  while ((m = codeRx.exec(text)) !== null) {
+    out.push(text.slice(last, m.index).replace(RX, replacement));
+    out.push(m[0]);
+    last = codeRx.lastIndex;
+  }
+  out.push(text.slice(last).replace(RX, replacement));
+  return out.join('');
 }
 
 const Plugin = {};
 
 Plugin.censorPost = async (data) => {
   if (data && data.content) {
-    data.content = mask(data.content);
+    data.content = maskSkippingCode(data.content);
   }
   return data;
 };
 
 Plugin.censorParsed = async (payload) => {
-  if (payload && payload.postData && payload.postData.content) {
-    payload.postData.content = mask(payload.postData.content);
+  if (payload?.postData?.content) {
+    payload.postData.content = maskSkippingCode(payload.postData.content);
   }
   return payload;
+};
+
+Plugin.censorTopic = async (data) => {
+  if (data && data.title) {
+    data.title = maskSkippingCode(data.title);
+  }
+  return data;
 };
 
 module.exports = Plugin;
