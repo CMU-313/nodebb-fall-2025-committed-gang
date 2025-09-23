@@ -7,6 +7,8 @@
   "hooks": [
     { "hook": "filter:post.create", "method": "censorPost" },
     { "hook": "filter:post.edit", "method": "censorPost" },
-    { "hook": "filter:parse.post", "method": "censorParsed" }
+    { "hook": "filter:parse.post", "method": "censorParsed" },
+	{ "hook": "filter:topic.create", "method": "censorTopic"  },
+    { "hook": "filter:topic.edit",   "method": "censorTopic"  }
   ]
 }
