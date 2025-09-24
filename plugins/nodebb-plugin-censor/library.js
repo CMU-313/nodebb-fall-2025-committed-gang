@@ -1,6 +1,8 @@
 'use strict';
 
-let bannedWords = ['badword', 'curse', 'swear'];
+let bannedWords = require('./profanity.js');
+
+
 const replacement = '****';
 
 const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
