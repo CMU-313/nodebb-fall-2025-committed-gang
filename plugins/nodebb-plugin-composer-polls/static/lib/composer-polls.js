@@ -44,54 +44,79 @@ require([
 		setPoll(uuid, null);
 	});
 
-		// Ensure the poll (if present in the composer UI) is forwarded in payload.composerData
-	hooks.on('filter:composer.submit', (payload) => {
-			if (!payload || !payload.composerData) {
-			return payload;
-		}
+	// 	// Ensure the poll (if present in the composer UI) is forwarded in payload.composerData
+	// hooks.on('filter:composer.submit', (payload) => {
+	// 		if (!payload || !payload.composerData) {
+	// 		return payload;
+	// 	}
 
-		// Only attach poll for new topic posts
-		if (payload.action !== 'topics.post') {
-			delete payload.composerData.poll;
-			return payload;
-		}
+	// 	// Only attach poll for new topic posts
+	// 	if (payload.action !== 'topics.post') {
+	// 		delete payload.composerData.poll;
+	// 		return payload;
+	// 	}
 
-		const composerEl = $(document.activeElement).closest('.composer');
-		const pollEl = composerEl.find('.composer-polls-post');
+	// 	const composerEl = $(document.activeElement).closest('.composer');
+	// 	const pollEl = composerEl.find('.composer-polls-post');
 
-		console.log('Composer poll element:', pollEl);
-		console.log('Inputs:', pollEl.find('.composer-polls-option-input'));
+	// 	console.log('Composer poll element:', pollEl);
+	// 	console.log('Inputs:', pollEl.find('.composer-polls-option-input'));
 
-		const pollData = {
-			type: pollEl.find('input[name="composer-poll-type"]:checked').val(),
-			options: [],
-			visibility: pollEl.find('.composer-polls-visibility').val(),
-			closesAt: pollEl.find('input[name="composer-polls-close-mode"]:checked').val() === 'date'
-				? pollEl.find('.composer-polls-close-input').val()
-				: null,
-		};
+	// 	const pollData = {
+	// 		type: pollEl.find('input[name="composer-poll-type"]:checked').val(),
+	// 		options: [],
+	// 		visibility: pollEl.find('.composer-polls-visibility').val(),
+	// 		closesAt: pollEl.find('input[name="composer-polls-close-mode"]:checked').val() === 'date'
+	// 			? pollEl.find('.composer-polls-close-input').val()
+	// 			: null,
+	// 	};
 
-		pollEl.find('.composer-polls-option-input').each((i, el) => {
-			pollData.options.push({ text: $(el).val(), position: i + 1 });
+	// 	pollEl.find('.composer-polls-option-input').each((i, el) => {
+	// 		pollData.options.push({ text: $(el).val(), position: i + 1 });
+	// 	});
+
+	// 	$('.composer-polls-option-input').each(function(i, el) {
+	// 		pollData.options.push({
+	// 			text: $(el).val(),
+	// 			position: i + 1
+	// 		});
+	// 	});
+
+	// 	if (pollData.options.length >= 2) {
+	// 		payload.composerData.poll = pollData;
+	// 	} else {
+	// 		delete payload.composerData.poll;
+	// 	}
+
+	// 	console.log('[poll plugin] Attaching poll to submit payload:', payload.composerData.poll);
+
+	// 	return payload;
+	// });
+
+	// In composer-polls.js, replace the existing hook around line 42:
+hooks.on('filter:composer.submit', (payload) => {
+	console.log('=== POLL SUBMISSION DEBUG ===');
+	console.log('Payload:', payload);
+	console.log('Available composer object:', typeof composer);
+	
+	if (typeof composer !== 'undefined' && composer.posts) {
+		console.log('Composer posts keys:', Object.keys(composer.posts));
+		
+		// Log each composer post to see what's available
+		Object.keys(composer.posts).forEach(uuid => {
+			console.log(`Post ${uuid}:`, composer.posts[uuid]);
+			if (composer.posts[uuid].pollConfig) {
+				console.log(`Poll config found in ${uuid}:`, composer.posts[uuid].pollConfig);
+			}
 		});
+	}
+	
+	// Don't modify anything yet, just debug
+	return payload;
+});
 
-		$('.composer-polls-option-input').each(function(i, el) {
-			pollData.options.push({
-				text: $(el).val(),
-				position: i + 1
-			});
-		});
 
-		if (pollData.options.length >= 2) {
-			payload.composerData.poll = pollData;
-		} else {
-			delete payload.composerData.poll;
-		}
-
-		console.log('[poll plugin] Attaching poll to submit payload:', payload.composerData.poll);
-
-		return payload;
-	});
+	
 
 	function registerDispatch(postContainer) {
 		if (dispatchRegistered || !formatting || typeof formatting.addButtonDispatch !== 'function') {
