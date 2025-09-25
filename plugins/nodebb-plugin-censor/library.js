@@ -1,6 +1,20 @@
 'use strict';
 
-let bannedWords = require('./profanity.js');
+const fs = require('fs');
+const path = require('path');
+
+//load bad words from profanity csv file
+const loadBannedWords = () => {
+  try {
+    const csvPath = path.join(__dirname, 'profanity.csv');
+    const csv = fs.readFileSync(csvPath, 'utf8');
+    return csv.split(/\r?\n/).map(l => l.trim()).filter(Boolean);
+  } catch (e) {
+    return [];
+  }
+};
+
+const bannedWords = loadBannedWords();
 
 
 const replacement = '****';
