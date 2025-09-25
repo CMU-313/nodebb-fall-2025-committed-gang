@@ -1,0 +1,17 @@
+{
+	"id": "nodebb-plugin-composer-polls",
+	"name": "Composer Poll Button",
+	"description": "Adds a poll button to the composer toolbar for new topics help.",
+	"library": "./library.js",
+	"hooks": [
+		{ "hook": "filter:composer.formatting", "method": "addPollFormattingOption" },
+		{ "hook": "filter:topic.post", "method": "handleTopicPost" },
+		{ "hook": "action:topic.post", "method": "onTopicPost" },
+		{ "hook": "filter:topics.addPostData", "method": "attachPollToPosts" }
+	],
+	"scripts": [
+		"./static/lib/composer-polls.js"
+	],
+	"languages": "./public/language",
+	"templates": "./static/templates"
+}
