@@ -32,7 +32,10 @@ require([
 			return;
 		}
 		const uuid = postContainer.attr('data-uuid');
+<<<<<<< HEAD
+=======
 		// Composer instances are recreated often; keep the summary UI in sync each time.
+>>>>>>> origin/main
 		bindSummaryActions(postContainer);
 		refreshSummary(postContainer, getPoll(uuid));
 		updateBadge(postContainer, getPoll(uuid));
@@ -45,6 +48,32 @@ require([
 		setPoll(uuid, null);
 	});
 
+<<<<<<< HEAD
+	
+// Hook to submit poll -- factors in composer post data
+hooks.on('filter:composer.submit', (payload) => {
+	console.log('=== POLL SUBMISSION DEBUG ===');
+	console.log('Payload:', payload);
+	console.log('Available composer object:', typeof composer);
+	
+	if (typeof composer !== 'undefined' && composer.posts) {
+		console.log('Composer posts keys:', Object.keys(composer.posts));
+		
+		// Log each composer post to see what's available
+		Object.keys(composer.posts).forEach(uuid => {
+			console.log(`Post ${uuid}:`, composer.posts[uuid]);
+			if (composer.posts[uuid].pollConfig) {
+				console.log(`Poll config found in ${uuid}:`, composer.posts[uuid].pollConfig);
+			}
+		});
+	}
+	
+	return payload;
+});
+
+
+	
+=======
 	hooks.on('filter:composer.submit', (payload) => {
 		if (!payload || !payload.postData || !payload.composerData) {
 			return payload;
@@ -64,6 +93,7 @@ require([
 
 		return payload;
 	});
+>>>>>>> origin/main
 
 	function registerDispatch(postContainer) {
 		if (dispatchRegistered || !formatting || typeof formatting.addButtonDispatch !== 'function') {
@@ -71,7 +101,10 @@ require([
 		}
 
 		dispatchRegistered = true;
+<<<<<<< HEAD
+=======
 		// Hook Composer's toolbar button into our modal, exiting fullscreen if needed first.
+>>>>>>> origin/main
 		formatting.addButtonDispatch('polls', function () {
 			formatting.exitFullscreen();
 			openPollModal(this || postContainer);
@@ -100,7 +133,10 @@ require([
 
 		const placeholders = await getPlaceholders();
 		const modalMarkup = await renderModal({ poll, placeholders });
+<<<<<<< HEAD
+=======
 		// Translate all static labels once before we build the dialog buttons.
+>>>>>>> origin/main
 		const [
 			title,
 			saveLabel,
@@ -152,7 +188,10 @@ require([
 			buttons,
 		});
 
+<<<<<<< HEAD
+=======
 		// Keep the modal responsive after bootbox injects it into the DOM.
+>>>>>>> origin/main
 		dialog.on('shown.bs.modal', () => {
 			const modalEl = dialog.find('.composer-polls-modal');
 			attachModalHandlers(modalEl, placeholders, optionRemoveLabel);
@@ -166,7 +205,10 @@ require([
 		}
 		postContainer.data('composer-poll-bound', true);
 
+<<<<<<< HEAD
+=======
 		// Delegate edit/remove controls so we survive composer rerenders.
+>>>>>>> origin/main
 		postContainer.on('click', '[data-action="composer-poll-edit"]', (ev) => {
 			ev.preventDefault();
 			openPollModal(postContainer);
@@ -189,7 +231,10 @@ require([
 			position: index + 1,
 		})));
 
+<<<<<<< HEAD
+=======
 		// Pass primitive values to the template so Benchpress can hydrate inputs correctly.
+>>>>>>> origin/main
 		const data = {
 			type: poll.type || DEFAULT_TYPE,
 			options,
@@ -203,7 +248,10 @@ require([
 		return translate(html);
 	}
 
+<<<<<<< HEAD
+=======
 	// Wire up add/remove handlers once the modal markup is live.
+>>>>>>> origin/main
 	function attachModalHandlers(modalEl, placeholders, optionRemoveLabel) {
 		modalEl.on('click', '.composer-polls-add-option', function () {
 			const optionCount = modalEl.find('.composer-polls-option').length;
@@ -243,7 +291,10 @@ require([
 		});
 	}
 
+<<<<<<< HEAD
+=======
 	// Keep numbering, placeholders, and button states consistent with option count.
+>>>>>>> origin/main
 	function refreshOptionNumbering(modalEl, placeholders) {
 		const options = modalEl.find('.composer-polls-option');
 		options.each((index, element) => {
@@ -259,7 +310,10 @@ require([
 		removeButtons.prop('disabled', options.length <= MIN_OPTIONS);
 	}
 
+<<<<<<< HEAD
+=======
 	// Skeleton poll matches server defaults so we stay in sync.
+>>>>>>> origin/main
 	function createDefaultPoll() {
 		return {
 			type: DEFAULT_TYPE,
@@ -270,7 +324,10 @@ require([
 		};
 	}
 
+<<<<<<< HEAD
+=======
 	// Normalise option array length before the modal renders.
+>>>>>>> origin/main
 	function enforceOptionBounds(poll) {
 		if (!Array.isArray(poll.options)) {
 			poll.options = [];
@@ -283,7 +340,10 @@ require([
 		}
 	}
 
+<<<<<<< HEAD
+=======
 	// Avoid mutating shared references when editing existing polls.
+>>>>>>> origin/main
 	function clonePoll(poll) {
 		if (!poll) {
 			return null;
@@ -291,7 +351,10 @@ require([
 		return JSON.parse(JSON.stringify(poll));
 	}
 
+<<<<<<< HEAD
+=======
 	// Composer keeps per-UUID state; look up the active poll if it exists.
+>>>>>>> origin/main
 	function getPoll(uuid) {
 		if (!uuid || !composer.posts || !composer.posts[uuid]) {
 			return null;
@@ -299,7 +362,10 @@ require([
 		return composer.posts[uuid].pollConfig || null;
 	}
 
+<<<<<<< HEAD
+=======
 	// Persist the poll in composer state and mark the draft dirty for autosave.
+>>>>>>> origin/main
 	function setPoll(uuid, poll) {
 		if (!uuid || !composer.posts || !composer.posts[uuid]) {
 			return;
@@ -312,12 +378,18 @@ require([
 		composer.posts[uuid].modified = true;
 	}
 
+<<<<<<< HEAD
+=======
 	// Stick with alphanumeric IDs so they are safe across transports.
+>>>>>>> origin/main
 	function generateOptionId() {
 		return utils.generateUUID().replace(/[^a-z0-9]/gi, '').slice(0, 12) || `opt${Date.now()}`;
 	}
 
+<<<<<<< HEAD
+=======
 	// Convert stored UTC timestamps into the local ISO format used by inputs.
+>>>>>>> origin/main
 	function timestampToInputValue(timestamp) {
 		if (!timestamp) {
 			return '';
@@ -331,7 +403,10 @@ require([
 		return local.toISOString().slice(0, 16);
 	}
 
+<<<<<<< HEAD
+=======
 	// Parse user input back into a comparable UTC timestamp.
+>>>>>>> origin/main
 	function inputValueToTimestamp(value) {
 		if (!value) {
 			return 0;
@@ -343,7 +418,10 @@ require([
 		return date.getTime();
 	}
 
+<<<<<<< HEAD
+=======
 	// Validate, persist, and reflect poll changes after the modal save button.
+>>>>>>> origin/main
 	async function handleSave(dialog, uuid, postContainer, placeholders, summaryLabels) {
 		const modalEl = dialog.find('.composer-polls-modal');
 		const collection = collectPollFromModal(modalEl);
@@ -359,7 +437,10 @@ require([
 		return true;
 	}
 
+<<<<<<< HEAD
+=======
 	// Gather the user's selections and enforce client-side constraints.
+>>>>>>> origin/main
 	function collectPollFromModal(modalEl) {
 		const type = modalEl.find('input[name="composer-poll-type"]:checked').val();
 		if (!type) {
@@ -422,7 +503,10 @@ require([
 		};
 	}
 
+<<<<<<< HEAD
+=======
 	// Rebuild the inline summary so authors see the saved configuration instantly.
+>>>>>>> origin/main
 	async function refreshSummary(postContainer, poll, labels) {
 		const summaryEl = ensureSummary(postContainer);
 
@@ -471,7 +555,10 @@ require([
 		summaryEl.find('[data-role="summary-note"]').text(noteLabel);
 	}
 
+<<<<<<< HEAD
+=======
 	// Lazily create the summary container so we do not rely on template changes.
+>>>>>>> origin/main
 	function ensureSummary(postContainer) {
 		let summary = postContainer.find('.composer-polls-summary');
 		if (!summary.length) {
@@ -505,7 +592,10 @@ require([
 		return summary;
 	}
 
+<<<<<<< HEAD
+=======
 	// Mirror poll state in the toolbar badge for quick visual feedback.
+>>>>>>> origin/main
 	function updateBadge(postContainer, poll) {
 		const badge = postContainer.find('[data-format="polls"] .badge');
 		if (!badge.length) {
@@ -518,7 +608,10 @@ require([
 		}
 	}
 
+<<<<<<< HEAD
+=======
 	// Prefetch all option placeholders so modal creation is synchronous.
+>>>>>>> origin/main
 	async function getPlaceholders() {
 		return Promise.all(
 			Array.from({ length: MAX_OPTIONS }, (_, index) =>
@@ -527,14 +620,20 @@ require([
 		);
 	}
 
+<<<<<<< HEAD
+=======
 	// Promise-wrapped translator helper keeps flow async/await friendly.
+>>>>>>> origin/main
 	function translate(str) {
 		return new Promise((resolve) => {
 			translator.translate(str, resolve);
 		});
 	}
 
+<<<<<<< HEAD
+=======
 	// Fan out through translate() to keep ordering aligned with callers.
+>>>>>>> origin/main
 	function translateMany(keys) {
 		return Promise.all(keys.map(key => translate(key)));
 	}
