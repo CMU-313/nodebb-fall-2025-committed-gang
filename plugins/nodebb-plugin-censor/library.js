@@ -7,7 +7,7 @@ const path = require('path');
 const meta = require.main.require("./src/meta");
 const settings = require.main.require("./src/meta/settings");
 const plugins = require.main.require("./src/plugins");
-const settingsRoute = "/admin/plugins/censor/settings";
+const settingsRoute = "/admin/plugins/censor";
 
 const PLUGIN_HASH = "nodebb-plugin-censor";
 const CSV_PATH = path.join(__dirname, "profanity.csv");
@@ -113,6 +113,19 @@ loadFromSettingsOrCsv().then(() =>  {
 }).catch(() => {});
 
 const Plugin = {};
+
+Plugin.settingsRoute = '/plugins/censor';
+
+// Ensure a left-sidebar entry under "Plugins"
+Plugin.addAdminNav = function (header, callback) {
+  header.plugins = header.plugins || [];
+  header.plugins.push({
+    route: '/plugins/censor',   // must match plugin.json admin.route (without /admin)
+    icon: 'fa-ban',
+    name: 'Censor',
+  });
+  callback(null, header);
+};
 
 Plugin.censorPost = async (data) => {
   if (data && data.content) {

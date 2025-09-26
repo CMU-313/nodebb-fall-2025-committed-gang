@@ -12,3 +12,11 @@
     </form>
   </div>
 </div>
+
+<script>
+  require(['admin/plugins/censor/settings'], function (Page) {
+    if (Page && typeof Page.init === 'function') {
+      Page.init();
+    }
+  });
+</script>

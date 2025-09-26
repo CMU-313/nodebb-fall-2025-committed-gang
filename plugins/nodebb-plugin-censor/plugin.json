@@ -4,11 +4,25 @@
   "description": "Automatically censors profanity in posts",
   "version": "1.0.0",
   "library": "./library.js",
+
+  "admin": {
+    "route": "/plugins/censor",
+    "icon": "fa-ban",
+    "name": "Censor"
+  },
+
   "hooks": [
+    { "hook": "static:app.load", "method": "init" },
     { "hook": "filter:post.create", "method": "censorPost" },
     { "hook": "filter:post.edit", "method": "censorPost" },
     { "hook": "filter:parse.post", "method": "censorParsed" },
-	{ "hook": "filter:topic.create", "method": "censorTopic"  },
+	  { "hook": "filter:topic.create", "method": "censorTopic"  },
+    { "hook": "filter:admin.header.build", "method": "addAdminNav" },
     { "hook": "filter:topic.edit",   "method": "censorTopic"  }
-  ]
+  ],
+
+  "staticDirs": { "censor": "static" },
+  "acpScripts": [ "static/lib/admin.js" ],
+  "templates":  "templates",
+  "nbbpm": { "compatibility": "^4.0.0" }
 }
