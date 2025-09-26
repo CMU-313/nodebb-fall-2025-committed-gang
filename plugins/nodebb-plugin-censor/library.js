@@ -7,6 +7,7 @@ const path = require('path');
 const meta = require.main.require("./src/meta");
 const settings = require.main.require("./src/meta/settings");
 const plugins = require.main.require("./src/plugins");
+const settingsRoute = "/admin/plugins/censor/settings";
 
 const PLUGIN_HASH = "nodebb-plugin-censor";
 const CSV_PATH = path.join(__dirname, "profanity.csv");
@@ -132,6 +133,51 @@ Plugin.censorTopic = async (data) => {
     data.title = maskSkippingCode(data.title);
   }
   return data;
+};
+
+Plugin.init = function ({ router, middleware }) {
+  const routeHelpers = require.main.require('./src/routes/helpers');
+
+  const renderSettings = async (req, res) => {
+    const values = (await settings.get(PLUGIN_HASH)) || {};
+    // If no custom list saved, show the CSV contents as the default text
+    const banned = values.bannedWords && values.bannedWords.trim().length
+      ? values.bannedWords
+      : readCsvFile(CSV_PATH).join('\n');
+
+    res.render('admin/plugins/censor/settings', {
+      bannedWords: banned,
+      // include CSRF in template via {config.csrf_token}
+    });
+  };
+
+  // Creates:
+  //   GET  /admin/plugins/censor/settings
+  //   GET  /api/admin/plugins/censor/settings
+  routeHelpers.setupAdminPageRoute(router, settingsRoute, [], renderSettings);
+
+  const applyCSRF =
+    middleware.applyCSRF || middleware.applyCSRFcheck || ((req, res, next) => next());
+
+  // Save handler: store to settings and rebuild in-memory regex
+  router.post(
+    '/api' + settingsRoute,
+    middleware.ensureLoggedIn,
+    middleware.admin.checkPrivileges,
+    applyCSRF,
+    async (req, res) => {
+      const body = req.body || {};
+      const text = (body.bannedWords || '').trim();
+
+      // If the textbox is empty, we store empty string: loadFromSettingsOrCsv() will fall back to CSV
+      await settings.set(PLUGIN_HASH, { bannedWords: text });
+
+      // Rebuild in-memory list/regex immediately
+      await loadFromSettingsOrCsv();
+
+      res.json({ success: true });
+    }
+  );
 };
 
 module.exports = Plugin;
