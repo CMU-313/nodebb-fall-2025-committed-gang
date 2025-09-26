@@ -3,7 +3,10 @@
 const db = require.main.require('./src/database');
 const utils = require.main.require('./src/utils');
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 const POLL_TYPES = new Set(['single', 'multi', 'ranked']);
 const POLL_VISIBILITY = new Set(['anonymous', 'public']);
 const POLL_MIN_OPTIONS = 2;
@@ -11,6 +14,7 @@ const POLL_MAX_OPTIONS = 10;
 const OPTION_MAX_LENGTH = 120;
 
 const plugin = {};
+<<<<<<< HEAD
 const Benchpress = require.main.require('benchpressjs');
 
 
@@ -62,12 +66,18 @@ plugin.attachPoll = async function(posts) {
 
 
 
+=======
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 
 plugin.addPollFormattingOption = async function (payload) {
 	if (!payload || !Array.isArray(payload.options)) {
 		return payload;
 	}
 
+<<<<<<< HEAD
+=======
+	// Make sure we only register the poll button once regardless of hook order.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	const alreadyPresent = payload.options.some(option => option && option.name === 'polls');
 	if (!alreadyPresent) {
 		const defaultVisibility = payload.defaultVisibility || {
@@ -92,6 +102,7 @@ plugin.addPollFormattingOption = async function (payload) {
 	return payload;
 };
 
+<<<<<<< HEAD
 // 1. In plugin.handleComposerCheck (around line 75):
 plugin.handleComposerCheck = async function (payload) {
 	console.log('=== COMPOSER CHECK START ===');
@@ -122,6 +133,8 @@ plugin.handleComposerCheck = async function (payload) {
 	return payload;
 };
 
+=======
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 plugin.handleTopicPost = async function (data) {
 	if (!data || !data.poll) {
 		return data;
@@ -131,6 +144,10 @@ plugin.handleTopicPost = async function (data) {
 		throw new Error('[[composer-polls:errors.invalid-author]]');
 	}
 
+<<<<<<< HEAD
+=======
+	// Persist the sanitized poll payload on a private field consumed by onTopicPost.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	const sanitized = sanitizePollConfig(data.poll, parseInt(data.uid, 10));
 	data._poll = sanitized;
 	delete data.poll;
@@ -138,6 +155,7 @@ plugin.handleTopicPost = async function (data) {
 	return data;
 };
 
+<<<<<<< HEAD
 // 2. In plugin.onTopicPost (around line 107):
 plugin.onTopicPost = async function ({ topic, post, data }) {
 	console.log('=== TOPIC POST HOOK START ===');
@@ -153,6 +171,12 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 	}
 	
 	// Create poll record
+=======
+plugin.onTopicPost = async function ({ topic, post, data }) {
+	if (!data || !data._poll || !post || !topic) {
+		return;
+	}
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 
 	const pollId = String(post.pid);
 	const now = Date.now();
@@ -171,14 +195,19 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 		results: JSON.stringify({}),
 	};
 
+<<<<<<< HEAD
 	console.log('✅ Creating poll record:', pollRecord);
 	console.log('Saving to database key:', `poll:${pollId}`);
 
+=======
+	// Store the poll alongside convenience references from post/topic documents.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	await db.setObject(`poll:${pollId}`, pollRecord);
 	await Promise.all([
 		db.setObjectField(`post:${post.pid}`, 'pollId', pollId),
 		db.setObjectField(`topic:${topic.tid}`, 'pollId', pollId),
 	]);
+<<<<<<< HEAD
 
 	console.log('✅ Poll saved successfully!');
 	console.log('=== TOPIC POST HOOK END ===');
@@ -186,6 +215,10 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 
 // Helpers for debugging composer post data
 
+=======
+};
+
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 plugin.attachPollToPosts = async function (hookData) {
 	const { posts, uid } = hookData;
 	if (!Array.isArray(posts) || !posts.length) {
@@ -206,6 +239,10 @@ plugin.attachPollToPosts = async function (hookData) {
 		if (!record) {
 			return;
 		}
+<<<<<<< HEAD
+=======
+		// Normalise persisted payloads because Redis returns everything as strings.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 		const poll = normalisePollRecord(record);
 		pollMap.set(String(poll.id), poll);
 	});
@@ -228,6 +265,7 @@ plugin.attachPollToPosts = async function (hookData) {
 	return hookData;
 };
 
+<<<<<<< HEAD
 // Sanitization and normalization functions
 
 function sanitizePollConfig(rawPoll, ownerUid) {
@@ -237,18 +275,27 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 
 	if (!rawPoll || typeof rawPoll !== 'object') {
 		console.log('❌ Invalid poll object');
+=======
+function sanitizePollConfig(rawPoll, ownerUid) {
+	if (!rawPoll || typeof rawPoll !== 'object') {
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 		throw new Error('[[composer-polls:errors.invalid]]');
 	}
 
 	const type = typeof rawPoll.type === 'string' ? rawPoll.type.trim() : '';
+<<<<<<< HEAD
 	console.log('Poll type:', type, 'Valid:', POLL_TYPES.has(type));
 
 	if (!POLL_TYPES.has(type)) {
 		console.log('❌ Invalid poll type');
+=======
+	if (!POLL_TYPES.has(type)) {
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 		throw new Error('[[composer-polls:errors.type-required]]');
 	}
 
 	const rawOptions = Array.isArray(rawPoll.options) ? rawPoll.options : [];
+<<<<<<< HEAD
 	console.log('Raw options count:', rawOptions.length);
 	console.log('Raw options:', rawOptions);
 
@@ -262,6 +309,49 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 	}
 	
 	const result = {
+=======
+	if (rawOptions.length < POLL_MIN_OPTIONS) {
+		throw new Error('[[composer-polls:errors.option-required, ' + POLL_MIN_OPTIONS + ']]');
+	}
+	if (rawOptions.length > POLL_MAX_OPTIONS) {
+		throw new Error('[[composer-polls:errors.option-limit, ' + POLL_MAX_OPTIONS + ']]');
+	}
+
+	const usedIds = new Set();
+	const options = rawOptions.map((rawOption, index) => {
+		const option = sanitizeOption(rawOption, index);
+
+		// Guarantee every option has a unique id even if duplicates were supplied.
+		let uniqueId = option.id;
+		let counter = 1;
+		while (usedIds.has(uniqueId)) {
+			uniqueId = `${option.id}-${counter}`;
+			counter += 1;
+		}
+		usedIds.add(uniqueId);
+
+		return {
+			id: uniqueId,
+			text: option.text,
+		};
+	});
+
+	let closesAt = 0;
+	if (rawPoll.closesAt) {
+		const parsed = Number(rawPoll.closesAt);
+		if (Number.isNaN(parsed) || parsed <= Date.now()) {
+			throw new Error('[[composer-polls:errors.close-date]]');
+		}
+		closesAt = Math.round(parsed);
+	}
+
+	let visibility = typeof rawPoll.visibility === 'string' ? rawPoll.visibility.trim() : 'anonymous';
+	if (!POLL_VISIBILITY.has(visibility)) {
+		visibility = 'anonymous';
+	}
+
+	return {
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 		type,
 		options,
 		visibility,
@@ -269,6 +359,7 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 		closesAt,
 		ownerUid,
 	};
+<<<<<<< HEAD
 
 	console.log('✅ Sanitized poll result:', result);
 	console.log('=== SANITIZE POLL END ===');
@@ -276,6 +367,10 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 }
 
 
+=======
+}
+
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 function sanitizeOption(rawOption, index) {
 	const text = typeof rawOption?.text === 'string' ? rawOption.text.trim() : '';
 	if (!text) {

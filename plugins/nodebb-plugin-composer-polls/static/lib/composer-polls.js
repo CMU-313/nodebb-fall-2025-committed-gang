@@ -32,6 +32,10 @@ require([
 			return;
 		}
 		const uuid = postContainer.attr('data-uuid');
+<<<<<<< HEAD
+=======
+		// Composer instances are recreated often; keep the summary UI in sync each time.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 		bindSummaryActions(postContainer);
 		refreshSummary(postContainer, getPoll(uuid));
 		updateBadge(postContainer, getPoll(uuid));
@@ -44,6 +48,7 @@ require([
 		setPoll(uuid, null);
 	});
 
+<<<<<<< HEAD
 	
 // Hook to submit poll -- factors in composer post data
 hooks.on('filter:composer.submit', (payload) => {
@@ -68,6 +73,27 @@ hooks.on('filter:composer.submit', (payload) => {
 
 
 	
+=======
+	hooks.on('filter:composer.submit', (payload) => {
+		if (!payload || !payload.postData || !payload.composerData) {
+			return payload;
+		}
+
+		if (payload.action !== 'topics.post') {
+			delete payload.composerData.poll;
+			return payload;
+		}
+
+		const poll = payload.postData.pollConfig;
+		if (poll && Array.isArray(poll.options) && poll.options.length >= MIN_OPTIONS) {
+			payload.composerData.poll = poll;
+		} else {
+			delete payload.composerData.poll;
+		}
+
+		return payload;
+	});
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 
 	function registerDispatch(postContainer) {
 		if (dispatchRegistered || !formatting || typeof formatting.addButtonDispatch !== 'function') {
@@ -75,6 +101,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		}
 
 		dispatchRegistered = true;
+<<<<<<< HEAD
+=======
+		// Hook Composer's toolbar button into our modal, exiting fullscreen if needed first.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 		formatting.addButtonDispatch('polls', function () {
 			formatting.exitFullscreen();
 			openPollModal(this || postContainer);
@@ -103,6 +133,10 @@ hooks.on('filter:composer.submit', (payload) => {
 
 		const placeholders = await getPlaceholders();
 		const modalMarkup = await renderModal({ poll, placeholders });
+<<<<<<< HEAD
+=======
+		// Translate all static labels once before we build the dialog buttons.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 		const [
 			title,
 			saveLabel,
@@ -154,6 +188,10 @@ hooks.on('filter:composer.submit', (payload) => {
 			buttons,
 		});
 
+<<<<<<< HEAD
+=======
+		// Keep the modal responsive after bootbox injects it into the DOM.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 		dialog.on('shown.bs.modal', () => {
 			const modalEl = dialog.find('.composer-polls-modal');
 			attachModalHandlers(modalEl, placeholders, optionRemoveLabel);
@@ -167,6 +205,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		}
 		postContainer.data('composer-poll-bound', true);
 
+<<<<<<< HEAD
+=======
+		// Delegate edit/remove controls so we survive composer rerenders.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 		postContainer.on('click', '[data-action="composer-poll-edit"]', (ev) => {
 			ev.preventDefault();
 			openPollModal(postContainer);
@@ -189,6 +231,10 @@ hooks.on('filter:composer.submit', (payload) => {
 			position: index + 1,
 		})));
 
+<<<<<<< HEAD
+=======
+		// Pass primitive values to the template so Benchpress can hydrate inputs correctly.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 		const data = {
 			type: poll.type || DEFAULT_TYPE,
 			options,
@@ -202,6 +248,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		return translate(html);
 	}
 
+<<<<<<< HEAD
+=======
+	// Wire up add/remove handlers once the modal markup is live.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function attachModalHandlers(modalEl, placeholders, optionRemoveLabel) {
 		modalEl.on('click', '.composer-polls-add-option', function () {
 			const optionCount = modalEl.find('.composer-polls-option').length;
@@ -241,6 +291,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		});
 	}
 
+<<<<<<< HEAD
+=======
+	// Keep numbering, placeholders, and button states consistent with option count.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function refreshOptionNumbering(modalEl, placeholders) {
 		const options = modalEl.find('.composer-polls-option');
 		options.each((index, element) => {
@@ -256,6 +310,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		removeButtons.prop('disabled', options.length <= MIN_OPTIONS);
 	}
 
+<<<<<<< HEAD
+=======
+	// Skeleton poll matches server defaults so we stay in sync.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function createDefaultPoll() {
 		return {
 			type: DEFAULT_TYPE,
@@ -266,6 +324,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		};
 	}
 
+<<<<<<< HEAD
+=======
+	// Normalise option array length before the modal renders.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function enforceOptionBounds(poll) {
 		if (!Array.isArray(poll.options)) {
 			poll.options = [];
@@ -278,6 +340,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	// Avoid mutating shared references when editing existing polls.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function clonePoll(poll) {
 		if (!poll) {
 			return null;
@@ -285,6 +351,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		return JSON.parse(JSON.stringify(poll));
 	}
 
+<<<<<<< HEAD
+=======
+	// Composer keeps per-UUID state; look up the active poll if it exists.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function getPoll(uuid) {
 		if (!uuid || !composer.posts || !composer.posts[uuid]) {
 			return null;
@@ -292,6 +362,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		return composer.posts[uuid].pollConfig || null;
 	}
 
+<<<<<<< HEAD
+=======
+	// Persist the poll in composer state and mark the draft dirty for autosave.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function setPoll(uuid, poll) {
 		if (!uuid || !composer.posts || !composer.posts[uuid]) {
 			return;
@@ -304,10 +378,18 @@ hooks.on('filter:composer.submit', (payload) => {
 		composer.posts[uuid].modified = true;
 	}
 
+<<<<<<< HEAD
+=======
+	// Stick with alphanumeric IDs so they are safe across transports.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function generateOptionId() {
 		return utils.generateUUID().replace(/[^a-z0-9]/gi, '').slice(0, 12) || `opt${Date.now()}`;
 	}
 
+<<<<<<< HEAD
+=======
+	// Convert stored UTC timestamps into the local ISO format used by inputs.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function timestampToInputValue(timestamp) {
 		if (!timestamp) {
 			return '';
@@ -321,6 +403,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		return local.toISOString().slice(0, 16);
 	}
 
+<<<<<<< HEAD
+=======
+	// Parse user input back into a comparable UTC timestamp.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function inputValueToTimestamp(value) {
 		if (!value) {
 			return 0;
@@ -332,6 +418,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		return date.getTime();
 	}
 
+<<<<<<< HEAD
+=======
+	// Validate, persist, and reflect poll changes after the modal save button.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	async function handleSave(dialog, uuid, postContainer, placeholders, summaryLabels) {
 		const modalEl = dialog.find('.composer-polls-modal');
 		const collection = collectPollFromModal(modalEl);
@@ -347,6 +437,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		return true;
 	}
 
+<<<<<<< HEAD
+=======
+	// Gather the user's selections and enforce client-side constraints.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function collectPollFromModal(modalEl) {
 		const type = modalEl.find('input[name="composer-poll-type"]:checked').val();
 		if (!type) {
@@ -409,6 +503,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		};
 	}
 
+<<<<<<< HEAD
+=======
+	// Rebuild the inline summary so authors see the saved configuration instantly.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	async function refreshSummary(postContainer, poll, labels) {
 		const summaryEl = ensureSummary(postContainer);
 
@@ -457,6 +555,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		summaryEl.find('[data-role="summary-note"]').text(noteLabel);
 	}
 
+<<<<<<< HEAD
+=======
+	// Lazily create the summary container so we do not rely on template changes.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function ensureSummary(postContainer) {
 		let summary = postContainer.find('.composer-polls-summary');
 		if (!summary.length) {
@@ -490,6 +592,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		return summary;
 	}
 
+<<<<<<< HEAD
+=======
+	// Mirror poll state in the toolbar badge for quick visual feedback.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function updateBadge(postContainer, poll) {
 		const badge = postContainer.find('[data-format="polls"] .badge');
 		if (!badge.length) {
@@ -502,6 +608,10 @@ hooks.on('filter:composer.submit', (payload) => {
 		}
 	}
 
+<<<<<<< HEAD
+=======
+	// Prefetch all option placeholders so modal creation is synchronous.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	async function getPlaceholders() {
 		return Promise.all(
 			Array.from({ length: MAX_OPTIONS }, (_, index) =>
@@ -510,12 +620,20 @@ hooks.on('filter:composer.submit', (payload) => {
 		);
 	}
 
+<<<<<<< HEAD
+=======
+	// Promise-wrapped translator helper keeps flow async/await friendly.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function translate(str) {
 		return new Promise((resolve) => {
 			translator.translate(str, resolve);
 		});
 	}
 
+<<<<<<< HEAD
+=======
+	// Fan out through translate() to keep ordering aligned with callers.
+>>>>>>> 83e12057aa3d16afe316bc83705c87f35a3a8c8a
 	function translateMany(keys) {
 		return Promise.all(keys.map(key => translate(key)));
 	}
