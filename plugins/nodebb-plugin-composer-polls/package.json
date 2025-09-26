@@ -1,0 +1,13 @@
+{
+  "name": "nodebb-plugin-composer-polls",
+  "version": "0.1.0",
+  "description": "Adds a poll button to the NodeBB topic composer toolbar.",
+  "main": "library.js",
+  "keywords": [
+    "nodebb",
+    "plugin",
+    "composer",
+    "polls"
+  ],
+  "license": "MIT"
+}
