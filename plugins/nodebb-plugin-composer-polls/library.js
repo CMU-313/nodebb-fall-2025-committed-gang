@@ -33,7 +33,7 @@ plugin.debugCheckPollData = async function(pid) {
 };
 
 
-// Save poll data when post is created (step 2)
+// Save poll data when post is created 
 plugin.savePoll = async function (postData) {
     if (postData.poll) {
         await db.setObject(`poll:${postData.pid}`, postData.poll);
@@ -151,6 +151,8 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 		console.log('❌ Missing required data for poll creation');
 		return;
 	}
+	
+	// Create poll record
 
 	const pollId = String(post.pid);
 	const now = Date.now();
@@ -181,6 +183,8 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 	console.log('✅ Poll saved successfully!');
 	console.log('=== TOPIC POST HOOK END ===');
 };
+
+// Helpers for debugging composer post data
 
 plugin.attachPollToPosts = async function (hookData) {
 	const { posts, uid } = hookData;
@@ -224,6 +228,8 @@ plugin.attachPollToPosts = async function (hookData) {
 	return hookData;
 };
 
+// Sanitization and normalization functions
+
 function sanitizePollConfig(rawPoll, ownerUid) {
 	console.log('=== SANITIZE POLL START ===');
 	console.log('Raw poll input:', rawPoll);
@@ -254,8 +260,6 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 		console.log('❌ Too many options');
 		throw new Error('[[composer-polls:errors.option-limit, ' + POLL_MAX_OPTIONS + ']]');
 	}
-
-	// ... rest of sanitization logic ...
 	
 	const result = {
 		type,

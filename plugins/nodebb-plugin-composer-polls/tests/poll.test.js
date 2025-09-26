@@ -2,7 +2,7 @@
 
 const assert = require('assert');
 
-// Simulate your actual hook function
+// Simulates hook function
 const pollSubmissionDebugHook = (payload) => {
   console.log('=== POLL SUBMISSION DEBUG ===');
   console.log('Payload:', payload);
@@ -20,7 +20,6 @@ const pollSubmissionDebugHook = (payload) => {
     });
   }
   
-  // Don't modify anything yet, just debug
   return payload;
 };
 
