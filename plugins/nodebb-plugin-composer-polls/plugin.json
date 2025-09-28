@@ -10,7 +10,8 @@
 		{ "hook": "filter:topics.addPostData", "method": "attachPollToPosts" }
 	],
 	"scripts": [
-		"./static/lib/composer-polls.js"
+		"./static/lib/composer-polls.js",
+		"./static/lib/topic-polls.js"
 	],
 	"languages": "./public/language",
 	"templates": "./static/templates"
