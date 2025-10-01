@@ -32,7 +32,6 @@ require([
 			return;
 		}
 		const uuid = postContainer.attr('data-uuid');
-		// Composer instances are recreated often; keep the summary UI in sync each time.
 		bindSummaryActions(postContainer);
 		refreshSummary(postContainer, getPoll(uuid));
 		updateBadge(postContainer, getPoll(uuid));
@@ -45,25 +44,30 @@ require([
 		setPoll(uuid, null);
 	});
 
-	hooks.on('filter:composer.submit', (payload) => {
-		if (!payload || !payload.postData || !payload.composerData) {
-			return payload;
-		}
+	
+// Hook to submit poll -- factors in composer post data
+hooks.on('filter:composer.submit', (payload) => {
+	console.log('=== POLL SUBMISSION DEBUG ===');
+	console.log('Payload:', payload);
+	console.log('Available composer object:', typeof composer);
+	
+	if (typeof composer !== 'undefined' && composer.posts) {
+		console.log('Composer posts keys:', Object.keys(composer.posts));
+		
+		// Log each composer post to see what's available
+		Object.keys(composer.posts).forEach(uuid => {
+			console.log(`Post ${uuid}:`, composer.posts[uuid]);
+			if (composer.posts[uuid].pollConfig) {
+				console.log(`Poll config found in ${uuid}:`, composer.posts[uuid].pollConfig);
+			}
+		});
+	}
+	
+	return payload;
+});
 
-		if (payload.action !== 'topics.post') {
-			delete payload.composerData.poll;
-			return payload;
-		}
 
-		const poll = payload.postData.pollConfig;
-		if (poll && Array.isArray(poll.options) && poll.options.length >= MIN_OPTIONS) {
-			payload.composerData.poll = poll;
-		} else {
-			delete payload.composerData.poll;
-		}
-
-		return payload;
-	});
+	
 
 	function registerDispatch(postContainer) {
 		if (dispatchRegistered || !formatting || typeof formatting.addButtonDispatch !== 'function') {
@@ -71,7 +75,6 @@ require([
 		}
 
 		dispatchRegistered = true;
-		// Hook Composer's toolbar button into our modal, exiting fullscreen if needed first.
 		formatting.addButtonDispatch('polls', function () {
 			formatting.exitFullscreen();
 			openPollModal(this || postContainer);
@@ -100,7 +103,6 @@ require([
 
 		const placeholders = await getPlaceholders();
 		const modalMarkup = await renderModal({ poll, placeholders });
-		// Translate all static labels once before we build the dialog buttons.
 		const [
 			title,
 			saveLabel,
@@ -152,7 +154,6 @@ require([
 			buttons,
 		});
 
-		// Keep the modal responsive after bootbox injects it into the DOM.
 		dialog.on('shown.bs.modal', () => {
 			const modalEl = dialog.find('.composer-polls-modal');
 			attachModalHandlers(modalEl, placeholders, optionRemoveLabel);
@@ -166,7 +167,6 @@ require([
 		}
 		postContainer.data('composer-poll-bound', true);
 
-		// Delegate edit/remove controls so we survive composer rerenders.
 		postContainer.on('click', '[data-action="composer-poll-edit"]', (ev) => {
 			ev.preventDefault();
 			openPollModal(postContainer);
@@ -189,7 +189,6 @@ require([
 			position: index + 1,
 		})));
 
-		// Pass primitive values to the template so Benchpress can hydrate inputs correctly.
 		const data = {
 			type: poll.type || DEFAULT_TYPE,
 			options,
@@ -203,7 +202,6 @@ require([
 		return translate(html);
 	}
 
-	// Wire up add/remove handlers once the modal markup is live.
 	function attachModalHandlers(modalEl, placeholders, optionRemoveLabel) {
 		modalEl.on('click', '.composer-polls-add-option', function () {
 			const optionCount = modalEl.find('.composer-polls-option').length;
@@ -243,7 +241,6 @@ require([
 		});
 	}
 
-	// Keep numbering, placeholders, and button states consistent with option count.
 	function refreshOptionNumbering(modalEl, placeholders) {
 		const options = modalEl.find('.composer-polls-option');
 		options.each((index, element) => {
@@ -259,7 +256,6 @@ require([
 		removeButtons.prop('disabled', options.length <= MIN_OPTIONS);
 	}
 
-	// Skeleton poll matches server defaults so we stay in sync.
 	function createDefaultPoll() {
 		return {
 			type: DEFAULT_TYPE,
@@ -270,7 +266,6 @@ require([
 		};
 	}
 
-	// Normalise option array length before the modal renders.
 	function enforceOptionBounds(poll) {
 		if (!Array.isArray(poll.options)) {
 			poll.options = [];
@@ -283,7 +278,6 @@ require([
 		}
 	}
 
-	// Avoid mutating shared references when editing existing polls.
 	function clonePoll(poll) {
 		if (!poll) {
 			return null;
@@ -291,7 +285,6 @@ require([
 		return JSON.parse(JSON.stringify(poll));
 	}
 
-	// Composer keeps per-UUID state; look up the active poll if it exists.
 	function getPoll(uuid) {
 		if (!uuid || !composer.posts || !composer.posts[uuid]) {
 			return null;
@@ -299,7 +292,6 @@ require([
 		return composer.posts[uuid].pollConfig || null;
 	}
 
-	// Persist the poll in composer state and mark the draft dirty for autosave.
 	function setPoll(uuid, poll) {
 		if (!uuid || !composer.posts || !composer.posts[uuid]) {
 			return;
@@ -312,12 +304,10 @@ require([
 		composer.posts[uuid].modified = true;
 	}
 
-	// Stick with alphanumeric IDs so they are safe across transports.
 	function generateOptionId() {
 		return utils.generateUUID().replace(/[^a-z0-9]/gi, '').slice(0, 12) || `opt${Date.now()}`;
 	}
 
-	// Convert stored UTC timestamps into the local ISO format used by inputs.
 	function timestampToInputValue(timestamp) {
 		if (!timestamp) {
 			return '';
@@ -331,7 +321,6 @@ require([
 		return local.toISOString().slice(0, 16);
 	}
 
-	// Parse user input back into a comparable UTC timestamp.
 	function inputValueToTimestamp(value) {
 		if (!value) {
 			return 0;
@@ -343,7 +332,6 @@ require([
 		return date.getTime();
 	}
 
-	// Validate, persist, and reflect poll changes after the modal save button.
 	async function handleSave(dialog, uuid, postContainer, placeholders, summaryLabels) {
 		const modalEl = dialog.find('.composer-polls-modal');
 		const collection = collectPollFromModal(modalEl);
@@ -359,7 +347,6 @@ require([
 		return true;
 	}
 
-	// Gather the user's selections and enforce client-side constraints.
 	function collectPollFromModal(modalEl) {
 		const type = modalEl.find('input[name="composer-poll-type"]:checked').val();
 		if (!type) {
@@ -422,7 +409,6 @@ require([
 		};
 	}
 
-	// Rebuild the inline summary so authors see the saved configuration instantly.
 	async function refreshSummary(postContainer, poll, labels) {
 		const summaryEl = ensureSummary(postContainer);
 
@@ -471,7 +457,6 @@ require([
 		summaryEl.find('[data-role="summary-note"]').text(noteLabel);
 	}
 
-	// Lazily create the summary container so we do not rely on template changes.
 	function ensureSummary(postContainer) {
 		let summary = postContainer.find('.composer-polls-summary');
 		if (!summary.length) {
@@ -505,7 +490,6 @@ require([
 		return summary;
 	}
 
-	// Mirror poll state in the toolbar badge for quick visual feedback.
 	function updateBadge(postContainer, poll) {
 		const badge = postContainer.find('[data-format="polls"] .badge');
 		if (!badge.length) {
@@ -518,7 +502,6 @@ require([
 		}
 	}
 
-	// Prefetch all option placeholders so modal creation is synchronous.
 	async function getPlaceholders() {
 		return Promise.all(
 			Array.from({ length: MAX_OPTIONS }, (_, index) =>
@@ -527,14 +510,12 @@ require([
 		);
 	}
 
-	// Promise-wrapped translator helper keeps flow async/await friendly.
 	function translate(str) {
 		return new Promise((resolve) => {
 			translator.translate(str, resolve);
 		});
 	}
 
-	// Fan out through translate() to keep ordering aligned with callers.
 	function translateMany(keys) {
 		return Promise.all(keys.map(key => translate(key)));
 	}
