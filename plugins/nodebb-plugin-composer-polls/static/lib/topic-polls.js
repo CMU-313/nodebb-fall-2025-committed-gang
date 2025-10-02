@@ -15,12 +15,22 @@ require([
 		data.posts.forEach((post) => processPost(post));
 	});
 
+		hooks.on('action:ajaxify.end', () => {
+			const topicData = typeof ajaxify === 'object' && ajaxify.data && Array.isArray(ajaxify.data.posts) ? ajaxify.data.posts : [];
+			topicData.forEach(post => processPost(post));
+		});
+
 	function processPost(post) {
 		if (!post || typeof post.pid === 'undefined') {
 			return;
 		}
 		const pid = String(post.pid);
 		if (post.poll) {
+			const existing = pollsByPid.get(pid);
+			const existingWidget = document.querySelector(`[component="post"][data-pid="${pid}"] .composer-polls-widget`);
+			if (existing && existingWidget && existing.updatedAt === post.poll.updatedAt) {
+				return;
+			}
 			pollsByPid.set(pid, post.poll);
 			renderPoll(pid, post.poll).catch((err) => {
 				if (err) {
@@ -132,6 +142,24 @@ require([
 				inputType = 'checkbox';
 			}
 
+			const rawVoters = Array.isArray(stats.voters) ? stats.voters : [];
+			const voters = rawVoters.map((voter) => {
+				if (!voter || typeof voter !== 'object') {
+					return {
+						uid: String(voter || ''),
+						username: String(voter || ''),
+						profileUrl: null,
+					};
+				}
+				return {
+					uid: String(voter.uid || voter.userslug || voter.username || ''),
+					username: voter.username || voter.uid || voter.userslug || '',
+					profileUrl: voter.profileUrl || null,
+				};
+			});
+			const showVoters = safePoll.visibility === 'public' && voters.length > 0;
+			const votersLabel = voters.map(voter => voter.username || voter.uid).join(', ');
+
 			return {
 				id: option.id,
 				text: option.text,
@@ -145,6 +173,9 @@ require([
 				isFirst: safePoll.type === 'ranked' && index === 0,
 				isLast: safePoll.type === 'ranked' && index === orderedOptions.length - 1,
 				position: index + 1,
+				voters,
+				votersLabel,
+				showVoters,
 			};
 		});
 
@@ -157,11 +188,16 @@ require([
 			? `[[composer-polls:widget.closes, ${formatDate(safePoll.closesAt)}]]`
 			: '';
 
-		const buttonLabel = safePoll.hasVoted && safePoll.allowRevote
+		const allowRevote = coerceBoolean(safePoll.allowRevote);
+		const hasVoted = coerceBoolean(safePoll.hasVoted);
+		const canVote = coerceBoolean(safePoll.canVote);
+		const isClosed = coerceBoolean(safePoll.isClosed);
+		const canManage = coerceBoolean(safePoll.canManage);
+
+		const buttonLabel = hasVoted && allowRevote
 			? '[[composer-polls:widget.update]]'
 			: '[[composer-polls:widget.vote]]';
 
-		const isClosed = Boolean(safePoll.isClosed);
 		const statusText = visibilityLabel;
 		const cannotVoteLabel = isClosed
 			? '[[composer-polls:widget.closed]]'
@@ -175,9 +211,10 @@ require([
 				visibility: safePoll.visibility,
 				visibilityLabel,
 				isClosed,
-				allowRevote: Boolean(safePoll.allowRevote),
-				canVote: Boolean(safePoll.canVote),
-				hasVoted: Boolean(safePoll.hasVoted),
+				allowRevote,
+				canVote,
+				canManage,
+				hasVoted,
 				totalParticipants: safePoll.totalParticipants || 0,
 				participantsLabel,
 				closesAtLabel,
@@ -185,6 +222,7 @@ require([
 				statusText,
 				cannotVoteLabel,
 				isRanked: safePoll.type === 'ranked',
+				showPublicVoters: safePoll.visibility === 'public',
 			},
 			options: optionData,
 		};
@@ -195,19 +233,32 @@ require([
 			return;
 		}
 
-		widgetEl.addEventListener('click', (event) => {
-			const upBtn = event.target.closest('[data-action="composer-polls-move-up"]');
-			if (upBtn) {
+		widgetEl.querySelectorAll('[data-action="composer-polls-move-up"]').forEach((button) => {
+			button.addEventListener('click', (event) => {
 				event.preventDefault();
-				moveRankedOption(widgetEl, upBtn.closest('[data-option-id]'), -1);
-				return;
-			}
+				moveRankedOption(widgetEl, button.closest('[data-option-id]'), -1);
+			});
+		});
 
-			const downBtn = event.target.closest('[data-action="composer-polls-move-down"]');
-			if (downBtn) {
+		widgetEl.querySelectorAll('[data-action="composer-polls-move-down"]').forEach((button) => {
+			button.addEventListener('click', (event) => {
 				event.preventDefault();
-				moveRankedOption(widgetEl, downBtn.closest('[data-option-id]'), 1);
-			}
+				moveRankedOption(widgetEl, button.closest('[data-option-id]'), 1);
+			});
+		});
+
+		widgetEl.querySelectorAll('[data-action="composer-polls-close"]').forEach((button) => {
+			button.addEventListener('click', (event) => {
+				event.preventDefault();
+				managePoll(widgetEl, button, 'close');
+			});
+		});
+
+		widgetEl.querySelectorAll('[data-action="composer-polls-reopen"]').forEach((button) => {
+			button.addEventListener('click', (event) => {
+				event.preventDefault();
+				managePoll(widgetEl, button, 'reopen');
+			});
 		});
 
 		const submitBtn = widgetEl.querySelector('[data-action="composer-polls-submit"]');
@@ -218,7 +269,82 @@ require([
 			});
 		}
 
+		enableOptionBoxSelection(widgetEl);
 		updateRankedControls(widgetEl);
+	}
+
+	function enableOptionBoxSelection(widgetEl) {
+		if (!widgetEl) {
+			return;
+		}
+		const pid = widgetEl.dataset.pid;
+		if (!pid) {
+			return;
+		}
+
+		widgetEl.querySelectorAll('.composer-polls-option').forEach((optionEl) => {
+			const input = optionEl.querySelector('.form-check-input');
+			if (!input) {
+				return;
+			}
+
+			optionEl.addEventListener('click', (event) => {
+				const target = event.target;
+				if (target.closest('.form-check-input') || target.closest('label') || target.closest('button')) {
+					return;
+				}
+
+				const poll = pollsByPid.get(String(widgetEl.dataset.pid));
+				if (!poll || poll.type === 'ranked' || !coerceBoolean(poll.canVote)) {
+					return;
+				}
+
+				event.preventDefault();
+				if (poll.type === 'single') {
+					input.checked = true;
+				} else if (poll.type === 'multi') {
+					input.checked = !input.checked;
+				} else {
+					return;
+				}
+
+				input.dispatchEvent(new Event('change', { bubbles: true }));
+				if (typeof input.focus === 'function') {
+					try {
+						input.focus({ preventScroll: true });
+					} catch (err) {
+						input.focus();
+					}
+				}
+			});
+		});
+	}
+
+	async function managePoll(widgetEl, actionButton, action) {
+		const pid = widgetEl.dataset.pid;
+		const poll = pollsByPid.get(String(pid));
+		if (!poll) {
+			return;
+		}
+
+		if (actionButton) {
+			actionButton.disabled = true;
+			actionButton.classList.add('disabled');
+		}
+
+		try {
+			const updated = await emitManage(poll.id, action);
+			pollsByPid.set(String(updated.pid), updated);
+			await renderPoll(String(updated.pid), updated);
+		} catch (err) {
+			const message = err && err.message ? err.message : err;
+			alerts.error(message || '[[error:unknown-error]]');
+		} finally {
+			if (actionButton && actionButton.isConnected) {
+				actionButton.disabled = false;
+				actionButton.classList.remove('disabled');
+			}
+		}
 	}
 
 	async function handleVote(widgetEl, submitBtn) {
@@ -339,6 +465,37 @@ require([
 				resolve(result);
 			});
 		});
+	}
+
+	function emitManage(pollId, action) {
+		return new Promise((resolve, reject) => {
+			socket.emit('plugins.composerPolls.manage', {
+				pollId,
+				action,
+			}, (err, result) => {
+				if (err) {
+					reject(err);
+					return;
+				}
+				resolve(result);
+			});
+		});
+	}
+
+	function coerceBoolean(value) {
+		if (typeof value === 'string') {
+			const lowered = value.toLowerCase();
+			if (lowered === 'true' || lowered === '1') {
+				return true;
+			}
+			if (lowered === 'false' || lowered === '0' || lowered === '') {
+				return false;
+			}
+		}
+		if (typeof value === 'number') {
+			return value === 1;
+		}
+		return Boolean(value);
 	}
 
 	function formatDate(timestamp) {

@@ -26,8 +26,8 @@
 			<div class="composer-polls-option border rounded-2 p-3" data-option-id="{./id}">
 				{{{ if ./inputType }}}
 				<div class="form-check">
-					<input class="form-check-input" type="{./inputType}" name="composer-polls-{../poll.id}" id="composer-polls-{../poll.id}-{./id}" value="{./id}" {{{ if ./selected }}}checked{{{ end }}} {{{ if !../poll.canVote }}}disabled{{{ end }}}>
-					<label class="form-check-label fw-semibold text-break" for="composer-polls-{../poll.id}-{./id}">{./text}</label>
+					<input class="form-check-input" type="{./inputType}" name="composer-polls-{../../poll.id}" id="composer-polls-{../../poll.id}-{./id}" value="{./id}" {{{ if ./selected }}}checked{{{ end }}} {{{ if !../../poll.canVote }}}disabled{{{ end }}}>
+					<label class="form-check-label fw-semibold text-break" for="composer-polls-{../../poll.id}-{./id}">{./text}</label>
 				</div>
 				{{{ else }}}
 				<div class="d-flex align-items-center justify-content-between gap-3 composer-polls-ranked-row">
@@ -52,18 +52,43 @@
 					<span>{./countLabel}</span>
 					<span>{./percentLabel}</span>
 				</div>
+				{{{ if ./showVoters }}}
+				<div class="mt-2 small text-muted composer-polls-voters" data-role="poll-voters">
+					<span class="fw-semibold me-1">[[composer-polls:widget.voters]]:</span>
+					<span class="d-inline-flex flex-wrap gap-1">
+					{{{ each ./voters }}}
+						{{{ if ./profileUrl }}}
+						<a href="{./profileUrl}" class="text-decoration-none">{./username}</a>
+						{{{ else }}}
+						<span>{./username}</span>
+						{{{ end }}}
+					{{{ end }}}
+					</span>
+				</div>
+				{{{ end }}}
 			</div>
 		{{{ end }}}
 		</div>
 		<div class="d-flex flex-wrap gap-2 align-items-center justify-content-between">
 			<span class="small text-muted" data-role="poll-status-text">{poll.statusText}</span>
-			{{{ if poll.canVote }}}
-			<button type="button" class="btn btn-primary btn-sm" data-action="composer-polls-submit">{poll.buttonLabel}</button>
-			{{{ else if poll.hasVoted }}}
-			<span class="badge bg-success text-wrap" data-role="poll-thanks">[[composer-polls:widget.you-voted]]</span>
-			{{{ else }}}
-			<span class="small text-muted text-wrap" data-role="poll-cannot-vote">{poll.cannotVoteLabel}</span>
-			{{{ end }}}
+			<div class="d-flex flex-wrap gap-2 align-items-center">
+				{{{ if poll.canManage }}}
+					{{{ if poll.isClosed }}}
+					<button type="button" class="btn btn-outline-secondary btn-sm" data-action="composer-polls-reopen">[[composer-polls:widget.reopen]]</button>
+					{{{ else }}}
+					<button type="button" class="btn btn-outline-secondary btn-sm" data-action="composer-polls-close">[[composer-polls:widget.close]]</button>
+					{{{ end }}}
+				{{{ end }}}
+				{{{ if poll.canVote }}}
+				<button type="button" class="btn btn-primary btn-sm" data-action="composer-polls-submit">{poll.buttonLabel}</button>
+				{{{ else }}}
+					{{{ if poll.hasVoted }}}
+					<span class="badge bg-success text-wrap" data-role="poll-thanks">[[composer-polls:widget.you-voted]]</span>
+					{{{ else }}}
+					<span class="small text-muted text-wrap" data-role="poll-cannot-vote">{poll.cannotVoteLabel}</span>
+					{{{ end }}}
+				{{{ end }}}
+			</div>
 		</div>
 	</div>
 </div>

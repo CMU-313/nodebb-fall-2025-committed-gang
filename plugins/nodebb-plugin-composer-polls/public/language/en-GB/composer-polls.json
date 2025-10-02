@@ -43,12 +43,15 @@
 		"anonymous": "Anonymous votes",
 		"closed": "Poll closed",
 		"closes": "Closes: %1",
-		"vote": "Submit vote",
-		"update": "Update vote",
-		"cant-vote": "Sign in to vote to participate.",
-		"ranked-hint": "Rank options from most to least preferred.",
-		"you-voted": "Vote recorded"
-	},
+        "vote": "Submit vote",
+        "update": "Update vote",
+        "cant-vote": "Sign in to vote to participate.",
+        "ranked-hint": "Rank options from most to least preferred.",
+        "you-voted": "Vote recorded",
+        "close": "Close poll",
+        "reopen": "Reopen poll",
+        "voters": "Voters"
+    },
 	"results": {
 		"votes": "%1 votes",
 		"points": "%1 points",

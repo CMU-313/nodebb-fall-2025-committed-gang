@@ -25,6 +25,8 @@ require([
 	const DEFAULT_TYPE = 'single';
 	const DEFAULT_VISIBILITY = 'anonymous';
 
+	const hydrationQueue = new Map();
+
 	let dispatchRegistered = false;
 
 	hooks.on('action:composer.enhanced', ({ postContainer }) => {
@@ -32,10 +34,12 @@ require([
 			return;
 		}
 		const uuid = postContainer.attr('data-uuid');
+		const poll = getPoll(uuid);
 		// Composer instances are recreated often; keep the summary UI in sync each time.
 		bindSummaryActions(postContainer);
-		refreshSummary(postContainer, getPoll(uuid));
-		updateBadge(postContainer, getPoll(uuid));
+		refreshSummary(postContainer, poll);
+		updateBadge(postContainer, poll);
+		void hydrateComposerPoll(postContainer, uuid);
 	});
 
 	hooks.on('action:composer.discard', ({ post_uuid: uuid }) => {
@@ -43,6 +47,7 @@ require([
 			return;
 		}
 		setPoll(uuid, null);
+		hydrationQueue.delete(uuid);
 	});
 
 	hooks.on('filter:composer.submit', (payload) => {
@@ -50,17 +55,32 @@ require([
 			return payload;
 		}
 
-		if (payload.action !== 'topics.post') {
-			delete payload.composerData.poll;
+		const poll = payload.postData.pollConfig;
+		const hasValidPoll = poll && Array.isArray(poll.options) && poll.options.length >= MIN_OPTIONS;
+		const isTopicPost = payload.action === 'topics.post';
+		const isEditingMain = payload.action === 'posts.edit' && payload.postData && payload.postData.isMain;
+		const removalRequested = Boolean(payload.postData && payload.postData.pollRemoved);
+		const hadExisting = Boolean(payload.postData && payload.postData.composerPollInitial);
+
+		if (isTopicPost || isEditingMain) {
+			if (hasValidPoll) {
+				payload.composerData.poll = poll;
+			} else {
+				delete payload.composerData.poll;
+			}
+			if (isEditingMain) {
+				if (!hasValidPoll && (removalRequested || hadExisting)) {
+					delete payload.composerData.poll;
+					payload.composerData.pollRemoved = true;
+				} else if (!removalRequested) {
+					delete payload.composerData.pollRemoved;
+				}
+			}
 			return payload;
 		}
 
-		const poll = payload.postData.pollConfig;
-		if (poll && Array.isArray(poll.options) && poll.options.length >= MIN_OPTIONS) {
-			payload.composerData.poll = poll;
-		} else {
-			delete payload.composerData.poll;
-		}
+		delete payload.composerData.poll;
+		delete payload.composerData.pollRemoved;
 
 		return payload;
 	});
@@ -300,16 +320,26 @@ require([
 	}
 
 	// Persist the poll in composer state and mark the draft dirty for autosave.
-	function setPoll(uuid, poll) {
+	function setPoll(uuid, poll, options = {}) {
 		if (!uuid || !composer.posts || !composer.posts[uuid]) {
 			return;
 		}
+		const postState = composer.posts[uuid];
+		const silent = Boolean(options.silent);
 		if (poll) {
-			composer.posts[uuid].pollConfig = clonePoll(poll);
+			postState.pollConfig = clonePoll(poll);
+			postState.pollRemoved = false;
 		} else {
-			delete composer.posts[uuid].pollConfig;
+			delete postState.pollConfig;
+			if (postState.composerPollInitial) {
+				postState.pollRemoved = true;
+			} else {
+				delete postState.pollRemoved;
+			}
 		}
-		composer.posts[uuid].modified = true;
+		if (!silent) {
+			postState.modified = true;
+		}
 	}
 
 	// Stick with alphanumeric IDs so they are safe across transports.
@@ -516,6 +546,67 @@ require([
 		} else {
 			badge.text('').addClass('hidden');
 		}
+	}
+
+	async function hydrateComposerPoll(postContainer, uuid) {
+		if (!uuid || !composer.posts || !composer.posts[uuid]) {
+			return;
+		}
+		const postState = composer.posts[uuid];
+		if (!postState.isMain || !postState.pid) {
+			return;
+		}
+		if (postState.composerPollHydrated) {
+			return;
+		}
+		if (hydrationQueue.has(uuid)) {
+			await hydrationQueue.get(uuid);
+			return;
+		}
+
+		const promise = (async () => {
+			try {
+				const poll = await fetchExistingPoll(postState.pid);
+				postState.composerPollInitial = Boolean(poll);
+				postState.composerPollHydrated = true;
+				if (poll) {
+					setPoll(uuid, poll, { silent: true });
+					await refreshSummary(postContainer, poll);
+					updateBadge(postContainer, poll);
+				} else {
+					await refreshSummary(postContainer, null);
+					updateBadge(postContainer, null);
+				}
+			} catch (err) {
+				const message = err && err.message ? err.message : err;
+				if (message) {
+					const translated = typeof message === 'string' ? await translate(message) : message;
+					alerts.error(translated);
+				}
+			} finally {
+				postState.composerPollHydrated = true;
+				hydrationQueue.delete(uuid);
+			}
+		})();
+
+		hydrationQueue.set(uuid, promise);
+		await promise;
+	}
+
+	function fetchExistingPoll(pid) {
+		return new Promise((resolve, reject) => {
+			if (typeof socket === 'undefined' || !socket || !pid) {
+				resolve(null);
+				return;
+			}
+			socket.emit('plugins.composerPolls.get', { pid }, (err, response) => {
+				if (err) {
+					reject(err);
+					return;
+				}
+				resolve(response && response.poll ? response.poll : null);
+			});
+		});
 	}
 
 	// Prefetch all option placeholders so modal creation is synchronous.

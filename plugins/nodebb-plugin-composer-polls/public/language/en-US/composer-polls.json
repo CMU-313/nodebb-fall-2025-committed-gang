@@ -47,7 +47,10 @@
         "update": "Update vote",
         "cant-vote": "Sign in to vote to participate.",
         "ranked-hint": "Rank options from most to least preferred.",
-        "you-voted": "Vote recorded"
+        "you-voted": "Vote recorded",
+        "close": "Close poll",
+        "reopen": "Reopen poll",
+        "voters": "Voters"
     },
     "results": {
         "votes": "%1 votes",

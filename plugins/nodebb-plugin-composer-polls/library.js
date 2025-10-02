@@ -2,6 +2,9 @@
 
 const db = require.main.require('./src/database');
 const utils = require.main.require('./src/utils');
+const user = require.main.require('./src/user');
+const privileges = require.main.require('./src/privileges');
+const nconf = require.main.require('nconf');
 const SocketPlugins = require.main.require('./src/socket.io/plugins');
 
 const SOCKET_NAMESPACE = 'composerPolls';
@@ -121,6 +124,38 @@ plugin.attachPollToPosts = async function (hookData) {
 
 	const viewerUid = utils.isNumber(uid) ? String(uid) : null;
 	const viewerVotes = new Map();
+	const voterLookups = new Map();
+
+	const publicPolls = Array.from(pollMap.values()).filter(poll => poll.visibility === 'public');
+	if (publicPolls.length) {
+		const voterIds = new Set();
+		publicPolls.forEach((poll) => {
+			Object.values(poll.results.options || {}).forEach((result) => {
+				if (Array.isArray(result.voters)) {
+					result.voters.forEach((voter) => {
+						if (voter) {
+							voterIds.add(String(voter));
+						}
+					});
+				}
+			});
+		});
+		if (voterIds.size) {
+			const users = await user.getUsersFields(Array.from(voterIds), ['username', 'userslug']);
+			users.forEach((userData, index) => {
+				const uidValue = Array.from(voterIds)[index];
+				if (!userData) {
+					return;
+				}
+				voterLookups.set(uidValue, {
+					uid: uidValue,
+					username: userData.username || uidValue,
+					userslug: userData.userslug || '',
+					profileUrl: userData.userslug ? `${nconf.get('relative_path') || ''}/user/${userData.userslug}` : null,
+				});
+			});
+		}
+	}
 
 	if (viewerUid) {
 		await Promise.all(Array.from(pollMap.keys()).map(async (pollId) => {
@@ -137,11 +172,151 @@ plugin.attachPollToPosts = async function (hookData) {
 		if (!poll) {
 			return;
 		}
+		if (poll.visibility === 'public') {
+			Object.values(poll.results.options || {}).forEach((result) => {
+				if (!Array.isArray(result.voters)) {
+					return;
+				}
+				result.voters = result.voters.map((voterUid) => {
+					const profile = voterLookups.get(String(voterUid));
+					if (!profile) {
+						return {
+							uid: String(voterUid),
+							username: String(voterUid),
+						};
+					}
+					return profile;
+				});
+			});
+		}
 		const viewerVote = viewerUid ? viewerVotes.get(String(poll.id)) : null;
 		post.poll = preparePollForView(poll, viewerUid, viewerVote);
 	});
 
 	return hookData;
+};
+
+plugin.handlePostEdit = async function (hookData) {
+	const { data } = hookData;
+	if (!data || !utils.isNumber(data.pid)) {
+		return hookData;
+	}
+
+	const pid = parseInt(data.pid, 10);
+	const context = await getPostContext(pid);
+	if (!context || !context.isMain) {
+		delete data.poll;
+		delete data.pollRemoved;
+		return hookData;
+	}
+
+	const pollProvided = Object.prototype.hasOwnProperty.call(data, 'poll');
+	const removeRequested = data.pollRemoved === true;
+	if (!pollProvided && removeRequested) {
+		data._removePoll = true;
+		delete data.pollRemoved;
+		return hookData;
+	}
+	if (!pollProvided) {
+		delete data.pollRemoved;
+		return hookData;
+	}
+
+	const ownerCandidate = utils.isNumber(context.postUid) ? parseInt(context.postUid, 10) : parseInt(data.uid, 10);
+	const ownerUid = utils.isNumber(ownerCandidate) ? ownerCandidate : parseInt(data.uid, 10);
+	if (!utils.isNumber(ownerUid)) {
+		throw new Error('[[composer-polls:errors.invalid-author]]');
+	}
+
+	const sanitized = sanitizePollConfig(data.poll, ownerUid);
+	data._poll = sanitized;
+	data._pollContext = context;
+	delete data.poll;
+	delete data.pollRemoved;
+
+	return hookData;
+};
+
+plugin.onPostEdit = async function ({ post, data }) {
+	if (!post || !data || !utils.isNumber(post.pid)) {
+		return;
+	}
+
+	const pid = parseInt(post.pid, 10);
+	const context = data._pollContext || await getPostContext(pid);
+	if (!context || !context.isMain) {
+		return;
+	}
+
+	if (data._removePoll) {
+		await removePollRecord(String(pid), context.tid);
+		return;
+	}
+
+	if (!data._poll) {
+		return;
+	}
+
+	const pollId = String(pid);
+	const now = Date.now();
+	const existingRecord = await db.getObject(`poll:${pollId}`);
+	const mergedResults = mergeResultsForEdit(data._poll, existingRecord);
+	const createdAt = parseInt(existingRecord?.createdAt, 10) || now;
+	const pollRecord = {
+		id: pollId,
+		pid: pollId,
+		tid: String(context.tid),
+		uid: String(data._poll.ownerUid),
+		type: data._poll.type,
+		visibility: data._poll.visibility,
+		allowRevote: data._poll.allowRevote ? 1 : 0,
+		closesAt: data._poll.closesAt || 0,
+		createdAt,
+		updatedAt: now,
+		options: JSON.stringify(data._poll.options),
+		results: JSON.stringify(mergedResults),
+	};
+
+	await Promise.all([
+		db.setObject(`poll:${pollId}`, pollRecord),
+		db.setObjectField(`post:${pid}`, 'pollId', pollId),
+		context.tid ? db.setObjectField(`topic:${context.tid}`, 'pollId', pollId) : Promise.resolve(),
+	]);
+};
+
+plugin.onPostsPurge = async function ({ posts }) {
+	if (!Array.isArray(posts) || !posts.length) {
+		return;
+	}
+
+	await Promise.all(posts.map(async (post) => {
+		if (!post || !utils.isNumber(post.pid)) {
+			return;
+		}
+		const pid = parseInt(post.pid, 10);
+		const pollId = await db.getObjectField(`post:${pid}`, 'pollId');
+		if (!pollId) {
+			return;
+		}
+		const tid = utils.isNumber(post.tid) ? parseInt(post.tid, 10) : parseInt(await db.getObjectField(`post:${pollId}`, 'tid'), 10) || null;
+		await removePollRecord(String(pollId), tid);
+	}));
+};
+
+plugin.onTopicPurge = async function ({ topic }) {
+	if (!topic || !utils.isNumber(topic.tid)) {
+		return;
+	}
+
+	const tid = parseInt(topic.tid, 10);
+	let pollId = topic.pollId;
+	if (!pollId) {
+		pollId = await db.getObjectField(`topic:${tid}`, 'pollId');
+	}
+	if (!pollId) {
+		return;
+	}
+	await removePollRecord(String(pollId), tid);
 };
 
 function sanitizePollConfig(rawPoll, ownerUid) {
@@ -589,6 +764,158 @@ async function castVote(pollId, voterUid, rawSelections) {
 	return preparePollForView(poll, voterKey, voteRecord);
 }
 
+async function getPostContext(pid) {
+	const postKey = `post:${pid}`;
+	const [postRecord, tidValue] = await Promise.all([
+		db.getObject(postKey),
+		db.getObjectField(postKey, 'tid'),
+	]);
+	const tid = utils.isNumber(tidValue) ? parseInt(tidValue, 10) : null;
+	if (!postRecord || !utils.isNumber(pid) || !utils.isNumber(tid)) {
+		return null;
+	}
+	const topicRecord = await db.getObject(`topic:${tid}`);
+	const mainPid = utils.isNumber(topicRecord?.mainPid) ? parseInt(topicRecord.mainPid, 10) : null;
+	return {
+		pid,
+		tid,
+		postUid: postRecord.uid,
+		isMain: utils.isNumber(mainPid) && mainPid === pid,
+		pollId: postRecord.pollId ? String(postRecord.pollId) : null,
+	};
+}
+
+function mergeResultsForEdit(newPoll, existingRecord) {
+	if (!existingRecord) {
+		return createEmptyResults(newPoll);
+	}
+	try {
+		const existingPoll = normalisePollRecord(existingRecord);
+		const typeChanged = existingPoll.type !== newPoll.type;
+		const visibilityChanged = existingPoll.visibility !== newPoll.visibility;
+		if (typeChanged || visibilityChanged) {
+			return createEmptyResults(newPoll);
+		}
+		const merged = createEmptyResults(newPoll);
+		merged.totalParticipants = existingPoll.results.totalParticipants || 0;
+		newPoll.options.forEach((option) => {
+			const existing = existingPoll.results.options[option.id];
+			if (existing) {
+				merged.options[option.id] = {
+					count: existing.count || 0,
+				};
+				if (newPoll.type === 'ranked') {
+					merged.options[option.id].points = existing.points || 0;
+				}
+				if (newPoll.visibility === 'public') {
+					merged.options[option.id].voters = Array.isArray(existing.voters) ? existing.voters.slice() : [];
+				}
+			}
+		});
+		return ensureResultsStructure(merged, newPoll);
+	} catch (err) {
+		return createEmptyResults(newPoll);
+	}
+}
+
+async function removePollRecord(pollId, tid) {
+	if (!pollId) {
+		return;
+	}
+	const key = String(pollId);
+	await Promise.all([
+		db.delete(`poll:${key}`),
+		db.delete(`pollVotes:${key}`),
+		db.deleteObjectField(`post:${key}`, 'pollId'),
+		tid ? db.deleteObjectField(`topic:${tid}`, 'pollId') : Promise.resolve(),
+	]);
+}
+
+async function handleGetPoll(socket, payload) {
+	if (!socket || !utils.isNumber(socket.uid)) {
+		throw new Error('[[composer-polls:errors.login-required]]');
+	}
+
+	const pid = utils.isNumber(payload?.pid) ? parseInt(payload.pid, 10) : null;
+	if (!pid) {
+		throw new Error('[[composer-polls:errors.invalid]]');
+	}
+
+	const permission = await privileges.posts.canEdit(pid, socket.uid);
+	if (!permission || permission.flag !== true) {
+		throw new Error(permission?.message || '[[error:no-privileges]]');
+	}
+
+	const context = await getPostContext(pid);
+	if (!context || !context.isMain) {
+		return null;
+	}
+
+	const pollKey = context.pollId ? `poll:${context.pollId}` : `poll:${pid}`;
+	const pollRecord = await db.getObject(pollKey);
+	if (!pollRecord) {
+		return null;
+	}
+
+	const poll = normalisePollRecord(pollRecord);
+	return {
+		poll: {
+			type: poll.type,
+			visibility: poll.visibility,
+			allowRevote: poll.allowRevote,
+			closesAt: poll.closesAt || 0,
+			options: poll.options.map(option => ({
+				id: option.id,
+				text: option.text,
+			})),
+		},
+	};
+}
+
+async function handleManagePoll(socket, payload) {
+	if (!socket || !utils.isNumber(socket.uid)) {
+		throw new Error('[[composer-polls:errors.login-required]]');
+	}
+
+	const pollId = typeof payload?.pollId === 'string' || typeof payload?.pollId === 'number' ? String(payload.pollId).trim() : '';
+	if (!pollId) {
+		throw new Error('[[composer-polls:errors.invalid]]');
+	}
+
+	const pollRecord = await db.getObject(`poll:${pollId}`);
+	if (!pollRecord) {
+		throw new Error('[[composer-polls:errors.not-found]]');
+	}
+
+	const pid = parseInt(pollRecord.pid, 10);
+	const permission = await privileges.posts.canEdit(pid, socket.uid);
+	if (!permission || permission.flag !== true) {
+		throw new Error(permission?.message || '[[error:no-privileges]]');
+	}
+
+	const action = typeof payload?.action === 'string' ? payload.action.trim().toLowerCase() : '';
+	if (!['close', 'reopen'].includes(action)) {
+		throw new Error('[[composer-polls:errors.invalid]]');
+	}
+
+	const now = Date.now();
+	const updates = {
+		updatedAt: now,
+	};
+	if (action === 'close') {
+		updates.closesAt = now;
+	} else if (action === 'reopen') {
+		updates.closesAt = 0;
+	}
+
+	await db.setObject(`poll:${pollId}`, updates);
+
+	const updatedRecord = await db.getObject(`poll:${pollId}`);
+	const poll = normalisePollRecord(updatedRecord);
+	const voterVote = await getUserVote(pollId, String(socket.uid));
+	return preparePollForView(poll, String(socket.uid), voterVote);
+}
+
 function registerSocketHandlers() {
 	if (!SocketPlugins[SOCKET_NAMESPACE]) {
 		SocketPlugins[SOCKET_NAMESPACE] = {};
@@ -597,6 +924,38 @@ function registerSocketHandlers() {
 		SocketPlugins[SOCKET_NAMESPACE].vote = async function (socket, payload = {}, callback) {
 			try {
 				const response = await handleVote(socket, payload);
+				if (typeof callback === 'function') {
+					callback(null, response);
+				}
+				return response;
+			} catch (err) {
+				if (typeof callback === 'function') {
+					callback(err);
+				}
+				throw err;
+			}
+		};
+	}
+	if (!SocketPlugins[SOCKET_NAMESPACE].get) {
+		SocketPlugins[SOCKET_NAMESPACE].get = async function (socket, payload = {}, callback) {
+			try {
+				const response = await handleGetPoll(socket, payload);
+				if (typeof callback === 'function') {
+					callback(null, response);
+				}
+				return response;
+			} catch (err) {
+				if (typeof callback === 'function') {
+					callback(err);
+				}
+				throw err;
+			}
+		};
+	}
+	if (!SocketPlugins[SOCKET_NAMESPACE].manage) {
+		SocketPlugins[SOCKET_NAMESPACE].manage = async function (socket, payload = {}, callback) {
+			try {
+				const response = await handleManagePoll(socket, payload);
 				if (typeof callback === 'function') {
 					callback(null, response);
 				}

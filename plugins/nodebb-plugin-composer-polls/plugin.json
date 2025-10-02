@@ -7,7 +7,11 @@
 		{ "hook": "filter:composer.formatting", "method": "addPollFormattingOption" },
 		{ "hook": "filter:topic.post", "method": "handleTopicPost" },
 		{ "hook": "action:topic.post", "method": "onTopicPost" },
-		{ "hook": "filter:topics.addPostData", "method": "attachPollToPosts" }
+		{ "hook": "filter:topics.addPostData", "method": "attachPollToPosts" },
+		{ "hook": "filter:post.edit", "method": "handlePostEdit" },
+		{ "hook": "action:post.edit", "method": "onPostEdit" },
+		{ "hook": "action:posts.purge", "method": "onPostsPurge" },
+		{ "hook": "action:topic.purge", "method": "onTopicPurge" }
 	],
 	"scripts": [
 		"./static/lib/composer-polls.js",
