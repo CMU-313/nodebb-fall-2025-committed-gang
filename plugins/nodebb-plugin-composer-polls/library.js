@@ -49,31 +49,18 @@ plugin.addPollFormattingOption = async function (payload) {
 
 // 1. In plugin.handleComposerCheck (around line 75):
 plugin.handleComposerCheck = async function (payload) {
-	console.log('=== COMPOSER CHECK START ===');
-	console.log('Payload received:', payload);
-	console.log('Has data:', !!payload?.data);
-	console.log('Has poll in data:', !!payload?.data?.poll);
-	console.log('Poll data:', payload?.data?.poll);
-
 	if (!payload || !payload.data || !payload.data.poll) {
-		console.log('❌ No poll data found in composer check');
 		return payload;
 	}
 
 	if (!utils.isNumber(payload.data.uid)) {
-		console.log('❌ Invalid UID:', payload.data.uid);
 		throw new Error('[[composer-polls:errors.invalid-author]]');
 	}
 
-	console.log('✅ Sanitizing poll config...');
 	const sanitized = sanitizePollConfig(payload.data.poll, parseInt(payload.data.uid, 10));
-	console.log('Sanitized poll:', sanitized);
-	
 	payload.data._poll = sanitized;
 	delete payload.data.poll;
 	
-	console.log('✅ Poll moved to _poll property');
-	console.log('=== COMPOSER CHECK END ===');
 	return payload;
 };
 
@@ -93,22 +80,11 @@ plugin.handleTopicPost = async function (data) {
 	return data;
 };
 
-// 2. In plugin.onTopicPost (around line 107):
 plugin.onTopicPost = async function ({ topic, post, data }) {
-	console.log('=== TOPIC POST HOOK START ===');
-	console.log('Topic:', topic);
-	console.log('Post:', post);
-	console.log('Data keys:', Object.keys(data || {}));
-	console.log('Has _poll:', !!data?._poll);
-	console.log('Poll data:', data?._poll);
-
 	if (!data || !data._poll || !post || !topic) {
-		console.log('❌ Missing required data for poll creation');
 		return;
 	}
 	
-	// Create poll record
-
 	const pollId = String(post.pid);
 	const now = Date.now();
 	const pollRecord = {
@@ -126,16 +102,12 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 		results: JSON.stringify(createEmptyResults(data._poll)),
 	};
 
-	console.log('✅ Creating poll record:', pollRecord);
-	console.log('Saving to database key:', `poll:${pollId}`);
-
 	try {
 		await db.setObject(`poll:${pollId}`, pollRecord);
 		await Promise.all([
 			db.setObjectField(`post:${post.pid}`, 'pollId', pollId),
 			db.setObjectField(`topic:${topic.tid}`, 'pollId', pollId),
 		]);
-		console.log('✅ Poll saved successfully!');
 	} catch (error) {
 		winston.error(`[composer-polls] Failed to save poll for post ${post.pid}: ${error.message}`);
 		// Clean up any partial data
@@ -144,8 +116,6 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 		await db.deleteObjectField(`topic:${topic.tid}`, 'pollId').catch(() => {});
 		throw new Error('[[composer-polls:errors.save-failed]]');
 	}
-
-	console.log('=== TOPIC POST HOOK END ===');
 };
 
 // Helpers for debugging composer post data
