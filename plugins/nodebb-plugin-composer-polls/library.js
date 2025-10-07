@@ -18,58 +18,6 @@ const POLL_MAX_OPTIONS = 10;
 const OPTION_MAX_LENGTH = 120;
 
 const plugin = {};
-const Benchpress = require.main.require('benchpressjs');
-
-
-plugin.debugCheckPollData = async function(pid) {
-	console.log('=== MANUAL POLL DATA CHECK ===');
-	console.log('Checking PID:', pid);
-	
-	try {
-		const pollData = await db.getObject(`poll:${pid}`);
-		console.log('Poll data from DB:', pollData);
-		
-		const postData = await db.getObject(`post:${pid}`);
-		console.log('Post pollId field:', postData?.pollId);
-		
-		return { pollData, postData };
-	} catch (error) {
-		console.log('❌ Database check error:', error);
-		return { error };
-	}
-};
-
-
-// Save poll data when post is created 
-plugin.savePoll = async function (postData) {
-    if (postData.poll) {
-        await db.setObject(`poll:${postData.pid}`, postData.poll);
-    }
-    return postData;
-};
-
-
-
-// Attach poll when posts are fetched
-plugin.attachPoll = async function(posts) {
-    const postArray = Array.isArray(posts) ? posts : [posts];
-
-    for (let post of postArray) {
-        const poll = await db.getObject(`poll:${post.pid}`);
-        if (poll) {
-            post.poll = poll;
-
-            // Render plugin partial for posts that have a poll
-            post.pollHTML = await Benchpress.render('nodebb-composer-polls/post', { poll });
-        }
-    }
-
-    return Array.isArray(posts) ? postArray : postArray[0];
-};
-
-
-
-
 plugin.addPollFormattingOption = async function (payload) {
 	if (!payload || !Array.isArray(payload.options)) {
 		return payload;
