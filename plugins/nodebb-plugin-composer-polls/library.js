@@ -294,6 +294,94 @@ plugin.attachPollToPosts = async function (hookData) {
 	return hookData;
 };
 
+plugin.handlePostEdit = async function (hookData) {
+	const { data } = hookData;
+	if (!data || !utils.isNumber(data.pid)) {
+		return hookData;
+	}
+
+	const pid = parseInt(data.pid, 10);
+	const context = await getPostContext(pid);
+	if (!context || !context.isMain) {
+		delete data.poll;
+		delete data.pollRemoved;
+		return hookData;
+	}
+
+	const pollProvided = Object.prototype.hasOwnProperty.call(data, 'poll');
+	const removeRequested = data.pollRemoved === true;
+	if (!pollProvided && removeRequested) {
+		data._removePoll = true;
+		delete data.pollRemoved;
+		return hookData;
+	}
+	if (!pollProvided) {
+		delete data.pollRemoved;
+		return hookData;
+	}
+
+	const ownerCandidate = utils.isNumber(context.postUid) ? parseInt(context.postUid, 10) : parseInt(data.uid, 10);
+	const ownerUid = utils.isNumber(ownerCandidate) ? ownerCandidate : parseInt(data.uid, 10);
+	if (!utils.isNumber(ownerUid)) {
+		throw new Error('[[composer-polls:errors.invalid-author]]');
+	}
+
+	const sanitized = sanitizePollConfig(data.poll, ownerUid);
+	data._poll = sanitized;
+	data._pollContext = context;
+	delete data.poll;
+	delete data.pollRemoved;
+
+	return hookData;
+};
+
+plugin.onPostEdit = async function ({ post, data }) {
+	if (!post || !data || !utils.isNumber(post.pid)) {
+		return;
+	}
+
+	const pid = parseInt(post.pid, 10);
+	const context = data._pollContext || await getPostContext(pid);
+	if (!context || !context.isMain) {
+		return;
+	}
+
+	if (data._removePoll) {
+		await removePollRecord(String(pid), context.tid);
+		return;
+	}
+
+	if (!data._poll) {
+		return;
+	}
+
+	const pollId = String(pid);
+	const now = Date.now();
+	const existingRecord = await db.getObject(`poll:${pollId}`);
+	const mergedResults = mergeResultsForEdit(data._poll, existingRecord);
+	const createdAt = parseInt(existingRecord?.createdAt, 10) || now;
+	const pollRecord = {
+		id: pollId,
+		pid: pollId,
+		tid: String(context.tid),
+		uid: String(data._poll.ownerUid),
+		type: data._poll.type,
+		visibility: data._poll.visibility,
+		allowRevote: data._poll.allowRevote ? 1 : 0,
+		closesAt: data._poll.closesAt || 0,
+		createdAt,
+		updatedAt: now,
+		options: JSON.stringify(data._poll.options),
+		results: JSON.stringify(mergedResults),
+	};
+
+	await Promise.all([
+		db.setObject(`poll:${pollId}`, pollRecord),
+		db.setObjectField(`post:${pid}`, 'pollId', pollId),
+		context.tid ? db.setObjectField(`topic:${context.tid}`, 'pollId', pollId) : Promise.resolve(),
+	]);
+};
+
 // Sanitization and normalization functions
 
 function sanitizePollConfig(rawPoll, ownerUid) {
