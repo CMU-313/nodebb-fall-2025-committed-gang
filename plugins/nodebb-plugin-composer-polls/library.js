@@ -181,13 +181,22 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 	console.log('✅ Creating poll record:', pollRecord);
 	console.log('Saving to database key:', `poll:${pollId}`);
 
-	await db.setObject(`poll:${pollId}`, pollRecord);
-	await Promise.all([
-		db.setObjectField(`post:${post.pid}`, 'pollId', pollId),
-		db.setObjectField(`topic:${topic.tid}`, 'pollId', pollId),
-	]);
+	try {
+		await db.setObject(`poll:${pollId}`, pollRecord);
+		await Promise.all([
+			db.setObjectField(`post:${post.pid}`, 'pollId', pollId),
+			db.setObjectField(`topic:${topic.tid}`, 'pollId', pollId),
+		]);
+		console.log('✅ Poll saved successfully!');
+	} catch (error) {
+		winston.error(`[composer-polls] Failed to save poll for post ${post.pid}: ${error.message}`);
+		// Clean up any partial data
+		await db.delete(`poll:${pollId}`).catch(() => {});
+		await db.deleteObjectField(`post:${post.pid}`, 'pollId').catch(() => {});
+		await db.deleteObjectField(`topic:${topic.tid}`, 'pollId').catch(() => {});
+		throw new Error('[[composer-polls:errors.save-failed]]');
+	}
 
-	console.log('✅ Poll saved successfully!');
 	console.log('=== TOPIC POST HOOK END ===');
 };
 
@@ -911,11 +920,13 @@ function isPollClosed(poll) {
 async function castVote(pollId, voterUid, rawSelections) {
 	const pollRecord = await db.getObject(`poll:${pollId}`);
 	if (!pollRecord) {
+		winston.warn(`[composer-polls] Vote attempt on non-existent poll: ${pollId} by user: ${voterUid}`);
 		throw new Error('[[composer-polls:errors.not-found]]');
 	}
 
 	const poll = normalisePollRecord(pollRecord);
 	if (isPollClosed(poll)) {
+		winston.info(`[composer-polls] Vote attempt on closed poll: ${pollId} by user: ${voterUid}`);
 		throw new Error('[[composer-polls:errors.closed]]');
 	}
 

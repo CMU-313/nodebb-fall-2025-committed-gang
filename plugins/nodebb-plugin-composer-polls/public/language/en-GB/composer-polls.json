@@ -73,6 +73,7 @@
 		"closed": "This poll is closed.",
 		"revoting-disabled": "You cannot change your vote on this poll.",
 		"login-required": "Sign in to vote on polls.",
-		"vote-too-soon": "Please wait %1 seconds before changing your vote again."
+		"vote-too-soon": "Please wait %1 seconds before changing your vote again.",
+		"save-failed": "Failed to save poll. Please try again."
 	}
 }
