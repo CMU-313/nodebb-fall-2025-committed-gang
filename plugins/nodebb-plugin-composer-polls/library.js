@@ -318,6 +318,14 @@ plugin.handlePostEdit = async function (hookData) {
 		return hookData;
 	}
 
+	// Check if user has permission to edit the post (respects category/topic restrictions)
+	const editorUid = parseInt(data.uid, 10);
+	const canEdit = await privileges.posts.canEdit(pid, editorUid);
+	if (!canEdit.flag) {
+		winston.warn(`[composer-polls] User ${editorUid} attempted to edit poll on post ${pid} without permission`);
+		throw new Error('[[error:no-privileges]]');
+	}
+
 	const pollProvided = Object.prototype.hasOwnProperty.call(data, 'poll');
 	const removeRequested = data.pollRemoved === true;
 	if (!pollProvided && removeRequested) {
