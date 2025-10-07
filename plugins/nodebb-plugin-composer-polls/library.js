@@ -583,9 +583,12 @@ function sanitizeOption(rawOption, index) {
 	const suppliedId = typeof rawOption?.id === 'string' ? rawOption.id.trim() : '';
 	const baseId = suppliedId && /^[a-zA-Z0-9_-]+$/.test(suppliedId) ? suppliedId.slice(0, 24) : `opt${index + 1}`;
 
+	// Sanitize HTML to prevent XSS attacks
+	const sanitizedText = utils.escapeHTML(text);
+
 	return {
 		id: baseId,
-		text,
+		text: sanitizedText,
 	};
 }
 
