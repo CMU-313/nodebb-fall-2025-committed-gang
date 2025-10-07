@@ -141,10 +141,24 @@ hooks.on('filter:composer.submit', (payload) => {
 			className: 'btn-secondary',
 		};
 
+		// Find the buttons.save section in openPollModal and replace it with:
 		buttons.save = {
 			label: saveLabel,
 			className: 'btn-primary',
-			callback: () => handleSave(dialog, uuid, postContainer, placeholders, { editLabel, removeSummaryLabel, allowNote }),
+			callback: function() {
+				// Return false immediately to prevent dialog from closing
+				handleSave(dialog, uuid, postContainer, placeholders, { 
+					editLabel, 
+					removeSummaryLabel, 
+					allowNote 
+				}).then((saved) => {
+					// Only close dialog manually if save was successful
+					if (saved) {
+						dialog.modal('hide');
+					}
+				});
+				return false;
+			},
 		};
 
 		const dialog = bootbox.dialog({
