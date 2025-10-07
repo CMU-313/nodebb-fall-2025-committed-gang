@@ -310,7 +310,7 @@ require([
 		return composer.posts[uuid].pollConfig || null;
 	}
 
-	function setPoll(uuid, poll) {
+	function setPoll(uuid, poll, options = {}) {
 		if (!uuid || !composer.posts || !composer.posts[uuid]) {
 			return;
 		}
