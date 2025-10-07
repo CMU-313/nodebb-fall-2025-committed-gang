@@ -50,30 +50,42 @@ require([
 		hydrationQueue.delete(uuid);
 	});
 
-	
-// Hook to submit poll -- factors in composer post data
-hooks.on('filter:composer.submit', (payload) => {
-	console.log('=== POLL SUBMISSION DEBUG ===');
-	console.log('Payload:', payload);
-	console.log('Available composer object:', typeof composer);
-	
-	if (typeof composer !== 'undefined' && composer.posts) {
-		console.log('Composer posts keys:', Object.keys(composer.posts));
-		
-		// Log each composer post to see what's available
-		Object.keys(composer.posts).forEach(uuid => {
-			console.log(`Post ${uuid}:`, composer.posts[uuid]);
-			if (composer.posts[uuid].pollConfig) {
-				console.log(`Poll config found in ${uuid}:`, composer.posts[uuid].pollConfig);
+	hooks.on('filter:composer.submit', (payload) => {
+		if (!payload || !payload.postData || !payload.composerData) {
+			return payload;
+		}
+
+		const poll = payload.postData.pollConfig;
+		const hasValidPoll = poll && Array.isArray(poll.options) && poll.options.length >= MIN_OPTIONS;
+		const isTopicPost = payload.action === 'topics.post';
+		const isEditingMain = payload.action === 'posts.edit' && payload.postData && payload.postData.isMain;
+		const removalRequested = Boolean(payload.postData && payload.postData.pollRemoved);
+		const hadExisting = Boolean(payload.postData && payload.postData.composerPollInitial);
+
+		if (isTopicPost || isEditingMain) {
+			if (hasValidPoll) {
+				payload.composerData.poll = poll;
+			} else {
+				delete payload.composerData.poll;
 			}
-		});
-	}
-	
-	return payload;
-});
+			if (isEditingMain) {
+				if (!hasValidPoll && (removalRequested || hadExisting)) {
+					delete payload.composerData.poll;
+					payload.composerData.pollRemoved = true;
+				} else if (!removalRequested) {
+					delete payload.composerData.pollRemoved;
+				}
+			}
+			return payload;
+		}
+
+		delete payload.composerData.poll;
+		delete payload.composerData.pollRemoved;
+
+		return payload;
+	});
 
 
-	
 
 	function registerDispatch(postContainer) {
 		if (dispatchRegistered || !formatting || typeof formatting.addButtonDispatch !== 'function') {
