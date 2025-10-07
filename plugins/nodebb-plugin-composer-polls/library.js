@@ -5,6 +5,7 @@ const utils = require.main.require('./src/utils');
 const user = require.main.require('./src/user');
 const privileges = require.main.require('./src/privileges');
 const nconf = require.main.require('nconf');
+const winston = require.main.require('winston');
 const SocketPlugins = require.main.require('./src/socket.io/plugins');
 
 const SOCKET_NAMESPACE = 'composerPolls';
@@ -180,13 +181,22 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 	console.log('✅ Creating poll record:', pollRecord);
 	console.log('Saving to database key:', `poll:${pollId}`);
 
-	await db.setObject(`poll:${pollId}`, pollRecord);
-	await Promise.all([
-		db.setObjectField(`post:${post.pid}`, 'pollId', pollId),
-		db.setObjectField(`topic:${topic.tid}`, 'pollId', pollId),
-	]);
+	try {
+		await db.setObject(`poll:${pollId}`, pollRecord);
+		await Promise.all([
+			db.setObjectField(`post:${post.pid}`, 'pollId', pollId),
+			db.setObjectField(`topic:${topic.tid}`, 'pollId', pollId),
+		]);
+		console.log('✅ Poll saved successfully!');
+	} catch (error) {
+		winston.error(`[composer-polls] Failed to save poll for post ${post.pid}: ${error.message}`);
+		// Clean up any partial data
+		await db.delete(`poll:${pollId}`).catch(() => {});
+		await db.deleteObjectField(`post:${post.pid}`, 'pollId').catch(() => {});
+		await db.deleteObjectField(`topic:${topic.tid}`, 'pollId').catch(() => {});
+		throw new Error('[[composer-polls:errors.save-failed]]');
+	}
 
-	console.log('✅ Poll saved successfully!');
 	console.log('=== TOPIC POST HOOK END ===');
 };
 
@@ -306,6 +316,14 @@ plugin.handlePostEdit = async function (hookData) {
 		delete data.poll;
 		delete data.pollRemoved;
 		return hookData;
+	}
+
+	// Check if user has permission to edit the post (respects category/topic restrictions)
+	const editorUid = parseInt(data.uid, 10);
+	const canEdit = await privileges.posts.canEdit(pid, editorUid);
+	if (!canEdit.flag) {
+		winston.warn(`[composer-polls] User ${editorUid} attempted to edit poll on post ${pid} without permission`);
+		throw new Error('[[error:no-privileges]]');
 	}
 
 	const pollProvided = Object.prototype.hasOwnProperty.call(data, 'poll');
@@ -583,9 +601,12 @@ function sanitizeOption(rawOption, index) {
 	const suppliedId = typeof rawOption?.id === 'string' ? rawOption.id.trim() : '';
 	const baseId = suppliedId && /^[a-zA-Z0-9_-]+$/.test(suppliedId) ? suppliedId.slice(0, 24) : `opt${index + 1}`;
 
+	// Sanitize HTML to prevent XSS attacks
+	const sanitizedText = utils.escapeHTML(text);
+
 	return {
 		id: baseId,
-		text,
+		text: sanitizedText,
 	};
 }
 
@@ -907,11 +928,13 @@ function isPollClosed(poll) {
 async function castVote(pollId, voterUid, rawSelections) {
 	const pollRecord = await db.getObject(`poll:${pollId}`);
 	if (!pollRecord) {
+		winston.warn(`[composer-polls] Vote attempt on non-existent poll: ${pollId} by user: ${voterUid}`);
 		throw new Error('[[composer-polls:errors.not-found]]');
 	}
 
 	const poll = normalisePollRecord(pollRecord);
 	if (isPollClosed(poll)) {
+		winston.info(`[composer-polls] Vote attempt on closed poll: ${pollId} by user: ${voterUid}`);
 		throw new Error('[[composer-polls:errors.closed]]');
 	}
 
@@ -924,6 +947,16 @@ async function castVote(pollId, voterUid, rawSelections) {
 
 	if (existingVote && !poll.allowRevote) {
 		throw new Error('[[composer-polls:errors.revoting-disabled]]');
+	}
+
+	// Rate limiting: prevent rapid vote changes
+	if (existingVote && poll.allowRevote) {
+		const timeSinceLastVote = Date.now() - existingVote.castAt;
+		const minVoteInterval = 5000; // 5 seconds minimum between votes
+		if (timeSinceLastVote < minVoteInterval) {
+			const waitTime = Math.ceil((minVoteInterval - timeSinceLastVote) / 1000);
+			throw new Error(`[[composer-polls:errors.vote-too-soon, ${waitTime}]]`);
+		}
 	}
 
 	let results = cloneResults(poll.results);
@@ -1120,6 +1153,7 @@ function registerSocketHandlers() {
 				}
 				return response;
 			} catch (err) {
+				winston.error(`[composer-polls] Vote error - User: ${socket.uid}, Poll: ${payload?.pollId}, Error: ${err.message}`);
 				if (typeof callback === 'function') {
 					callback(err);
 				}
@@ -1136,6 +1170,7 @@ function registerSocketHandlers() {
 				}
 				return response;
 			} catch (err) {
+				winston.error(`[composer-polls] Get poll error - User: ${socket.uid}, Poll: ${payload?.pollId}, Error: ${err.message}`);
 				if (typeof callback === 'function') {
 					callback(err);
 				}
@@ -1152,6 +1187,7 @@ function registerSocketHandlers() {
 				}
 				return response;
 			} catch (err) {
+				winston.error(`[composer-polls] Manage poll error - User: ${socket.uid}, Poll: ${payload?.pollId}, Action: ${payload?.action}, Error: ${err.message}`);
 				if (typeof callback === 'function') {
 					callback(err);
 				}
