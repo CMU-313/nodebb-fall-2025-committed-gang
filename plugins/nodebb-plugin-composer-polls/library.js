@@ -417,6 +417,37 @@ plugin.onTopicPurge = async function ({ topic }) {
 	await removePollRecord(String(pollId), tid);
 };
 
+plugin.onPostMove = async function ({ post, tid }) {
+	if (!post || !utils.isNumber(post.pid) || !utils.isNumber(tid)) {
+		return;
+	}
+
+	const pid = parseInt(post.pid, 10);
+	const newTid = parseInt(tid, 10);
+	
+	// Check if this post has a poll
+	const pollId = await db.getObjectField(`post:${pid}`, 'pollId');
+	if (!pollId) {
+		return;
+	}
+
+	// Get the poll to check if this is the main post
+	const pollRecord = await db.getObject(`poll:${pollId}`);
+	if (!pollRecord || String(pollRecord.pid) !== String(pid)) {
+		return;
+	}
+
+	// Update the poll's topic reference
+	const oldTid = parseInt(pollRecord.tid, 10);
+	await Promise.all([
+		db.setObjectField(`poll:${pollId}`, 'tid', String(newTid)),
+		db.setObjectField(`poll:${pollId}`, 'updatedAt', Date.now()),
+		// Remove pollId from old topic, add to new topic
+		oldTid ? db.deleteObjectField(`topic:${oldTid}`, 'pollId') : Promise.resolve(),
+		db.setObjectField(`topic:${newTid}`, 'pollId', pollId),
+	]);
+};
+
 // Sanitization and normalization functions
 
 function sanitizePollConfig(rawPoll, ownerUid) {
