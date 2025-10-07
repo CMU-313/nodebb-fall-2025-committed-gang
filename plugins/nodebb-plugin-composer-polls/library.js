@@ -326,7 +326,40 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 		console.log('❌ Too many options');
 		throw new Error('[[composer-polls:errors.option-limit, ' + POLL_MAX_OPTIONS + ']]');
 	}
-	
+
+	const usedIds = new Set();
+	const options = rawOptions.map((rawOption, index) => {
+		const option = sanitizeOption(rawOption, index);
+
+		// Guarantee every option has a unique id even if duplicates were supplied.
+		let uniqueId = option.id;
+		let counter = 1;
+		while (usedIds.has(uniqueId)) {
+			uniqueId = `${option.id}-${counter}`;
+			counter += 1;
+		}
+		usedIds.add(uniqueId);
+
+		return {
+			id: uniqueId,
+			text: option.text,
+		};
+	});
+
+	let closesAt = 0;
+	if (rawPoll.closesAt) {
+		const parsed = Number(rawPoll.closesAt);
+		if (Number.isNaN(parsed) || parsed <= Date.now()) {
+			throw new Error('[[composer-polls:errors.close-date]]');
+		}
+		closesAt = Math.round(parsed);
+	}
+
+	let visibility = typeof rawPoll.visibility === 'string' ? rawPoll.visibility.trim() : 'anonymous';
+	if (!POLL_VISIBILITY.has(visibility)) {
+		visibility = 'anonymous';
+	}
+
 	const result = {
 		type,
 		options,
