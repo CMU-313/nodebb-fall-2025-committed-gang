@@ -5,15 +5,19 @@
 	"library": "./library.js",
 	"hooks": [
 		{ "hook": "filter:composer.formatting", "method": "addPollFormattingOption" },
-  		{ "hook": "filter:composer.check", "method": "handleComposerCheck" },
+		{ "hook": "filter:topic.post", "method": "handleTopicPost" },
 		{ "hook": "action:topic.post", "method": "onTopicPost" },
-		{ "hook": "filter:topics.addPostData", "method": "attachPollToPosts" }, 
-		{"hook": "action:post.save", "method": "savePoll"},
-		{"hook": "filter:post.get", "method": "attachPoll"}, 
-		{"hook": "filter:posts.get", "method": "attachPoll"}
+		{ "hook": "filter:topics.addPostData", "method": "attachPollToPosts" },
+		{ "hook": "filter:post.edit", "method": "handlePostEdit" },
+		{ "hook": "action:post.edit", "method": "onPostEdit" },
+		{ "hook": "action:posts.purge", "method": "onPostsPurge" },
+		{ "hook": "action:topic.purge", "method": "onTopicPurge" },
+		{ "hook": "action:post.move", "method": "onPostMove" },
+		{ "hook": "action:topic.merge", "method": "onTopicMerge" }
 	],
 	"scripts": [
-		"./static/lib/composer-polls.js"
+		"./static/lib/composer-polls.js",
+		"./static/lib/topic-polls.js"
 	],
 	"languages": "./public/language",
 	"templates": "./static/templates"
