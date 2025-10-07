@@ -12,7 +12,8 @@
 		{ "hook": "action:post.edit", "method": "onPostEdit" },
 		{ "hook": "action:posts.purge", "method": "onPostsPurge" },
 		{ "hook": "action:topic.purge", "method": "onTopicPurge" },
-		{ "hook": "action:post.move", "method": "onPostMove" }
+		{ "hook": "action:post.move", "method": "onPostMove" },
+		{ "hook": "action:topic.merge", "method": "onTopicMerge" }
 	],
 	"scripts": [
 		"./static/lib/composer-polls.js",

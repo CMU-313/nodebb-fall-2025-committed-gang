@@ -448,6 +448,48 @@ plugin.onPostMove = async function ({ post, tid }) {
 	]);
 };
 
+plugin.onTopicMerge = async function ({ mergeIntoTid, otherTids }) {
+	if (!utils.isNumber(mergeIntoTid) || !Array.isArray(otherTids)) {
+		return;
+	}
+
+	const mainTid = parseInt(mergeIntoTid, 10);
+	
+	// Check if the main topic already has a poll
+	const mainPollId = await db.getObjectField(`topic:${mainTid}`, 'pollId');
+	
+	// Check each merged topic for polls
+	for (const tid of otherTids) {
+		if (!utils.isNumber(tid)) {
+			continue;
+		}
+		const numericTid = parseInt(tid, 10);
+		const pollId = await db.getObjectField(`topic:${numericTid}`, 'pollId');
+		
+		if (!pollId) {
+			continue;
+		}
+		
+		if (mainPollId) {
+			// Main topic already has a poll, close the conflicting poll
+			await db.setObject(`poll:${pollId}`, {
+				closesAt: Date.now(),
+				updatedAt: Date.now(),
+			});
+		} else {
+			// Move the poll to the merged topic
+			await Promise.all([
+				db.setObjectField(`poll:${pollId}`, 'tid', String(mainTid)),
+				db.setObjectField(`poll:${pollId}`, 'updatedAt', Date.now()),
+				db.setObjectField(`topic:${mainTid}`, 'pollId', pollId),
+			]);
+		}
+		
+		// Clean up old topic reference
+		await db.deleteObjectField(`topic:${numericTid}`, 'pollId');
+	}
+};
+
 // Sanitization and normalization functions
 
 function sanitizePollConfig(rawPoll, ownerUid) {
@@ -456,7 +498,7 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 	console.log('Owner UID:', ownerUid);
 
 	if (!rawPoll || typeof rawPoll !== 'object') {
-		console.log('❌ Invalid poll object');
+		console.log(' Invalid poll object');
 		throw new Error('[[composer-polls:errors.invalid]]');
 	}
 
@@ -464,7 +506,7 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 	console.log('Poll type:', type, 'Valid:', POLL_TYPES.has(type));
 
 	if (!POLL_TYPES.has(type)) {
-		console.log('❌ Invalid poll type');
+		console.log('Invalid poll type');
 		throw new Error('[[composer-polls:errors.type-required]]');
 	}
 
@@ -473,11 +515,11 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 	console.log('Raw options:', rawOptions);
 
 	if (rawOptions.length < POLL_MIN_OPTIONS) {
-		console.log('❌ Too few options');
+		console.log('Too few options');
 		throw new Error('[[composer-polls:errors.option-required, ' + POLL_MIN_OPTIONS + ']]');
 	}
 	if (rawOptions.length > POLL_MAX_OPTIONS) {
-		console.log('❌ Too many options');
+		console.log('Too many options');
 		throw new Error('[[composer-polls:errors.option-limit, ' + POLL_MAX_OPTIONS + ']]');
 	}
 
