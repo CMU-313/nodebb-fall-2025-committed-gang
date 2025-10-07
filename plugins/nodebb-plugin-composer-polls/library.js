@@ -9,6 +9,7 @@ const SocketPlugins = require.main.require('./src/socket.io/plugins');
 
 const SOCKET_NAMESPACE = 'composerPolls';
 
+
 const POLL_TYPES = new Set(['single', 'multi', 'ranked']);
 const POLL_VISIBILITY = new Set(['anonymous', 'public']);
 const POLL_MIN_OPTIONS = 2;
@@ -16,13 +17,63 @@ const POLL_MAX_OPTIONS = 10;
 const OPTION_MAX_LENGTH = 120;
 
 const plugin = {};
+const Benchpress = require.main.require('benchpressjs');
+
+
+plugin.debugCheckPollData = async function(pid) {
+	console.log('=== MANUAL POLL DATA CHECK ===');
+	console.log('Checking PID:', pid);
+	
+	try {
+		const pollData = await db.getObject(`poll:${pid}`);
+		console.log('Poll data from DB:', pollData);
+		
+		const postData = await db.getObject(`post:${pid}`);
+		console.log('Post pollId field:', postData?.pollId);
+		
+		return { pollData, postData };
+	} catch (error) {
+		console.log('❌ Database check error:', error);
+		return { error };
+	}
+};
+
+
+// Save poll data when post is created 
+plugin.savePoll = async function (postData) {
+    if (postData.poll) {
+        await db.setObject(`poll:${postData.pid}`, postData.poll);
+    }
+    return postData;
+};
+
+
+
+// Attach poll when posts are fetched
+plugin.attachPoll = async function(posts) {
+    const postArray = Array.isArray(posts) ? posts : [posts];
+
+    for (let post of postArray) {
+        const poll = await db.getObject(`poll:${post.pid}`);
+        if (poll) {
+            post.poll = poll;
+
+            // Render plugin partial for posts that have a poll
+            post.pollHTML = await Benchpress.render('nodebb-composer-polls/post', { poll });
+        }
+    }
+
+    return Array.isArray(posts) ? postArray : postArray[0];
+};
+
+
+
 
 plugin.addPollFormattingOption = async function (payload) {
 	if (!payload || !Array.isArray(payload.options)) {
 		return payload;
 	}
 
-	// Make sure we only register the poll button once regardless of hook order.
 	const alreadyPresent = payload.options.some(option => option && option.name === 'polls');
 	if (!alreadyPresent) {
 		const defaultVisibility = payload.defaultVisibility || {
@@ -47,6 +98,36 @@ plugin.addPollFormattingOption = async function (payload) {
 	return payload;
 };
 
+// 1. In plugin.handleComposerCheck (around line 75):
+plugin.handleComposerCheck = async function (payload) {
+	console.log('=== COMPOSER CHECK START ===');
+	console.log('Payload received:', payload);
+	console.log('Has data:', !!payload?.data);
+	console.log('Has poll in data:', !!payload?.data?.poll);
+	console.log('Poll data:', payload?.data?.poll);
+
+	if (!payload || !payload.data || !payload.data.poll) {
+		console.log('❌ No poll data found in composer check');
+		return payload;
+	}
+
+	if (!utils.isNumber(payload.data.uid)) {
+		console.log('❌ Invalid UID:', payload.data.uid);
+		throw new Error('[[composer-polls:errors.invalid-author]]');
+	}
+
+	console.log('✅ Sanitizing poll config...');
+	const sanitized = sanitizePollConfig(payload.data.poll, parseInt(payload.data.uid, 10));
+	console.log('Sanitized poll:', sanitized);
+	
+	payload.data._poll = sanitized;
+	delete payload.data.poll;
+	
+	console.log('✅ Poll moved to _poll property');
+	console.log('=== COMPOSER CHECK END ===');
+	return payload;
+};
+
 plugin.handleTopicPost = async function (data) {
 	if (!data || !data.poll) {
 		return data;
@@ -56,7 +137,6 @@ plugin.handleTopicPost = async function (data) {
 		throw new Error('[[composer-polls:errors.invalid-author]]');
 	}
 
-	// Persist the sanitized poll payload on a private field consumed by onTopicPost.
 	const sanitized = sanitizePollConfig(data.poll, parseInt(data.uid, 10));
 	data._poll = sanitized;
 	delete data.poll;
@@ -64,10 +144,21 @@ plugin.handleTopicPost = async function (data) {
 	return data;
 };
 
+// 2. In plugin.onTopicPost (around line 107):
 plugin.onTopicPost = async function ({ topic, post, data }) {
+	console.log('=== TOPIC POST HOOK START ===');
+	console.log('Topic:', topic);
+	console.log('Post:', post);
+	console.log('Data keys:', Object.keys(data || {}));
+	console.log('Has _poll:', !!data?._poll);
+	console.log('Poll data:', data?._poll);
+
 	if (!data || !data._poll || !post || !topic) {
+		console.log('❌ Missing required data for poll creation');
 		return;
 	}
+	
+	// Create poll record
 
 	const pollId = String(post.pid);
 	const now = Date.now();
@@ -86,13 +177,20 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 		results: JSON.stringify(createEmptyResults(data._poll)),
 	};
 
-	// Store the poll alongside convenience references from post/topic documents.
+	console.log('✅ Creating poll record:', pollRecord);
+	console.log('Saving to database key:', `poll:${pollId}`);
+
 	await db.setObject(`poll:${pollId}`, pollRecord);
 	await Promise.all([
 		db.setObjectField(`post:${post.pid}`, 'pollId', pollId),
 		db.setObjectField(`topic:${topic.tid}`, 'pollId', pollId),
 	]);
+
+	console.log('✅ Poll saved successfully!');
+	console.log('=== TOPIC POST HOOK END ===');
 };
+
+// Helpers for debugging composer post data
 
 plugin.attachPollToPosts = async function (hookData) {
 	const { posts, uid } = hookData;
@@ -196,181 +294,40 @@ plugin.attachPollToPosts = async function (hookData) {
 	return hookData;
 };
 
-plugin.handlePostEdit = async function (hookData) {
-	const { data } = hookData;
-	if (!data || !utils.isNumber(data.pid)) {
-		return hookData;
-	}
-
-	const pid = parseInt(data.pid, 10);
-	const context = await getPostContext(pid);
-	if (!context || !context.isMain) {
-		delete data.poll;
-		delete data.pollRemoved;
-		return hookData;
-	}
-
-	const pollProvided = Object.prototype.hasOwnProperty.call(data, 'poll');
-	const removeRequested = data.pollRemoved === true;
-	if (!pollProvided && removeRequested) {
-		data._removePoll = true;
-		delete data.pollRemoved;
-		return hookData;
-	}
-	if (!pollProvided) {
-		delete data.pollRemoved;
-		return hookData;
-	}
-
-	const ownerCandidate = utils.isNumber(context.postUid) ? parseInt(context.postUid, 10) : parseInt(data.uid, 10);
-	const ownerUid = utils.isNumber(ownerCandidate) ? ownerCandidate : parseInt(data.uid, 10);
-	if (!utils.isNumber(ownerUid)) {
-		throw new Error('[[composer-polls:errors.invalid-author]]');
-	}
-
-	const sanitized = sanitizePollConfig(data.poll, ownerUid);
-	data._poll = sanitized;
-	data._pollContext = context;
-	delete data.poll;
-	delete data.pollRemoved;
-
-	return hookData;
-};
-
-plugin.onPostEdit = async function ({ post, data }) {
-	if (!post || !data || !utils.isNumber(post.pid)) {
-		return;
-	}
-
-	const pid = parseInt(post.pid, 10);
-	const context = data._pollContext || await getPostContext(pid);
-	if (!context || !context.isMain) {
-		return;
-	}
-
-	if (data._removePoll) {
-		await removePollRecord(String(pid), context.tid);
-		return;
-	}
-
-	if (!data._poll) {
-		return;
-	}
-
-	const pollId = String(pid);
-	const now = Date.now();
-	const existingRecord = await db.getObject(`poll:${pollId}`);
-	const mergedResults = mergeResultsForEdit(data._poll, existingRecord);
-	const createdAt = parseInt(existingRecord?.createdAt, 10) || now;
-	const pollRecord = {
-		id: pollId,
-		pid: pollId,
-		tid: String(context.tid),
-		uid: String(data._poll.ownerUid),
-		type: data._poll.type,
-		visibility: data._poll.visibility,
-		allowRevote: data._poll.allowRevote ? 1 : 0,
-		closesAt: data._poll.closesAt || 0,
-		createdAt,
-		updatedAt: now,
-		options: JSON.stringify(data._poll.options),
-		results: JSON.stringify(mergedResults),
-	};
-
-	await Promise.all([
-		db.setObject(`poll:${pollId}`, pollRecord),
-		db.setObjectField(`post:${pid}`, 'pollId', pollId),
-		context.tid ? db.setObjectField(`topic:${context.tid}`, 'pollId', pollId) : Promise.resolve(),
-	]);
-};
-
-plugin.onPostsPurge = async function ({ posts }) {
-	if (!Array.isArray(posts) || !posts.length) {
-		return;
-	}
-
-	await Promise.all(posts.map(async (post) => {
-		if (!post || !utils.isNumber(post.pid)) {
-			return;
-		}
-		const pid = parseInt(post.pid, 10);
-		const pollId = await db.getObjectField(`post:${pid}`, 'pollId');
-		if (!pollId) {
-			return;
-		}
-		const tid = utils.isNumber(post.tid) ? parseInt(post.tid, 10) : parseInt(await db.getObjectField(`post:${pollId}`, 'tid'), 10) || null;
-		await removePollRecord(String(pollId), tid);
-	}));
-};
-
-plugin.onTopicPurge = async function ({ topic }) {
-	if (!topic || !utils.isNumber(topic.tid)) {
-		return;
-	}
-
-	const tid = parseInt(topic.tid, 10);
-	let pollId = topic.pollId;
-	if (!pollId) {
-		pollId = await db.getObjectField(`topic:${tid}`, 'pollId');
-	}
-	if (!pollId) {
-		return;
-	}
-	await removePollRecord(String(pollId), tid);
-};
+// Sanitization and normalization functions
 
 function sanitizePollConfig(rawPoll, ownerUid) {
+	console.log('=== SANITIZE POLL START ===');
+	console.log('Raw poll input:', rawPoll);
+	console.log('Owner UID:', ownerUid);
+
 	if (!rawPoll || typeof rawPoll !== 'object') {
+		console.log('❌ Invalid poll object');
 		throw new Error('[[composer-polls:errors.invalid]]');
 	}
 
 	const type = typeof rawPoll.type === 'string' ? rawPoll.type.trim() : '';
+	console.log('Poll type:', type, 'Valid:', POLL_TYPES.has(type));
+
 	if (!POLL_TYPES.has(type)) {
+		console.log('❌ Invalid poll type');
 		throw new Error('[[composer-polls:errors.type-required]]');
 	}
 
 	const rawOptions = Array.isArray(rawPoll.options) ? rawPoll.options : [];
+	console.log('Raw options count:', rawOptions.length);
+	console.log('Raw options:', rawOptions);
+
 	if (rawOptions.length < POLL_MIN_OPTIONS) {
+		console.log('❌ Too few options');
 		throw new Error('[[composer-polls:errors.option-required, ' + POLL_MIN_OPTIONS + ']]');
 	}
 	if (rawOptions.length > POLL_MAX_OPTIONS) {
+		console.log('❌ Too many options');
 		throw new Error('[[composer-polls:errors.option-limit, ' + POLL_MAX_OPTIONS + ']]');
 	}
-
-	const usedIds = new Set();
-	const options = rawOptions.map((rawOption, index) => {
-		const option = sanitizeOption(rawOption, index);
-
-		// Guarantee every option has a unique id even if duplicates were supplied.
-		let uniqueId = option.id;
-		let counter = 1;
-		while (usedIds.has(uniqueId)) {
-			uniqueId = `${option.id}-${counter}`;
-			counter += 1;
-		}
-		usedIds.add(uniqueId);
-
-		return {
-			id: uniqueId,
-			text: option.text,
-		};
-	});
-
-	let closesAt = 0;
-	if (rawPoll.closesAt) {
-		const parsed = Number(rawPoll.closesAt);
-		if (Number.isNaN(parsed) || parsed <= Date.now()) {
-			throw new Error('[[composer-polls:errors.close-date]]');
-		}
-		closesAt = Math.round(parsed);
-	}
-
-	let visibility = typeof rawPoll.visibility === 'string' ? rawPoll.visibility.trim() : 'anonymous';
-	if (!POLL_VISIBILITY.has(visibility)) {
-		visibility = 'anonymous';
-	}
-
-	return {
+	
+	const result = {
 		type,
 		options,
 		visibility,
@@ -378,7 +335,12 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 		closesAt,
 		ownerUid,
 	};
+
+	console.log('✅ Sanitized poll result:', result);
+	console.log('=== SANITIZE POLL END ===');
+	return result;
 }
+
 
 function sanitizeOption(rawOption, index) {
 	const text = typeof rawOption?.text === 'string' ? rawOption.text.trim() : '';
