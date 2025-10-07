@@ -929,6 +929,16 @@ async function castVote(pollId, voterUid, rawSelections) {
 		throw new Error('[[composer-polls:errors.revoting-disabled]]');
 	}
 
+	// Rate limiting: prevent rapid vote changes
+	if (existingVote && poll.allowRevote) {
+		const timeSinceLastVote = Date.now() - existingVote.castAt;
+		const minVoteInterval = 5000; // 5 seconds minimum between votes
+		if (timeSinceLastVote < minVoteInterval) {
+			const waitTime = Math.ceil((minVoteInterval - timeSinceLastVote) / 1000);
+			throw new Error(`[[composer-polls:errors.vote-too-soon, ${waitTime}]]`);
+		}
+	}
+
 	let results = cloneResults(poll.results);
 	results = ensureResultsStructure(results, poll);
 
