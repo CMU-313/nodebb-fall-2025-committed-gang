@@ -5,6 +5,7 @@ const utils = require.main.require('./src/utils');
 const user = require.main.require('./src/user');
 const privileges = require.main.require('./src/privileges');
 const nconf = require.main.require('nconf');
+const winston = require.main.require('winston');
 const SocketPlugins = require.main.require('./src/socket.io/plugins');
 
 const SOCKET_NAMESPACE = 'composerPolls';
@@ -1133,6 +1134,7 @@ function registerSocketHandlers() {
 				}
 				return response;
 			} catch (err) {
+				winston.error(`[composer-polls] Vote error - User: ${socket.uid}, Poll: ${payload?.pollId}, Error: ${err.message}`);
 				if (typeof callback === 'function') {
 					callback(err);
 				}
@@ -1149,6 +1151,7 @@ function registerSocketHandlers() {
 				}
 				return response;
 			} catch (err) {
+				winston.error(`[composer-polls] Get poll error - User: ${socket.uid}, Poll: ${payload?.pollId}, Error: ${err.message}`);
 				if (typeof callback === 'function') {
 					callback(err);
 				}
@@ -1165,6 +1168,7 @@ function registerSocketHandlers() {
 				}
 				return response;
 			} catch (err) {
+				winston.error(`[composer-polls] Manage poll error - User: ${socket.uid}, Poll: ${payload?.pollId}, Action: ${payload?.action}, Error: ${err.message}`);
 				if (typeof callback === 'function') {
 					callback(err);
 				}
