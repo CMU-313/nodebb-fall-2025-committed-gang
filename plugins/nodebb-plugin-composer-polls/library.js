@@ -429,33 +429,20 @@ plugin.onTopicMerge = async function ({ mergeIntoTid, otherTids }) {
 // Sanitization and normalization functions
 
 function sanitizePollConfig(rawPoll, ownerUid) {
-	console.log('=== SANITIZE POLL START ===');
-	console.log('Raw poll input:', rawPoll);
-	console.log('Owner UID:', ownerUid);
-
 	if (!rawPoll || typeof rawPoll !== 'object') {
-		console.log(' Invalid poll object');
 		throw new Error('[[composer-polls:errors.invalid]]');
 	}
 
 	const type = typeof rawPoll.type === 'string' ? rawPoll.type.trim() : '';
-	console.log('Poll type:', type, 'Valid:', POLL_TYPES.has(type));
-
 	if (!POLL_TYPES.has(type)) {
-		console.log('Invalid poll type');
 		throw new Error('[[composer-polls:errors.type-required]]');
 	}
 
 	const rawOptions = Array.isArray(rawPoll.options) ? rawPoll.options : [];
-	console.log('Raw options count:', rawOptions.length);
-	console.log('Raw options:', rawOptions);
-
 	if (rawOptions.length < POLL_MIN_OPTIONS) {
-		console.log('Too few options');
 		throw new Error('[[composer-polls:errors.option-required, ' + POLL_MIN_OPTIONS + ']]');
 	}
 	if (rawOptions.length > POLL_MAX_OPTIONS) {
-		console.log('Too many options');
 		throw new Error('[[composer-polls:errors.option-limit, ' + POLL_MAX_OPTIONS + ']]');
 	}
 
@@ -492,7 +479,7 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 		visibility = 'anonymous';
 	}
 
-	const result = {
+	return {
 		type,
 		options,
 		visibility,
@@ -500,10 +487,6 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 		closesAt,
 		ownerUid,
 	};
-
-	console.log('✅ Sanitized poll result:', result);
-	console.log('=== SANITIZE POLL END ===');
-	return result;
 }
 
 
