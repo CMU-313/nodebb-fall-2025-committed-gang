@@ -382,6 +382,41 @@ plugin.onPostEdit = async function ({ post, data }) {
 	]);
 };
 
+plugin.onPostsPurge = async function ({ posts }) {
+	if (!Array.isArray(posts) || !posts.length) {
+		return;
+	}
+
+	await Promise.all(posts.map(async (post) => {
+		if (!post || !utils.isNumber(post.pid)) {
+			return;
+		}
+		const pid = parseInt(post.pid, 10);
+		const pollId = await db.getObjectField(`post:${pid}`, 'pollId');
+		if (!pollId) {
+			return;
+		}
+		const tid = utils.isNumber(post.tid) ? parseInt(post.tid, 10) : parseInt(await db.getObjectField(`post:${pollId}`, 'tid'), 10) || null;
+		await removePollRecord(String(pollId), tid);
+	}));
+};
+
+plugin.onTopicPurge = async function ({ topic }) {
+	if (!topic || !utils.isNumber(topic.tid)) {
+		return;
+	}
+
+	const tid = parseInt(topic.tid, 10);
+	let pollId = topic.pollId;
+	if (!pollId) {
+		pollId = await db.getObjectField(`topic:${tid}`, 'pollId');
+	}
+	if (!pollId) {
+		return;
+	}
+	await removePollRecord(String(pollId), tid);
+};
+
 // Sanitization and normalization functions
 
 function sanitizePollConfig(rawPoll, ownerUid) {
