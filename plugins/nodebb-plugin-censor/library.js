@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+const Topics = require.main.require('./src/topics');
 
 //access nodeBB core modules
 const meta = require.main.require("./src/meta");
@@ -17,6 +18,12 @@ let bannedWords = [];
 let RX = null;
 const replacement = '****';
 
+let censorStats = {
+  totalCensored: 0,
+  lastCensoredAt: null,
+  postsCensored: 0,
+};
+
 const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 const buildRegex = (words) => {
@@ -31,7 +38,7 @@ const buildRegex = (words) => {
 
 const readCsvFile = (csvPath) => {
   try {
-    const csv = fs.readFileSync(csvPath,"utf8");
+    const csv = fs.readFileSync(csvPath, "utf8");
     return csv.split(/\r?\n/).map((l) => l.trim()).filter(Boolean);
   } catch (e) {
     return [];
@@ -41,7 +48,7 @@ const readCsvFile = (csvPath) => {
 const writeCsvFile = (csvPath, lines) => {
   const data = lines.join("\n") + "\n";
   fs.writeFileSync(csvPath, data, "utf8");
-}
+};
 
 async function loadFromSettingsOrCsv() {
   try {
@@ -51,7 +58,7 @@ async function loadFromSettingsOrCsv() {
       const parts = raw.split(/[,\r?\n]+/).map(s => s.trim()).filter(Boolean);
       bannedWords = parts;
       RX = buildRegex(bannedWords);
-      return { from: 'settings', words: bannedWords}; 
+      return { from: 'settings', words: bannedWords };
     }
   } catch (e) {
     //fallback to CSV
@@ -59,8 +66,8 @@ async function loadFromSettingsOrCsv() {
 
   bannedWords = readCsvFile(CSV_PATH);
   RX = buildRegex(bannedWords);
-  return { from: 'csv', words: bannedWords};
-};
+  return { from: 'csv', words: bannedWords };
+}
 
 async function persistSettingsToCsvIfRequested(values) {
   try {
@@ -73,7 +80,7 @@ async function persistSettingsToCsvIfRequested(values) {
           fs.copyFileSync(CSV_PATH, BACKUP_PATH);
         }
       } catch (e) {
-
+        // ignore
       }
       writeCsvFile(CSV_PATH, lines);
       bannedWords = lines;
@@ -81,10 +88,10 @@ async function persistSettingsToCsvIfRequested(values) {
       return true;
     }
   } catch (e) {
-
+    // ignore
   }
   return false;
-};
+}
 
 function maskSkippingCode(text) {
   if (!text || !RX) return text;
@@ -93,18 +100,36 @@ function maskSkippingCode(text) {
   let out = [];
   let last = 0;
   let m;
+  let hasCensored = false;
+  let censorCount = 0;
 
   while ((m = codeRx.exec(text)) !== null) {
-    out.push(text.slice(last, m.index).replace(RX, replacement));
+    const cleaned = text.slice(last, m.index).replace(RX, (match) => {
+      censorCount++;
+      hasCensored = true;
+      return replacement;
+    });
+    out.push(cleaned);
     out.push(m[0]);
     last = codeRx.lastIndex;
   }
-  out.push(text.slice(last).replace(RX, replacement));
+  out.push(text.slice(last).replace(RX, (match) => {
+    censorCount++;
+    hasCensored = true;
+    return replacement;
+  }));
+
+  if (hasCensored) {
+    censorStats.totalCensored += censorCount;
+    censorStats.lastCensoredAt = new Date().toISOString();
+    censorStats.postsCensored++;
+  }
+
   return out.join('');
 }
 
 //initialize the csv file on load
-loadFromSettingsOrCsv().then(() =>  {
+loadFromSettingsOrCsv().then(() => {
   //register listener for settings
   plugins.hooks.on('action:settings.set.' + PLUGIN_HASH, async (data) => {
     await loadFromSettingsOrCsv();
@@ -131,6 +156,15 @@ Plugin.censorPost = async (data) => {
   if (data && data.content) {
     data.content = maskSkippingCode(data.content);
   }
+
+  if (data && data.title) {
+    data.title = maskSkippingCode(data.title);
+  }
+
+  if (data && data.topic && data.topic.title) {
+    data.topic.title = maskSkippingCode(data.topic.title);
+  }
+
   return data;
 };
 
@@ -141,25 +175,19 @@ Plugin.censorParsed = async (payload) => {
   return payload;
 };
 
-Plugin.censorTopic = async (data) => {
-  if (data && data.title) {
-    data.title = maskSkippingCode(data.title);
-  }
-  return data;
-};
-
 Plugin.init = function ({ router, middleware }) {
   const routeHelpers = require.main.require('./src/routes/helpers');
 
   const renderSettings = async (req, res) => {
     const values = (await settings.get(PLUGIN_HASH)) || {};
-    // If no custom list saved, show the CSV contents as the default text
     const banned = values.bannedWords && values.bannedWords.trim().length
       ? values.bannedWords
       : readCsvFile(CSV_PATH).join('\n');
 
     res.render('admin/plugins/censor/settings', {
       bannedWords: banned,
+      stats: censorStats,
+      bannedWordsCount: bannedWords.length,
       // include CSRF in template via {config.csrf_token}
     });
   };
@@ -191,6 +219,30 @@ Plugin.init = function ({ router, middleware }) {
       res.json({ success: true });
     }
   );
+
+  router.get('/api/admin/plugins/censor/stats', middleware.admin.require.admin, (req, res) => {
+    res.json({
+      success: true,
+      stats: {
+        totalWordsCensored: censorStats.totalCensored,
+        postsCensored: censorStats.postsCensored,
+        lastCensoredAt: censorStats.lastCensoredAt || 'Never',
+        bannedWordsCount: bannedWords.length,
+      },
+    });
+  });
+};
+
+Plugin.censorTopicCreate = async (payload) => {
+  if (payload && payload.title) {
+    payload.title = maskSkippingCode(payload.title);
+  }
+
+  if (payload && payload.topic && payload.topic.title) {
+    payload.topic.title = maskSkippingCode(payload.topic.title);
+  }
+
+  return payload;
 };
 
 module.exports = Plugin;
