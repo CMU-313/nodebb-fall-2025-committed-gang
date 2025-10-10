@@ -282,8 +282,17 @@ require([
 			return;
 		}
 
+		const poll = pollsByPid.get(String(widgetEl.dataset.pid));
+		
 		widgetEl.querySelectorAll('.composer-polls-option').forEach((optionEl) => {
 			const input = optionEl.querySelector('.form-check-input');
+			
+			// Enable drag-and-drop for ranked polls
+			if (poll && poll.type === 'ranked' && coerceBoolean(poll.canVote)) {
+				enableDragAndDrop(widgetEl, optionEl);
+				return;
+			}
+			
 			if (!input) {
 				return;
 			}
@@ -294,7 +303,6 @@ require([
 					return;
 				}
 
-				const poll = pollsByPid.get(String(widgetEl.dataset.pid));
 				if (!poll || poll.type === 'ranked' || !coerceBoolean(poll.canVote)) {
 					return;
 				}
@@ -317,6 +325,66 @@ require([
 					}
 				}
 			});
+		});
+	}
+
+	function enableDragAndDrop(widgetEl, optionEl) {
+		// Make the option draggable
+		optionEl.setAttribute('draggable', 'true');
+		optionEl.style.cursor = 'grab';
+		
+		optionEl.addEventListener('dragstart', (e) => {
+			e.dataTransfer.effectAllowed = 'move';
+			e.dataTransfer.setData('text/plain', optionEl.dataset.optionId);
+			optionEl.classList.add('dragging');
+			optionEl.style.opacity = '0.5';
+		});
+		
+		optionEl.addEventListener('dragend', (e) => {
+			optionEl.classList.remove('dragging');
+			optionEl.style.opacity = '1';
+			optionEl.style.cursor = 'grab';
+			// Update controls after drag ends
+			updateRankedControls(widgetEl);
+		});
+		
+		optionEl.addEventListener('dragover', (e) => {
+			e.preventDefault();
+			e.dataTransfer.dropEffect = 'move';
+			
+			const draggingEl = widgetEl.querySelector('.dragging');
+			if (!draggingEl || draggingEl === optionEl) {
+				return;
+			}
+			
+			// Get bounding rectangles
+			const rect = optionEl.getBoundingClientRect();
+			const midpoint = rect.top + rect.height / 2;
+			
+			// Determine if we should insert before or after
+			if (e.clientY < midpoint) {
+				optionEl.parentNode.insertBefore(draggingEl, optionEl);
+			} else {
+				optionEl.parentNode.insertBefore(draggingEl, optionEl.nextSibling);
+			}
+		});
+		
+		optionEl.addEventListener('drop', (e) => {
+			e.preventDefault();
+			e.stopPropagation();
+		});
+		
+		// Visual feedback on hover
+		optionEl.addEventListener('dragenter', (e) => {
+			if (!optionEl.classList.contains('dragging')) {
+				optionEl.style.borderColor = '#0d6efd';
+				optionEl.style.backgroundColor = 'rgba(13, 110, 253, 0.05)';
+			}
+		});
+		
+		optionEl.addEventListener('dragleave', (e) => {
+			optionEl.style.borderColor = '';
+			optionEl.style.backgroundColor = '';
 		});
 	}
 
