@@ -1,0 +1,40 @@
+/* Drag and Drop Styles for Ranked Polls */
+.composer-polls-option[draggable="true"] {
+	cursor: grab;
+	transition: all 0.2s ease;
+}
+
+.composer-polls-option[draggable="true"]:active {
+	cursor: grabbing;
+}
+
+.composer-polls-option.dragging {
+	opacity: 0.5;
+	transform: scale(0.98);
+}
+
+.composer-polls-option[draggable="true"]:hover {
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Add a visual indicator that items are draggable */
+.composer-polls-option[draggable="true"] .composer-polls-ranked-row::before {
+	content: "⋮⋮";
+	position: absolute;
+	left: 8px;
+	color: #6c757d;
+	font-size: 18px;
+	line-height: 1;
+	opacity: 0.5;
+	cursor: grab;
+}
+
+.composer-polls-option[draggable="true"] .composer-polls-ranked-row {
+	position: relative;
+	padding-left: 28px;
+}
+
+/* Smooth transitions for reordering */
+.composer-polls-options {
+	transition: all 0.3s ease;
+}

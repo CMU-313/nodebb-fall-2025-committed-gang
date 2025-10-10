@@ -19,6 +19,9 @@
 		"./static/lib/composer-polls.js",
 		"./static/lib/topic-polls.js"
 	],
+	"css": [
+		"./static/style.css"
+	],
 	"languages": "./public/language",
 	"templates": "./static/templates"
 }
