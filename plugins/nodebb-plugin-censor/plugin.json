@@ -11,16 +11,14 @@
     	"name": "Censor"
   	},
 
-  	"hooks": [
-    	{ "hook": "static:app.load", "method": "init" },
-    	{ "hook": "filter:post.save", "method": "censorPost" },
-    	{ "hook": "filter:parse.post", "method": "censorParsed" },
-    	{ "hook": "filter:topic.create", "method": "censorTopicCreate" },
-    	{ "hook": "filter:admin.header.build", "method": "addAdminNav" }
-  	],
-
-  	"staticDirs": { "censor": "static" },
-  	"acpScripts": [ "static/lib/admin.js" ],
-  	"templates": "templates",
-  	"nbbpm": { "compatibility": "^4.0.0" }
+  "hooks": [
+    { "hook": "static:app.load", "method": "init" },
+    { "hook": "filter:post.create", "method": "censorPost" },
+    { "hook": "filter:post.edit", "method": "censorPost" },
+    { "hook": "filter:parse.post", "method": "censorParsed" },
+    { "hook": "filter:topic.create", "method": "censorTopic" },
+    { "hook": "filter:topic.edit", "method": "censorTopic" },
+    { "hook": "filter:parse.raw", "method": "parseRaw" },
+    { "hook": "action:settings.set.nodebb-plugin-censor", "method": "onSettingsSet" }
+  ]
 }

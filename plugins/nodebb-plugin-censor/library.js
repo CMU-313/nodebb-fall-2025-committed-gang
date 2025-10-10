@@ -8,7 +8,6 @@ const Topics = require.main.require('./src/topics');
 const meta = require.main.require("./src/meta");
 const settings = require.main.require("./src/meta/settings");
 const plugins = require.main.require("./src/plugins");
-const settingsRoute = "/admin/plugins/censor";
 
 const PLUGIN_HASH = "nodebb-plugin-censor";
 const CSV_PATH = path.join(__dirname, "profanity.csv");
@@ -18,11 +17,8 @@ let bannedWords = [];
 let RX = null;
 const replacement = '****';
 
-let censorStats = {
-  totalCensored: 0,
-  lastCensoredAt: null,
-  postsCensored: 0,
-};
+// expose settings route for ACP
+const settingsRoute = "/admin/plugins/censor/settings";
 
 const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -58,7 +54,8 @@ async function loadFromSettingsOrCsv() {
       const parts = raw.split(/[,\r?\n]+/).map(s => s.trim()).filter(Boolean);
       bannedWords = parts;
       RX = buildRegex(bannedWords);
-      return { from: 'settings', words: bannedWords };
+      console.log('[censor] loaded from settings:', bannedWords.length, 'words');
+      return { from: 'settings', words: bannedWords}; 
     }
   } catch (e) {
     //fallback to CSV
@@ -66,8 +63,9 @@ async function loadFromSettingsOrCsv() {
 
   bannedWords = readCsvFile(CSV_PATH);
   RX = buildRegex(bannedWords);
-  return { from: 'csv', words: bannedWords };
-}
+  console.log('[censor] loaded from CSV:', CSV_PATH, 'words:', bannedWords.length, 'rx?', !!RX);
+  return { from: 'csv', words: bannedWords};
+};
 
 async function persistSettingsToCsvIfRequested(values) {
   try {
@@ -129,27 +127,64 @@ function maskSkippingCode(text) {
 }
 
 //initialize the csv file on load
-loadFromSettingsOrCsv().then(() => {
-  //register listener for settings
-  plugins.hooks.on('action:settings.set.' + PLUGIN_HASH, async (data) => {
-    await loadFromSettingsOrCsv();
-    await persistSettingsToCsvIfRequested(data);
-  });
-}).catch(() => {});
+loadFromSettingsOrCsv().catch((e) => {
+      console.error('[nodebb-plugin-censor] Failed to register ACP routes:',e);
+});
 
 const Plugin = {};
 
-Plugin.settingsRoute = '/plugins/censor';
+// Expose settings route for ACP plugin list
+Plugin.settingsRoute = settingsRoute;
 
-// Ensure a left-sidebar entry under "Plugins"
-Plugin.addAdminNav = function (header, callback) {
-  header.plugins = header.plugins || [];
-  header.plugins.push({
-    route: '/plugins/censor',   // must match plugin.json admin.route (without /admin)
-    icon: 'fa-ban',
-    name: 'Censor',
-  });
-  callback(null, header);
+// Hook: called when NodeBB starts up
+Plugin.init = function({router, middleware}) {
+  try {
+    const routeHelpers = require.main.require('./src/routes/helpers');
+
+    // Controller to render the settings page
+    const renderSettings = async (req, res) => {
+      // Load current settings to prefill the textarea
+      const values = await settings.get(PLUGIN_HASH) || {};
+      const banned = values.bannedWords || readCsvFile(CSV_PATH).join('\n');
+      const persist = values.persistCsv === 'on';
+      res.render('admin/plugins/censor/settings', { bannedWords: banned, persistCsv: persist });
+    };
+
+    // Mount the admin page and the API POST route
+    routeHelpers.setupAdminPageRoute(router, settingsRoute, [], renderSettings);
+
+    const applyCSRF = middleware.applyCSRF || middleware.applyCSRFcheck || ((req,res,next) => next());
+
+    router.post(
+      '/api' + settingsRoute,
+      middleware.ensureLoggedIn,
+      middleware.admin.checkPrivileges,
+      applyCSRF,                              // important for ACP forms
+      async (req, res) => {
+        const body = req.body || {};
+
+        // Normalize checkbox
+        const persistCsv = body.persistCsv ? 'on' : undefined;
+        const bannedWordsRaw = body.bannedWords || '';
+
+        // Persist to NodeBB settings
+        await settings.set(PLUGIN_HASH, {
+          bannedWords: bannedWordsRaw,
+          persistCsv,
+        });
+
+        // Rebuild in-memory list/regex
+        await loadFromSettingsOrCsv();
+
+        // Optionally write to profanity.csv (and update RX again from those lines)
+        await persistSettingsToCsvIfRequested({ bannedWords: bannedWordsRaw, persistCsv });
+
+        res.json({ success: true });
+      }
+    );
+  } catch (e) {
+    console.error('[nodebb-plugin-censor] Failed to register ACP routes:',e);
+  }
 };
 
 Plugin.censorPost = async (data) => {
@@ -175,74 +210,11 @@ Plugin.censorParsed = async (payload) => {
   return payload;
 };
 
-Plugin.init = function ({ router, middleware }) {
-  const routeHelpers = require.main.require('./src/routes/helpers');
-
-  const renderSettings = async (req, res) => {
-    const values = (await settings.get(PLUGIN_HASH)) || {};
-    const banned = values.bannedWords && values.bannedWords.trim().length
-      ? values.bannedWords
-      : readCsvFile(CSV_PATH).join('\n');
-
-    res.render('admin/plugins/censor/settings', {
-      bannedWords: banned,
-      stats: censorStats,
-      bannedWordsCount: bannedWords.length,
-      // include CSRF in template via {config.csrf_token}
-    });
-  };
-
-  // Creates:
-  //   GET  /admin/plugins/censor/settings
-  //   GET  /api/admin/plugins/censor/settings
-  routeHelpers.setupAdminPageRoute(router, settingsRoute, [], renderSettings);
-
-  const applyCSRF =
-    middleware.applyCSRF || middleware.applyCSRFcheck || ((req, res, next) => next());
-
-  // Save handler: store to settings and rebuild in-memory regex
-  router.post(
-    '/api' + settingsRoute,
-    middleware.ensureLoggedIn,
-    middleware.admin.checkPrivileges,
-    applyCSRF,
-    async (req, res) => {
-      const body = req.body || {};
-      const text = (body.bannedWords || '').trim();
-
-      // If the textbox is empty, we store empty string: loadFromSettingsOrCsv() will fall back to CSV
-      await settings.set(PLUGIN_HASH, { bannedWords: text });
-
-      // Rebuild in-memory list/regex immediately
-      await loadFromSettingsOrCsv();
-
-      res.json({ success: true });
-    }
-  );
-
-  router.get('/api/admin/plugins/censor/stats', middleware.admin.require.admin, (req, res) => {
-    res.json({
-      success: true,
-      stats: {
-        totalWordsCensored: censorStats.totalCensored,
-        postsCensored: censorStats.postsCensored,
-        lastCensoredAt: censorStats.lastCensoredAt || 'Never',
-        bannedWordsCount: bannedWords.length,
-      },
-    });
-  });
-};
-
-Plugin.censorTopicCreate = async (payload) => {
-  if (payload && payload.title) {
-    payload.title = maskSkippingCode(payload.title);
+Plugin.parseRaw = async (raw) => {
+  if (typeof raw === 'string' && RX) {
+    return maskSkippingCode(raw);
   }
-
-  if (payload && payload.topic && payload.topic.title) {
-    payload.topic.title = maskSkippingCode(payload.topic.title);
-  }
-
-  return payload;
+  return raw;
 };
 
 module.exports = Plugin;
