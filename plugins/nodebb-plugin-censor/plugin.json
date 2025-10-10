@@ -3,7 +3,7 @@
   	"name": "Censor Plugin",
   	"description": "Automatically censors profanity in posts",
   	"version": "1.0.0",
-  	"library": "./library.js",
+  	"main": "./library.js",
 
   	"admin": {
     	"route": "/plugins/censor",
@@ -12,6 +12,8 @@
   	},
 
   "hooks": [
+		{ "hook": "static:app.load", "method": "init" },
+		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" },
     { "hook": "filter:post.create", "method": "censorPost" },
     { "hook": "filter:post.edit", "method": "censorPost" },
     { "hook": "filter:parse.post", "method": "censorParsed" },

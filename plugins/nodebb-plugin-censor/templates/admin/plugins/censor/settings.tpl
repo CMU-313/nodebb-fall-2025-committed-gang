@@ -26,13 +26,13 @@
   </div>
   
   <div class="col-sm-9">
-    <form class="censor-settings">
+  <form class="censor-settings" method="post" action="/admin/plugins/censor/settings">
       <div class="mb-3">
         <label class="form-label"><strong>Banned words</strong> (one per line or comma-separated)</label>
         <textarea class="form-control" name="bannedWords" rows="18">{bannedWords}</textarea>
       </div>
       <input type="hidden" name="_csrf" value="{config.csrf_token}">
-      <button id="censor-save" type="button" class="btn btn-primary">
+      <button id="censor-save" type="submit" class="btn btn-primary">
         <i class="fa fa-save"></i> Save
       </button>
       <button id="censor-reset" type="button" class="btn btn-outline-secondary ms-2">
