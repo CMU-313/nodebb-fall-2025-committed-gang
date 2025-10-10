@@ -1,29 +1,12 @@
-.poll-validation-error {
-    animation: flashRed 2s;
+/* Poll validation styles
+.composer-polls-modal .btn-outline-primary.poll-type-error {
+    border-color: #dc3545 !important;
+    color: #dc3545 !important;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+    transition: all 0.3s ease-in-out;
 }
 
-@keyframes flashRed {
-    0%, 100% { 
-        background-color: transparent; 
-    }
-    50% { 
-        background-color: rgba(255, 0, 0, 0.3);
-        box-shadow: 0 0 5px rgba(255, 0, 0, 0.5);
-    }
-}
-
-/* Target the radio button container specifically */
-.composer-polls-modal .radio.poll-validation-error {
-    padding: 5px;
-    border-radius: 4px;
-}
-
-.poll-type-options .radio {
-    transition: border 0.3s ease;
-    padding: 8px;
-    border-radius: 4px;
-}
-
-.composer-polls-option-input {
-    transition: border 0.3s ease;
-}
+.composer-polls-modal .composer-polls-option-input.poll-option-error {
+    border: 2px solid #dc3545 !important;
+    transition: all 0.3s ease-in-out;
+} */
