@@ -378,11 +378,39 @@ require([
 		const modalEl = dialog.find('.composer-polls-modal');
 		const collection = collectPollFromModal(modalEl);
 		if (collection.error) {
+			// Check poll type validation
+			if (!modalEl.find('input[name="composer-poll-type"]:checked').length) {
+				// Target the Bootstrap button labels
+				modalEl.find('.btn-outline-primary').css({
+					'border-color': '#dc3545',
+					'color': '#dc3545',
+					'box-shadow': '0 0 0 0.2rem rgba(220, 53, 69, 0.25)'
+				});
+				
+				setTimeout(() => {
+					modalEl.find('.btn-outline-primary').css({
+						'border-color': '',
+						'color': '',
+						'box-shadow': ''
+					});
+				}, 2000);
+			}
+
+			// Check poll options validation
+			modalEl.find('.composer-polls-option-input').each(function() {
+				if (!$(this).val().trim()) {
+					$(this).css('border', '2px solid #dc3545');
+					setTimeout(() => {
+						$(this).css('border', '');
+					}, 2000);
+				}
+			});
+			
 			const errorText = await translate(collection.error);
 			alerts.error(errorText);
 			return false;
 		}
-
+		
 		setPoll(uuid, collection.poll);
 		refreshSummary(postContainer, collection.poll, summaryLabels);
 		updateBadge(postContainer, collection.poll);

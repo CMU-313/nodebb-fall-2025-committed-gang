@@ -20,5 +20,6 @@
 		"./static/lib/topic-polls.js"
 	],
 	"languages": "./public/language",
-	"templates": "./static/templates"
+	"templates": "./static/templates",
+	"css": "./static/style.css"
 }
