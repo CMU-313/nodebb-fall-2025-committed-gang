@@ -12,13 +12,10 @@
   	},
 
   "hooks": [
-    { "hook": "static:app.load", "method": "init" },
     { "hook": "filter:post.create", "method": "censorPost" },
     { "hook": "filter:post.edit", "method": "censorPost" },
     { "hook": "filter:parse.post", "method": "censorParsed" },
-    { "hook": "filter:topic.create", "method": "censorTopic" },
-    { "hook": "filter:topic.edit", "method": "censorTopic" },
-    { "hook": "filter:parse.raw", "method": "parseRaw" },
-    { "hook": "action:settings.set.nodebb-plugin-censor", "method": "onSettingsSet" }
+	{ "hook": "filter:topic.create", "method": "censorTopic"  },
+    { "hook": "filter:topic.edit",   "method": "censorTopic"  }
   ]
 }

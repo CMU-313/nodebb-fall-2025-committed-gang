@@ -8,6 +8,7 @@ const Topics = require.main.require('./src/topics');
 const meta = require.main.require("./src/meta");
 const settings = require.main.require("./src/meta/settings");
 const plugins = require.main.require("./src/plugins");
+const settingsRoute = "/admin/plugins/censor/settings";
 
 const PLUGIN_HASH = "nodebb-plugin-censor";
 const CSV_PATH = path.join(__dirname, "profanity.csv");
@@ -16,9 +17,6 @@ const BACKUP_PATH = path.join(__dirname, "profanity.csv.bak");
 let bannedWords = [];
 let RX = null;
 const replacement = '****';
-
-// expose settings route for ACP
-const settingsRoute = "/admin/plugins/censor/settings";
 
 const escapeRegExp = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
@@ -132,60 +130,6 @@ loadFromSettingsOrCsv().catch((e) => {
 });
 
 const Plugin = {};
-
-// Expose settings route for ACP plugin list
-Plugin.settingsRoute = settingsRoute;
-
-// Hook: called when NodeBB starts up
-Plugin.init = function({router, middleware}) {
-  try {
-    const routeHelpers = require.main.require('./src/routes/helpers');
-
-    // Controller to render the settings page
-    const renderSettings = async (req, res) => {
-      // Load current settings to prefill the textarea
-      const values = await settings.get(PLUGIN_HASH) || {};
-      const banned = values.bannedWords || readCsvFile(CSV_PATH).join('\n');
-      const persist = values.persistCsv === 'on';
-      res.render('admin/plugins/censor/settings', { bannedWords: banned, persistCsv: persist });
-    };
-
-    // Mount the admin page and the API POST route
-    routeHelpers.setupAdminPageRoute(router, settingsRoute, [], renderSettings);
-
-    const applyCSRF = middleware.applyCSRF || middleware.applyCSRFcheck || ((req,res,next) => next());
-
-    router.post(
-      '/api' + settingsRoute,
-      middleware.ensureLoggedIn,
-      middleware.admin.checkPrivileges,
-      applyCSRF,                              // important for ACP forms
-      async (req, res) => {
-        const body = req.body || {};
-
-        // Normalize checkbox
-        const persistCsv = body.persistCsv ? 'on' : undefined;
-        const bannedWordsRaw = body.bannedWords || '';
-
-        // Persist to NodeBB settings
-        await settings.set(PLUGIN_HASH, {
-          bannedWords: bannedWordsRaw,
-          persistCsv,
-        });
-
-        // Rebuild in-memory list/regex
-        await loadFromSettingsOrCsv();
-
-        // Optionally write to profanity.csv (and update RX again from those lines)
-        await persistSettingsToCsvIfRequested({ bannedWords: bannedWordsRaw, persistCsv });
-
-        res.json({ success: true });
-      }
-    );
-  } catch (e) {
-    console.error('[nodebb-plugin-censor] Failed to register ACP routes:',e);
-  }
-};
 
 Plugin.censorPost = async (data) => {
   if (data && data.content) {
