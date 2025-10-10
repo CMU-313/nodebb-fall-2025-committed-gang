@@ -1,0 +1,23 @@
+{
+  	"id": "nodebb-plugin-censor",
+  	"name": "Censor Plugin",
+  	"description": "Automatically censors profanity in posts",
+  	"version": "1.0.0",
+  	"main": "./library.js",
+
+  	"admin": {
+    	"route": "/plugins/censor",
+    	"icon": "fa-ban",
+    	"name": "Censor"
+  	},
+
+  "hooks": [
+		{ "hook": "static:app.load", "method": "init" },
+		{ "hook": "filter:admin.header.build", "method": "addAdminNavigation" },
+    { "hook": "filter:post.create", "method": "censorPost" },
+    { "hook": "filter:post.edit", "method": "censorPost" },
+    { "hook": "filter:parse.post", "method": "censorParsed" },
+	{ "hook": "filter:topic.create", "method": "censorTopic"  },
+    { "hook": "filter:topic.edit",   "method": "censorTopic"  }
+  ]
+}
