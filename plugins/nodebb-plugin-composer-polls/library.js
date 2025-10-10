@@ -18,58 +18,6 @@ const POLL_MAX_OPTIONS = 10;
 const OPTION_MAX_LENGTH = 120;
 
 const plugin = {};
-const Benchpress = require.main.require('benchpressjs');
-
-
-plugin.debugCheckPollData = async function(pid) {
-	console.log('=== MANUAL POLL DATA CHECK ===');
-	console.log('Checking PID:', pid);
-	
-	try {
-		const pollData = await db.getObject(`poll:${pid}`);
-		console.log('Poll data from DB:', pollData);
-		
-		const postData = await db.getObject(`post:${pid}`);
-		console.log('Post pollId field:', postData?.pollId);
-		
-		return { pollData, postData };
-	} catch (error) {
-		console.log('❌ Database check error:', error);
-		return { error };
-	}
-};
-
-
-// Save poll data when post is created 
-plugin.savePoll = async function (postData) {
-    if (postData.poll) {
-        await db.setObject(`poll:${postData.pid}`, postData.poll);
-    }
-    return postData;
-};
-
-
-
-// Attach poll when posts are fetched
-plugin.attachPoll = async function(posts) {
-    const postArray = Array.isArray(posts) ? posts : [posts];
-
-    for (let post of postArray) {
-        const poll = await db.getObject(`poll:${post.pid}`);
-        if (poll) {
-            post.poll = poll;
-
-            // Render plugin partial for posts that have a poll
-            post.pollHTML = await Benchpress.render('nodebb-composer-polls/post', { poll });
-        }
-    }
-
-    return Array.isArray(posts) ? postArray : postArray[0];
-};
-
-
-
-
 plugin.addPollFormattingOption = async function (payload) {
 	if (!payload || !Array.isArray(payload.options)) {
 		return payload;
@@ -101,31 +49,18 @@ plugin.addPollFormattingOption = async function (payload) {
 
 // 1. In plugin.handleComposerCheck (around line 75):
 plugin.handleComposerCheck = async function (payload) {
-	console.log('=== COMPOSER CHECK START ===');
-	console.log('Payload received:', payload);
-	console.log('Has data:', !!payload?.data);
-	console.log('Has poll in data:', !!payload?.data?.poll);
-	console.log('Poll data:', payload?.data?.poll);
-
 	if (!payload || !payload.data || !payload.data.poll) {
-		console.log('❌ No poll data found in composer check');
 		return payload;
 	}
 
 	if (!utils.isNumber(payload.data.uid)) {
-		console.log('❌ Invalid UID:', payload.data.uid);
 		throw new Error('[[composer-polls:errors.invalid-author]]');
 	}
 
-	console.log('✅ Sanitizing poll config...');
 	const sanitized = sanitizePollConfig(payload.data.poll, parseInt(payload.data.uid, 10));
-	console.log('Sanitized poll:', sanitized);
-	
 	payload.data._poll = sanitized;
 	delete payload.data.poll;
 	
-	console.log('✅ Poll moved to _poll property');
-	console.log('=== COMPOSER CHECK END ===');
 	return payload;
 };
 
@@ -145,22 +80,11 @@ plugin.handleTopicPost = async function (data) {
 	return data;
 };
 
-// 2. In plugin.onTopicPost (around line 107):
 plugin.onTopicPost = async function ({ topic, post, data }) {
-	console.log('=== TOPIC POST HOOK START ===');
-	console.log('Topic:', topic);
-	console.log('Post:', post);
-	console.log('Data keys:', Object.keys(data || {}));
-	console.log('Has _poll:', !!data?._poll);
-	console.log('Poll data:', data?._poll);
-
 	if (!data || !data._poll || !post || !topic) {
-		console.log('❌ Missing required data for poll creation');
 		return;
 	}
 	
-	// Create poll record
-
 	const pollId = String(post.pid);
 	const now = Date.now();
 	const pollRecord = {
@@ -178,16 +102,12 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 		results: JSON.stringify(createEmptyResults(data._poll)),
 	};
 
-	console.log('✅ Creating poll record:', pollRecord);
-	console.log('Saving to database key:', `poll:${pollId}`);
-
 	try {
 		await db.setObject(`poll:${pollId}`, pollRecord);
 		await Promise.all([
 			db.setObjectField(`post:${post.pid}`, 'pollId', pollId),
 			db.setObjectField(`topic:${topic.tid}`, 'pollId', pollId),
 		]);
-		console.log('✅ Poll saved successfully!');
 	} catch (error) {
 		winston.error(`[composer-polls] Failed to save poll for post ${post.pid}: ${error.message}`);
 		// Clean up any partial data
@@ -196,8 +116,6 @@ plugin.onTopicPost = async function ({ topic, post, data }) {
 		await db.deleteObjectField(`topic:${topic.tid}`, 'pollId').catch(() => {});
 		throw new Error('[[composer-polls:errors.save-failed]]');
 	}
-
-	console.log('=== TOPIC POST HOOK END ===');
 };
 
 // Helpers for debugging composer post data
@@ -511,33 +429,20 @@ plugin.onTopicMerge = async function ({ mergeIntoTid, otherTids }) {
 // Sanitization and normalization functions
 
 function sanitizePollConfig(rawPoll, ownerUid) {
-	console.log('=== SANITIZE POLL START ===');
-	console.log('Raw poll input:', rawPoll);
-	console.log('Owner UID:', ownerUid);
-
 	if (!rawPoll || typeof rawPoll !== 'object') {
-		console.log(' Invalid poll object');
 		throw new Error('[[composer-polls:errors.invalid]]');
 	}
 
 	const type = typeof rawPoll.type === 'string' ? rawPoll.type.trim() : '';
-	console.log('Poll type:', type, 'Valid:', POLL_TYPES.has(type));
-
 	if (!POLL_TYPES.has(type)) {
-		console.log('Invalid poll type');
 		throw new Error('[[composer-polls:errors.type-required]]');
 	}
 
 	const rawOptions = Array.isArray(rawPoll.options) ? rawPoll.options : [];
-	console.log('Raw options count:', rawOptions.length);
-	console.log('Raw options:', rawOptions);
-
 	if (rawOptions.length < POLL_MIN_OPTIONS) {
-		console.log('Too few options');
 		throw new Error('[[composer-polls:errors.option-required, ' + POLL_MIN_OPTIONS + ']]');
 	}
 	if (rawOptions.length > POLL_MAX_OPTIONS) {
-		console.log('Too many options');
 		throw new Error('[[composer-polls:errors.option-limit, ' + POLL_MAX_OPTIONS + ']]');
 	}
 
@@ -574,7 +479,7 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 		visibility = 'anonymous';
 	}
 
-	const result = {
+	return {
 		type,
 		options,
 		visibility,
@@ -582,10 +487,6 @@ function sanitizePollConfig(rawPoll, ownerUid) {
 		closesAt,
 		ownerUid,
 	};
-
-	console.log('✅ Sanitized poll result:', result);
-	console.log('=== SANITIZE POLL END ===');
-	return result;
 }
 
 
