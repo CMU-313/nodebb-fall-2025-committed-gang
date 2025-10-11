@@ -30,14 +30,14 @@ Once selected, can configure poll with various handlers:
 // Feature 2: Censorship 
 
 **Prerequestite**: nodebb-plugin-censor to be activated, user must be logged in as an admin in order to apply censorship constraints
-**New Topic**: User creates a new post/new topic
+**New Topic**: User creates a new post/new topic, any bad/harmful words are automatically censored.
 **Admin Control**: Can control a .csv file with a list of “bad words” that should be censored. - Use cases include teachers in a forum, professional working environments, etc. Prevents posts from being offensive/potentially triggering
 
 **Pre Submission**: While creating a topic, the average user can type anything they would like included in the post
 
-**Post Submission**: If the words in the post are included in the .csv file that includes the bad words, the interface will censor them out with the asterisks symbols **. 
+**Post Submission**: If the words in the post are included in the .csv file that includes the bad words, the interface will censor them out with the asterisks symbols ****. 
 
 **Testing**
-- [TO BE UPDATED]
+- tests/plugins/censorship.js ⇒ added to automated test suite. Covers functionality of censorship including: bad words in posts automatically censored, bad words in code blocks or inline code not censored, 
 - Tests sufficient as they test primary functionality points of the censorship feature and where they may break within each of the categories described above. Unit tests test edge cases that users should input using special characters. 
 
