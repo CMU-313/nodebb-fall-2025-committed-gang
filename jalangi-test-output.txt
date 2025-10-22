@@ -1,0 +1,2 @@
+Result: NaN
+Observed NaN at (/workspaces/nodebb-fall-2025-committed-gang/my-test-file.js:5:16:5:24) 1 time(s).
