@@ -75,3 +75,7 @@ test.sh
 
 .docker/**
 !**/.gitkeep
+
+## Flow /lib
+/lib
+/lib
