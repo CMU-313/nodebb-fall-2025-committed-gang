@@ -30,6 +30,10 @@ Our minimalist "Harmony" theme gets you going right away, no coding experience r
 
 ![Rendering of a NodeBB install on desktop and mobile devices](https://user-images.githubusercontent.com/923011/228570420-2a4db745-b20d-474a-a571-1b59259508ef.png)
 
+This branch uses StandardJS to staticaly check for code style. Here is a screenshot of it running on the entire repo:
+<img width="912" height="548" alt="Screenshot 2025-10-20 at 1 44 36 PM" src="https://github.com/user-attachments/assets/b62e5ffe-e354-425d-b45c-988bf007c25b" />
+
+
 ## How can I follow along/contribute?
 
 * If you are a developer, feel free to check out the source and submit pull requests. We also have a wide array of [plugins](http://community.nodebb.org/category/7/nodebb-plugins) which would be a great starting point for learning the codebase.
