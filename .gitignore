@@ -22,6 +22,7 @@ provision.sh
 feeds/recent.rss
 .eslintcache
 .svn
+my-test-file_jalangi_.js
 
 logs/
 
@@ -67,8 +68,8 @@ coverage
 *.log
 test/files/normalise.jpg.png
 test/files/normalise-resized.jpg
-package-lock.json
-/package.json
+#package-lock.json
+#/package.json
 *.mongodb
 link-plugins.sh
 test.sh
