@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - src/meta/css.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>src/meta/css.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">71.05</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">350</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">28.22</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">4.05</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&#039;use strict&#039;;
+
+const _ = require(&#039;lodash&#039;);
+const winston = require(&#039;winston&#039;);
+const nconf = require(&#039;nconf&#039;);
+const fs = require(&#039;fs&#039;);
+const path = require(&#039;path&#039;);
+const { mkdirp } = require(&#039;mkdirp&#039;);
+
+const plugins = require(&#039;../plugins&#039;);
+const db = require(&#039;../database&#039;);
+const file = require(&#039;../file&#039;);
+const minifier = require(&#039;./minifier&#039;);
+const utils = require(&#039;../utils&#039;);
+
+const CSS = module.exports;
+
+CSS.supportedSkins = [
+	&#039;brite&#039;, &#039;cerulean&#039;, &#039;cosmo&#039;, &#039;cyborg&#039;, &#039;darkly&#039;, &#039;flatly&#039;, &#039;journal&#039;, &#039;litera&#039;,
+	&#039;lumen&#039;, &#039;lux&#039;, &#039;materia&#039;, &#039;minty&#039;, &#039;morph&#039;, &#039;pulse&#039;, &#039;quartz&#039;, &#039;sandstone&#039;,
+	&#039;simplex&#039;, &#039;sketchy&#039;, &#039;slate&#039;, &#039;solar&#039;, &#039;spacelab&#039;, &#039;superhero&#039;, &#039;united&#039;,
+	&#039;vapor&#039;, &#039;yeti&#039;, &#039;zephyr&#039;,
+];
+
+const buildImports = {
+	client: function (source, themeData) {
+		return [
+			boostrapImport(themeData),
+			&#039;@import &quot;@adactive/bootstrap-tagsinput/src/bootstrap-tagsinput&quot;;&#039;,
+			source,
+			&#039;@import &quot;jquery-ui&quot;;&#039;,
+			&#039;@import &quot;cropperjs/dist/cropper&quot;;&#039;,
+		].join(&#039;\n&#039;);
+	},
+	admin: function (source) {
+		return [
+			&#039;@import &quot;admin/overrides&quot;;&#039;,
+			&#039;@import &quot;bootstrap/scss/bootstrap&quot;;&#039;,
+			&#039;@import &quot;mixins&quot;;&#039;,
+			&#039;@import &quot;fontawesome/loader&quot;;&#039;,
+			getFontawesomeStyle(),
+			&#039;@import &quot;@adactive/bootstrap-tagsinput/src/bootstrap-tagsinput&quot;;&#039;,
+			&#039;@import &quot;generics&quot;;&#039;,
+			&#039;@import &quot;responsive-utilities&quot;;&#039;,
+			&#039;@import &quot;admin/admin&quot;;&#039;,
+			source,
+			&#039;@import &quot;jquery-ui&quot;;&#039;,
+		].join(&#039;\n&#039;);
+	},
+};
+
+function boostrapImport(themeData) {
+	// see https://getbootstrap.com/docs/5.0/customize/sass/#variable-defaults
+	// for an explanation of this order and https://bootswatch.com/help/
+	const { bootswatchSkin, bsVariables, isCustomSkin } = themeData;
+	function bsvariables() {
+		if (bootswatchSkin) {
+			if (isCustomSkin) {
+				return themeData._variables || &#039;&#039;;
+			}
+			return `@import &quot;bootswatch/dist/${bootswatchSkin}/variables&quot;;`;
+		}
+		return bsVariables;
+	}
+
+	return [
+		bsvariables(),
+		&#039;@import &quot;bootstrap/scss/mixins/banner&quot;;&#039;,
+		&#039;@include bsBanner(&quot;&quot;);&#039;,
+		// functions must be included first
+		&#039;@import &quot;bootstrap/scss/functions&quot;;&#039;,
+
+		// overrides for bs5 variables
+		&#039;@import &quot;./scss/overrides&quot;;&#039;, // this file is in the themes scss folder
+		&#039;@import &quot;overrides.scss&quot;;&#039;, // core scss overrides
+
+		// bs files
+		&#039;@import &quot;bootstrap/scss/variables&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/variables-dark&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/maps&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/mixins&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/utilities&quot;;&#039;,
+
+		// Layout &amp; components
+		&#039;@import &quot;bootstrap/scss/root&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/reboot&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/type&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/images&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/containers&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/grid&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/tables&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/forms&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/buttons&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/transitions&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/dropdown&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/button-group&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/nav&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/navbar&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/card&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/accordion&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/breadcrumb&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/pagination&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/badge&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/alert&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/progress&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/list-group&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/close&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/toasts&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/modal&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/tooltip&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/popover&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/carousel&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/spinners&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/offcanvas&quot;;&#039;,
+		&#039;@import &quot;bootstrap/scss/placeholders&quot;;&#039;,
+
+		// Helpers
+		&#039;@import &quot;bootstrap/scss/helpers&quot;;&#039;,
+
+		&#039;@import &quot;responsive-utilities&quot;;&#039;,
+
+		// Utilities
+		&#039;@import &quot;bootstrap/scss/utilities/api&quot;;&#039;,
+		// scss-docs-end import-stack
+
+		&#039;@import &quot;fontawesome/loader&quot;;&#039;,
+		getFontawesomeStyle(),
+
+		&#039;@import &quot;mixins&quot;;&#039;, // core mixins
+		&#039;@import &quot;generics&quot;;&#039;,
+		&#039;@import &quot;client&quot;;&#039;, // core page styles
+		&#039;@import &quot;./theme&quot;;&#039;, // rest of the theme scss
+		bootswatchSkin &amp;&amp; !isCustomSkin ? `@import &quot;bootswatch/dist/${bootswatchSkin}/bootswatch&quot;;` : &#039;&#039;,
+	].join(&#039;\n&#039;);
+}
+
+
+function getFontawesomeStyle() {
+	const styles = utils.getFontawesomeStyles();
+	return styles.map(style =&gt; `@import &quot;fontawesome/style-${style}&quot;;`).join(&#039;\n&#039;);
+}
+
+async function copyFontAwesomeFiles() {
+	await mkdirp(path.join(__dirname, &#039;../../build/public/fontawesome/webfonts&#039;));
+	const fonts = await fs.promises.opendir(path.join(utils.getFontawesomePath(), &#039;/webfonts&#039;));
+	const copyOperations = [];
+	for await (const file of fonts) {
+		if (file.isFile() &amp;&amp; file.name.match(/\.(woff2|ttf|eot)?$/)) { // there shouldn&#039;t be any legacy eot files, but just in case we&#039;ll allow it
+			copyOperations.push(
+				fs.promises.copyFile(path.join(fonts.path, file.name), path.join(__dirname, &#039;../../build/public/fontawesome/webfonts/&#039;, file.name))
+			);
+		}
+	}
+	await Promise.all(copyOperations);
+}
+
+async function filterMissingFiles(filepaths) {
+	const exists = await Promise.all(
+		filepaths.map(async (filepath) =&gt; {
+			const exists = await file.exists(path.join(__dirname, &#039;../../node_modules&#039;, filepath));
+			if (!exists) {
+				winston.warn(`[meta/css] File not found! ${filepath}`);
+			}
+			return exists;
+		})
+	);
+	return filepaths.filter((filePath, i) =&gt; exists[i]);
+}
+
+async function getImports(files, extension) {
+	const pluginDirectories = [];
+	let source = &#039;&#039;;
+
+	function pathToImport(file) {
+		if (!file) {
+			return &#039;&#039;;
+		}
+		// trim css extension so it inlines the css like less (inline)
+		const parsed = path.parse(file);
+		const newFile = path.join(parsed.dir, parsed.name);
+		return `\n@import &quot;${newFile.replace(/\\/g, &#039;/&#039;)}&quot;;`;
+	}
+
+	files.forEach((styleFile) =&gt; {
+		if (styleFile.endsWith(extension)) {
+			source += pathToImport(styleFile);
+		} else {
+			pluginDirectories.push(styleFile);
+		}
+	});
+	await Promise.all(pluginDirectories.map(async (directory) =&gt; {
+		const styleFiles = await file.walk(directory);
+		styleFiles.forEach((styleFile) =&gt; {
+			source += pathToImport(styleFile);
+		});
+	}));
+	return source;
+}
+
+async function getBundleMetadata(target) {
+	const paths = [
+		path.join(__dirname, &#039;../../node_modules&#039;),
+		path.join(__dirname, &#039;../../public/scss&#039;),
+		path.join(__dirname, &#039;../../public/fontawesome/scss&#039;),
+		path.join(utils.getFontawesomePath(), &#039;scss&#039;),
+	];
+
+	// Skin support
+	let skin;
+	let isCustomSkin = false;
+	if (target.startsWith(&#039;client-&#039;)) {
+		skin = target.split(&#039;-&#039;).slice(1).join(&#039;-&#039;);
+		const isBootswatchSkin = CSS.supportedSkins.includes(skin);
+		isCustomSkin = !isBootswatchSkin &amp;&amp; await CSS.isCustomSkin(skin);
+		target = &#039;client&#039;;
+		if (!isBootswatchSkin &amp;&amp; !isCustomSkin) {
+			skin = &#039;&#039;; // invalid skin or deleted use default
+		}
+	}
+
+	let themeData = null;
+	if (target === &#039;client&#039;) {
+		themeData = await db.getObjectFields(&#039;config&#039;, [&#039;theme:type&#039;, &#039;theme:id&#039;, &#039;useBSVariables&#039;, &#039;bsVariables&#039;]);
+		const themeId = (themeData[&#039;theme:id&#039;] || &#039;nodebb-theme-harmony&#039;);
+		const baseThemePath = path.join(
+			nconf.get(&#039;themes_path&#039;),
+			(themeData[&#039;theme:type&#039;] &amp;&amp; themeData[&#039;theme:type&#039;] === &#039;local&#039; ? themeId : &#039;nodebb-theme-harmony&#039;)
+		);
+		paths.unshift(baseThemePath);
+		paths.unshift(`${baseThemePath}/node_modules`);
+		themeData.bsVariables = parseInt(themeData.useBSVariables, 10) === 1 ? (themeData.bsVariables || &#039;&#039;) : &#039;&#039;;
+		themeData.bootswatchSkin = skin;
+		themeData.isCustomSkin = isCustomSkin;
+		const customSkin = isCustomSkin ? await CSS.getCustomSkin(skin) : null;
+		themeData._variables = customSkin &amp;&amp; customSkin._variables;
+	}
+
+	const [scssImports, cssImports, acpScssImports] = await Promise.all([
+		filterGetImports(plugins.scssFiles, &#039;.scss&#039;),
+		filterGetImports(plugins.cssFiles, &#039;.css&#039;),
+		target === &#039;client&#039; ? &#039;&#039; : filterGetImports(plugins.acpScssFiles, &#039;.scss&#039;),
+	]);
+
+	async function filterGetImports(files, extension) {
+		const filteredFiles = await filterMissingFiles(files);
+		return await getImports(filteredFiles, extension);
+	}
+
+	let imports = `${cssImports}\n${scssImports}\n${acpScssImports}`;
+	imports = buildImports[target](imports, themeData);
+
+	return { paths: paths, imports: imports };
+}
+
+CSS.getSkinSwitcherOptions = async function (uid) {
+	const user = require(&#039;../user&#039;);
+	const meta = require(&#039;./index&#039;);
+	const [userSettings, customSkins] = await Promise.all([
+		user.getSettings(uid),
+		CSS.getCustomSkins(),
+	]);
+
+	const foundCustom = customSkins.find(skin =&gt; skin.value === meta.config.bootswatchSkin);
+	const defaultSkin = foundCustom ?
+		foundCustom.name :
+		_.capitalize(meta.config.bootswatchSkin) || &#039;[[user:no-skin]]&#039;;
+
+	const defaultSkins = [
+		{ name: `[[user:default, ${defaultSkin}]]`, value: &#039;&#039;, selected: userSettings.bootswatchSkin === &#039;&#039; },
+		{ name: &#039;[[user:no-skin]]&#039;, value: &#039;noskin&#039;, selected: userSettings.bootswatchSkin === &#039;noskin&#039; },
+	];
+	const lightSkins = [
+		&#039;brite&#039;, &#039;cerulean&#039;, &#039;cosmo&#039;, &#039;flatly&#039;, &#039;journal&#039;, &#039;litera&#039;,
+		&#039;lumen&#039;, &#039;lux&#039;, &#039;materia&#039;, &#039;minty&#039;, &#039;morph&#039;, &#039;pulse&#039;, &#039;sandstone&#039;,
+		&#039;simplex&#039;, &#039;sketchy&#039;, &#039;spacelab&#039;, &#039;united&#039;, &#039;yeti&#039;, &#039;zephyr&#039;,
+	];
+	const darkSkins = [
+		&#039;cyborg&#039;, &#039;darkly&#039;, &#039;quartz&#039;, &#039;slate&#039;, &#039;solar&#039;, &#039;superhero&#039;, &#039;vapor&#039;,
+	];
+	function parseSkins(skins) {
+		skins = skins.map(skin =&gt; ({
+			name: _.capitalize(skin),
+			value: skin,
+		}));
+		skins.forEach((skin) =&gt; {
+			skin.selected = skin.value === userSettings.bootswatchSkin;
+		});
+		return skins;
+	}
+	return await plugins.hooks.fire(&#039;filter:meta.css.getSkinSwitcherOptions&#039;, {
+		default: defaultSkins,
+		custom: customSkins.map(s =&gt; ({ ...s, selected: s.value === userSettings.bootswatchSkin })),
+		light: parseSkins(lightSkins),
+		dark: parseSkins(darkSkins),
+	});
+};
+
+CSS.getCustomSkins = async function (opts = {}) {
+	const meta = require(&#039;./index&#039;);
+	const slugify = require(&#039;../slugify&#039;);
+	const { loadVariables } = opts;
+	const customSkins = await meta.settings.get(&#039;custom-skins&#039;);
+	const returnSkins = [];
+	if (customSkins &amp;&amp; Array.isArray(customSkins[&#039;custom-skin-list&#039;])) {
+		customSkins[&#039;custom-skin-list&#039;].forEach((customSkin) =&gt; {
+			if (customSkin) {
+				returnSkins.push({
+					name: customSkin[&#039;custom-skin-name&#039;],
+					value: slugify(customSkin[&#039;custom-skin-name&#039;]),
+					_variables: loadVariables ? customSkin._variables : undefined,
+				});
+			}
+		});
+	}
+	return returnSkins;
+};
+
+CSS.isSkinValid = async function (skin) {
+	return CSS.supportedSkins.includes(skin) || await CSS.isCustomSkin(skin);
+};
+
+CSS.isCustomSkin = async function (skin) {
+	const skins = await CSS.getCustomSkins();
+	return !!skins.find(s =&gt; s.value === skin);
+};
+
+CSS.getCustomSkin = async function (skin) {
+	const skins = await CSS.getCustomSkins({ loadVariables: true });
+	return skins.find(s =&gt; s.value === skin);
+};
+
+CSS.buildBundle = async function (target, fork) {
+	if (target === &#039;client&#039;) {
+		let files = await fs.promises.readdir(path.join(__dirname, &#039;../../build/public&#039;));
+		files = files.filter(f =&gt; f.match(/^client.*\.css$/));
+		await Promise.all(files.map(f =&gt; fs.promises.unlink(path.join(__dirname, &#039;../../build/public&#039;, f))));
+	}
+
+	const data = await getBundleMetadata(target);
+	const minify = process.env.NODE_ENV !== &#039;development&#039;;
+	const { ltr, rtl } = await minifier.css.bundle(data.imports, data.paths, minify, fork);
+
+	await Promise.all([
+		fs.promises.writeFile(path.join(__dirname, &#039;../../build/public&#039;, `${target}.css`), ltr.code),
+		fs.promises.writeFile(path.join(__dirname, &#039;../../build/public&#039;, `${target}-rtl.css`), rtl.code),
+		copyFontAwesomeFiles(),
+	]);
+	return [ltr.code, rtl.code];
+};
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

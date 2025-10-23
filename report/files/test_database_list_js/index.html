@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - test/database/list.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>test/database/list.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">80.16</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">261</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">36.00</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">2.52</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&#039;use strict&#039;;
+
+
+const async = require(&#039;async&#039;);
+const assert = require(&#039;assert&#039;);
+const db = require(&#039;../mocks/databasemock&#039;);
+
+describe(&#039;List methods&#039;, () =&gt; {
+	describe(&#039;listAppend()&#039;, () =&gt; {
+		it(&#039;should append to a list&#039;, (done) =&gt; {
+			db.listAppend(&#039;testList1&#039;, 5, function (err) {
+				assert.ifError(err);
+				assert.equal(arguments.length, 1);
+				done();
+			});
+		});
+
+		it(&#039;should not add anyhing if key is falsy&#039;, (done) =&gt; {
+			db.listAppend(null, 3, (err) =&gt; {
+				assert.ifError(err);
+				done();
+			});
+		});
+
+		it(&#039;should append each element to list&#039;, async () =&gt; {
+			await db.listAppend(&#039;arrayListAppend&#039;, [&#039;a&#039;, &#039;b&#039;, &#039;c&#039;]);
+			let values = await db.getListRange(&#039;arrayListAppend&#039;, 0, -1);
+			assert.deepStrictEqual(values, [&#039;a&#039;, &#039;b&#039;, &#039;c&#039;]);
+
+			await db.listAppend(&#039;arrayListAppend&#039;, [&#039;d&#039;, &#039;e&#039;]);
+			values = await db.getListRange(&#039;arrayListAppend&#039;, 0, -1);
+			assert.deepStrictEqual(values, [&#039;a&#039;, &#039;b&#039;, &#039;c&#039;, &#039;d&#039;, &#039;e&#039;]);
+		});
+	});
+
+	describe(&#039;listPrepend()&#039;, () =&gt; {
+		it(&#039;should prepend to a list&#039;, (done) =&gt; {
+			db.listPrepend(&#039;testList2&#039;, 3, function (err) {
+				assert.equal(err, null);
+				assert.equal(arguments.length, 1);
+				done();
+			});
+		});
+
+		it(&#039;should prepend 2 more elements to a list&#039;, (done) =&gt; {
+			async.series([
+				function (next) {
+					db.listPrepend(&#039;testList2&#039;, 2, next);
+				},
+				function (next) {
+					db.listPrepend(&#039;testList2&#039;, 1, next);
+				},
+			], (err) =&gt; {
+				assert.equal(err, null);
+				done();
+			});
+		});
+
+		it(&#039;should not add anyhing if key is falsy&#039;, (done) =&gt; {
+			db.listPrepend(null, 3, (err) =&gt; {
+				assert.ifError(err);
+				done();
+			});
+		});
+
+		it(&#039;should prepend each element to list&#039;, async () =&gt; {
+			await db.listPrepend(&#039;arrayListPrepend&#039;, [&#039;a&#039;, &#039;b&#039;, &#039;c&#039;]);
+			let values = await db.getListRange(&#039;arrayListPrepend&#039;, 0, -1);
+			assert.deepStrictEqual(values, [&#039;c&#039;, &#039;b&#039;, &#039;a&#039;]);
+
+			await db.listPrepend(&#039;arrayListPrepend&#039;, [&#039;d&#039;, &#039;e&#039;]);
+			values = await db.getListRange(&#039;arrayListPrepend&#039;, 0, -1);
+			assert.deepStrictEqual(values, [&#039;e&#039;, &#039;d&#039;, &#039;c&#039;, &#039;b&#039;, &#039;a&#039;]);
+		});
+	});
+
+	describe(&#039;getListRange()&#039;, () =&gt; {
+		before(async () =&gt; {
+			await db.listAppend(&#039;testList3&#039;, 7);
+			await db.listPrepend(&#039;testList3&#039;, 3);
+			await db.listAppend(&#039;testList4&#039;, 5);
+		});
+
+		it(&#039;should return an empty list&#039;, (done) =&gt; {
+			db.getListRange(&#039;doesnotexist&#039;, 0, -1, function (err, list) {
+				assert.equal(err, null);
+				assert.equal(arguments.length, 2);
+				assert.equal(Array.isArray(list), true);
+				assert.equal(list.length, 0);
+				done();
+			});
+		});
+
+		it(&#039;should return a list with one element&#039;, (done) =&gt; {
+			db.getListRange(&#039;testList4&#039;, 0, 0, (err, list) =&gt; {
+				assert.equal(err, null);
+				assert.equal(Array.isArray(list), true);
+				assert.equal(list[0], 5);
+				done();
+			});
+		});
+
+		it(&#039;should return a list with 2 elements 3, 7&#039;, (done) =&gt; {
+			db.getListRange(&#039;testList3&#039;, 0, -1, (err, list) =&gt; {
+				assert.equal(err, null);
+				assert.equal(Array.isArray(list), true);
+				assert.equal(list.length, 2);
+				assert.deepEqual(list, [&#039;3&#039;, &#039;7&#039;]);
+				done();
+			});
+		});
+
+		it(&#039;should not get anything if key is falsy&#039;, (done) =&gt; {
+			db.getListRange(null, 0, -1, (err, data) =&gt; {
+				assert.ifError(err);
+				assert.equal(data, undefined);
+				done();
+			});
+		});
+
+		it(&#039;should return list elements in reverse order&#039;, async () =&gt; {
+			await db.listAppend(&#039;reverselisttest&#039;, [&#039;one&#039;, &#039;two&#039;, &#039;three&#039;, &#039;four&#039;]);
+			assert.deepStrictEqual(
+				await db.getListRange(&#039;reverselisttest&#039;, -4, -3),
+				[&#039;one&#039;, &#039;two&#039;]
+			);
+			assert.deepStrictEqual(
+				await db.getListRange(&#039;reverselisttest&#039;, -2, -1),
+				[&#039;three&#039;, &#039;four&#039;]
+			);
+		});
+	});
+
+	describe(&#039;listRemoveLast()&#039;, () =&gt; {
+		before((done) =&gt; {
+			async.series([
+				function (next) {
+					db.listAppend(&#039;testList7&#039;, 12, next);
+				},
+				function (next) {
+					db.listPrepend(&#039;testList7&#039;, 9, next);
+				},
+			], done);
+		});
+
+		it(&#039;should remove the last element of list and return it&#039;, (done) =&gt; {
+			db.listRemoveLast(&#039;testList7&#039;, function (err, lastElement) {
+				assert.equal(err, null);
+				assert.equal(arguments.length, 2);
+				assert.equal(lastElement, &#039;12&#039;);
+				done();
+			});
+		});
+
+		it(&#039;should not remove anyhing if key is falsy&#039;, (done) =&gt; {
+			db.listRemoveLast(null, (err) =&gt; {
+				assert.ifError(err);
+				done();
+			});
+		});
+	});
+
+	describe(&#039;listRemoveAll()&#039;, () =&gt; {
+		before((done) =&gt; {
+			async.series([
+				async.apply(db.listAppend, &#039;testList5&#039;, 1),
+				async.apply(db.listAppend, &#039;testList5&#039;, 1),
+				async.apply(db.listAppend, &#039;testList5&#039;, 1),
+				async.apply(db.listAppend, &#039;testList5&#039;, 2),
+				async.apply(db.listAppend, &#039;testList5&#039;, 5),
+			], done);
+		});
+
+		it(&#039;should remove all the matching elements of list&#039;, (done) =&gt; {
+			db.listRemoveAll(&#039;testList5&#039;, &#039;1&#039;, function (err) {
+				assert.equal(err, null);
+				assert.equal(arguments.length, 1);
+
+				db.getListRange(&#039;testList5&#039;, 0, -1, (err, list) =&gt; {
+					assert.equal(err, null);
+					assert.equal(Array.isArray(list), true);
+					assert.equal(list.length, 2);
+					assert.equal(list.indexOf(&#039;1&#039;), -1);
+					done();
+				});
+			});
+		});
+
+		it(&#039;should not remove anyhing if key is falsy&#039;, (done) =&gt; {
+			db.listRemoveAll(null, 3, (err) =&gt; {
+				assert.ifError(err);
+				done();
+			});
+		});
+
+		it(&#039;should remove multiple elements from list&#039;, async () =&gt; {
+			await db.listAppend(&#039;multiRemoveList&#039;, [&#039;a&#039;, &#039;b&#039;, &#039;c&#039;, &#039;d&#039;, &#039;e&#039;]);
+			const initial = await db.getListRange(&#039;multiRemoveList&#039;, 0, -1);
+			assert.deepStrictEqual(initial, [&#039;a&#039;, &#039;b&#039;, &#039;c&#039;, &#039;d&#039;, &#039;e&#039;]);
+			await db.listRemoveAll(&#039;multiRemoveList&#039;, [&#039;b&#039;, &#039;d&#039;]);
+			const values = await db.getListRange(&#039;multiRemoveList&#039;, 0, -1);
+			assert.deepStrictEqual(values, [&#039;a&#039;, &#039;c&#039;, &#039;e&#039;]);
+		});
+	});
+
+	describe(&#039;listTrim()&#039;, () =&gt; {
+		it(&#039;should trim list to a certain range&#039;, (done) =&gt; {
+			const list = [&#039;1&#039;, &#039;2&#039;, &#039;3&#039;, &#039;4&#039;, &#039;5&#039;];
+			async.eachSeries(list, (value, next) =&gt; {
+				db.listAppend(&#039;testList6&#039;, value, next);
+			}, (err) =&gt; {
+				if (err) {
+					return done(err);
+				}
+
+				db.listTrim(&#039;testList6&#039;, 0, 2, function (err) {
+					assert.equal(err, null);
+					assert.equal(arguments.length, 1);
+					db.getListRange(&#039;testList6&#039;, 0, -1, (err, list) =&gt; {
+						assert.equal(err, null);
+						assert.equal(list.length, 3);
+						assert.deepEqual(list, [&#039;1&#039;, &#039;2&#039;, &#039;3&#039;]);
+						done();
+					});
+				});
+			});
+		});
+
+		it(&#039;should not add anyhing if key is falsy&#039;, (done) =&gt; {
+			db.listTrim(null, 0, 3, (err) =&gt; {
+				assert.ifError(err);
+				done();
+			});
+		});
+	});
+
+	describe(&#039;listLength&#039;, () =&gt; {
+		it(&#039;should get the length of a list&#039;, (done) =&gt; {
+			db.listAppend(&#039;getLengthList&#039;, 1, (err) =&gt; {
+				assert.ifError(err);
+				db.listAppend(&#039;getLengthList&#039;, 2, (err) =&gt; {
+					assert.ifError(err);
+					db.listLength(&#039;getLengthList&#039;, (err, length) =&gt; {
+						assert.ifError(err);
+						assert.equal(length, 2);
+						done();
+					});
+				});
+			});
+		});
+
+		it(&#039;should return 0 if list does not have any elements&#039;, (done) =&gt; {
+			db.listLength(&#039;doesnotexist&#039;, (err, length) =&gt; {
+				assert.ifError(err);
+				assert.strictEqual(length, 0);
+				done();
+			});
+		});
+	});
+});
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

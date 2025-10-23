@@ -1,0 +1,1865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/38636.53e13529b5b48460e78c.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/38636.53e13529b5b48460e78c.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">73.28</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">1745</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">127.80</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">26.36</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;
+(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[33085, 34405, 38636],
+	{
+		34405: (D, I, m) =&gt; {
+			var w, A;
+			((w = [m(49897), m(29930), m(36e3), m(9787), m(35786)]),
+				(A = function (
+					x,
+					E,
+					{ Textcomplete: f },
+					{ TextareaEditor: g },
+					{ ContenteditableEditor: v },
+				) {
+					const o = {},
+						u = { delay: 200, appendTo: null };
+					((o.init = (c) =&gt; {
+						const s = { ...u, ...c },
+							{ input: d, onSelect: i } = s;
+						app.loadJQueryUI(function () {
+							d.autocomplete({
+								...s,
+								open: function () {
+									$(this).autocomplete(&quot;widget&quot;).css(&quot;z-index&quot;, 100005);
+								},
+								select: function (p, y) {
+									l(d, i, p, y);
+								},
+							});
+						});
+					}),
+						(o.user = function (c, s, d) {
+							(typeof s == &quot;function&quot; &amp;&amp; ((d = s), (s = {})),
+								(s = s || {}),
+								o.init({
+									input: c,
+									onSelect: d,
+									source: (i, p) =&gt; {
+										((s.query = i.term),
+											x.get(&quot;/api/users&quot;, s, function (y, C) {
+												if (y) return E.error(y);
+												if (C &amp;&amp; C.users) {
+													const b = C.users.map(function (a) {
+														const j = $(&quot;&lt;div&gt;&lt;/div&gt;&quot;).html(a.username).text();
+														return (
+															a &amp;&amp; {
+																label: j,
+																value: j,
+																user: {
+																	uid: a.uid,
+																	name: a.username,
+																	slug: a.userslug,
+																	username: a.username,
+																	userslug: a.userslug,
+																	displayname: a.displayname,
+																	picture: a.picture,
+																	banned: a.banned,
+																	&quot;icon:text&quot;: a[&quot;icon:text&quot;],
+																	&quot;icon:bgColor&quot;: a[&quot;icon:bgColor&quot;],
+																},
+															}
+														);
+													});
+													p(b);
+												}
+												$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;, &quot;false&quot;);
+											}));
+									},
+								}));
+						}),
+						(o.group = function (c, s) {
+							o.init({
+								input: c,
+								onSelect: s,
+								source: (d, i) =&gt; {
+									socket.emit(
+										&quot;groups.search&quot;,
+										{ query: d.term },
+										function (p, y) {
+											if (p) return E.error(p);
+											if (y &amp;&amp; y.length) {
+												const C = y.map(function (b) {
+													return (
+														b &amp;&amp; { label: b.name, value: b.name, group: b }
+													);
+												});
+												i(C);
+											}
+											$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;, &quot;false&quot;);
+										},
+									);
+								},
+							});
+						}),
+						(o.tag = function (c, s) {
+							o.init({
+								input: c,
+								onSelect: s,
+								delay: 100,
+								source: (d, i) =&gt; {
+									socket.emit(
+										&quot;topics.autocompleteTags&quot;,
+										{ query: d.term, cid: ajaxify.data.cid || 0 },
+										function (p, y) {
+											if (p) return E.error(p);
+											(y &amp;&amp; i(y),
+												$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;, &quot;false&quot;));
+										},
+									);
+								},
+							});
+						}));
+					function l(c, s, d, i) {
+						s = s || function () {};
+						const p = jQuery.Event(&quot;keypress&quot;);
+						((p.which = 13),
+							(p.keyCode = 13),
+							setTimeout(function () {
+								c.trigger(p);
+							}, 100),
+							s(d, i));
+					}
+					return (
+						(o.setup = function ({ element: c, strategies: s, options: d }) {
+							const i = c.get(0);
+							if (i) {
+								var p;
+								if (
+									(i.nodeName === &quot;TEXTAREA&quot; || i.nodeName === &quot;INPUT&quot;
+										? (p = new g(i))
+										: i.nodeName === &quot;DIV&quot; &amp;&amp;
+											i.getAttribute(&quot;contenteditable&quot;) === &quot;true&quot; &amp;&amp;
+											(p = new v(i)),
+									!p)
+								)
+									throw new Error(&quot;unknown target element type&quot;);
+								i.setAttribute(
+									&quot;dir&quot;,
+									document.querySelector(&quot;html&quot;).getAttribute(&quot;data-dir&quot;),
+								);
+								var y = new f(p, s, { dropdown: d });
+								return (
+									y.on(&quot;rendered&quot;, function () {
+										y.dropdown.items.length &amp;&amp; y.dropdown.items[0].activate();
+									}),
+									y
+								);
+							}
+						}),
+						o
+					);
+				}.apply(I, w)),
+				A !== void 0 &amp;&amp; (D.exports = A));
+		},
+		38636: (D, I, m) =&gt; {
+			var w, A;
+			((w = [
+				m(52473),
+				m(6411),
+				m(26832),
+				m(80083),
+				m(58836),
+				m(60419),
+				m(72513),
+				m(65161),
+				m(93230),
+				m(34405),
+				m(91749),
+				m(33530),
+				m(29930),
+				m(92619),
+				m(49897),
+				m(43103),
+			]),
+				(A = function (x, E, f, g, v, o, u, l, c, s, d, i, p, y, C, b) {
+					const a = { initialised: !1, activeAutocomplete: {} };
+					let j = !1,
+						T = null;
+					return (
+						$(window).on(&quot;action:ajaxify.start&quot;, function () {
+							(a.destroyAutoComplete(ajaxify.data.roomId),
+								ajaxify.data.template.chats &amp;&amp;
+									(ajaxify.data.roomId &amp;&amp;
+										socket.emit(&quot;modules.chats.leave&quot;, ajaxify.data.roomId),
+									ajaxify.data.publicRooms &amp;&amp;
+										socket.emit(
+											&quot;modules.chats.leavePublic&quot;,
+											ajaxify.data.publicRooms.map((t) =&gt; t.roomId),
+										)));
+						}),
+						(a.init = function () {
+							(utils.isMobile() ||
+								$(&#039;.chats-full [data-bs-toggle=&quot;tooltip&quot;]&#039;).tooltip({
+									trigger: &quot;hover&quot;,
+									container: &quot;#content&quot;,
+								}),
+								socket.emit(
+									&quot;modules.chats.enterPublic&quot;,
+									ajaxify.data.publicRooms.map((n) =&gt; n.roomId),
+								));
+							const t = utils.findBootstrapEnvironment();
+							((T = $(&#039;[component=&quot;chat/nav-wrapper&quot;]&#039;)),
+								a.initialised ||
+									(a.addSocketListeners(), a.addGlobalEventListeners()),
+								f.init(),
+								a.addEventListeners(),
+								a.setActive(ajaxify.data.roomId),
+								(t === &quot;md&quot; || t === &quot;lg&quot; || t === &quot;xl&quot; || t === &quot;xxl&quot;) &amp;&amp;
+									a.addHotkeys(),
+								(a.initialised = !0));
+							const e = $(&#039;[component=&quot;chat/message/content&quot;]&#039;);
+							if ((o.wrapImagesInLinks(e), ajaxify.data.scrollToIndex)) {
+								o.toggleScrollUpAlert(e);
+								const n = e.find(
+									`[data-index=&quot;${ajaxify.data.scrollToIndex - 1}&quot;]`,
+								);
+								n.length &amp;&amp;
+									e.scrollTop(e.scrollTop() - e.offset().top + n.offset().top);
+							} else o.scrollToBottomAfterImageLoad(e);
+							(g.init(), d.fire(&quot;action:chat.loaded&quot;, $(&quot;.chats-full&quot;)));
+						}),
+						(a.addEventListeners = function () {
+							const { roomId: t } = ajaxify.data,
+								e = $(&#039;[component=&quot;chat/main-wrapper&quot;]&#039;),
+								n = $(&#039;[component=&quot;chat/message/content&quot;]&#039;),
+								r = x.get(&quot;chat/controls&quot;);
+							(a.addSendHandlers(
+								t,
+								$(&quot;.chat-input&quot;),
+								$(&#039;.expanded-chat button[data-action=&quot;send&quot;]&#039;),
+							),
+								a.addPopoutHandler(),
+								a.addActionHandlers(x.get(&quot;chat/message/window&quot;), t),
+								a.addManageHandler(t, r.find(&#039;[data-action=&quot;manage&quot;]&#039;)),
+								a.addRenameHandler(t, r.find(&#039;[data-action=&quot;rename&quot;]&#039;)),
+								a.addLeaveHandler(t, r.find(&#039;[data-action=&quot;leave&quot;]&#039;)),
+								a.addDeleteHandler(t, r.find(&#039;[data-action=&quot;delete&quot;]&#039;)),
+								a.addScrollHandler(t, ajaxify.data.uid, n),
+								a.addScrollBottomHandler(t, n),
+								a.addParentHandler(e),
+								a.addCharactersLeftHandler(e),
+								a.addTextareaResizeHandler(e),
+								a.addTypingHandler(e, t),
+								a.addIPHandler(e),
+								a.addCopyTextLinkHandler(e),
+								a.createAutoComplete(t, $(&#039;[component=&quot;chat/input&quot;]&#039;)),
+								a.addUploadHandler({
+									dragDropAreaEl: $(&quot;.chats-full&quot;),
+									pasteEl: $(&#039;[component=&quot;chat/input&quot;]&#039;),
+									uploadFormEl: $(&#039;[component=&quot;chat/upload&quot;]&#039;),
+									uploadBtnEl: $(&#039;[component=&quot;chat/upload/button&quot;]&#039;),
+									inputEl: $(&#039;[component=&quot;chat/input&quot;]&#039;),
+								}),
+								$(&#039;[data-action=&quot;close&quot;]&#039;).on(&quot;click&quot;, function () {
+									a.switchChat();
+								}),
+								u.init(t, e),
+								a.addNotificationSettingHandler(t, e),
+								l.init(t, e),
+								a.addPublicRoomSortHandler(),
+								a.addTooltipHandler(e),
+								c.init(e));
+						}),
+						(a.addPublicRoomSortHandler = function () {
+							app.user.isAdmin &amp;&amp;
+								!utils.isMobile() &amp;&amp;
+								app.loadJQueryUI(() =&gt; {
+									const t = $(&#039;[component=&quot;chat/public&quot;]&#039;);
+									t.sortable({
+										handle: &#039;[component=&quot;chat/public/room/sort/handle&quot;]&#039;,
+										items: &#039;[component=&quot;chat/public/room&quot;]&#039;,
+										axis: &quot;y&quot;,
+										update: async function () {
+											const e = { roomIds: [], scores: [] };
+											(t.find(&quot;[data-roomid]&quot;).each((n, r) =&gt; {
+												(e.roomIds.push($(r).attr(&quot;data-roomid&quot;)),
+													e.scores.push(n));
+											}),
+												await C.put(&quot;/chats/sort&quot;, e));
+										},
+									});
+								});
+						}),
+						(a.addTooltipHandler = function (t) {
+							utils.isMobile() ||
+								(t
+									.find(&quot;[data-manual-tooltip]&quot;)
+									.tooltip({
+										trigger: &quot;manual&quot;,
+										animation: !1,
+										placement: &quot;bottom&quot;,
+									})
+									.on(&quot;mouseenter&quot;, function (e) {
+										const n = $(e.target);
+										n.hasClass(&quot;dropdown-menu&quot;) ||
+											!!n.parents(&quot;.dropdown-menu&quot;).length ||
+											$(this).tooltip(&quot;show&quot;);
+									})
+									.on(&quot;click mouseleave&quot;, function () {
+										$(this).tooltip(&quot;hide&quot;);
+									}),
+								t.tooltip({
+									selector:
+										&#039;[component=&quot;chat/message/controls&quot;] &gt; .btn-group &gt; button&#039;,
+									placement: &quot;top&quot;,
+									container: &quot;#content&quot;,
+									animation: !1,
+									trigger: &quot;hover&quot;,
+								}));
+						}),
+						(a.addNotificationSettingHandler = function (t, e) {
+							const n = e.find(&#039;[component=&quot;chat/notification/setting&quot;]&#039;);
+							n.find(&quot;[data-value]&quot;).on(&quot;click&quot;, async function () {
+								n.find(&quot;i.fa-check&quot;).addClass(&quot;hidden&quot;);
+								const r = $(this);
+								(r.find(&quot;i.fa-check&quot;).removeClass(&quot;hidden&quot;),
+									n
+										.find(&#039;[component=&quot;chat/notification/setting/icon&quot;]&#039;)
+										.attr(&quot;class&quot;, `fa ${r.attr(&quot;data-icon&quot;)}`),
+									await C.put(`/chats/${t}/watch`, {
+										value: r.attr(&quot;data-value&quot;),
+									}));
+							});
+						}),
+						(a.addParentHandler = function (t) {
+							t.off(&quot;click&quot;, &#039;[component=&quot;chat/message/parent&quot;]&#039;).on(
+								&quot;click&quot;,
+								&#039;[component=&quot;chat/message/parent&quot;]&#039;,
+								function () {
+									const e = $(this);
+									(e
+										.find(&#039;[component=&quot;chat/message/parent/content&quot;]&#039;)
+										.toggleClass(&quot;line-clamp-1&quot;),
+										e.find(&quot;.chat-timestamp&quot;).toggleClass(&quot;hidden&quot;),
+										e.toggleClass(&quot;flex-column&quot;).toggleClass(&quot;flex-row&quot;));
+									const n = e.parents(&#039;[component=&quot;chat/message/content&quot;]&#039;);
+									n.length &amp;&amp; o.isAtBottom(n) &amp;&amp; o.scrollToBottom(n);
+								},
+							);
+						}),
+						(a.addUploadHandler = function (t) {
+							b.init({
+								dragDropAreaEl: t.dragDropAreaEl,
+								pasteEl: t.pasteEl,
+								uploadFormEl: t.uploadFormEl,
+								uploadBtnEl: t.uploadBtnEl,
+								route: &quot;/api/post/upload&quot;,
+								callback: function (e) {
+									const n = t.inputEl;
+									let r = n.val();
+									(e.forEach((h) =&gt; {
+										r =
+											r +
+											(r.endsWith(`
+`)
+												? &quot;&quot;
+												: `
+`) +
+											(h.isImage ? &quot;!&quot; : &quot;&quot;) +
+											`[${h.filename}](${h.url})
+`;
+									}),
+										n.val(r).trigger(&quot;input&quot;));
+								},
+							});
+						}),
+						(a.addIPHandler = function (t) {
+							t.off(&quot;click&quot;, &quot;.chat-ip-button&quot;).on(
+								&quot;click&quot;,
+								&quot;.chat-ip-button&quot;,
+								async function (e) {
+									e.stopPropagation();
+									const n = $(this),
+										r = n.find(&quot;.copy .copy-ip-text&quot;);
+									let h = n.attr(&quot;data-ip&quot;);
+									if (h) {
+										(navigator.clipboard.writeText(h),
+											r.translateText(&quot;[[global:copied]]&quot;),
+											setTimeout(() =&gt; r.text(h), 2e3));
+										return;
+									}
+									const k = n.parents(&quot;[data-mid]&quot;).attr(&quot;data-mid&quot;);
+									(({ ip: h } = await C.get(
+										`/chats/${ajaxify.data.roomId}/messages/${k}/ip`,
+									)),
+										n.attr(&quot;data-ip&quot;, h),
+										n.find(&quot;.show&quot;).addClass(&quot;hidden&quot;),
+										n.find(&quot;.copy&quot;).removeClass(&quot;hidden&quot;),
+										r.text(h));
+								},
+							);
+						}),
+						(a.addCopyTextLinkHandler = function (t) {
+							function e(n, r) {
+								(navigator.clipboard.writeText(r),
+									n.find(&quot;i&quot;).addClass(&quot;fa-check&quot;).removeClass(&quot;fa-link&quot;),
+									setTimeout(
+										() =&gt;
+											n.find(&quot;i&quot;).removeClass(&quot;fa-check&quot;).addClass(&quot;fa-link&quot;),
+										2e3,
+									));
+							}
+							(t
+								.off(&quot;click&quot;, &#039;[data-action=&quot;copy-link&quot;]&#039;)
+								.on(&quot;click&quot;, &#039;[data-action=&quot;copy-link&quot;]&#039;, function (n) {
+									n.stopPropagation();
+									const r = $(this),
+										h = r.attr(&quot;data-mid&quot;);
+									h &amp;&amp; e(r, `${window.location.origin}/message/${h}`);
+								}),
+								t
+									.off(&quot;click&quot;, &#039;[data-action=&quot;copy-text&quot;]&#039;)
+									.on(&quot;click&quot;, &#039;[data-action=&quot;copy-text&quot;]&#039;, function (n) {
+										n.stopPropagation();
+										const r = $(this),
+											h = r.parents(&quot;[data-mid]&quot;);
+										h.length &amp;&amp;
+											e(
+												r,
+												h.find(&#039;[component=&quot;chat/message/body&quot;]&#039;).text().trim(),
+											);
+									}));
+						}),
+						(a.addPopoutHandler = function () {
+							$(&#039;[data-action=&quot;pop-out&quot;]&#039;).on(&quot;click&quot;, function () {
+								const t = x.get(&quot;chat/input&quot;).val(),
+									e = ajaxify.data.roomId;
+								(app.previousUrl &amp;&amp; app.previousUrl.match(/chats/)
+									? ajaxify.go(
+											&quot;user/&quot; + ajaxify.data.userslug + &quot;/chats&quot;,
+											function () {
+												y.openChat(e, ajaxify.data.uid);
+											},
+											!0,
+										)
+									: (window.history.go(-1), y.openChat(e, ajaxify.data.uid)),
+									$(window).one(&quot;action:chat.loaded&quot;, function () {
+										x.get(&quot;chat/input&quot;).val(t);
+									}));
+							});
+						}),
+						(a.addScrollHandler = function (t, e, n) {
+							let r = !1,
+								h = n.scrollTop(),
+								k = h;
+							n.off(&quot;scroll&quot;).on(
+								&quot;scroll&quot;,
+								utils.debounce(function () {
+									if (parseInt(n.attr(&quot;data-ignore-next-scroll&quot;), 10) === 1) {
+										(n.removeAttr(&quot;data-ignore-next-scroll&quot;),
+											(h = n.scrollTop()));
+										return;
+									}
+									if ((o.toggleScrollUpAlert(n), r)) return;
+									k = n.scrollTop();
+									const S = k &gt; h ? 1 : -1;
+									h = k;
+									const H = 100 * (k / (n[0].scrollHeight - n.height())),
+										F = 15,
+										B = 85;
+									if (
+										!(S === 1 &amp;&amp; !ajaxify.data.scrollToIndex) &amp;&amp;
+										((H &lt; F &amp;&amp; S === -1) || (H &gt; B &amp;&amp; S === 1))
+									) {
+										r = !0;
+										const L = n.children(&quot;[data-mid]&quot;).not(&quot;.new&quot;),
+											P = S &gt; 0 ? L.last() : L.first(),
+											M = parseInt(P.attr(&quot;data-index&quot;), 10) || 0;
+										C.get(`/chats/${t}/messages`, {
+											uid: e,
+											start: M,
+											direction: S,
+										})
+											.then((W) =&gt; {
+												let U = W.messages;
+												if (!U) {
+													r = !1;
+													return;
+												}
+												if (
+													((U = U.filter(function (R) {
+														const N = n.find(
+															&#039;[component=&quot;chat/message&quot;][data-mid=&quot;&#039; +
+																R.messageId +
+																&#039;&quot;]&#039;,
+														);
+														return (N.removeClass(&quot;new&quot;), !N.length);
+													})),
+													!U.length)
+												) {
+													r = !1;
+													return;
+												}
+												o.parseMessage(U, function (R) {
+													if ((n.attr(&quot;data-ignore-next-scroll&quot;, 1), S &gt; 0))
+														(R.insertAfter(P), o.onMessagesAddedToDom(R));
+													else {
+														const N = n.scrollTop(),
+															K = n[0].scrollHeight;
+														(n.prepend(R),
+															o.onMessagesAddedToDom(R),
+															n.scrollTop(n[0].scrollHeight - K + N));
+													}
+													r = !1;
+												});
+											})
+											.catch(p.error);
+									}
+								}, 100),
+							);
+						}),
+						(a.addScrollBottomHandler = function (t, e) {
+							e.parents(&#039;[component=&quot;chat/message/window&quot;]&#039;)
+								.find(&#039;[component=&quot;chat/messages/scroll-up-alert&quot;]&#039;)
+								.off(&quot;click&quot;)
+								.on(&quot;click&quot;, function () {
+									ajaxify.data.scrollToIndex &amp;&amp;
+									parseInt(ajaxify.data.roomId, 10) === parseInt(t, 10)
+										? a.switchChat(t)
+										: o.scrollToBottom(e);
+								});
+						}),
+						(a.addCharactersLeftHandler = function (t) {
+							t.find(&#039;[component=&quot;chat/input&quot;]&#039;).on(
+								&quot;change keyup paste&quot;,
+								function () {
+									o.updateRemainingLength(t);
+								},
+							);
+						}),
+						(a.addTextareaResizeHandler = function (t) {
+							const e = t.find(&#039;[component=&quot;chat/input&quot;]&#039;);
+							e.on(&quot;input&quot;, function () {
+								const n = t.find(&#039;[component=&quot;chat/message/content&quot;]&#039;),
+									r = o.isAtBottom(n);
+								(e.css({ height: 0 }),
+									e.css({ height: o.calcAutoTextAreaHeight(e) + &quot;px&quot; }),
+									r &amp;&amp; o.scrollToBottom(n));
+							});
+						}),
+						(a.addTypingHandler = function (t, e) {
+							const n = t.find(&#039;[component=&quot;chat/input&quot;]&#039;);
+							function r(S) {
+								C.put(`/chats/${e}/typing`, { typing: S }).catch(p.error);
+							}
+							(n.on(&quot;focus&quot;, () =&gt; n.val() &amp;&amp; r(!0)),
+								n.on(&quot;blur&quot;, () =&gt; r(!1)));
+							let h = 0,
+								k = !!n.val();
+							n.on(&quot;input&quot;, function () {
+								const S = !!n.val();
+								S !== k
+									? (clearTimeout(h), (h = 0), (k = S), r(k))
+									: h ||
+										(h = setTimeout(() =&gt; {
+											(r(!!n.val()), (h = 0));
+										}, 5e3));
+							});
+						}),
+						(a.addActionHandlers = function (t, e) {
+							t.on(&quot;click&quot;, &quot;[data-mid] [data-action]&quot;, function () {
+								const n = $(this).parents(&quot;[data-mid]&quot;),
+									r = n.attr(&quot;data-mid&quot;),
+									h = this.getAttribute(&quot;data-action&quot;);
+								switch (($(this).tooltip(&quot;dispose&quot;), h)) {
+									case &quot;reply&quot;:
+										o.prepReplyTo(n, t);
+										break;
+									case &quot;edit&quot;:
+										o.prepEdit(n, r, e);
+										break;
+									case &quot;delete&quot;:
+										o.delete(r, e);
+										break;
+									case &quot;restore&quot;:
+										o.restore(r, e);
+										break;
+									case &quot;pin&quot;:
+										c.pin(r, e);
+										break;
+									case &quot;unpin&quot;:
+										c.unpin(r, e);
+										break;
+								}
+							});
+						}),
+						(a.addHotkeys = function () {
+							(E.bind(&quot;ctrl+up&quot;, function () {
+								const e = $(&quot;.chats-list .active&quot;)
+									.prevAll(&quot;[data-roomid]&quot;)
+									.first();
+								e.length &amp;&amp;
+									e.attr(&quot;data-roomid&quot;) &amp;&amp;
+									a.switchChat(e.attr(&quot;data-roomid&quot;));
+							}),
+								E.bind(&quot;ctrl+down&quot;, function () {
+									const e = $(&quot;.chats-list .active&quot;)
+										.nextAll(&quot;[data-roomid]&quot;)
+										.first();
+									e.length &amp;&amp;
+										e.attr(&quot;data-roomid&quot;) &amp;&amp;
+										a.switchChat(e.attr(&quot;data-roomid&quot;));
+								}),
+								E.bind(&quot;up&quot;, function (t) {
+									const e = x.get(&quot;chat/input&quot;);
+									if (t.target === e.get(0) &amp;&amp; !e.val()) {
+										const n = x
+											.get(&quot;chat/messages&quot;)
+											.find(&#039;.chat-message[data-self=&quot;1&quot;]&#039;)
+											.last();
+										if (!n.length) return;
+										const r = n.attr(&quot;data-mid&quot;);
+										o.prepEdit(n, r, ajaxify.data.roomId);
+									}
+								}));
+						}),
+						(a.addManageHandler = function (t, e) {
+							v.init(t, e);
+						}),
+						(a.addLeaveHandler = function (t, e) {
+							e.on(&quot;click&quot;, function () {
+								i.confirm({
+									size: &quot;small&quot;,
+									title: &quot;[[modules:chat.leave]]&quot;,
+									message:
+										&#039;&lt;p&gt;[[modules:chat.leave-prompt]]&lt;/p&gt;&lt;p class=&quot;form-text&quot;&gt;[[modules:chat.leave-help]]&lt;/p&gt;&#039;,
+									callback: function (n) {
+										n &amp;&amp;
+											C.del(`/chats/${t}/users/${app.user.uid}`, {})
+												.then(() =&gt; {
+													const r = e.parents(&quot;.chat-modal&quot;);
+													r.length
+														? y.close(r)
+														: (a.destroyAutoComplete(t), ajaxify.go(&quot;chats&quot;));
+												})
+												.catch(p.error);
+									},
+								});
+							});
+						}),
+						(a.addDeleteHandler = function (t, e) {
+							e.on(&quot;click&quot;, function () {
+								i.confirm({
+									size: &quot;small&quot;,
+									title: &quot;[[modules:chat.delete]]&quot;,
+									message: &quot;&lt;p&gt;[[modules:chat.delete-prompt]]&lt;/p&gt;&quot;,
+									callback: function (n) {
+										n &amp;&amp;
+											C.del(`/admin/chats/${t}`, {})
+												.then(() =&gt; {
+													const r = e.parents(&quot;.chat-modal&quot;);
+													r.length
+														? y.close(r)
+														: (a.destroyAutoComplete(t), ajaxify.go(&quot;chats&quot;));
+												})
+												.catch(p.error);
+									},
+								});
+							});
+						}),
+						(a.addRenameHandler = function (t, e) {
+							e.on(&quot;click&quot;, async function () {
+								const { roomName: n } = await C.get(`/chats/${t}`),
+									r = await app.parseAndTranslate(&quot;modals/rename-room&quot;, {
+										name: n,
+									}),
+									h = i.dialog({
+										title: &quot;[[modules:chat.rename-room]]&quot;,
+										message: r,
+										onEscape: !0,
+										buttons: {
+											save: {
+												label: &quot;[[global:save]]&quot;,
+												className: &quot;btn-primary&quot;,
+												callback: function () {
+													return (
+														C.put(`/chats/${t}`, {
+															name: h.find(&quot;#roomName&quot;).val(),
+														})
+															.then(() =&gt; {
+																h.modal(&quot;hide&quot;);
+															})
+															.catch(p.error),
+														!1
+													);
+												},
+											},
+										},
+									});
+							});
+						}),
+						(a.addSendHandlers = function (t, e, n) {
+							(utils.isMobile() ||
+								e.off(&quot;keypress&quot;).on(&quot;keypress&quot;, function (r) {
+									if (r.which === 13 &amp;&amp; !r.shiftKey)
+										return (o.sendMessage(t, e), !1);
+								}),
+								n.off(&quot;click&quot;).on(&quot;click&quot;, function () {
+									return (o.sendMessage(t, e), e.focus(), !1);
+								}));
+						}),
+						(a.createAutoComplete = function (t, e, n = {}) {
+							if (!e.length) return;
+							const r = {
+								element: e,
+								strategies: [],
+								options: {
+									style: { &quot;z-index&quot;: 2e4, flex: 0, top: &quot;inherit&quot; },
+									placement: &quot;top&quot;,
+									className: `chat-autocomplete-dropdown-${t} dropdown-menu textcomplete-dropdown`,
+									...n,
+								},
+							};
+							if (
+								($(window).trigger(&quot;chat:autocomplete:init&quot;, r),
+								r.strategies.length)
+							) {
+								const h = s.setup(r);
+								return (t &amp;&amp; (a.activeAutocomplete[t] = h), h);
+							}
+						}),
+						(a.destroyAutoComplete = function (t) {
+							a.activeAutocomplete[t] &amp;&amp;
+								(a.activeAutocomplete[t].destroy(),
+								delete a.activeAutocomplete[t]);
+						}),
+						(a.leave = function (t) {
+							const e = t.attr(&quot;data-roomid&quot;);
+							C.del(`/chats/${e}/users/${app.user.uid}`, {})
+								.then(() =&gt; {
+									(parseInt(e, 10) === parseInt(ajaxify.data.roomId, 10)
+										? ajaxify.go(&quot;user/&quot; + ajaxify.data.userslug + &quot;/chats&quot;)
+										: t.remove(),
+										a.destroyAutoComplete(e));
+									const n = y.getModal(e);
+									n.length &amp;&amp; y.close(n);
+								})
+								.catch(p.error);
+						}),
+						(a.switchChat = function (t) {
+							(t || (t = &quot;&quot;),
+								a.destroyAutoComplete(ajaxify.data.roomId),
+								socket.emit(&quot;modules.chats.leave&quot;, ajaxify.data.roomId));
+							const e =
+								&quot;user/&quot; +
+								ajaxify.data.userslug +
+								&quot;/chats/&quot; +
+								t +
+								window.location.search;
+							if (!self.fetch) return ajaxify.go(e);
+							const n = new URL(document.location).searchParams;
+							n.set(&quot;switch&quot;, 1);
+							const r = `${config.relative_path}/api/user/${ajaxify.data.userslug}/chats/${t}?${n.toString()}`;
+							fetch(r, { credentials: &quot;include&quot; })
+								.then(async function (h) {
+									if (!h.ok)
+										return console.warn(&quot;[search] Received &quot; + h.status);
+									const k = await h.json(),
+										S = await app.parseAndTranslate(
+											&quot;partials/chats/message-window&quot;,
+											k,
+										),
+										H = x.get(&quot;chat/main-wrapper&quot;);
+									(H.html(S),
+										H.attr(&quot;data-roomid&quot;, t),
+										(T = $(&#039;[component=&quot;chat/nav-wrapper&quot;]&#039;)),
+										S.find(&quot;.timeago&quot;).timeago(),
+										(ajaxify.data = { ...ajaxify.data, ...k, roomId: t }),
+										ajaxify.updateTitle(ajaxify.data.title),
+										$(&quot;body&quot;).toggleClass(&quot;chat-loaded&quot;, !!t),
+										H.find(&#039;[data-bs-toggle=&quot;tooltip&quot;]&#039;).tooltip({
+											trigger: &quot;hover&quot;,
+											container: &quot;#content&quot;,
+										}),
+										a.setActive(t),
+										a.addEventListeners(),
+										d.fire(&quot;action:chat.loaded&quot;, $(&quot;.chats-full&quot;)),
+										o.scrollToBottomAfterImageLoad(
+											H.find(&#039;[component=&quot;chat/message/content&quot;]&#039;),
+										),
+										history.pushState &amp;&amp;
+											history.pushState(
+												{ url: e },
+												null,
+												window.location.protocol +
+													&quot;//&quot; +
+													window.location.host +
+													config.relative_path +
+													&quot;/&quot; +
+													e,
+											));
+								})
+								.catch(function (h) {
+									console.warn(&quot;[search] &quot; + h.message);
+								});
+						}),
+						(a.addGlobalEventListeners = function () {
+							$(window).on(&quot;mousemove keypress click&quot;, function () {
+								j &amp;&amp;
+									ajaxify.data.roomId &amp;&amp;
+									(C.del(`/chats/${ajaxify.data.roomId}/state`, {}), (j = !1));
+							});
+						}),
+						(a.addSocketListeners = function () {
+							(socket.on(&quot;event:chats.receive&quot;, function (t) {
+								y.isFromBlockedUser(t.fromUid) ||
+									(parseInt(t.roomId, 10) ===
+										parseInt(ajaxify.data.roomId, 10) &amp;&amp;
+										((t.self =
+											parseInt(app.user.uid, 10) === parseInt(t.fromUid, 10)
+												? 1
+												: 0),
+										j || (j = t.self === 0),
+										(t.message.self = t.self),
+										(t.message.timestamp = Math.min(
+											Date.now(),
+											t.message.timestamp,
+										)),
+										(t.message.timestampISO = utils.toISOString(
+											t.message.timestamp,
+										)),
+										o.appendChatMessage(
+											$(&#039;[component=&quot;chat/message/content&quot;]&#039;),
+											t.message,
+										),
+										a.updateTeaser(t.roomId, {
+											content: utils.stripHTMLTags(
+												utils.decodeHTMLEntities(t.message.content),
+											),
+											user: t.message.fromUser,
+											timestampISO: t.message.timestampISO,
+										})));
+							}),
+								socket.on(&quot;event:chats.public.unread&quot;, function (t) {
+									y.isFromBlockedUser(t.fromUid) ||
+										y.isLookingAtRoom(t.roomId) ||
+										app.user.uid === parseInt(t.fromUid, 10) ||
+										(a.markChatPageElUnread(t),
+										a.increasePublicRoomUnreadCount(
+											T.find(&quot;[data-roomid=&quot; + t.roomId + &quot;]&quot;),
+										));
+								}),
+								socket.on(&quot;event:user_status_change&quot;, function (t) {
+									app.updateUserStatus(
+										$(
+											&#039;.chats-list [data-uid=&quot;&#039; +
+												t.uid +
+												&#039;&quot;] [component=&quot;user/status&quot;]&#039;,
+										),
+										t.status,
+									);
+								}),
+								o.addSocketListeners(),
+								socket.on(&quot;event:chats.roomRename&quot;, function (t) {
+									const e = x.get(&quot;chat/recent/room&quot;, t.roomId);
+									if (e.length) {
+										const r = e.find(&#039;[component=&quot;chat/room/title&quot;]&#039;);
+										((ajaxify.data.roomName = t.newName),
+											r.translateText(
+												t.newName ? t.newName : ajaxify.data.usernames,
+											));
+									}
+									const n = $(
+										`[component=&quot;chat/main-wrapper&quot;][data-roomid=&quot;${t.roomId}&quot;] [component=&quot;chat/header/title&quot;]`,
+									);
+									n.length &amp;&amp;
+										n.html(
+											t.newName
+												? `&lt;i class=&quot;fa ${ajaxify.data.icon} text-muted&quot;&gt;&lt;/i&gt; ${t.newName}`
+												: ajaxify.data.chatWithMessage,
+										);
+								}),
+								socket.on(&quot;event:chats.mark&quot;, ({ roomId: t, state: e }) =&gt; {
+									$(
+										`[component=&quot;chat/recent&quot;] [data-roomid=&quot;${t}&quot;], [component=&quot;chat/list&quot;] [data-roomid=&quot;${t}&quot;], [component=&quot;chat/public&quot;] [data-roomid=&quot;${t}&quot;]`,
+									).each((r, h) =&gt; {
+										const k = $(h);
+										(y.markChatElUnread(k, e === 1),
+											e === 0 &amp;&amp; a.updatePublicRoomUnreadCount(k, 0));
+									});
+								}),
+								socket.on(&quot;event:chats.typing&quot;, async (t) =&gt; {
+									t.uid === app.user.uid ||
+										y.isFromBlockedUser(t.uid) ||
+										y.updateTypingUserList(
+											$(
+												`[component=&quot;chat/main-wrapper&quot;][data-roomid=&quot;${t.roomId}&quot;]`,
+											),
+											t,
+										);
+								}));
+						}),
+						(a.updateTeaser = async function (t, e) {
+							if (!ajaxify.data.template.chats || !app.user.userslug) return;
+							const n = T.find(`[data-roomid=&quot;${t}&quot;]`);
+							if (n.length) {
+								const r = await app.parseAndTranslate(
+									&quot;partials/chats/room-teaser&quot;,
+									{ teaser: e },
+								);
+								(n.find(&#039;[component=&quot;chat/room/teaser&quot;]&#039;).html(r[0].outerHTML),
+									n.find(&quot;.timeago&quot;).timeago());
+							} else {
+								const { rooms: r } = await C.get(&quot;/chats&quot;, {
+										start: 0,
+										perPage: 2,
+									}),
+									h = r.find((k) =&gt; parseInt(k.roomId, 10) === parseInt(t, 10));
+								if (h) {
+									const k = x.get(&quot;chat/recent&quot;),
+										S = await app.parseAndTranslate(&quot;chats&quot;, &quot;rooms&quot;, {
+											rooms: [h],
+											showBottomHr: !0,
+										});
+									k.prepend(S);
+								}
+							}
+						}),
+						(a.markChatPageElUnread = function (t) {
+							if (!ajaxify.data.template.chats) return;
+							const e = T.find(&quot;[data-roomid=&quot; + t.roomId + &quot;]&quot;);
+							y.markChatElUnread(e, !0);
+						}),
+						(a.increasePublicRoomUnreadCount = function (t) {
+							const e = t.find(&#039;[component=&quot;chat/public/room/unread/count&quot;]&#039;),
+								n = (parseInt(e.attr(&quot;data-count&quot;), 10) || 0) + 1;
+							a.updatePublicRoomUnreadCount(t, n);
+						}),
+						(a.updatePublicRoomUnreadCount = function (t, e) {
+							const n = t.find(&#039;[component=&quot;chat/public/room/unread/count&quot;]&#039;),
+								r = e &gt; 50 ? &quot;50+&quot; : e;
+							n.toggleClass(&quot;hidden&quot;, e &lt;= 0)
+								.text(r)
+								.attr(&quot;data-count&quot;, e);
+						}),
+						(a.setActive = function (t) {
+							if ((T.find(&quot;[data-roomid]&quot;).removeClass(&quot;active&quot;), t)) {
+								socket.emit(&quot;modules.chats.enter&quot;, t);
+								const e = T.find(`[data-roomid=&quot;${t}&quot;]`);
+								(e.addClass(&quot;active&quot;),
+									e.hasClass(&quot;unread&quot;) &amp;&amp;
+										(C.del(`/chats/${t}/state`, {}), e.removeClass(&quot;unread&quot;)),
+									utils.isMobile() ||
+										$(&#039;.expanded-chat [component=&quot;chat/input&quot;]&#039;).focus(),
+									o.updateTextAreaHeight(
+										$(`[component=&quot;chat/messages&quot;][data-roomid=&quot;${t}&quot;]`),
+									));
+							}
+							T.attr(&quot;data-loaded&quot;, t ? &quot;1&quot; : &quot;0&quot;);
+						}),
+						a
+					);
+				}.apply(I, w)),
+				A !== void 0 &amp;&amp; (D.exports = A));
+		},
+		43103: (D, I, m) =&gt; {
+			var w, A;
+			((w = [m(29930)]),
+				(A = function (x) {
+					const E = {};
+					return (
+						(E.init = function (f) {
+							const g = f.uploadFormEl;
+							if (
+								g.length &amp;&amp;
+								(g.attr(&quot;action&quot;, config.relative_path + f.route),
+								f.dragDropAreaEl &amp;&amp;
+									E.handleDragDrop({
+										container: f.dragDropAreaEl,
+										callback: function (v) {
+											E.ajaxSubmit({
+												uploadForm: g,
+												upload: v,
+												callback: f.callback,
+											});
+										},
+									}),
+								f.pasteEl &amp;&amp;
+									E.handlePaste({
+										container: f.pasteEl,
+										callback: function (v) {
+											E.ajaxSubmit({
+												uploadForm: g,
+												upload: v,
+												callback: f.callback,
+											});
+										},
+									}),
+								f.uploadBtnEl)
+							) {
+								const v = g.find(&#039;input[name=&quot;files[]&quot;]&#039;);
+								(f.uploadBtnEl.on(&quot;click&quot;, function () {
+									return (v.trigger(&quot;click&quot;), !1);
+								}),
+									v.on(&quot;change&quot;, function (o) {
+										const u =
+											(o.target || {}).files ||
+											($(this).val()
+												? [
+														{
+															name: $(this).val(),
+															type: utils.fileMimeType($(this).val()),
+														},
+													]
+												: null);
+										u &amp;&amp;
+											E.ajaxSubmit({
+												uploadForm: g,
+												upload: {
+													files: u,
+													fileNames: Array.from(u).map((l) =&gt; l.name),
+												},
+												callback: f.callback,
+											});
+									}));
+							}
+						}),
+						(E.handleDragDrop = function (f) {
+							let g = !1;
+							const v = f.container,
+								o = f.container.find(&quot;.imagedrop&quot;);
+							(v.on(&quot;dragenter&quot;, function () {
+								g ||
+									(o.css(&quot;top&quot;, &quot;0px&quot;),
+									o.css(&quot;height&quot;, v.height() + &quot;px&quot;),
+									o.css(&quot;line-height&quot;, v.height() + &quot;px&quot;),
+									o.show(),
+									o.on(&quot;dragleave&quot;, function () {
+										(o.hide(), o.off(&quot;dragleave&quot;));
+									}));
+							}),
+								o.on(&quot;drop&quot;, function (c) {
+									c.preventDefault();
+									const s = c.originalEvent.dataTransfer.files;
+									if (s.length) {
+										let i;
+										if (window.FormData) {
+											i = new FormData();
+											for (var d = 0; d &lt; s.length; ++d)
+												i.append(&quot;files[]&quot;, s[d], s[d].name);
+										}
+										f.callback({ files: s, formData: i });
+									}
+									return (o.hide(), !1);
+								}));
+							function u(l) {
+								return (l.preventDefault(), !1);
+							}
+							($(document)
+								.off(&quot;dragstart&quot;)
+								.on(&quot;dragstart&quot;, function () {
+									g = !0;
+								})
+								.off(&quot;dragend&quot;)
+								.on(&quot;dragend, mouseup&quot;, function () {
+									g = !1;
+								}),
+								o.on(&quot;dragover&quot;, u),
+								o.on(&quot;dragenter&quot;, u));
+						}),
+						(E.handlePaste = function (f) {
+							f.container.on(&quot;paste&quot;, function (v) {
+								const o = (
+										v.clipboardData ||
+										v.originalEvent.clipboardData ||
+										{}
+									).items,
+									u = [],
+									l = [];
+								let c = null;
+								(window.FormData &amp;&amp; (c = new FormData()),
+									[].forEach.call(o, function (s) {
+										const d = s.getAsFile();
+										if (d) {
+											const i = utils.generateUUID() + &quot;-&quot; + d.name;
+											(c &amp;&amp; c.append(&quot;files[]&quot;, d, i), u.push(d), l.push(i));
+										}
+									}),
+									u.length &amp;&amp;
+										f.callback({ files: u, fileNames: l, formData: c }));
+							});
+						}),
+						(E.ajaxSubmit = function (f) {
+							const g = [...f.upload.files];
+							for (let o = 0; o &lt; g.length; ++o) {
+								const u = g[o].type.match(/image./);
+								if (
+									(u &amp;&amp; !app.user.privileges[&quot;upload:post:image&quot;]) ||
+									(!u &amp;&amp; !app.user.privileges[&quot;upload:post:file&quot;])
+								)
+									return x.error(&quot;[[error:no-privileges]]&quot;);
+								if (
+									!app.user.isAdmin &amp;&amp;
+									g[o].size &gt; parseInt(config.maximumFileSize, 10) * 1024
+								)
+									return (
+										f.uploadForm[0].reset(),
+										x.error(
+											&quot;[[error:file-too-big, &quot; + config.maximumFileSize + &quot;]]&quot;,
+										)
+									);
+							}
+							const v = Date.now();
+							(f.uploadForm.off(&quot;submit&quot;).on(&quot;submit&quot;, function () {
+								return (
+									$(this).ajaxSubmit({
+										headers: { &quot;x-csrf-token&quot;: config.csrf_token },
+										resetForm: !0,
+										clearForm: !0,
+										formData: f.upload.formData,
+										error: function (o) {
+											let u =
+												(o.responseJSON &amp;&amp;
+													(o.responseJSON.error ||
+														(o.responseJSON.status &amp;&amp;
+															o.responseJSON.status.message))) ||
+												&quot;[[error:parse-error]]&quot;;
+											(o &amp;&amp;
+												o.status === 413 &amp;&amp;
+												(u = o.statusText || &quot;Request Entity Too Large&quot;),
+												x.error(u),
+												x.remove(v));
+										},
+										uploadProgress: function (o, u, l, c) {
+											x.alert({
+												alert_id: v,
+												message: &quot;[[modules:composer.uploading, &quot; + c + &quot;%]]&quot;,
+											});
+										},
+										success: function (o) {
+											const u = o.response.images;
+											if (u &amp;&amp; u.length)
+												for (var l = 0; l &lt; u.length; ++l)
+													((u[l].filename = g[l].name),
+														(u[l].isImage = /image./.test(g[l].type)));
+											f.callback(u);
+										},
+										complete: function () {
+											(f.uploadForm[0].reset(), setTimeout(x.remove, 100, v));
+										},
+									}),
+									!1
+								);
+							}),
+								f.uploadForm.submit());
+						}),
+						E
+					);
+				}.apply(I, w)),
+				A !== void 0 &amp;&amp; (D.exports = A));
+		},
+		53309: (D, I, m) =&gt; {
+			var w, A;
+			((w = [m(52473), m(49897), m(29930)]),
+				(A = function (x, E, f) {
+					const g = {};
+					let v = [];
+					g.init = function (s) {
+						((s = s || {}),
+							(v.length = 0),
+							x.get(&quot;chat/search&quot;).on(&quot;keyup&quot;, utils.debounce(u, 250)));
+						const d = $(&#039;[component=&quot;chat/search/list&quot;]&#039;);
+						d.on(&quot;click&quot;, &quot;[data-uid]&quot;, function () {
+							(s.onSelect &amp;&amp;
+								s.onSelect(
+									v.find(
+										(i) =&gt; String(i.uid) === String($(this).attr(&quot;data-uid&quot;)),
+									),
+								),
+								o(d));
+						});
+					};
+					function o(s) {
+						(x.get(&quot;chat/search&quot;).val(&quot;&quot;),
+							l(s),
+							s.find(&#039;[component=&quot;chat/search/no-users&quot;]&#039;).addClass(&quot;hidden&quot;),
+							s
+								.find(&#039;[component=&quot;chat/search/start-typing&quot;]&#039;)
+								.removeClass(&quot;hidden&quot;));
+					}
+					function u() {
+						const s = $(&#039;[component=&quot;chat/search/list&quot;]&#039;),
+							d = x.get(&quot;chat/search&quot;).val();
+						if (!d) return o(s);
+						(s
+							.find(&#039;[component=&quot;chat/search/start-typing&quot;]&#039;)
+							.addClass(&quot;hidden&quot;),
+							E.get(&quot;/api/users&quot;, {
+								query: d,
+								searchBy: &quot;username&quot;,
+								paginate: !1,
+							})
+								.then(c)
+								.catch(f.error));
+					}
+					function l(s) {
+						((v.length = 0), s.find(&quot;[data-uid]&quot;).remove());
+					}
+					async function c(s) {
+						const d = $(&#039;[component=&quot;chat/search/list&quot;]&#039;);
+						if (
+							(l(d),
+							(s.users = s.users.filter(function (p) {
+								return parseInt(p.uid, 10) !== parseInt(app.user.uid, 10);
+							})),
+							(v = s.users),
+							!s.users.length)
+						)
+							return d
+								.find(&#039;[component=&quot;chat/search/no-users&quot;]&#039;)
+								.removeClass(&quot;hidden&quot;);
+						d.find(&#039;[component=&quot;chat/search/no-users&quot;]&#039;).addClass(&quot;hidden&quot;);
+						const i = await app.parseAndTranslate(
+							&quot;modals/create-room&quot;,
+							&quot;searchUsers&quot;,
+							{ searchUsers: s.users },
+						);
+						(d.append(i), d.parent().toggleClass(&quot;show&quot;, !0));
+					}
+					return g;
+				}.apply(I, w)),
+				A !== void 0 &amp;&amp; (D.exports = A));
+		},
+		58836: (D, I, m) =&gt; {
+			var w, A;
+			((w = [m(49897), m(29930), m(17459), m(34405), m(72513)]),
+				(A = function (x, E, f, g, v) {
+					const o = {};
+					o.init = function (s, d) {
+						let i;
+						d.on(&quot;click&quot;, async function () {
+							let p = [];
+							app.user.isAdmin &amp;&amp;
+								(({ groups: p } = await x.get(&quot;/admin/groups&quot;)),
+								p
+									.sort((T, t) =&gt; t.system - T.system)
+									.map((T) =&gt; {
+										const { name: t, displayName: e } = T;
+										return { name: t, displayName: e };
+									}),
+								Array.isArray(ajaxify.data.groups) &amp;&amp;
+									p.forEach((T) =&gt; {
+										T.selected = ajaxify.data.groups.includes(T.name);
+									}));
+							const y = await app.parseAndTranslate(&quot;modals/manage-room&quot;, {
+								groups: p,
+								user: app.user,
+								room: ajaxify.data,
+							});
+							((i = bootbox.dialog({
+								title: &quot;[[modules:chat.manage-room]]&quot;,
+								size: &quot;large&quot;,
+								message: y,
+								onEscape: !0,
+							})),
+								i.attr(&quot;component&quot;, &quot;chat/manage-modal&quot;),
+								c(s, i),
+								u(s, i),
+								l(s, i));
+							const C = i.find(&#039;[component=&quot;chat/manage/user/list&quot;]&#039;),
+								b = i.find(&#039;[component=&quot;chat/manage/user/list/search&quot;]&#039;);
+							(v.addSearchHandler(s, b, async (T) =&gt; {
+								b.val()
+									? C.html(
+											await app.parseAndTranslate(
+												&quot;partials/chats/manage-room-users&quot;,
+												T,
+											),
+										)
+									: c(s, i);
+							}),
+								v.addInfiniteScrollHandler(s, C, async (T, t) =&gt; {
+									T.append(
+										await app.parseAndTranslate(
+											&quot;partials/chats/manage-room-users&quot;,
+											t,
+										),
+									);
+								}));
+							const a = i.find(&#039;[component=&quot;chat/manage/user/add/search&quot;]&#039;),
+								j = i.find(&quot;.text-danger&quot;);
+							(g.user(a, function (T, t) {
+								(j.text(&quot;&quot;),
+									x
+										.post(`/chats/${s}/users`, { uids: [t.item.user.uid] })
+										.then((e) =&gt; {
+											(c(s, i, e), a.val(&quot;&quot;));
+										})
+										.catch((e) =&gt; {
+											f.translate(e.message, function (n) {
+												j.text(n);
+											});
+										}));
+							}),
+								i.find(&#039;[component=&quot;chat/manage/save&quot;]&#039;).on(&quot;click&quot;, () =&gt; {
+									const T = i.find(
+										&#039;[component=&quot;chat/room/notification/setting&quot;]&#039;,
+									);
+									x.put(`/chats/${s}`, {
+										groups: i.find(&#039;[component=&quot;chat/room/groups&quot;]&#039;).val(),
+										notificationSetting: T.val(),
+									})
+										.then((t) =&gt; {
+											((ajaxify.data.groups = t.groups),
+												(ajaxify.data.notificationSetting =
+													t.notificationSetting));
+											const e = t.notificationOptions[0];
+											($(&#039;[component=&quot;chat/notification/setting&quot;] [data-icon]&#039;)
+												.first()
+												.attr(&quot;data-icon&quot;, e.icon),
+												$(
+													&#039;[component=&quot;chat/notification/setting/sub-label&quot;]&#039;,
+												).translateText(e.subLabel),
+												e.selected &amp;&amp;
+													$(
+														&#039;[component=&quot;chat/notification/setting/icon&quot;]&#039;,
+													).attr(&quot;class&quot;, `fa ${e.icon}`),
+												i.modal(&quot;hide&quot;));
+										})
+										.catch(E.error);
+								}));
+						});
+					};
+					function u(s, d) {
+						d.on(&quot;click&quot;, &#039;[data-action=&quot;kick&quot;]&#039;, function () {
+							const i = encodeURIComponent(this.getAttribute(&quot;data-uid&quot;));
+							x.del(`/chats/${s}/users/${i}`, {})
+								.then((p) =&gt; {
+									c(s, d, p);
+								})
+								.catch(E.error);
+						});
+					}
+					function l(s, d) {
+						d.on(&quot;click&quot;, &#039;[data-action=&quot;toggleOwner&quot;]&#039;, async function () {
+							const i = String(this.getAttribute(&quot;data-uid&quot;)),
+								p = d
+									.get(0)
+									.querySelector(
+										`[component=&quot;chat/manage/user/list&quot;] &gt; [data-uid=&quot;${i}&quot;] [component=&quot;chat/manage/user/owner/icon&quot;]`,
+									),
+								y = !p.classList.contains(&quot;hidden&quot;);
+							if (!utils.isNumber(i)) return E.error(&quot;[[error:invalid-uid]]&quot;);
+							(await x[y ? &quot;del&quot; : &quot;put&quot;](`/chats/${s}/owners/${i}`),
+								p.classList.toggle(&quot;hidden&quot;));
+						});
+					}
+					async function c(s, d, i) {
+						const p = d.find(&#039;[component=&quot;chat/manage/user/list&quot;]&#039;);
+						if (!i)
+							try {
+								i = await x.get(`/chats/${s}/users`, {});
+							} catch (y) {
+								(console.error(y),
+									p
+										.find(&quot;li&quot;)
+										.text(await f.translate(&quot;[[error:invalid-data]]&quot;)));
+							}
+						(p.find(&#039;[data-bs-toggle=&quot;tooltip&quot;]&#039;).tooltip(&quot;dispose&quot;),
+							p.html(
+								await app.parseAndTranslate(
+									&quot;partials/chats/manage-room-users&quot;,
+									i,
+								),
+							),
+							p.find(&#039;[data-bs-toggle=&quot;tooltip&quot;]&#039;).tooltip());
+					}
+					return o;
+				}.apply(I, w)),
+				A !== void 0 &amp;&amp; (D.exports = A));
+		},
+		65161: (D, I, m) =&gt; {
+			var w, A;
+			((w = [m(52473), m(29930), m(60419)]),
+				(A = function (x, E, f) {
+					const g = {};
+					let v = 0,
+						o,
+						u,
+						l,
+						c,
+						s,
+						d;
+					g.init = function (b, a) {
+						((v = b),
+							(u = a.find(&#039;[component=&quot;chat/message/search/results&quot;]&#039;)),
+							(l = a.find(&#039;[component=&quot;chat/message/content&quot;]&#039;)),
+							(c = a.find(&#039;[component=&quot;chat/room/search/clear&quot;]&#039;)),
+							(d = a.find(&#039;[component=&quot;chat/room/search/container&quot;]&#039;)),
+							(s = a.find(&#039;[component=&quot;chat/room/search/toggle&quot;&#039;)),
+							(o = a.find(&#039;[component=&quot;chat/room/search&quot;]&#039;)),
+							o.on(&quot;keyup&quot;, utils.debounce(p, 250)).on(&quot;focus&quot;, () =&gt; {
+								o.val() &amp;&amp; p();
+							}),
+							a.find(&#039;[component=&quot;chat/input&quot;]&#039;).on(&quot;focus&quot;, () =&gt; {
+								(u.addClass(&quot;hidden&quot;), l.removeClass(&quot;hidden&quot;));
+							}),
+							c.on(&quot;click&quot;, i),
+							s.on(&quot;click&quot;, () =&gt; {
+								(d.removeClass(&quot;hidden&quot;),
+									s.addClass(&quot;hidden&quot;),
+									o.trigger(&quot;focus&quot;));
+							}),
+							o.on(&quot;blur&quot;, () =&gt; {
+								o.val() || i();
+							}));
+					};
+					function i() {
+						(o.val(&quot;&quot;),
+							y(),
+							u.addClass(&quot;hidden&quot;),
+							c.addClass(&quot;hidden&quot;),
+							d.addClass(&quot;hidden&quot;),
+							l.removeClass(&quot;hidden&quot;),
+							s.removeClass(&quot;hidden&quot;));
+					}
+					async function p() {
+						const b = o.val();
+						!b ||
+							b.length &lt;= 2 ||
+							(c.removeClass(&quot;hidden&quot;),
+							socket
+								.emit(&quot;modules.chats.searchMessages&quot;, { content: b, roomId: v })
+								.then(C)
+								.catch(E.error));
+					}
+					function y() {
+						u.children(&quot;[data-mid]&quot;).remove();
+					}
+					async function C(b) {
+						if ((y(), !b.messages.length))
+							return (
+								u.removeClass(&quot;hidden&quot;),
+								l.addClass(&quot;hidden&quot;),
+								u
+									.find(&#039;[component=&quot;chat/message/search/no-results&quot;]&#039;)
+									.removeClass(&quot;hidden&quot;)
+							);
+						u.find(&#039;[component=&quot;chat/message/search/no-results&quot;]&#039;).addClass(
+							&quot;hidden&quot;,
+						);
+						const a = await app.parseAndTranslate(&quot;partials/chats/messages&quot;, {
+							messages: b.messages,
+							isAdminOrGlobalMod: app.user.isAdmin || app.user.isGlobalMod,
+						});
+						(u.append(a),
+							f.onMessagesAddedToDom(u.find(&#039;[component=&quot;chat/message&quot;]&#039;)),
+							l.addClass(&quot;hidden&quot;),
+							u.removeClass(&quot;hidden&quot;));
+					}
+					return g;
+				}.apply(I, w)),
+				A !== void 0 &amp;&amp; (D.exports = A));
+		},
+		72513: (D, I, m) =&gt; {
+			var w, A;
+			((w = [m(49897)]),
+				(A = function (x) {
+					const E = {};
+					let f = 0;
+					E.init = function (u, l) {
+						const c = l.find(&#039;[component=&quot;chat/user/list&quot;]&#039;);
+						if (!c.length) return;
+						const s = l.find(&#039;[component=&quot;chat/messages/pinned/container&quot;]&#039;);
+						(l.find(&#039;[component=&quot;chat/user/list/btn&quot;]&#039;).on(&quot;click&quot;, () =&gt; {
+							(c.toggleClass(&quot;hidden&quot;),
+								c.hasClass(&quot;hidden&quot;) ? v() : (s.addClass(&quot;hidden&quot;), g(u, c)));
+						}),
+							$(window)
+								.off(&quot;action:ajaxify.start&quot;, v)
+								.one(&quot;action:ajaxify.start&quot;, v),
+							E.addInfiniteScrollHandler(u, c, async (d, i) =&gt; {
+								d.append(
+									await app.parseAndTranslate(
+										&quot;partials/chats/user-list&quot;,
+										&quot;users&quot;,
+										i,
+									),
+								);
+							}));
+					};
+					function g(u, l) {
+						(f &amp;&amp; clearInterval(f),
+							(f = setInterval(() =&gt; {
+								o(u, l);
+							}, 5e3)));
+					}
+					function v() {
+						f &amp;&amp; (clearInterval(f), (f = 0));
+					}
+					async function o(u, l) {
+						if (
+							ajaxify.data.template.chats &amp;&amp;
+							app.isFocused &amp;&amp;
+							l.scrollTop() === 0 &amp;&amp;
+							!l.hasClass(&quot;hidden&quot;)
+						) {
+							const c = await x.get(`/chats/${u}/users`, { start: 0 });
+							(l.find(&#039;[data-bs-toggle=&quot;tooltip&quot;]&#039;).tooltip(&quot;dispose&quot;),
+								l.html(
+									await app.parseAndTranslate(
+										&quot;partials/chats/user-list&quot;,
+										&quot;users&quot;,
+										c,
+									),
+								),
+								l.find(&#039;[data-bs-toggle=&quot;tooltip&quot;]&#039;).tooltip());
+						}
+					}
+					return (
+						(E.addInfiniteScrollHandler = function (u, l, c) {
+							l.on(
+								&quot;scroll&quot;,
+								utils.debounce(async () =&gt; {
+									const s = (l[0].scrollHeight - l.height()) * 0.85;
+									if (l.scrollTop() &gt; s) {
+										const d = l.find(&quot;[data-index]&quot;).last().attr(&quot;data-index&quot;),
+											i = await x.get(`/chats/${u}/users`, {
+												start: parseInt(d, 10) + 1,
+											});
+										i &amp;&amp; i.users.length &amp;&amp; c(l, i);
+									}
+								}, 200),
+							);
+						}),
+						(E.addSearchHandler = function (u, l, c) {
+							l.on(
+								&quot;keyup&quot;,
+								utils.debounce(async () =&gt; {
+									const s = l.val(),
+										d = await x.get(`/search/chats/${u}/users`, { query: s });
+									c(d);
+								}, 200),
+							);
+						}),
+						E
+					);
+				}.apply(I, w)),
+				A !== void 0 &amp;&amp; (D.exports = A));
+		},
+		80083: (D, I, m) =&gt; {
+			var w, A;
+			((w = [m(52473), m(49897), m(29930), m(53309)]),
+				(A = function (x, E, f, g) {
+					const v = {};
+					v.init = function () {
+						x.get(&quot;chat/create&quot;).on(&quot;click&quot;, o);
+					};
+					async function o() {
+						let u = [];
+						app.user.isAdmin &amp;&amp;
+							(({ groups: u } = await E.get(&quot;/admin/groups&quot;)),
+							u
+								.sort((d, i) =&gt; i.system - d.system)
+								.map((d) =&gt; {
+									const { name: i, displayName: p } = d;
+									return { name: i, displayName: p };
+								}));
+						const l = await app.parseAndTranslate(&quot;modals/create-room&quot;, {
+								user: app.user,
+								groups: u,
+							}),
+							c = bootbox.dialog({
+								title: &quot;[[modules:chat.create-room]]&quot;,
+								message: l,
+								onEscape: !0,
+								buttons: {
+									save: {
+										label: &quot;[[global:create]]&quot;,
+										className: &quot;btn-primary&quot;,
+										callback: function () {
+											const d = c.find(&#039;[component=&quot;chat/room/name&quot;]&#039;).val(),
+												i = c
+													.find(
+														&#039;[component=&quot;chat/room/users&quot;] [component=&quot;chat/user&quot;]&#039;,
+													)
+													.find(&quot;[data-uid]&quot;)
+													.map((C, b) =&gt; $(b).attr(&quot;data-uid&quot;))
+													.get(),
+												p = c.find(&#039;[component=&quot;chat/room/type&quot;]&#039;).val(),
+												y = c.find(&#039;[component=&quot;chat/room/groups&quot;]&#039;).val();
+											return p === &quot;private&quot; &amp;&amp; !i.length
+												? (f.error(&quot;[[error:no-users-selected]]&quot;), !1)
+												: p === &quot;public&quot; &amp;&amp; !y.length
+													? (f.error(&quot;[[error:no-groups-selected]]&quot;), !1)
+													: app.user.uid
+														? (E.post(&quot;/chats&quot;, {
+																roomName: d,
+																uids: i,
+																type: p,
+																groups: y,
+															})
+																.then(({ roomId: C }) =&gt; {
+																	(ajaxify.go(&quot;chats/&quot; + C), c.modal(&quot;hide&quot;));
+																})
+																.catch(f.error),
+															!1)
+														: (f.error(&quot;[[error:not-logged-in]]&quot;), !1);
+										},
+									},
+								},
+							}),
+							s = c.find(&#039;[component=&quot;chat/room/users&quot;]&#039;);
+						(g.init({
+							onSelect: async function (d) {
+								const i = await app.parseAndTranslate(
+									&quot;modals/create-room&quot;,
+									&quot;selectedUsers&quot;,
+									{ selectedUsers: [d] },
+								);
+								s.append(i);
+							},
+						}),
+							s.on(
+								&quot;click&quot;,
+								&#039;[component=&quot;chat/room/users/remove&quot;]&#039;,
+								function () {
+									$(this).parents(&quot;[data-uid]&quot;).remove();
+								},
+							),
+							c.find(&#039;[component=&quot;chat/room/type&quot;]&#039;).on(&quot;change&quot;, function () {
+								const d = $(this).val();
+								c.find(&#039;[component=&quot;chat/room/public/options&quot;]&#039;).toggleClass(
+									&quot;hidden&quot;,
+									d === &quot;private&quot;,
+								);
+							}));
+					}
+					return v;
+				}.apply(I, w)),
+				A !== void 0 &amp;&amp; (D.exports = A));
+		},
+		93230: (D, I, m) =&gt; {
+			var w, A;
+			((w = [m(49897), m(29930)]),
+				(A = function (x, E) {
+					const f = {};
+					let g;
+					f.init = function (l) {
+						((g = l),
+							$(&#039;[component=&quot;chat/pinned/messages/btn&quot;]&#039;).on(
+								&quot;click&quot;,
+								async () =&gt; {
+									const c = g.find(
+										&#039;[component=&quot;chat/messages/pinned/container&quot;]&#039;,
+									);
+									if (!c.hasClass(&quot;hidden&quot;)) return c.addClass(&quot;hidden&quot;);
+									(g.find(&#039;[component=&quot;chat/user/list&quot;]&#039;).addClass(&quot;hidden&quot;),
+										await f.refreshList(),
+										c.removeClass(&quot;hidden&quot;));
+								},
+							),
+							v(g));
+					};
+					function v(l) {
+						const c = l.find(&#039;[component=&quot;chat/messages/pinned&quot;]&#039;);
+						c.on(
+							&quot;scroll&quot;,
+							utils.debounce(async () =&gt; {
+								const s = (c[0].scrollHeight - c.height()) * 0.85;
+								if (c.scrollTop() &gt; s) {
+									const d = c.find(&quot;[data-index]&quot;).last().attr(&quot;data-index&quot;),
+										i = await u(parseInt(d, 10) + 1);
+									if (i &amp;&amp; i.length) {
+										const p = await o(i);
+										l.find(&#039;[component=&quot;chat/messages/pinned&quot;]&#039;).append(p);
+									}
+								}
+							}, 200),
+						);
+					}
+					f.refreshList = async function () {
+						const l = await u(0);
+						if (!l.length) {
+							(g
+								.find(&#039;[component=&quot;chat/messages/pinned/empty&quot;]&#039;)
+								.removeClass(&quot;hidden&quot;),
+								g.find(&#039;[component=&quot;chat/messages/pinned&quot;]&#039;).html(&quot;&quot;));
+							return;
+						}
+						g.find(&#039;[component=&quot;chat/messages/pinned/empty&quot;]&#039;).addClass(
+							&quot;hidden&quot;,
+						);
+						const c = await o(l);
+						(g.find(&#039;[component=&quot;chat/messages/pinned&quot;]&#039;).html(c),
+							c.find(&quot;.timeago&quot;).timeago());
+					};
+					async function o(l) {
+						return await app.parseAndTranslate(
+							&quot;partials/chats/pinned-messages-list&quot;,
+							&quot;messages&quot;,
+							{
+								isOwner: ajaxify.data.isOwner,
+								isAdminOrGlobalMod: ajaxify.data.isAdminOrGlobalMod,
+								messages: l,
+							},
+						);
+					}
+					async function u(l) {
+						const { messages: c } = await x.get(
+							`/chats/${ajaxify.data.roomId}/messages/pinned`,
+							{ start: l },
+						);
+						return c;
+					}
+					return (
+						(f.pin = function (l, c) {
+							x.put(`/chats/${c}/messages/${l}/pin`, {})
+								.then(() =&gt; {
+									($(`[component=&quot;chat/message&quot;][data-mid=&quot;${l}&quot;]`).toggleClass(
+										&quot;pinned&quot;,
+										!0,
+									),
+										f.refreshList());
+								})
+								.catch(E.error);
+						}),
+						(f.unpin = function (l, c) {
+							x.del(`/chats/${c}/messages/${l}/pin`, {})
+								.then(() =&gt; {
+									($(`[component=&quot;chat/message&quot;][data-mid=&quot;${l}&quot;]`).toggleClass(
+										&quot;pinned&quot;,
+										!1,
+									),
+										g
+											.find(
+												`[component=&quot;chat/messages/pinned&quot;] [data-mid=&quot;${l}&quot;]`,
+											)
+											.remove(),
+										g.find(&#039;[component=&quot;chat/messages/pinned&quot;] [data-mid]&#039;)
+											.length ||
+											g
+												.find(&#039;[component=&quot;chat/messages/pinned/empty&quot;]&#039;)
+												.removeClass(&quot;hidden&quot;));
+								})
+								.catch(E.error);
+						}),
+						f
+					);
+				}.apply(I, w)),
+				A !== void 0 &amp;&amp; (D.exports = A));
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

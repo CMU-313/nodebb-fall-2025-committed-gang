@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/templates/partials/composer-formatting.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/templates/partials/composer-formatting.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">70.58</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">91</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">71.04</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">2.04</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">
+(function (factory) {
+  if (typeof module === &#039;object&#039; &amp;&amp; module.exports) {
+    module.exports = factory();
+  } else if (typeof define === &#039;function&#039; &amp;&amp; define.amd) {
+    define(factory);
+  }
+})(function () {
+  function compiled(helpers, context, guard, iter, helper) {
+    var __escape = helpers.__escape;
+    var value = context;
+    return &quot;&lt;div class=\&quot;d-flex justify-content-between gap-2 align-items-center formatting-bar m-0\&quot;&gt;\n&lt;ul class=\&quot;list-unstyled mb-0 d-flex formatting-group gap-2 overflow-auto\&quot;&gt;\n&quot; + 
+      compiled.blocks[&#039;formatting&#039;](helpers, context, guard, iter, helper) + 
+      &quot;\n&quot; + 
+      (guard((context != null) ? context[&#039;canUploadImage&#039;] : null) ?
+        &quot;\n&lt;li title=\&quot;[[modules:composer.upload-picture]]\&quot;&gt;\n&lt;button data-format=\&quot;picture\&quot; class=\&quot;img-upload-btn btn btn-sm btn-link text-reset\&quot; aria-label=\&quot;[[modules:composer.upload-picture]]\&quot;&gt;\n&lt;i class=\&quot;fa fa-file-image-o\&quot;&gt;&lt;/i&gt;\n&lt;/button&gt;\n&lt;/li&gt;\n&quot; :
+        &quot;&quot;) + 
+      &quot;\n&quot; + 
+      (guard((context != null) ? context[&#039;canUploadFile&#039;] : null) ?
+        &quot;\n&lt;li title=\&quot;[[modules:composer.upload-file]]\&quot;&gt;\n&lt;button data-format=\&quot;upload\&quot; class=\&quot;file-upload-btn btn btn-sm btn-link text-reset\&quot; aria-label=\&quot;[[modules:composer.upload-file]]\&quot;&gt;\n&lt;i class=\&quot;fa fa-file-o\&quot;&gt;&lt;/i&gt;\n&lt;/button&gt;\n&lt;/li&gt;\n&quot; :
+        &quot;&quot;) + 
+      &quot;\n&lt;form id=\&quot;fileForm\&quot; method=\&quot;post\&quot; enctype=\&quot;multipart/form-data\&quot;&gt;\n&lt;input type=\&quot;file\&quot; id=\&quot;files\&quot; name=\&quot;files[]\&quot; multiple class=\&quot;hide\&quot;/&gt;\n&lt;/form&gt;\n&lt;/ul&gt;\n&lt;div class=\&quot;d-flex align-items-center gap-1\&quot;&gt;\n&lt;div class=\&quot;draft-icon m-2 hidden-xs hidden-sm\&quot;&gt;&lt;/div&gt;\n&lt;button class=\&quot;btn btn-sm btn-link py-2 text-body fw-semibold text-nowrap\&quot; data-action=\&quot;preview\&quot;&gt;\n&lt;i class=\&quot;fa fa-eye\&quot;&gt;&lt;/i&gt;\n&lt;span class=\&quot;d-none d-xl-inline show-text\&quot;&gt;[[modules:composer.show-preview]]&lt;/span&gt;\n&lt;span class=\&quot;d-none d-xl-inline hide-text\&quot;&gt;[[modules:composer.hide-preview]]&lt;/span&gt;\n&lt;/button&gt;\n&quot; + 
+      (guard((context != null) ? context[&#039;composer:showHelpTab&#039;] : null) ?
+        &quot;\n&lt;button class=\&quot;btn btn-sm btn-link py-2 text-body fw-semibold text-nowrap\&quot; data-action=\&quot;help\&quot;&gt;\n&lt;i class=\&quot;fa fa-question\&quot;&gt;&lt;/i&gt;\n&lt;span class=\&quot;d-none d-xl-inline\&quot;&gt;[[modules:composer.help]]&lt;/span&gt;\n&lt;/button&gt;\n&quot; :
+        &quot;&quot;) + 
+      &quot;\n&lt;/div&gt;\n&lt;/div&gt;&quot;;
+  }
+
+  compiled.blocks = {
+    &#039;formatting&#039;: function formatting(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null) ? context[&#039;formatting&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&quot; + 
+          (guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null) ? context[&#039;formatting&#039;][key0][&#039;spacer&#039;] : null) ?
+            &quot;\n&lt;li class=\&quot;small spacer\&quot;&gt;&lt;/li&gt;\n&quot; :
+            &quot;\n&quot; + 
+              ((guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;visibility&#039;] != null) ? context[&#039;formatting&#039;][key0][&#039;visibility&#039;][&#039;desktop&#039;] : null) &amp;&amp; ((guard((context != null) ? context[&#039;isTopicOrMain&#039;] : null) &amp;&amp; guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;visibility&#039;] != null) ? context[&#039;formatting&#039;][key0][&#039;visibility&#039;][&#039;main&#039;] : null)) || (!guard((context != null) ? context[&#039;isTopicOrMain&#039;] : null) &amp;&amp; guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;visibility&#039;] != null) ? context[&#039;formatting&#039;][key0][&#039;visibility&#039;][&#039;reply&#039;] : null)))) ?
+                &quot;\n&quot; + 
+                  (guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;] != null) ? context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;][&#039;length&#039;] : null) ?
+                    &quot;\n&lt;li class=\&quot;dropdown dropdown-left bottom-sheet\&quot; title=\&quot;&quot; + 
+                      __escape(guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null) ? context[&#039;formatting&#039;][key0][&#039;title&#039;] : null)) + 
+                      &quot;\&quot;&gt;\n&lt;button class=\&quot;btn btn-sm btn-link text-reset\&quot; data-bs-toggle=\&quot;dropdown\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot; aria-label=\&quot;&quot; + 
+                      __escape(guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null) ? context[&#039;formatting&#039;][key0][&#039;title&#039;] : null)) + 
+                      &quot;\&quot;&gt;\n&lt;i class=\&quot;&quot; + 
+                      __escape(guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null) ? context[&#039;formatting&#039;][key0][&#039;className&#039;] : null)) + 
+                      &quot;\&quot;&gt;&lt;/i&gt;\n&lt;/button&gt;\n&lt;ul class=\&quot;dropdown-menu p-1\&quot; role=\&quot;menu\&quot;&gt;\n&quot; + 
+                      iter(guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null) ? context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;] : null), function each(key1, index, length, value) {
+                        var key = key1;
+                        return &quot;\n&lt;li&gt;\n&lt;a href=\&quot;#\&quot; data-format=\&quot;&quot; + 
+                          __escape(guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;][key1] != null) ? context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;][key1][&#039;name&#039;] : null)) + 
+                          &quot;\&quot; class=\&quot;dropdown-item rounded-1 position-relative\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;i class=\&quot;&quot; + 
+                          __escape(guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;][key1] != null) ? context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;][key1][&#039;className&#039;] : null)) + 
+                          &quot; text-secondary\&quot;&gt;&lt;/i&gt; &quot; + 
+                          __escape(guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;][key1] != null) ? context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;][key1][&#039;text&#039;] : null)) + 
+                          &quot;\n&quot; + 
+                          (guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;][key1] != null) ? context[&#039;formatting&#039;][key0][&#039;dropdownItems&#039;][key1][&#039;badge&#039;] : null) ?
+                            &quot;\n&lt;span class=\&quot;px-1 position-absolute top-0 start-100 translate-middle badge rounded text-bg-info\&quot;&gt;&lt;/span&gt;\n&quot; :
+                            &quot;&quot;) + 
+                          &quot;\n&lt;/a&gt;\n&lt;/li&gt;\n&quot;;
+                      }, function alt() {
+                        return &quot;&quot;;
+                      }) + 
+                      &quot;\n&lt;/ul&gt;\n&lt;/li&gt;\n&quot; :
+                    &quot;\n&lt;li title=\&quot;&quot; + 
+                      __escape(guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null) ? context[&#039;formatting&#039;][key0][&#039;title&#039;] : null)) + 
+                      &quot;\&quot;&gt;\n&lt;button data-format=\&quot;&quot; + 
+                      __escape(guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null) ? context[&#039;formatting&#039;][key0][&#039;name&#039;] : null)) + 
+                      &quot;\&quot; class=\&quot;btn btn-sm btn-link text-reset position-relative\&quot; aria-label=\&quot;&quot; + 
+                      __escape(guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null) ? context[&#039;formatting&#039;][key0][&#039;title&#039;] : null)) + 
+                      &quot;\&quot;&gt;\n&lt;i class=\&quot;&quot; + 
+                      __escape(guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null) ? context[&#039;formatting&#039;][key0][&#039;className&#039;] : null)) + 
+                      &quot;\&quot;&gt;&lt;/i&gt;\n&quot; + 
+                      (guard((context != null &amp;&amp; context[&#039;formatting&#039;] != null &amp;&amp; context[&#039;formatting&#039;][key0] != null) ? context[&#039;formatting&#039;][key0][&#039;badge&#039;] : null) ?
+                        &quot;\n&lt;span class=\&quot;px-1 position-absolute top-0 start-100 translate-middle badge rounded text-bg-info\&quot;&gt;&lt;/span&gt;\n&quot; :
+                        &quot;&quot;) + 
+                      &quot;\n&lt;/button&gt;\n&lt;/li&gt;\n&quot;) + 
+                  &quot;\n&quot; :
+                &quot;&quot;) + 
+              &quot;\n&quot;) + 
+          &quot;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    }
+  };
+
+  return compiled;
+})
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

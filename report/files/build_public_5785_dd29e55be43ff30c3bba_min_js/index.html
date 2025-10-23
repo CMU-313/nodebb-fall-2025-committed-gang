@@ -1,0 +1,1260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/5785.dd29e55be43ff30c3bba.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/5785.dd29e55be43ff30c3bba.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">73.64</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">1140</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">98.28</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">16.73</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[5785, 33085, 34405, 61861, 69749, 87212, 92717, 97650],
+	{
+		10870: (h, E, c) =&gt; {
+			&quot;use strict&quot;;
+			var y, m;
+			((y = [c(33530), c(17459), c(68636), c(29930), c(91749)]),
+				(m = function (p, u, a, l, f) {
+					const t = {};
+					let s, d;
+					((t.show = function () {
+						f.one(&quot;action:ajaxify.end&quot;, () =&gt; {
+							(o(), e(), t.showEmailConfirmWarning());
+						});
+					}),
+						(t.showEmailConfirmWarning = function (n) {
+							if (
+								!config.emailPrompt ||
+								!app.user.uid ||
+								parseInt(a.getItem(&quot;email-confirm-dismiss&quot;), 10) === 1
+							)
+								return;
+							const i = {
+								alert_id: &quot;email_confirm&quot;,
+								type: &quot;warning&quot;,
+								timeout: 0,
+								closefn: () =&gt; {
+									a.setItem(&quot;email-confirm-dismiss&quot;, 1);
+								},
+							};
+							!app.user.email &amp;&amp; !app.user.isEmailConfirmSent
+								? ((i.message = &quot;[[error:no-email-to-confirm]]&quot;),
+									(i.clickfn = function () {
+										(l.remove(&quot;email_confirm&quot;),
+											ajaxify.go(&quot;user/&quot; + app.user.userslug + &quot;/edit/email&quot;));
+									}),
+									l.alert(i))
+								: !app.user[&quot;email:confirmed&quot;] &amp;&amp; !app.user.isEmailConfirmSent
+									? ((i.message = n || &quot;[[error:email-not-confirmed]]&quot;),
+										(i.clickfn = function () {
+											(l.remove(&quot;email_confirm&quot;), ajaxify.go(&quot;/me/edit/email&quot;));
+										}),
+										l.alert(i))
+									: !app.user[&quot;email:confirmed&quot;] &amp;&amp;
+										app.user.isEmailConfirmSent &amp;&amp;
+										((i.message = &quot;[[error:email-not-confirmed-email-sent]]&quot;),
+										l.alert(i));
+						}));
+					function e() {
+						!config.cookies.enabled ||
+							!navigator.cookieEnabled ||
+							app.inAdmin ||
+							a.getItem(&quot;cookieconsent&quot;) === &quot;1&quot; ||
+							((config.cookies.message = u.unescape(config.cookies.message)),
+							(config.cookies.dismiss = u.unescape(config.cookies.dismiss)),
+							(config.cookies.link = u.unescape(config.cookies.link)),
+							(config.cookies.link_url = u.unescape(config.cookies.link_url)),
+							app.parseAndTranslate(
+								&quot;partials/cookie-consent&quot;,
+								config.cookies,
+								function (n) {
+									($(document.body).append(n),
+										$(document.body).addClass(&quot;cookie-consent-open&quot;));
+									const i = $(&quot;.cookie-consent&quot;);
+									i.find(&quot;button&quot;).on(&quot;click&quot;, function () {
+										(a.setItem(&quot;cookieconsent&quot;, &quot;1&quot;),
+											i.remove(),
+											$(document.body).removeClass(&quot;cookie-consent-open&quot;));
+									});
+								},
+							));
+					}
+					function o() {
+						const n = utils.params({ full: !0 });
+						((s = n.has(&quot;loggedin&quot;)),
+							(d = n.get(&quot;register&quot;)),
+							s &amp;&amp;
+								(l.alert({
+									type: &quot;success&quot;,
+									title: &quot;[[global:welcome-back]] &quot; + app.user.username + &quot;!&quot;,
+									message: &quot;[[global:you-have-successfully-logged-in]]&quot;,
+									timeout: 5e3,
+								}),
+								n.delete(&quot;loggedin&quot;)),
+							d &amp;&amp;
+								(p.alert({ message: utils.escapeHTML(decodeURIComponent(d)) }),
+								n.delete(&quot;register&quot;)),
+							n.has(&quot;lang&quot;) &amp;&amp;
+								n.get(&quot;lang&quot;) === config.defaultLang &amp;&amp;
+								(console.info(
+									`The &quot;lang&quot; parameter was passed in to set the language to &quot;${n.get(&quot;lang&quot;)}&quot;, but that is already the forum default language.`,
+								),
+								n.delete(&quot;lang&quot;)));
+						const i = n.toString();
+						ajaxify.updateHistory(
+							ajaxify.currentPage + (i ? `?${i}` : &quot;&quot;) + document.location.hash,
+							!0,
+						);
+					}
+					return (
+						(t.showInvalidSession = function () {
+							p.alert({
+								title: &quot;[[error:invalid-session]]&quot;,
+								message: &quot;[[error:invalid-session-text]]&quot;,
+								closeButton: !1,
+								callback: function () {
+									window.location.reload();
+								},
+							});
+						}),
+						(t.showSessionMismatch = function () {
+							p.alert({
+								title: &quot;[[error:session-mismatch]]&quot;,
+								message: &quot;[[error:session-mismatch-text]]&quot;,
+								closeButton: !1,
+								callback: function () {
+									window.location.reload();
+								},
+							});
+						}),
+						t
+					);
+				}.apply(E, y)),
+				m !== void 0 &amp;&amp; (h.exports = m));
+		},
+		13342: (h, E, c) =&gt; {
+			h.exports = c(41644);
+		},
+		31494: (h, E, c) =&gt; {
+			h.exports = c(36244);
+		},
+		34405: (h, E, c) =&gt; {
+			&quot;use strict&quot;;
+			var y, m;
+			((y = [c(49897), c(29930), c(36e3), c(9787), c(35786)]),
+				(m = function (
+					p,
+					u,
+					{ Textcomplete: a },
+					{ TextareaEditor: l },
+					{ ContenteditableEditor: f },
+				) {
+					const t = {},
+						s = { delay: 200, appendTo: null };
+					((t.init = (e) =&gt; {
+						const o = { ...s, ...e },
+							{ input: n, onSelect: i } = o;
+						app.loadJQueryUI(function () {
+							n.autocomplete({
+								...o,
+								open: function () {
+									$(this).autocomplete(&quot;widget&quot;).css(&quot;z-index&quot;, 100005);
+								},
+								select: function (r, g) {
+									d(n, i, r, g);
+								},
+							});
+						});
+					}),
+						(t.user = function (e, o, n) {
+							(typeof o == &quot;function&quot; &amp;&amp; ((n = o), (o = {})),
+								(o = o || {}),
+								t.init({
+									input: e,
+									onSelect: n,
+									source: (i, r) =&gt; {
+										((o.query = i.term),
+											p.get(&quot;/api/users&quot;, o, function (g, C) {
+												if (g) return u.error(g);
+												if (C &amp;&amp; C.users) {
+													const v = C.users.map(function (w) {
+														const k = $(&quot;&lt;div&gt;&lt;/div&gt;&quot;).html(w.username).text();
+														return (
+															w &amp;&amp; {
+																label: k,
+																value: k,
+																user: {
+																	uid: w.uid,
+																	name: w.username,
+																	slug: w.userslug,
+																	username: w.username,
+																	userslug: w.userslug,
+																	displayname: w.displayname,
+																	picture: w.picture,
+																	banned: w.banned,
+																	&quot;icon:text&quot;: w[&quot;icon:text&quot;],
+																	&quot;icon:bgColor&quot;: w[&quot;icon:bgColor&quot;],
+																},
+															}
+														);
+													});
+													r(v);
+												}
+												$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;, &quot;false&quot;);
+											}));
+									},
+								}));
+						}),
+						(t.group = function (e, o) {
+							t.init({
+								input: e,
+								onSelect: o,
+								source: (n, i) =&gt; {
+									socket.emit(
+										&quot;groups.search&quot;,
+										{ query: n.term },
+										function (r, g) {
+											if (r) return u.error(r);
+											if (g &amp;&amp; g.length) {
+												const C = g.map(function (v) {
+													return (
+														v &amp;&amp; { label: v.name, value: v.name, group: v }
+													);
+												});
+												i(C);
+											}
+											$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;, &quot;false&quot;);
+										},
+									);
+								},
+							});
+						}),
+						(t.tag = function (e, o) {
+							t.init({
+								input: e,
+								onSelect: o,
+								delay: 100,
+								source: (n, i) =&gt; {
+									socket.emit(
+										&quot;topics.autocompleteTags&quot;,
+										{ query: n.term, cid: ajaxify.data.cid || 0 },
+										function (r, g) {
+											if (r) return u.error(r);
+											(g &amp;&amp; i(g),
+												$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;, &quot;false&quot;));
+										},
+									);
+								},
+							});
+						}));
+					function d(e, o, n, i) {
+						o = o || function () {};
+						const r = jQuery.Event(&quot;keypress&quot;);
+						((r.which = 13),
+							(r.keyCode = 13),
+							setTimeout(function () {
+								e.trigger(r);
+							}, 100),
+							o(n, i));
+					}
+					return (
+						(t.setup = function ({ element: e, strategies: o, options: n }) {
+							const i = e.get(0);
+							if (i) {
+								var r;
+								if (
+									(i.nodeName === &quot;TEXTAREA&quot; || i.nodeName === &quot;INPUT&quot;
+										? (r = new l(i))
+										: i.nodeName === &quot;DIV&quot; &amp;&amp;
+											i.getAttribute(&quot;contenteditable&quot;) === &quot;true&quot; &amp;&amp;
+											(r = new f(i)),
+									!r)
+								)
+									throw new Error(&quot;unknown target element type&quot;);
+								i.setAttribute(
+									&quot;dir&quot;,
+									document.querySelector(&quot;html&quot;).getAttribute(&quot;data-dir&quot;),
+								);
+								var g = new a(r, o, { dropdown: n });
+								return (
+									g.on(&quot;rendered&quot;, function () {
+										g.dropdown.items.length &amp;&amp; g.dropdown.items[0].activate();
+									}),
+									g
+								);
+							}
+						}),
+						t
+					);
+				}.apply(E, y)),
+				m !== void 0 &amp;&amp; (h.exports = m));
+		},
+		41088: (h, E, c) =&gt; {
+			&quot;use strict&quot;;
+			var y;
+			((y = function () {
+				const m = {};
+				return (
+					(m.apply = function (p) {
+						$(p).on(&quot;mousewheel&quot;, function (u) {
+							const a = this.scrollTop,
+								l = this.scrollHeight,
+								f = Math.round(this.getBoundingClientRect().height);
+							if (
+								(u.originalEvent.deltaY &lt; 0 &amp;&amp; a === 0) ||
+								(u.originalEvent.deltaY &gt; 0 &amp;&amp; f + a &gt;= l)
+							)
+								return !1;
+						});
+					}),
+					m
+				);
+			}.call(E, c, E, h)),
+				y !== void 0 &amp;&amp; (h.exports = y));
+		},
+		43103: (h, E, c) =&gt; {
+			&quot;use strict&quot;;
+			var y, m;
+			((y = [c(29930)]),
+				(m = function (p) {
+					const u = {};
+					return (
+						(u.init = function (a) {
+							const l = a.uploadFormEl;
+							if (
+								l.length &amp;&amp;
+								(l.attr(&quot;action&quot;, config.relative_path + a.route),
+								a.dragDropAreaEl &amp;&amp;
+									u.handleDragDrop({
+										container: a.dragDropAreaEl,
+										callback: function (f) {
+											u.ajaxSubmit({
+												uploadForm: l,
+												upload: f,
+												callback: a.callback,
+											});
+										},
+									}),
+								a.pasteEl &amp;&amp;
+									u.handlePaste({
+										container: a.pasteEl,
+										callback: function (f) {
+											u.ajaxSubmit({
+												uploadForm: l,
+												upload: f,
+												callback: a.callback,
+											});
+										},
+									}),
+								a.uploadBtnEl)
+							) {
+								const f = l.find(&#039;input[name=&quot;files[]&quot;]&#039;);
+								(a.uploadBtnEl.on(&quot;click&quot;, function () {
+									return (f.trigger(&quot;click&quot;), !1);
+								}),
+									f.on(&quot;change&quot;, function (t) {
+										const s =
+											(t.target || {}).files ||
+											($(this).val()
+												? [
+														{
+															name: $(this).val(),
+															type: utils.fileMimeType($(this).val()),
+														},
+													]
+												: null);
+										s &amp;&amp;
+											u.ajaxSubmit({
+												uploadForm: l,
+												upload: {
+													files: s,
+													fileNames: Array.from(s).map((d) =&gt; d.name),
+												},
+												callback: a.callback,
+											});
+									}));
+							}
+						}),
+						(u.handleDragDrop = function (a) {
+							let l = !1;
+							const f = a.container,
+								t = a.container.find(&quot;.imagedrop&quot;);
+							(f.on(&quot;dragenter&quot;, function () {
+								l ||
+									(t.css(&quot;top&quot;, &quot;0px&quot;),
+									t.css(&quot;height&quot;, f.height() + &quot;px&quot;),
+									t.css(&quot;line-height&quot;, f.height() + &quot;px&quot;),
+									t.show(),
+									t.on(&quot;dragleave&quot;, function () {
+										(t.hide(), t.off(&quot;dragleave&quot;));
+									}));
+							}),
+								t.on(&quot;drop&quot;, function (e) {
+									e.preventDefault();
+									const o = e.originalEvent.dataTransfer.files;
+									if (o.length) {
+										let i;
+										if (window.FormData) {
+											i = new FormData();
+											for (var n = 0; n &lt; o.length; ++n)
+												i.append(&quot;files[]&quot;, o[n], o[n].name);
+										}
+										a.callback({ files: o, formData: i });
+									}
+									return (t.hide(), !1);
+								}));
+							function s(d) {
+								return (d.preventDefault(), !1);
+							}
+							($(document)
+								.off(&quot;dragstart&quot;)
+								.on(&quot;dragstart&quot;, function () {
+									l = !0;
+								})
+								.off(&quot;dragend&quot;)
+								.on(&quot;dragend, mouseup&quot;, function () {
+									l = !1;
+								}),
+								t.on(&quot;dragover&quot;, s),
+								t.on(&quot;dragenter&quot;, s));
+						}),
+						(u.handlePaste = function (a) {
+							a.container.on(&quot;paste&quot;, function (f) {
+								const t = (
+										f.clipboardData ||
+										f.originalEvent.clipboardData ||
+										{}
+									).items,
+									s = [],
+									d = [];
+								let e = null;
+								(window.FormData &amp;&amp; (e = new FormData()),
+									[].forEach.call(t, function (o) {
+										const n = o.getAsFile();
+										if (n) {
+											const i = utils.generateUUID() + &quot;-&quot; + n.name;
+											(e &amp;&amp; e.append(&quot;files[]&quot;, n, i), s.push(n), d.push(i));
+										}
+									}),
+									s.length &amp;&amp;
+										a.callback({ files: s, fileNames: d, formData: e }));
+							});
+						}),
+						(u.ajaxSubmit = function (a) {
+							const l = [...a.upload.files];
+							for (let t = 0; t &lt; l.length; ++t) {
+								const s = l[t].type.match(/image./);
+								if (
+									(s &amp;&amp; !app.user.privileges[&quot;upload:post:image&quot;]) ||
+									(!s &amp;&amp; !app.user.privileges[&quot;upload:post:file&quot;])
+								)
+									return p.error(&quot;[[error:no-privileges]]&quot;);
+								if (
+									!app.user.isAdmin &amp;&amp;
+									l[t].size &gt; parseInt(config.maximumFileSize, 10) * 1024
+								)
+									return (
+										a.uploadForm[0].reset(),
+										p.error(
+											&quot;[[error:file-too-big, &quot; + config.maximumFileSize + &quot;]]&quot;,
+										)
+									);
+							}
+							const f = Date.now();
+							(a.uploadForm.off(&quot;submit&quot;).on(&quot;submit&quot;, function () {
+								return (
+									$(this).ajaxSubmit({
+										headers: { &quot;x-csrf-token&quot;: config.csrf_token },
+										resetForm: !0,
+										clearForm: !0,
+										formData: a.upload.formData,
+										error: function (t) {
+											let s =
+												(t.responseJSON &amp;&amp;
+													(t.responseJSON.error ||
+														(t.responseJSON.status &amp;&amp;
+															t.responseJSON.status.message))) ||
+												&quot;[[error:parse-error]]&quot;;
+											(t &amp;&amp;
+												t.status === 413 &amp;&amp;
+												(s = t.statusText || &quot;Request Entity Too Large&quot;),
+												p.error(s),
+												p.remove(f));
+										},
+										uploadProgress: function (t, s, d, e) {
+											p.alert({
+												alert_id: f,
+												message: &quot;[[modules:composer.uploading, &quot; + e + &quot;%]]&quot;,
+											});
+										},
+										success: function (t) {
+											const s = t.response.images;
+											if (s &amp;&amp; s.length)
+												for (var d = 0; d &lt; s.length; ++d)
+													((s[d].filename = l[d].name),
+														(s[d].isImage = /image./.test(l[d].type)));
+											a.callback(s);
+										},
+										complete: function () {
+											(a.uploadForm[0].reset(), setTimeout(p.remove, 100, f));
+										},
+									}),
+									!1
+								);
+							}),
+								a.uploadForm.submit());
+						}),
+						u
+					);
+				}.apply(E, y)),
+				m !== void 0 &amp;&amp; (h.exports = m));
+		},
+		52543: (h, E, c) =&gt; {
+			h.exports = c(28721);
+		},
+		65348: (h, E, c) =&gt; {
+			&quot;use strict&quot;;
+			var y, m;
+			((y = [c(96349), c(33530), c(91749), c(17459)]),
+				(m = function (p, u, a, l) {
+					const f = {};
+					return (
+						(f.init = function (t, s) {
+							if (!t || !t.length) return;
+							s = s || {};
+							const d = s.onSelect || function () {};
+							((s.states = s.states || [
+								&quot;watching&quot;,
+								&quot;tracking&quot;,
+								&quot;notwatching&quot;,
+								&quot;ignoring&quot;,
+							]),
+								(s.template =
+									s.template || &quot;partials/category/selector-dropdown-left&quot;),
+								a.fire(&quot;action:category.selector.options&quot;, {
+									el: t,
+									options: s,
+								}),
+								p.init(t, s));
+							const e = { el: t, selectedCategory: null };
+							t.on(&quot;click&quot;, &quot;[data-cid]&quot;, function () {
+								const n = $(this);
+								return n.hasClass(&quot;disabled&quot;)
+									? !1
+									: (e.selectCategory(n.attr(&quot;data-cid&quot;)),
+										d(e.selectedCategory));
+							});
+							let o = e.el
+								.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;)
+								.html();
+							return (
+								l.translate(o, (n) =&gt; {
+									o = n;
+								}),
+								(e.selectCategory = function (n) {
+									const i = e.el.find(&#039;[data-cid=&quot;&#039; + n + &#039;&quot;]&#039;);
+									((e.selectedCategory = { cid: n, name: i.attr(&quot;data-name&quot;) }),
+										i.length
+											? e.el
+													.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;)
+													.html(i.find(&#039;[component=&quot;category-markup&quot;]&#039;).html())
+											: e.el
+													.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;)
+													.html(o));
+								}),
+								(e.getSelectedCategory = function () {
+									return e.selectedCategory;
+								}),
+								(e.getSelectedCid = function () {
+									return e.selectedCategory ? e.selectedCategory.cid : 0;
+								}),
+								s.hasOwnProperty(&quot;selectedCategory&quot;) &amp;&amp;
+									app.parseAndTranslate(
+										s.template,
+										{ selectedCategory: s.selectedCategory },
+										function (n) {
+											e.el
+												.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;)
+												.html(
+													n
+														.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;)
+														.html(),
+												);
+										},
+									),
+								e
+							);
+						}),
+						(f.modal = function (t) {
+							((t = t || {}),
+								(t.onSelect = t.onSelect || function () {}),
+								(t.onSubmit = t.onSubmit || function () {}),
+								app.parseAndTranslate(
+									&quot;admin/partials/categories/select-category&quot;,
+									{ message: t.message },
+									function (s) {
+										const d = u.dialog({
+												title:
+													t.title || &quot;[[modules:composer.select-category]]&quot;,
+												message: s,
+												buttons: {
+													save: {
+														label: &quot;[[global:select]]&quot;,
+														className: &quot;btn-primary&quot;,
+														callback: o,
+													},
+												},
+											}),
+											e = f.init(d.find(&#039;[component=&quot;category-selector&quot;]&#039;), t);
+										function o(n) {
+											return (
+												n.preventDefault(),
+												e.selectedCategory &amp;&amp;
+													(t.onSubmit(e.selectedCategory), d.modal(&quot;hide&quot;)),
+												!1
+											);
+										}
+										(t.openOnLoad &amp;&amp;
+											d.on(&quot;shown.bs.modal&quot;, function () {
+												d.find(&quot;.dropdown-toggle&quot;).dropdown(&quot;toggle&quot;);
+											}),
+											d.find(&quot;form&quot;).on(&quot;submit&quot;, o));
+									},
+								));
+						}),
+						f
+					);
+				}.apply(E, y)),
+				m !== void 0 &amp;&amp; (h.exports = m));
+		},
+		68636: (h, E, c) =&gt; {
+			&quot;use strict&quot;;
+			var y;
+			((y = function () {
+				function m() {
+					((this._store = {}), (this._keys = []));
+				}
+				((m.prototype.isMock = !0),
+					(m.prototype.setItem = function (a, l) {
+						((a = String(a)),
+							this._keys.indexOf(a) === -1 &amp;&amp; this._keys.push(a),
+							(this._store[a] = l));
+					}),
+					(m.prototype.getItem = function (a) {
+						return (
+							(a = String(a)),
+							this._keys.indexOf(a) === -1 ? null : this._store[a]
+						);
+					}),
+					(m.prototype.removeItem = function (a) {
+						((a = String(a)),
+							(this._keys = this._keys.filter(function (l) {
+								return l !== a;
+							})),
+							(this._store[a] = null));
+					}),
+					(m.prototype.clear = function () {
+						((this._keys = []), (this._store = {}));
+					}),
+					(m.prototype.key = function (a) {
+						return ((a = parseInt(a, 10) || 0), this._keys[a]);
+					}),
+					Object.defineProperty &amp;&amp;
+						Object.defineProperty(m.prototype, &quot;length&quot;, {
+							get: function () {
+								return this._keys.length;
+							},
+						}));
+				let p;
+				const u = Date.now().toString();
+				try {
+					if (((p = window.localStorage), p.setItem(u, u), p.getItem(u) !== u))
+						throw Error(&quot;localStorage behaved unexpectedly&quot;);
+					return (p.removeItem(u), p);
+				} catch (a) {
+					(console.warn(a),
+						console.warn(
+							&quot;localStorage failed, falling back on sessionStorage&quot;,
+						));
+					try {
+						if (
+							((p = window.sessionStorage), p.setItem(u, u), p.getItem(u) !== u)
+						)
+							throw Error(&quot;sessionStorage behaved unexpectedly&quot;);
+						return (p.removeItem(u), p);
+					} catch (l) {
+						return (
+							console.warn(l),
+							console.warn(
+								&quot;sessionStorage failed, falling back on memory storage&quot;,
+							),
+							new m()
+						);
+					}
+				}
+			}.call(E, c, E, h)),
+				y !== void 0 &amp;&amp; (h.exports = y));
+		},
+		69749: (h, E, c) =&gt; {
+			&quot;use strict&quot;;
+			var y, m;
+			((y = [c(17459), c(68636), c(91749), c(29930), c(89336)]),
+				(m = function (p, u, a, l, f) {
+					const t = { current: {} };
+					t.init = function (e) {
+						if (!config.searchEnabled) return;
+						((e = e || { in: config.searchDefaultInQuick || &quot;titles&quot; }),
+							$(&#039;[component=&quot;search/form&quot;]&#039;).each((n, i) =&gt; {
+								s($(i), e);
+							}));
+					};
+					function s(e, o) {
+						const n = e.find(&#039;[component=&quot;search/button&quot;]&#039;),
+							i = e.find(&#039;[component=&quot;search/fields&quot;]&#039;),
+							r = i.find(&#039;input[name=&quot;query&quot;]&#039;),
+							g = i.find(&quot;#quick-search-container&quot;),
+							C = i.hasClass(&quot;hidden&quot;),
+							v = /^(@|acct:)?[\w-]+@.+$/;
+						(C &amp;&amp;
+							i.off(&quot;focusout&quot;).on(&quot;focusout&quot;, function () {
+								setTimeout(function () {
+									i.find(&quot;:focus&quot;).length ||
+										(i.addClass(&quot;hidden&quot;), n.removeClass(&quot;hidden&quot;));
+								}, 200);
+							}),
+							r.off(&quot;focus&quot;));
+						const w = { inputEl: r, resultEl: g };
+						(t.enableQuickSearch({ searchOptions: o, searchElements: w }),
+							n.off(&quot;click&quot;).on(&quot;click&quot;, function (k) {
+								return !config.loggedIn &amp;&amp;
+									!app.user.privileges[&quot;search:content&quot;]
+									? (l.alert({
+											message: &quot;[[error:search-requires-login]]&quot;,
+											timeout: 3e3,
+										}),
+										ajaxify.go(&quot;login&quot;),
+										!1)
+									: (k.stopPropagation(), t.showAndFocusInput(e), !1);
+							}),
+							e.off(&quot;submit&quot;).on(&quot;submit&quot;, function () {
+								const k = $(this).find(&#039;input[name=&quot;query&quot;]&#039;),
+									S = t.getSearchPreferences();
+								return (
+									(S.term = k.val()),
+									(S.in = o.in),
+									v.test(S.term) &amp;&amp; (S.in = &quot;users&quot;),
+									a.fire(&quot;action:search.submit&quot;, {
+										searchOptions: S,
+										searchElements: w,
+									}),
+									t.query(S, function () {
+										(k.val(&quot;&quot;), r.trigger(&quot;blur&quot;));
+									}),
+									!1
+								);
+							}));
+					}
+					((t.enableQuickSearch = function (e) {
+						if (!config.searchEnabled || !app.user.privileges[&quot;search:content&quot;])
+							return;
+						const o = Object.assign(
+								{ in: config.searchDefaultInQuick || &quot;titles&quot; },
+								e.searchOptions,
+							),
+							n = e.searchElements.resultEl,
+							i = e.searchElements.inputEl;
+						let r = i.val();
+						const g = n.find(&quot;.filter-category&quot;);
+						function C() {
+							(ajaxify.data.template.category &amp;&amp;
+								ajaxify.data.cid &amp;&amp;
+								p.translate(
+									&quot;[[search:search-in-category, &quot; + ajaxify.data.name + &quot;]]&quot;,
+									function (x) {
+										const b = $(&quot;&lt;div&gt;&lt;/div&gt;&quot;).html(x).text();
+										g.find(&quot;.name&quot;).text(b);
+									},
+								),
+								g.toggleClass(
+									&quot;hidden&quot;,
+									!(ajaxify.data.template.category &amp;&amp; ajaxify.data.cid),
+								));
+						}
+						function v() {
+							((e.searchOptions = Object.assign({}, o)),
+								(e.searchOptions.term = i.val()),
+								C(),
+								ajaxify.data.template.category &amp;&amp;
+									ajaxify.data.cid &amp;&amp;
+									g.find(&#039;input[type=&quot;checkbox&quot;]&#039;).is(&quot;:checked&quot;) &amp;&amp;
+									((e.searchOptions.categories = [ajaxify.data.cid]),
+									(e.searchOptions.searchChildren = !0)),
+								e.hideDuringSearch ||
+									(n
+										.removeClass(&quot;hidden&quot;)
+										.find(&quot;.quick-search-results-container&quot;)
+										.html(&quot;&quot;),
+									n.find(&quot;.loading-indicator&quot;).removeClass(&quot;hidden&quot;)),
+								a.fire(&quot;action:search.quick.start&quot;, e),
+								(e.searchOptions.searchOnly = 1),
+								t.api(e.searchOptions, function (x) {
+									if (
+										(n.find(&quot;.loading-indicator&quot;).addClass(&quot;hidden&quot;),
+										e.searchOptions.in === &quot;categories&quot;)
+									) {
+										if (
+											!x.categories ||
+											(e.hideOnNoMatches &amp;&amp; !x.categories.length)
+										)
+											return n
+												.addClass(&quot;hidden&quot;)
+												.find(&quot;.quick-search-results-container&quot;)
+												.html(&quot;&quot;);
+										((x.dropdown = {
+											maxWidth: &quot;400px&quot;,
+											maxHeight: &quot;500px&quot;,
+											...e.dropdown,
+										}),
+											app.parseAndTranslate(
+												&quot;partials/quick-category-search-results&quot;,
+												x,
+												(b) =&gt; {
+													(b.length &amp;&amp; b.find(&quot;.timeago&quot;).timeago(),
+														n
+															.toggleClass(
+																&quot;hidden&quot;,
+																!b.length || !i.is(&quot;:focus&quot;),
+															)
+															.find(&quot;.quick-search-results-container&quot;)
+															.html(b.length ? b : &quot;&quot;),
+														a.fire(&quot;action:search.quick.complete&quot;, {
+															data: x,
+															options: e,
+														}));
+												},
+											));
+									} else {
+										if (!x.posts || (e.hideOnNoMatches &amp;&amp; !x.posts.length))
+											return n
+												.addClass(&quot;hidden&quot;)
+												.find(&quot;.quick-search-results-container&quot;)
+												.html(&quot;&quot;);
+										(x.posts.forEach(function (b) {
+											const _ = $(&quot;&lt;div&gt;&quot; + b.content + &quot;&lt;/div&gt;&quot;).text(),
+												I = i
+													.val()
+													.toLowerCase()
+													.replace(/^in:topic-\d+/, &quot;&quot;),
+												D = Math.max(0, _.toLowerCase().indexOf(I) - 40);
+											b.snippet = utils.escapeHTML(
+												(D &gt; 0 ? &quot;...&quot; : &quot;&quot;) +
+													_.slice(D, D + 80) +
+													(_.length - D &gt; 80 ? &quot;...&quot; : &quot;&quot;),
+											);
+										}),
+											(x.dropdown = {
+												maxWidth: &quot;400px&quot;,
+												maxHeight: &quot;500px&quot;,
+												...e.dropdown,
+											}),
+											app.parseAndTranslate(
+												&quot;partials/quick-search-results&quot;,
+												x,
+												function (b) {
+													(b.length &amp;&amp; b.find(&quot;.timeago&quot;).timeago(),
+														n
+															.toggleClass(
+																&quot;hidden&quot;,
+																!b.length || !i.is(&quot;:focus&quot;),
+															)
+															.find(&quot;.quick-search-results-container&quot;)
+															.html(b.length ? b : &quot;&quot;));
+													const _ = n.find(
+														&quot;.quick-search-results .quick-search-title, .quick-search-results .snippet&quot;,
+													);
+													(t.highlightMatches(e.searchOptions.term, _),
+														a.fire(&quot;action:search.quick.complete&quot;, {
+															data: x,
+															options: e,
+														}));
+												},
+											));
+									}
+								}));
+						}
+						(n
+							.find(&#039;.filter-category input[type=&quot;checkbox&quot;]&#039;)
+							.on(&quot;change&quot;, function () {
+								(i.focus(), v());
+							}),
+							i.off(&quot;keyup&quot;).on(
+								&quot;keyup&quot;,
+								utils.debounce(function () {
+									if (i.val().length &lt; 3) {
+										(n.addClass(&quot;hidden&quot;), (r = i.val()));
+										return;
+									}
+									if (i.val() !== r) {
+										if (((r = i.val()), !i.is(&quot;:focus&quot;)))
+											return n.addClass(&quot;hidden&quot;);
+										v();
+									}
+								}, 500),
+							),
+							n.on(&quot;mousedown&quot;, &quot;.quick-search-results &gt; *&quot;, function () {
+								$(window).one(&quot;mouseup&quot;, function () {
+									n.addClass(&quot;hidden&quot;);
+								});
+							}));
+						const w = i.parent(),
+							k = n.parent();
+						(w.on(&quot;focusout&quot;, S), k.on(&quot;focusout&quot;, S));
+						function S() {
+							setTimeout(function () {
+								!w.find(&quot;:focus&quot;).length &amp;&amp;
+									!k.find(&quot;:focus&quot;).length &amp;&amp;
+									!n.hasClass(&quot;hidden&quot;) &amp;&amp;
+									n.addClass(&quot;hidden&quot;);
+							}, 200);
+						}
+						let A = !1;
+						(a.on(&quot;action:ajaxify.end&quot;, function () {
+							(ajaxify.isCold() || (A = !0), n.addClass(&quot;hidden&quot;));
+						}),
+							i.on(&quot;focus&quot;, function () {
+								const x = i.val();
+								((r = x),
+									x &amp;&amp;
+										n.find(&quot;#quick-search-results&quot;).children().length &amp;&amp;
+										(C(),
+										A ? (v(), (A = !1)) : n.removeClass(&quot;hidden&quot;),
+										i[0].setSelectionRange(
+											x.startsWith(&quot;in:topic&quot;) ? x.indexOf(&quot; &quot;) + 1 : 0,
+											x.length,
+										)));
+							}),
+							i.off(&quot;refresh&quot;).on(&quot;refresh&quot;, function () {
+								v();
+							}));
+					}),
+						(t.showAndFocusInput = function (e) {
+							const o = e.parents(&quot;.dropdown-menu&quot;);
+							if (o.length) {
+								const n = o.siblings(&quot;[data-bs-toggle]&quot;),
+									i = f.Dropdown.getOrCreateInstance(n[0]);
+								i &amp;&amp; i.show();
+							} else
+								(e.find(&#039;[component=&quot;search/fields&quot;]&#039;).removeClass(&quot;hidden&quot;),
+									e.find(&#039;[component=&quot;search/button&quot;]&#039;).addClass(&quot;hidden&quot;),
+									e
+										.find(&#039;[component=&quot;search/fields&quot;] input[name=&quot;query&quot;]&#039;)
+										.trigger(&quot;focus&quot;));
+						}),
+						(t.query = function (e, o) {
+							((o = o || function () {}), ajaxify.go(&quot;search?&quot; + d(e), o));
+						}),
+						(t.api = function (e, o) {
+							const n = config.relative_path + &quot;/api/search?&quot; + d(e);
+							e.hasOwnProperty(&quot;searchOnly&quot;) &amp;&amp; delete e.searchOnly;
+							const i = config.relative_path + &quot;/search?&quot; + d(e);
+							$.get(n, function (r) {
+								((r.url = i), o(r));
+							});
+						}));
+					function d(e) {
+						const o = e.in || &quot;titles&quot;,
+							n = e.term.replace(/^[ ?#]*/, &quot;&quot;),
+							i = { ...e, term: n, in: o };
+						return (
+							a.fire(&quot;action:search.createQueryString&quot;, { query: i, data: e }),
+							$.param(i)
+						);
+					}
+					return (
+						(t.getSearchPreferences = function () {
+							try {
+								return JSON.parse(u.getItem(&quot;search-preferences&quot;) || &quot;{}&quot;);
+							} catch (e) {
+								return (console.error(e), {});
+							}
+						}),
+						(t.highlightMatches = function (e, o) {
+							if (!e || !o.length) return;
+							e = utils.escapeHTML(
+								e.replace(/^&quot;/, &quot;&quot;).replace(/&quot;$/, &quot;&quot;).trim(),
+							);
+							const n = e
+									.split(&quot; &quot;)
+									.filter((r) =&gt; r.length &gt; 1)
+									.map(function (r) {
+										return utils.escapeRegexChars(r);
+									})
+									.join(&quot;|&quot;),
+								i = new RegExp(&quot;(&quot; + n + &quot;)&quot;, &quot;gi&quot;);
+							(o.each(function () {
+								const r = $(this),
+									g = [];
+								(r.find(&quot;*&quot;).each(function () {
+									($(this).after(&quot;&lt;!-- &quot; + g.length + &quot; --&gt;&quot;),
+										g.push($(&quot;&lt;div&gt;&lt;/div&gt;&quot;).append($(this))));
+								}),
+									r.html(
+										r.html().replace(i, function (C, v) {
+											return (
+												&#039;&lt;strong class=&quot;search-match fw-bold text-decoration-underline&quot;&gt;&#039; +
+												v +
+												&quot;&lt;/strong&gt;&quot;
+											);
+										}),
+									),
+									g.forEach(function (C, v) {
+										r.html(
+											r.html().replace(&quot;&lt;!-- &quot; + v + &quot; --&gt;&quot;, function () {
+												return C.html();
+											}),
+										);
+									}));
+							}),
+								$(&quot;.search-results .content&quot;)
+									.find(&quot;img:not(.not-responsive)&quot;)
+									.addClass(&quot;img-fluid&quot;));
+						}),
+						t
+					);
+				}.apply(E, y)),
+				m !== void 0 &amp;&amp; (h.exports = m));
+		},
+		71431: (h, E, c) =&gt; {
+			h.exports = c(49641);
+		},
+		72573: (h, E, c) =&gt; {
+			h.exports = c(59367);
+		},
+		88518: (h, E, c) =&gt; {
+			h.exports = c(54516);
+		},
+		92762: (h, E, c) =&gt; {
+			h.exports = c(94252);
+		},
+		96349: (h, E, c) =&gt; {
+			&quot;use strict&quot;;
+			var y, m;
+			((y = [c(29930), c(89336), c(49897)]),
+				(m = function (p, u, a) {
+					const l = {};
+					return (
+						(l.init = function (f, t) {
+							let s = t.defaultCategories || null;
+							((t = t || {}),
+								(t.privilege = t.privilege || &quot;topics:read&quot;),
+								(t.states = t.states || [
+									&quot;watching&quot;,
+									&quot;tracking&quot;,
+									&quot;notwatching&quot;,
+									&quot;ignoring&quot;,
+								]),
+								(t.cacheList = t.hasOwnProperty(&quot;cacheList&quot;)
+									? t.cacheList
+									: !0));
+							let d = [];
+							(Array.isArray(t.localCategories) &amp;&amp;
+								((d = t.localCategories.map((r) =&gt; ({ ...r }))),
+								s &amp;&amp; (s = [...d, ...s])),
+								(t.selectedCids =
+									t.selectedCids || ajaxify.data.selectedCids || []));
+							const e = f.find(&#039;[component=&quot;category-selector-search&quot;]&#039;);
+							if (!e.length) return;
+							const o =
+								e.parents(&#039;[component=&quot;category/dropdown&quot;]&#039;).length &gt; 0 ||
+								e.parents(&#039;[component=&quot;category-selector&quot;]&#039;).length &gt; 0;
+							(f.on(&quot;show.bs.dropdown&quot;, function () {
+								o &amp;&amp; e.removeClass(&quot;hidden&quot;);
+								function r() {
+									const g = e.find(&quot;input&quot;).val();
+									g.length &gt; 1 || (!g &amp;&amp; !s)
+										? n(g, function (C) {
+												((s = t.cacheList &amp;&amp; (s || C)), i(C));
+											})
+										: !g &amp;&amp; s &amp;&amp; i(s);
+								}
+								(e.on(&quot;click&quot;, function (g) {
+									(g.preventDefault(), g.stopPropagation());
+								}),
+									e.find(&quot;input&quot;).val(&quot;&quot;).on(&quot;keyup&quot;, utils.debounce(r, 300)),
+									r());
+							}),
+								f.on(&quot;shown.bs.dropdown&quot;, function () {
+									[&quot;xs&quot;, &quot;sm&quot;].includes(utils.findBootstrapEnvironment()) ||
+										e.find(&quot;input&quot;).focus();
+								}),
+								f.on(&quot;hide.bs.dropdown&quot;, function () {
+									(o &amp;&amp; e.addClass(&quot;hidden&quot;),
+										e.off(&quot;click&quot;),
+										e.find(&quot;input&quot;).off(&quot;keyup&quot;));
+								}));
+							function n(r, g) {
+								a.get(
+									&quot;/search/categories&quot;,
+									{
+										search: r,
+										query: utils.params(),
+										parentCid: t.parentCid || 0,
+										selectedCids: t.selectedCids,
+										privilege: t.privilege,
+										states: t.states,
+										showLinks: t.showLinks,
+									},
+									function (C, { categories: v }) {
+										if (C) return p.error(C);
+										g(d.concat(v));
+									},
+								);
+							}
+							function i(r) {
+								const g = t.selectedCids.map(String);
+								(r.forEach(function (C) {
+									C.selected = g.includes(String(C.cid));
+								}),
+									app.parseAndTranslate(
+										t.template,
+										{
+											categoryItems: r.slice(0, 200),
+											selectedCategory: ajaxify.data.selectedCategory,
+											allCategoriesUrl: ajaxify.data.allCategoriesUrl,
+										},
+										function (C) {
+											(f
+												.find(&#039;[component=&quot;category/list&quot;]&#039;)
+												.html(C.find(&#039;[component=&quot;category/list&quot;]&#039;).html()),
+												f
+													.find(
+														&#039;[component=&quot;category/list&quot;] [component=&quot;category/no-matches&quot;]&#039;,
+													)
+													.toggleClass(&quot;hidden&quot;, !!r.length));
+											const v = u.Dropdown.getInstance(
+												f.find(&quot;.dropdown-toggle&quot;).get(0),
+											);
+											v &amp;&amp; v.update();
+										},
+									));
+							}
+						}),
+						l
+					);
+				}.apply(E, y)),
+				m !== void 0 &amp;&amp; (h.exports = m));
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

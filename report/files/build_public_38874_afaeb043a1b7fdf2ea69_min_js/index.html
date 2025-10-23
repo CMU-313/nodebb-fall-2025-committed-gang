@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/38874.afaeb043a1b7fdf2ea69.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/38874.afaeb043a1b7fdf2ea69.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">48.64</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">328</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">7.92</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">2.15</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[38874],
+	{
+		38874: (o) =&gt; {
+			function s(r) {
+				var t = &quot;[A-Za-z_\\u00A1-\\uFFFF][A-Za-z_0-9\\u00A1-\\uFFFF]*&quot;,
+					l = [
+						&quot;baremodule&quot;,
+						&quot;begin&quot;,
+						&quot;break&quot;,
+						&quot;catch&quot;,
+						&quot;ccall&quot;,
+						&quot;const&quot;,
+						&quot;continue&quot;,
+						&quot;do&quot;,
+						&quot;else&quot;,
+						&quot;elseif&quot;,
+						&quot;end&quot;,
+						&quot;export&quot;,
+						&quot;false&quot;,
+						&quot;finally&quot;,
+						&quot;for&quot;,
+						&quot;function&quot;,
+						&quot;global&quot;,
+						&quot;if&quot;,
+						&quot;import&quot;,
+						&quot;in&quot;,
+						&quot;isa&quot;,
+						&quot;let&quot;,
+						&quot;local&quot;,
+						&quot;macro&quot;,
+						&quot;module&quot;,
+						&quot;quote&quot;,
+						&quot;return&quot;,
+						&quot;true&quot;,
+						&quot;try&quot;,
+						&quot;using&quot;,
+						&quot;where&quot;,
+						&quot;while&quot;,
+					],
+					d = [
+						&quot;ARGS&quot;,
+						&quot;C_NULL&quot;,
+						&quot;DEPOT_PATH&quot;,
+						&quot;ENDIAN_BOM&quot;,
+						&quot;ENV&quot;,
+						&quot;Inf&quot;,
+						&quot;Inf16&quot;,
+						&quot;Inf32&quot;,
+						&quot;Inf64&quot;,
+						&quot;InsertionSort&quot;,
+						&quot;LOAD_PATH&quot;,
+						&quot;MergeSort&quot;,
+						&quot;NaN&quot;,
+						&quot;NaN16&quot;,
+						&quot;NaN32&quot;,
+						&quot;NaN64&quot;,
+						&quot;PROGRAM_FILE&quot;,
+						&quot;QuickSort&quot;,
+						&quot;RoundDown&quot;,
+						&quot;RoundFromZero&quot;,
+						&quot;RoundNearest&quot;,
+						&quot;RoundNearestTiesAway&quot;,
+						&quot;RoundNearestTiesUp&quot;,
+						&quot;RoundToZero&quot;,
+						&quot;RoundUp&quot;,
+						&quot;VERSION|0&quot;,
+						&quot;devnull&quot;,
+						&quot;false&quot;,
+						&quot;im&quot;,
+						&quot;missing&quot;,
+						&quot;nothing&quot;,
+						&quot;pi&quot;,
+						&quot;stderr&quot;,
+						&quot;stdin&quot;,
+						&quot;stdout&quot;,
+						&quot;true&quot;,
+						&quot;undef&quot;,
+						&quot;\u03C0&quot;,
+						&quot;\u212F&quot;,
+					],
+					c = [
+						&quot;AbstractArray&quot;,
+						&quot;AbstractChannel&quot;,
+						&quot;AbstractChar&quot;,
+						&quot;AbstractDict&quot;,
+						&quot;AbstractDisplay&quot;,
+						&quot;AbstractFloat&quot;,
+						&quot;AbstractIrrational&quot;,
+						&quot;AbstractMatrix&quot;,
+						&quot;AbstractRange&quot;,
+						&quot;AbstractSet&quot;,
+						&quot;AbstractString&quot;,
+						&quot;AbstractUnitRange&quot;,
+						&quot;AbstractVecOrMat&quot;,
+						&quot;AbstractVector&quot;,
+						&quot;Any&quot;,
+						&quot;ArgumentError&quot;,
+						&quot;Array&quot;,
+						&quot;AssertionError&quot;,
+						&quot;BigFloat&quot;,
+						&quot;BigInt&quot;,
+						&quot;BitArray&quot;,
+						&quot;BitMatrix&quot;,
+						&quot;BitSet&quot;,
+						&quot;BitVector&quot;,
+						&quot;Bool&quot;,
+						&quot;BoundsError&quot;,
+						&quot;CapturedException&quot;,
+						&quot;CartesianIndex&quot;,
+						&quot;CartesianIndices&quot;,
+						&quot;Cchar&quot;,
+						&quot;Cdouble&quot;,
+						&quot;Cfloat&quot;,
+						&quot;Channel&quot;,
+						&quot;Char&quot;,
+						&quot;Cint&quot;,
+						&quot;Cintmax_t&quot;,
+						&quot;Clong&quot;,
+						&quot;Clonglong&quot;,
+						&quot;Cmd&quot;,
+						&quot;Colon&quot;,
+						&quot;Complex&quot;,
+						&quot;ComplexF16&quot;,
+						&quot;ComplexF32&quot;,
+						&quot;ComplexF64&quot;,
+						&quot;CompositeException&quot;,
+						&quot;Condition&quot;,
+						&quot;Cptrdiff_t&quot;,
+						&quot;Cshort&quot;,
+						&quot;Csize_t&quot;,
+						&quot;Cssize_t&quot;,
+						&quot;Cstring&quot;,
+						&quot;Cuchar&quot;,
+						&quot;Cuint&quot;,
+						&quot;Cuintmax_t&quot;,
+						&quot;Culong&quot;,
+						&quot;Culonglong&quot;,
+						&quot;Cushort&quot;,
+						&quot;Cvoid&quot;,
+						&quot;Cwchar_t&quot;,
+						&quot;Cwstring&quot;,
+						&quot;DataType&quot;,
+						&quot;DenseArray&quot;,
+						&quot;DenseMatrix&quot;,
+						&quot;DenseVecOrMat&quot;,
+						&quot;DenseVector&quot;,
+						&quot;Dict&quot;,
+						&quot;DimensionMismatch&quot;,
+						&quot;Dims&quot;,
+						&quot;DivideError&quot;,
+						&quot;DomainError&quot;,
+						&quot;EOFError&quot;,
+						&quot;Enum&quot;,
+						&quot;ErrorException&quot;,
+						&quot;Exception&quot;,
+						&quot;ExponentialBackOff&quot;,
+						&quot;Expr&quot;,
+						&quot;Float16&quot;,
+						&quot;Float32&quot;,
+						&quot;Float64&quot;,
+						&quot;Function&quot;,
+						&quot;GlobalRef&quot;,
+						&quot;HTML&quot;,
+						&quot;IO&quot;,
+						&quot;IOBuffer&quot;,
+						&quot;IOContext&quot;,
+						&quot;IOStream&quot;,
+						&quot;IdDict&quot;,
+						&quot;IndexCartesian&quot;,
+						&quot;IndexLinear&quot;,
+						&quot;IndexStyle&quot;,
+						&quot;InexactError&quot;,
+						&quot;InitError&quot;,
+						&quot;Int&quot;,
+						&quot;Int128&quot;,
+						&quot;Int16&quot;,
+						&quot;Int32&quot;,
+						&quot;Int64&quot;,
+						&quot;Int8&quot;,
+						&quot;Integer&quot;,
+						&quot;InterruptException&quot;,
+						&quot;InvalidStateException&quot;,
+						&quot;Irrational&quot;,
+						&quot;KeyError&quot;,
+						&quot;LinRange&quot;,
+						&quot;LineNumberNode&quot;,
+						&quot;LinearIndices&quot;,
+						&quot;LoadError&quot;,
+						&quot;MIME&quot;,
+						&quot;Matrix&quot;,
+						&quot;Method&quot;,
+						&quot;MethodError&quot;,
+						&quot;Missing&quot;,
+						&quot;MissingException&quot;,
+						&quot;Module&quot;,
+						&quot;NTuple&quot;,
+						&quot;NamedTuple&quot;,
+						&quot;Nothing&quot;,
+						&quot;Number&quot;,
+						&quot;OrdinalRange&quot;,
+						&quot;OutOfMemoryError&quot;,
+						&quot;OverflowError&quot;,
+						&quot;Pair&quot;,
+						&quot;PartialQuickSort&quot;,
+						&quot;PermutedDimsArray&quot;,
+						&quot;Pipe&quot;,
+						&quot;ProcessFailedException&quot;,
+						&quot;Ptr&quot;,
+						&quot;QuoteNode&quot;,
+						&quot;Rational&quot;,
+						&quot;RawFD&quot;,
+						&quot;ReadOnlyMemoryError&quot;,
+						&quot;Real&quot;,
+						&quot;ReentrantLock&quot;,
+						&quot;Ref&quot;,
+						&quot;Regex&quot;,
+						&quot;RegexMatch&quot;,
+						&quot;RoundingMode&quot;,
+						&quot;SegmentationFault&quot;,
+						&quot;Set&quot;,
+						&quot;Signed&quot;,
+						&quot;Some&quot;,
+						&quot;StackOverflowError&quot;,
+						&quot;StepRange&quot;,
+						&quot;StepRangeLen&quot;,
+						&quot;StridedArray&quot;,
+						&quot;StridedMatrix&quot;,
+						&quot;StridedVecOrMat&quot;,
+						&quot;StridedVector&quot;,
+						&quot;String&quot;,
+						&quot;StringIndexError&quot;,
+						&quot;SubArray&quot;,
+						&quot;SubString&quot;,
+						&quot;SubstitutionString&quot;,
+						&quot;Symbol&quot;,
+						&quot;SystemError&quot;,
+						&quot;Task&quot;,
+						&quot;TaskFailedException&quot;,
+						&quot;Text&quot;,
+						&quot;TextDisplay&quot;,
+						&quot;Timer&quot;,
+						&quot;Tuple&quot;,
+						&quot;Type&quot;,
+						&quot;TypeError&quot;,
+						&quot;TypeVar&quot;,
+						&quot;UInt&quot;,
+						&quot;UInt128&quot;,
+						&quot;UInt16&quot;,
+						&quot;UInt32&quot;,
+						&quot;UInt64&quot;,
+						&quot;UInt8&quot;,
+						&quot;UndefInitializer&quot;,
+						&quot;UndefKeywordError&quot;,
+						&quot;UndefRefError&quot;,
+						&quot;UndefVarError&quot;,
+						&quot;Union&quot;,
+						&quot;UnionAll&quot;,
+						&quot;UnitRange&quot;,
+						&quot;Unsigned&quot;,
+						&quot;Val&quot;,
+						&quot;Vararg&quot;,
+						&quot;VecElement&quot;,
+						&quot;VecOrMat&quot;,
+						&quot;Vector&quot;,
+						&quot;VersionNumber&quot;,
+						&quot;WeakKeyDict&quot;,
+						&quot;WeakRef&quot;,
+					],
+					a = { $pattern: t, keyword: l, literal: d, built_in: c },
+					e = { keywords: a, illegal: /&lt;\// },
+					u = {
+						className: &quot;number&quot;,
+						begin:
+							/(\b0x[\d_]*(\.[\d_]*)?|0x\.\d[\d_]*)p[-+]?\d+|\b0[box][a-fA-F0-9][a-fA-F0-9_]*|(\b\d[\d_]*(\.[\d_]*)?|\.\d[\d_]*)([eEfF][-+]?\d+)?/,
+						relevance: 0,
+					},
+					E = { className: &quot;string&quot;, begin: /&#039;(.|\\[xXuU][a-zA-Z0-9]+)&#039;/ },
+					n = { className: &quot;subst&quot;, begin: /\$\(/, end: /\)/, keywords: a },
+					i = { className: &quot;variable&quot;, begin: &quot;\\$&quot; + t },
+					A = {
+						className: &quot;string&quot;,
+						contains: [r.BACKSLASH_ESCAPE, n, i],
+						variants: [
+							{ begin: /\w*&quot;&quot;&quot;/, end: /&quot;&quot;&quot;\w*/, relevance: 10 },
+							{ begin: /\w*&quot;/, end: /&quot;\w*/ },
+						],
+					},
+					b = {
+						className: &quot;string&quot;,
+						contains: [r.BACKSLASH_ESCAPE, n, i],
+						begin: &quot;`&quot;,
+						end: &quot;`&quot;,
+					},
+					g = { className: &quot;meta&quot;, begin: &quot;@&quot; + t },
+					I = {
+						className: &quot;comment&quot;,
+						variants: [
+							{ begin: &quot;#=&quot;, end: &quot;=#&quot;, relevance: 10 },
+							{ begin: &quot;#&quot;, end: &quot;$&quot; },
+						],
+					};
+				return (
+					(e.name = &quot;Julia&quot;),
+					(e.contains = [
+						u,
+						E,
+						A,
+						b,
+						g,
+						I,
+						r.HASH_COMMENT_MODE,
+						{
+							className: &quot;keyword&quot;,
+							begin:
+								&quot;\\b(((abstract|primitive)\\s+)type|(mutable\\s+)?struct)\\b&quot;,
+						},
+						{ begin: /&lt;:/ },
+					]),
+					(n.contains = e.contains),
+					e
+				);
+			}
+			o.exports = s;
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

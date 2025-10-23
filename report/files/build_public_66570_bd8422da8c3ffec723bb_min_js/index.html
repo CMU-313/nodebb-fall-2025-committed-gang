@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/66570.bd8422da8c3ffec723bb.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/66570.bd8422da8c3ffec723bb.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">38.91</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">458</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">10.62</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">3.40</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[66570],
+	{
+		66570: (p) =&gt; {
+			function m(e) {
+				const n = e.regex,
+					a = e.COMMENT(&quot;//&quot;, &quot;$&quot;, { contains: [{ begin: /\\\n/ }] }),
+					_ = &quot;decltype\\(auto\\)&quot;,
+					c = &quot;[a-zA-Z_]\\w*::&quot;,
+					E =
+						&quot;(?!struct)(&quot; +
+						_ +
+						&quot;|&quot; +
+						n.optional(c) +
+						&quot;[a-zA-Z_]\\w*&quot; +
+						n.optional(&quot;&lt;[^&lt;&gt;]+&gt;&quot;) +
+						&quot;)&quot;,
+					r = { className: &quot;type&quot;, begin: &quot;\\b[a-z\\d_]*_t\\b&quot; },
+					s = {
+						className: &quot;string&quot;,
+						variants: [
+							{
+								begin: &#039;(u8?|U|L)?&quot;&#039;,
+								end: &#039;&quot;&#039;,
+								illegal: &quot;\\n&quot;,
+								contains: [e.BACKSLASH_ESCAPE],
+							},
+							{
+								begin:
+									&quot;(u8?|U|L)?&#039;(&quot; +
+									&quot;\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4,8}|[0-7]{3}|\\S)&quot; +
+									&quot;|.)&quot;,
+								end: &quot;&#039;&quot;,
+								illegal: &quot;.&quot;,
+							},
+							e.END_SAME_AS_BEGIN({
+								begin: /(?:u8?|U|L)?R&quot;([^()\\ ]{0,16})\(/,
+								end: /\)([^()\\ ]{0,16})&quot;/,
+							}),
+						],
+					},
+					i = {
+						className: &quot;number&quot;,
+						variants: [
+							{ begin: &quot;\\b(0b[01&#039;]+)&quot; },
+							{
+								begin:
+									&quot;(-?)\\b([\\d&#039;]+(\\.[\\d&#039;]*)?|\\.[\\d&#039;]+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)&quot;,
+							},
+							{
+								begin:
+									&quot;(-?)(\\b0[xX][a-fA-F0-9&#039;]+|(\\b[\\d&#039;]+(\\.[\\d&#039;]*)?|\\.[\\d&#039;]+)([eE][-+]?[\\d&#039;]+)?)&quot;,
+							},
+						],
+						relevance: 0,
+					},
+					o = {
+						className: &quot;meta&quot;,
+						begin: /#\s*[a-z]+\b/,
+						end: /$/,
+						keywords: {
+							keyword:
+								&quot;if else elif endif define undef warning error line pragma _Pragma ifdef ifndef include&quot;,
+						},
+						contains: [
+							{ begin: /\\\n/, relevance: 0 },
+							e.inherit(s, { className: &quot;string&quot; }),
+							{ className: &quot;string&quot;, begin: /&lt;.*?&gt;/ },
+							a,
+							e.C_BLOCK_COMMENT_MODE,
+						],
+					},
+					g = {
+						className: &quot;title&quot;,
+						begin: n.optional(c) + e.IDENT_RE,
+						relevance: 0,
+					},
+					d = n.optional(c) + e.IDENT_RE + &quot;\\s*\\(&quot;,
+					b = [
+						&quot;alignas&quot;,
+						&quot;alignof&quot;,
+						&quot;and&quot;,
+						&quot;and_eq&quot;,
+						&quot;asm&quot;,
+						&quot;atomic_cancel&quot;,
+						&quot;atomic_commit&quot;,
+						&quot;atomic_noexcept&quot;,
+						&quot;auto&quot;,
+						&quot;bitand&quot;,
+						&quot;bitor&quot;,
+						&quot;break&quot;,
+						&quot;case&quot;,
+						&quot;catch&quot;,
+						&quot;class&quot;,
+						&quot;co_await&quot;,
+						&quot;co_return&quot;,
+						&quot;co_yield&quot;,
+						&quot;compl&quot;,
+						&quot;concept&quot;,
+						&quot;const_cast|10&quot;,
+						&quot;consteval&quot;,
+						&quot;constexpr&quot;,
+						&quot;constinit&quot;,
+						&quot;continue&quot;,
+						&quot;decltype&quot;,
+						&quot;default&quot;,
+						&quot;delete&quot;,
+						&quot;do&quot;,
+						&quot;dynamic_cast|10&quot;,
+						&quot;else&quot;,
+						&quot;enum&quot;,
+						&quot;explicit&quot;,
+						&quot;export&quot;,
+						&quot;extern&quot;,
+						&quot;false&quot;,
+						&quot;final&quot;,
+						&quot;for&quot;,
+						&quot;friend&quot;,
+						&quot;goto&quot;,
+						&quot;if&quot;,
+						&quot;import&quot;,
+						&quot;inline&quot;,
+						&quot;module&quot;,
+						&quot;mutable&quot;,
+						&quot;namespace&quot;,
+						&quot;new&quot;,
+						&quot;noexcept&quot;,
+						&quot;not&quot;,
+						&quot;not_eq&quot;,
+						&quot;nullptr&quot;,
+						&quot;operator&quot;,
+						&quot;or&quot;,
+						&quot;or_eq&quot;,
+						&quot;override&quot;,
+						&quot;private&quot;,
+						&quot;protected&quot;,
+						&quot;public&quot;,
+						&quot;reflexpr&quot;,
+						&quot;register&quot;,
+						&quot;reinterpret_cast|10&quot;,
+						&quot;requires&quot;,
+						&quot;return&quot;,
+						&quot;sizeof&quot;,
+						&quot;static_assert&quot;,
+						&quot;static_cast|10&quot;,
+						&quot;struct&quot;,
+						&quot;switch&quot;,
+						&quot;synchronized&quot;,
+						&quot;template&quot;,
+						&quot;this&quot;,
+						&quot;thread_local&quot;,
+						&quot;throw&quot;,
+						&quot;transaction_safe&quot;,
+						&quot;transaction_safe_dynamic&quot;,
+						&quot;true&quot;,
+						&quot;try&quot;,
+						&quot;typedef&quot;,
+						&quot;typeid&quot;,
+						&quot;typename&quot;,
+						&quot;union&quot;,
+						&quot;using&quot;,
+						&quot;virtual&quot;,
+						&quot;volatile&quot;,
+						&quot;while&quot;,
+						&quot;xor&quot;,
+						&quot;xor_eq&quot;,
+					],
+					f = [
+						&quot;bool&quot;,
+						&quot;char&quot;,
+						&quot;char16_t&quot;,
+						&quot;char32_t&quot;,
+						&quot;char8_t&quot;,
+						&quot;double&quot;,
+						&quot;float&quot;,
+						&quot;int&quot;,
+						&quot;long&quot;,
+						&quot;short&quot;,
+						&quot;void&quot;,
+						&quot;wchar_t&quot;,
+						&quot;unsigned&quot;,
+						&quot;signed&quot;,
+						&quot;const&quot;,
+						&quot;static&quot;,
+					],
+					N = [
+						&quot;any&quot;,
+						&quot;auto_ptr&quot;,
+						&quot;barrier&quot;,
+						&quot;binary_semaphore&quot;,
+						&quot;bitset&quot;,
+						&quot;complex&quot;,
+						&quot;condition_variable&quot;,
+						&quot;condition_variable_any&quot;,
+						&quot;counting_semaphore&quot;,
+						&quot;deque&quot;,
+						&quot;false_type&quot;,
+						&quot;future&quot;,
+						&quot;imaginary&quot;,
+						&quot;initializer_list&quot;,
+						&quot;istringstream&quot;,
+						&quot;jthread&quot;,
+						&quot;latch&quot;,
+						&quot;lock_guard&quot;,
+						&quot;multimap&quot;,
+						&quot;multiset&quot;,
+						&quot;mutex&quot;,
+						&quot;optional&quot;,
+						&quot;ostringstream&quot;,
+						&quot;packaged_task&quot;,
+						&quot;pair&quot;,
+						&quot;promise&quot;,
+						&quot;priority_queue&quot;,
+						&quot;queue&quot;,
+						&quot;recursive_mutex&quot;,
+						&quot;recursive_timed_mutex&quot;,
+						&quot;scoped_lock&quot;,
+						&quot;set&quot;,
+						&quot;shared_future&quot;,
+						&quot;shared_lock&quot;,
+						&quot;shared_mutex&quot;,
+						&quot;shared_timed_mutex&quot;,
+						&quot;shared_ptr&quot;,
+						&quot;stack&quot;,
+						&quot;string_view&quot;,
+						&quot;stringstream&quot;,
+						&quot;timed_mutex&quot;,
+						&quot;thread&quot;,
+						&quot;true_type&quot;,
+						&quot;tuple&quot;,
+						&quot;unique_lock&quot;,
+						&quot;unique_ptr&quot;,
+						&quot;unordered_map&quot;,
+						&quot;unordered_multimap&quot;,
+						&quot;unordered_multiset&quot;,
+						&quot;unordered_set&quot;,
+						&quot;variant&quot;,
+						&quot;vector&quot;,
+						&quot;weak_ptr&quot;,
+						&quot;wstring&quot;,
+						&quot;wstring_view&quot;,
+					],
+					T = [
+						&quot;abort&quot;,
+						&quot;abs&quot;,
+						&quot;acos&quot;,
+						&quot;apply&quot;,
+						&quot;as_const&quot;,
+						&quot;asin&quot;,
+						&quot;atan&quot;,
+						&quot;atan2&quot;,
+						&quot;calloc&quot;,
+						&quot;ceil&quot;,
+						&quot;cerr&quot;,
+						&quot;cin&quot;,
+						&quot;clog&quot;,
+						&quot;cos&quot;,
+						&quot;cosh&quot;,
+						&quot;cout&quot;,
+						&quot;declval&quot;,
+						&quot;endl&quot;,
+						&quot;exchange&quot;,
+						&quot;exit&quot;,
+						&quot;exp&quot;,
+						&quot;fabs&quot;,
+						&quot;floor&quot;,
+						&quot;fmod&quot;,
+						&quot;forward&quot;,
+						&quot;fprintf&quot;,
+						&quot;fputs&quot;,
+						&quot;free&quot;,
+						&quot;frexp&quot;,
+						&quot;fscanf&quot;,
+						&quot;future&quot;,
+						&quot;invoke&quot;,
+						&quot;isalnum&quot;,
+						&quot;isalpha&quot;,
+						&quot;iscntrl&quot;,
+						&quot;isdigit&quot;,
+						&quot;isgraph&quot;,
+						&quot;islower&quot;,
+						&quot;isprint&quot;,
+						&quot;ispunct&quot;,
+						&quot;isspace&quot;,
+						&quot;isupper&quot;,
+						&quot;isxdigit&quot;,
+						&quot;labs&quot;,
+						&quot;launder&quot;,
+						&quot;ldexp&quot;,
+						&quot;log&quot;,
+						&quot;log10&quot;,
+						&quot;make_pair&quot;,
+						&quot;make_shared&quot;,
+						&quot;make_shared_for_overwrite&quot;,
+						&quot;make_tuple&quot;,
+						&quot;make_unique&quot;,
+						&quot;malloc&quot;,
+						&quot;memchr&quot;,
+						&quot;memcmp&quot;,
+						&quot;memcpy&quot;,
+						&quot;memset&quot;,
+						&quot;modf&quot;,
+						&quot;move&quot;,
+						&quot;pow&quot;,
+						&quot;printf&quot;,
+						&quot;putchar&quot;,
+						&quot;puts&quot;,
+						&quot;realloc&quot;,
+						&quot;scanf&quot;,
+						&quot;sin&quot;,
+						&quot;sinh&quot;,
+						&quot;snprintf&quot;,
+						&quot;sprintf&quot;,
+						&quot;sqrt&quot;,
+						&quot;sscanf&quot;,
+						&quot;std&quot;,
+						&quot;stderr&quot;,
+						&quot;stdin&quot;,
+						&quot;stdout&quot;,
+						&quot;strcat&quot;,
+						&quot;strchr&quot;,
+						&quot;strcmp&quot;,
+						&quot;strcpy&quot;,
+						&quot;strcspn&quot;,
+						&quot;strlen&quot;,
+						&quot;strncat&quot;,
+						&quot;strncmp&quot;,
+						&quot;strncpy&quot;,
+						&quot;strpbrk&quot;,
+						&quot;strrchr&quot;,
+						&quot;strspn&quot;,
+						&quot;strstr&quot;,
+						&quot;swap&quot;,
+						&quot;tan&quot;,
+						&quot;tanh&quot;,
+						&quot;terminate&quot;,
+						&quot;to_underlying&quot;,
+						&quot;tolower&quot;,
+						&quot;toupper&quot;,
+						&quot;vfprintf&quot;,
+						&quot;visit&quot;,
+						&quot;vprintf&quot;,
+						&quot;vsprintf&quot;,
+					],
+					t = {
+						type: f,
+						keyword: b,
+						literal: [&quot;NULL&quot;, &quot;false&quot;, &quot;nullopt&quot;, &quot;nullptr&quot;, &quot;true&quot;],
+						built_in: [&quot;_Pragma&quot;],
+						_type_hints: N,
+					},
+					u = {
+						className: &quot;function.dispatch&quot;,
+						relevance: 0,
+						keywords: { _hint: T },
+						begin: n.concat(
+							/\b/,
+							/(?!decltype)/,
+							/(?!if)/,
+							/(?!for)/,
+							/(?!switch)/,
+							/(?!while)/,
+							e.IDENT_RE,
+							n.lookahead(/(&lt;[^&lt;&gt;]+&gt;|)\s*\(/),
+						),
+					},
+					l = [u, o, r, a, e.C_BLOCK_COMMENT_MODE, i, s],
+					w = {
+						variants: [
+							{ begin: /=/, end: /;/ },
+							{ begin: /\(/, end: /\)/ },
+							{ beginKeywords: &quot;new throw return else&quot;, end: /;/ },
+						],
+						keywords: t,
+						contains: l.concat([
+							{
+								begin: /\(/,
+								end: /\)/,
+								keywords: t,
+								contains: l.concat([&quot;self&quot;]),
+								relevance: 0,
+							},
+						]),
+						relevance: 0,
+					},
+					y = {
+						className: &quot;function&quot;,
+						begin: &quot;(&quot; + E + &quot;[\\*&amp;\\s]+)+&quot; + d,
+						returnBegin: !0,
+						end: /[{;=]/,
+						excludeEnd: !0,
+						keywords: t,
+						illegal: /[^\w\s\*&amp;:&lt;&gt;.]/,
+						contains: [
+							{ begin: _, keywords: t, relevance: 0 },
+							{ begin: d, returnBegin: !0, contains: [g], relevance: 0 },
+							{ begin: /::/, relevance: 0 },
+							{ begin: /:/, endsWithParent: !0, contains: [s, i] },
+							{ relevance: 0, match: /,/ },
+							{
+								className: &quot;params&quot;,
+								begin: /\(/,
+								end: /\)/,
+								keywords: t,
+								relevance: 0,
+								contains: [
+									a,
+									e.C_BLOCK_COMMENT_MODE,
+									s,
+									i,
+									r,
+									{
+										begin: /\(/,
+										end: /\)/,
+										keywords: t,
+										relevance: 0,
+										contains: [&quot;self&quot;, a, e.C_BLOCK_COMMENT_MODE, s, i, r],
+									},
+								],
+							},
+							r,
+							a,
+							e.C_BLOCK_COMMENT_MODE,
+							o,
+						],
+					};
+				return {
+					name: &quot;C++&quot;,
+					aliases: [&quot;cc&quot;, &quot;c++&quot;, &quot;h++&quot;, &quot;hpp&quot;, &quot;hh&quot;, &quot;hxx&quot;, &quot;cxx&quot;],
+					keywords: t,
+					illegal: &quot;&lt;/&quot;,
+					classNameAliases: { &quot;function.dispatch&quot;: &quot;built_in&quot; },
+					contains: [].concat(w, y, u, l, [
+						o,
+						{
+							begin:
+								&quot;\\b(deque|list|queue|priority_queue|pair|stack|vector|map|set|bitset|multiset|multimap|unordered_map|unordered_set|unordered_multiset|unordered_multimap|array|tuple|optional|variant|function)\\s*&lt;(?!&lt;)&quot;,
+							end: &quot;&gt;&quot;,
+							keywords: t,
+							contains: [&quot;self&quot;, r],
+						},
+						{ begin: e.IDENT_RE + &quot;::&quot;, keywords: t },
+						{
+							match: [
+								/\b(?:enum(?:\s+(?:class|struct))?|class|struct|union)/,
+								/\s+/,
+								/\w+/,
+							],
+							className: { 1: &quot;keyword&quot;, 3: &quot;title.class&quot; },
+						},
+					]),
+				};
+			}
+			p.exports = m;
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

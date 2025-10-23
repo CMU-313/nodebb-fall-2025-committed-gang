@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/templates/admin/partials/manage-custom-user-fields-modal.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/templates/admin/partials/manage-custom-user-fields-modal.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">69.25</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">59</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">27.35</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.55</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">
+(function (factory) {
+  if (typeof module === &#039;object&#039; &amp;&amp; module.exports) {
+    module.exports = factory();
+  } else if (typeof define === &#039;function&#039; &amp;&amp; define.amd) {
+    define(factory);
+  }
+})(function () {
+  function compiled(helpers, context, guard, iter, helper) {
+    var __escape = helpers.__escape;
+    var value = context;
+    return &quot;&lt;form&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot;&gt;[[admin/manage/user-custom-fields:type-of-input]]&lt;/label&gt;\n&lt;select class=\&quot;form-select\&quot; id=\&quot;type-select\&quot; name=\&quot;type\&quot;&gt;\n&lt;option value=\&quot;input-text\&quot; &quot; + 
+      ((guard((context != null) ? context[&#039;type&#039;] : null) == &quot;input-text&quot;) ?
+        &quot;selected&quot; :
+        &quot;&quot;) + 
+      &quot;&gt;[[admin/manage/user-custom-fields:input-type-text]]&lt;/option&gt;\n&lt;option value=\&quot;input-link\&quot; &quot; + 
+      ((guard((context != null) ? context[&#039;type&#039;] : null) == &quot;input-link&quot;) ?
+        &quot;selected&quot; :
+        &quot;&quot;) + 
+      &quot;&gt;[[admin/manage/user-custom-fields:input-type-link]]&lt;/option&gt;\n&lt;option value=\&quot;input-number\&quot; &quot; + 
+      ((guard((context != null) ? context[&#039;type&#039;] : null) == &quot;input-number&quot;) ?
+        &quot;selected&quot; :
+        &quot;&quot;) + 
+      &quot;&gt;[[admin/manage/user-custom-fields:input-type-number]]&lt;/option&gt;\n&lt;option value=\&quot;input-date\&quot; &quot; + 
+      ((guard((context != null) ? context[&#039;type&#039;] : null) == &quot;input-date&quot;) ?
+        &quot;selected&quot; :
+        &quot;&quot;) + 
+      &quot;&gt;[[admin/manage/user-custom-fields:input-type-date]]&lt;/option&gt;\n&lt;option value=\&quot;select\&quot; &quot; + 
+      ((guard((context != null) ? context[&#039;type&#039;] : null) == &quot;select&quot;) ?
+        &quot;selected&quot; :
+        &quot;&quot;) + 
+      &quot;&gt;[[admin/manage/user-custom-fields:input-type-select]]&lt;/option&gt;\n&lt;option value=\&quot;select-multi\&quot; &quot; + 
+      ((guard((context != null) ? context[&#039;type&#039;] : null) == &quot;select-multi&quot;) ?
+        &quot;selected&quot; :
+        &quot;&quot;) + 
+      &quot;&gt;[[admin/manage/user-custom-fields:input-type-select-multi]]&lt;/option&gt;\n&lt;/select&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot;&gt;[[admin/manage/user-custom-fields:key]]&lt;/label&gt;\n&lt;input class=\&quot;form-control\&quot; type=\&quot;text\&quot; name=\&quot;key\&quot; value=\&quot;&quot; + 
+      __escape(guard((context != null) ? context[&#039;key&#039;] : null)) + 
+      &quot;\&quot;&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot;&gt;[[admin/manage/user-custom-fields:name]]&lt;/label&gt;\n&lt;input class=\&quot;form-control\&quot; type=\&quot;text\&quot; name=\&quot;name\&quot; value=\&quot;&quot; + 
+      __escape(guard((context != null) ? context[&#039;name&#039;] : null)) + 
+      &quot;\&quot;&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot;&gt;[[admin/manage/user-custom-fields:icon]]&lt;/label&gt;\n&lt;div class=\&quot; d-flex gap-1\&quot;&gt;\n&lt;input class=\&quot;form-control\&quot; type=\&quot;text\&quot; name=\&quot;icon\&quot; value=\&quot;&quot; + 
+      __escape(guard((context != null) ? context[&#039;icon&#039;] : null)) + 
+      &quot;\&quot;&gt;\n&lt;button id=\&quot;icon-select\&quot; class=\&quot;btn btn-light\&quot;&gt;&lt;i class=\&quot;fa fa-search text-primary\&quot;&gt;&lt;/i&gt;&lt;/button&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot;&gt;[[admin/manage/user-custom-fields:visibility]]&lt;/label&gt;\n&lt;select name=\&quot;visibility\&quot; class=\&quot;form-select\&quot;&gt;\n&lt;option value=\&quot;all\&quot;&gt;[[admin/manage/user-custom-fields:visibility-all]]&lt;/option&gt;\n&lt;option value=\&quot;loggedin\&quot;&gt;[[admin/manage/user-custom-fields:visibility-loggedin]]&lt;/option&gt;\n&lt;option value=\&quot;privileged\&quot;&gt;[[admin/manage/user-custom-fields:visibility-privileged]]&lt;/option&gt;\n&lt;/select&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot;&gt;[[admin/manage/user-custom-fields:minimum-reputation]]&lt;/label&gt;\n&lt;input class=\&quot;form-control\&quot; type=\&quot;number\&quot; name=\&quot;min:rep\&quot; value=\&quot;&quot; + 
+      __escape(guard((context != null) ? context[&#039;min:rep&#039;] : null)) + 
+      &quot;\&quot; placeholder=\&quot;0\&quot;&gt;\n&lt;p class=\&quot;form-text\&quot;&gt;[[admin/manage/user-custom-fields:minimum-reputation-help]]&lt;/p&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3 &quot; + 
+      (((guard((context != null) ? context[&#039;type&#039;] : null) != &quot;select&quot;) &amp;&amp; (guard((context != null) ? context[&#039;type&#039;] : null) != &quot;select-multi&quot;)) ?
+        &quot;hidden&quot; :
+        &quot;&quot;) + 
+      &quot;\&quot; data-input-type data-input-type-select data-input-type-select-multi&gt;\n&lt;label class=\&quot;form-label\&quot;&gt;[[admin/manage/user-custom-fields:select-options]]&lt;/label&gt;\n&lt;textarea class=\&quot;form-control\&quot; name=\&quot;select-options\&quot; rows=\&quot;6\&quot;&gt;&quot; + 
+      __escape(guard((context != null) ? context[&#039;select-options&#039;] : null)) + 
+      &quot;&lt;/textarea&gt;\n&lt;p class=\&quot;form-text\&quot;&gt;[[admin/manage/user-custom-fields:select-options-help]]&lt;/p&gt;\n&lt;/div&gt;\n&lt;/form&gt;&quot;;
+  }
+
+  compiled.blocks = {
+    
+  };
+
+  return compiled;
+})
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

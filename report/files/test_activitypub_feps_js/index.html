@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - test/activitypub/feps.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>test/activitypub/feps.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">67.33</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">307</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">47.64</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">3.74</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&#039;use strict&#039;;
+
+const assert = require(&#039;assert&#039;);
+const nconf = require(&#039;nconf&#039;);
+
+const db = require(&#039;../mocks/databasemock&#039;);
+const activitypub = require(&#039;../../src/activitypub&#039;);
+const utils = require(&#039;../../src/utils&#039;);
+const meta = require(&#039;../../src/meta&#039;);
+const install = require(&#039;../../src/install&#039;);
+const user = require(&#039;../../src/user&#039;);
+const groups = require(&#039;../../src/groups&#039;);
+const categories = require(&#039;../../src/categories&#039;);
+const topics = require(&#039;../../src/topics&#039;);
+const posts = require(&#039;../../src/posts&#039;);
+const api = require(&#039;../../src/api&#039;);
+
+const helpers = require(&#039;./helpers&#039;);
+
+describe.skip(&#039;FEPs&#039;, () =&gt; {
+	before(async () =&gt; {
+		meta.config.activitypubEnabled = 1;
+		await install.giveWorldPrivileges();
+	});
+
+	describe(&#039;1b12&#039;, () =&gt; {
+		describe(&#039;announce()&#039;, () =&gt; {
+			let cid;
+			let uid;
+			let adminUid;
+
+			before(async () =&gt; {
+				const name = utils.generateUUID();
+				const description = utils.generateUUID();
+				({ cid } = await categories.create({ name, description }));
+
+				adminUid = await user.create({ username: utils.generateUUID() });
+				await groups.join(&#039;administrators&#039;, adminUid);
+				uid = await user.create({ username: utils.generateUUID() });
+
+				const { id: followerId, actor } = helpers.mocks.person();
+				user.setCategoryWatchState(followerId, [cid], categories.watchStates.tracking);
+
+				activitypub._sent.clear();
+			});
+
+			afterEach(() =&gt; {
+				activitypub._sent.clear();
+			});
+
+			describe(&#039;local actions (create, reply, vote)&#039;, () =&gt; {
+				let topicData;
+
+				before(async () =&gt; {
+					topicData = await api.topics.create({ uid }, {
+						cid,
+						title: utils.generateUUID(),
+						content: utils.generateUUID(),
+					});
+				});
+
+				afterEach(() =&gt; {
+					activitypub._sent.clear();
+				});
+
+				it(&#039;should have federated out both Announce(Create(Article)) and Announce(Article)&#039;, () =&gt; {
+					const activities = Array.from(activitypub._sent);
+
+					const test1 = activities.some((activity) =&gt; {
+						[, activity] = activity;
+						return activity.type === &#039;Announce&#039; &amp;&amp;
+							activity.object &amp;&amp; activity.object.type === &#039;Create&#039; &amp;&amp;
+							activity.object.object &amp;&amp; activity.object.object.type === &#039;Article&#039;;
+					});
+
+					const test2 = activities.some((activity) =&gt; {
+						[, activity] = activity;
+						return activity.type === &#039;Announce&#039; &amp;&amp;
+							activity.object &amp;&amp; activity.object.type === &#039;Article&#039;;
+					});
+
+					assert(test1 &amp;&amp; test2);
+				});
+
+				it(&#039;should federate out Announce(Create(Note)) on local reply&#039;, async () =&gt; {
+					await api.topics.reply({ uid }, {
+						tid: topicData.tid,
+						content: utils.generateUUID(),
+					});
+
+					const activities = Array.from(activitypub._sent);
+
+					assert(activities.some((activity) =&gt; {
+						[, activity] = activity;
+						return activity.type === &#039;Announce&#039; &amp;&amp;
+							activity.object &amp;&amp; activity.object.type === &#039;Create&#039; &amp;&amp;
+							activity.object.object &amp;&amp; activity.object.object.type === &#039;Note&#039;;
+					}));
+				});
+
+				it(&#039;should NOT federate out Announce(Note) on local reply&#039;, async () =&gt; {
+					await api.topics.reply({ uid }, {
+						tid: topicData.tid,
+						content: utils.generateUUID(),
+					});
+
+					const activities = Array.from(activitypub._sent);
+
+					assert(activities.every((activity) =&gt; {
+						[, activity] = activity;
+						if (activity.type === &#039;Announce&#039; &amp;&amp; activity.object &amp;&amp; activity.object.type === &#039;Note&#039;) {
+							return false;
+						}
+
+						return true;
+					}));
+				});
+
+				it(&#039;should federate out Announce(Like) on local vote&#039;, async () =&gt; {
+					activitypub._sent.clear();
+					await api.posts.upvote({ uid: adminUid }, { pid: topicData.mainPid, room_id: `topic_${topicData.tid}` });
+					const activities = Array.from(activitypub._sent);
+
+					assert(activities.some((activity) =&gt; {
+						[, activity] = activity;
+						return activity.type === &#039;Announce&#039; &amp;&amp;
+							activity.object &amp;&amp; activity.object.type === &#039;Like&#039;;
+					}));
+				});
+			});
+
+			describe(&#039;remote actions (create, reply, vote)&#039;, () =&gt; {
+				let activity;
+				let pid;
+				let topicData;
+
+				before(async () =&gt; {
+					topicData = await api.topics.create({ uid }, {
+						cid,
+						title: utils.generateUUID(),
+						content: utils.generateUUID(),
+					});
+				});
+
+				afterEach(() =&gt; {
+					activitypub._sent.clear();
+				});
+
+				it(&#039;should have slotted the note into the test category&#039;, async () =&gt; {
+					const { id, note } = await helpers.mocks.note({
+						cc: [`${nconf.get(&#039;url&#039;)}/category/${cid}`],
+					});
+					pid = id;
+					({ activity } = await helpers.mocks.create(note));
+					await activitypub.inbox.create({ body: activity });
+
+					const noteCid = await posts.getCidByPid(pid);
+					assert.strictEqual(noteCid, cid);
+				});
+
+				it(&#039;should federate out an Announce(Create(Note)) and Announce(Note) on new topic&#039;, async () =&gt; {
+					const { id, note } = await helpers.mocks.note({
+						cc: [`${nconf.get(&#039;url&#039;)}/category/${cid}`],
+					});
+					pid = id;
+					({ activity } = await helpers.mocks.create(note));
+					await activitypub.inbox.create({ body: activity });
+
+					const activities = Array.from(activitypub._sent);
+
+					const test1 = activities.some((activity) =&gt; {
+						[, activity] = activity;
+						return activity.type === &#039;Announce&#039; &amp;&amp;
+							activity.object &amp;&amp; activity.object.type === &#039;Create&#039; &amp;&amp;
+							activity.object.object &amp;&amp; activity.object.object.type === &#039;Note&#039;;
+					});
+
+					const test2 = activities.some((activity) =&gt; {
+						[, activity] = activity;
+						return activity.type === &#039;Announce&#039; &amp;&amp;
+							activity.object &amp;&amp; activity.object.type === &#039;Note&#039;;
+					});
+
+					assert(test1 &amp;&amp; test2);
+				});
+
+				it(&#039;should federate out an Announce(Create(Note)) on reply&#039;, async () =&gt; {
+					const { id, note } = await helpers.mocks.note({
+						cc: [`${nconf.get(&#039;url&#039;)}/category/${cid}`],
+						inReplyTo: `${nconf.get(&#039;url&#039;)}/post/${topicData.mainPid}`,
+					});
+					pid = id;
+					({ activity } = await helpers.mocks.create(note));
+					await activitypub.inbox.create({ body: activity });
+
+					const activities = Array.from(activitypub._sent);
+
+					assert(activities.some((activity) =&gt; {
+						[, activity] = activity;
+						return activity.type === &#039;Announce&#039; &amp;&amp;
+							activity.object &amp;&amp; activity.object.type === &#039;Create&#039; &amp;&amp;
+							activity.object.object &amp;&amp; activity.object.object.type === &#039;Note&#039;;
+					}));
+				});
+
+				it(&#039;should federate out an Announce(Like) on vote&#039;, async () =&gt; {
+					const { activity } = await helpers.mocks.like({
+						object: {
+							id: `${nconf.get(&#039;url&#039;)}/post/${topicData.mainPid}`,
+						},
+					});
+					await activitypub.inbox.like({ body: activity });
+
+					const activities = Array.from(activitypub._sent);
+					assert(activities.some((activity) =&gt; {
+						[, activity] = activity;
+						return activity.type === &#039;Announce&#039; &amp;&amp;
+							activity.object &amp;&amp; activity.object.type === &#039;Like&#039;;
+					}));
+				});
+			});
+
+			describe(&#039;extended actions not explicitly specified in 1b12&#039;, () =&gt; {
+				it(&#039;should be called when a topic is moved from uncategorized to another category&#039;, async () =&gt; {
+					const { topicData, postData } = await topics.post({
+						uid,
+						cid: -1,
+						title: utils.generateUUID(),
+						content: utils.generateUUID(),
+					});
+
+					assert(topicData);
+
+					await api.topics.move({ uid: adminUid }, {
+						tid: topicData.tid,
+						cid,
+					});
+
+					assert.strictEqual(activitypub._sent.size, 2);
+
+					const key = Array.from(activitypub._sent.keys())[0];
+					const activity = activitypub._sent.get(key);
+
+					assert(activity &amp;&amp; activity.object &amp;&amp; typeof activity.object === &#039;object&#039;);
+					assert.strictEqual(activity.object.id, `${nconf.get(&#039;url&#039;)}/post/${postData.pid}`);
+				});
+
+				it(&#039;should be called for a newly forked topic&#039;, async () =&gt; {
+					const { topicData } = await topics.post({
+						uid,
+						cid: -1,
+						title: utils.generateUUID(),
+						content: utils.generateUUID(),
+					});
+					const { tid } = topicData;
+					const { pid: reply1Pid } = await topics.reply({ uid, tid, content: utils.generateUUID() });
+					const { pid: reply2Pid } = await topics.reply({ uid, tid, content: utils.generateUUID() });
+					await topics.createTopicFromPosts(
+						adminUid, utils.generateUUID(), [reply1Pid, reply2Pid], tid, cid
+					);
+
+					assert.strictEqual(activitypub._sent.size, 2, activitypub._sent.keys());
+
+					const key = Array.from(activitypub._sent.keys())[0];
+					const activity = activitypub._sent.get(key);
+
+					assert(activity &amp;&amp; activity.object &amp;&amp; typeof activity.object === &#039;object&#039;);
+					assert.strictEqual(activity.object.id, `${nconf.get(&#039;url&#039;)}/post/${reply1Pid}`);
+				});
+
+				it(&#039;should be called when a post is moved to another topic&#039;, async () =&gt; {
+					const [{ topicData: topic1 }, { topicData: topic2 }] = await Promise.all([
+						topics.post({
+							uid,
+							cid,
+							title: utils.generateUUID(),
+							content: utils.generateUUID(),
+						}),
+						topics.post({
+							uid,
+							cid,
+							title: utils.generateUUID(),
+							content: utils.generateUUID(),
+						}),
+					]);
+
+					assert(topic1 &amp;&amp; topic2);
+
+					// Create new reply and move it to topic 2
+					const { pid } = await topics.reply({ uid, tid: topic1.tid, content: utils.generateUUID() });
+					await api.posts.move({ uid: adminUid }, { pid, tid: topic2.tid });
+
+					assert.strictEqual(activitypub._sent.size, 1);
+					const activities = Array.from(activitypub._sent.keys()).map(key =&gt; activitypub._sent.get(key));
+
+					const activity = activities.pop();
+					assert.strictEqual(activity.type, &#039;Announce&#039;);
+					assert(activity.object &amp;&amp; activity.object.type);
+					assert.strictEqual(activity.object.type, &#039;Create&#039;);
+					assert(activity.object.object &amp;&amp; activity.object.object.type);
+					assert.strictEqual(activity.object.object.type, &#039;Note&#039;);
+				});
+			});
+		});
+	});
+});
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

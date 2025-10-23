@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - test/topics/thumbs.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>test/topics/thumbs.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">70.54</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">424</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">35.58</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">5.13</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&#039;use strict&#039;;
+
+const fs = require(&#039;fs&#039;);
+const path = require(&#039;path&#039;);
+const assert = require(&#039;assert&#039;);
+const nconf = require(&#039;nconf&#039;);
+
+const db = require(&#039;../mocks/databasemock&#039;);
+
+const meta = require(&#039;../../src/meta&#039;);
+const user = require(&#039;../../src/user&#039;);
+const groups = require(&#039;../../src/groups&#039;);
+const topics = require(&#039;../../src/topics&#039;);
+const posts = require(&#039;../../src/posts&#039;);
+const categories = require(&#039;../../src/categories&#039;);
+const plugins = require(&#039;../../src/plugins&#039;);
+const file = require(&#039;../../src/file&#039;);
+const utils = require(&#039;../../src/utils&#039;);
+
+const helpers = require(&#039;../helpers&#039;);
+
+describe(&#039;Topic thumbs&#039;, () =&gt; {
+	let topicObj;
+	let categoryObj;
+	let adminUid;
+	let adminJar;
+	let adminCSRF;
+	let fooJar;
+	let fooCSRF;
+	let fooUid;
+
+	const thumbPaths = [
+		`${nconf.get(&#039;upload_path&#039;)}/files/test.png`,
+		`${nconf.get(&#039;upload_path&#039;)}/files/test2.png`,
+		&#039;https://example.org&#039;,
+	];
+
+	const relativeThumbPaths = thumbPaths.map(path =&gt; path.replace(nconf.get(&#039;upload_path&#039;), &#039;&#039;));
+
+	const uuid = utils.generateUUID();
+
+	function createFiles() {
+		fs.closeSync(fs.openSync(path.resolve(__dirname, &#039;../uploads&#039;, thumbPaths[0]), &#039;w&#039;));
+		fs.closeSync(fs.openSync(path.resolve(__dirname, &#039;../uploads&#039;, thumbPaths[1]), &#039;w&#039;));
+	}
+
+	before(async () =&gt; {
+		meta.config.allowTopicsThumbnail = 1;
+
+		adminUid = await user.create({ username: &#039;admin&#039;, password: &#039;123456&#039; });
+		fooUid = await user.create({ username: &#039;foo&#039;, password: &#039;123456&#039; });
+		await groups.join(&#039;administrators&#039;, adminUid);
+		const adminLogin = await helpers.loginUser(&#039;admin&#039;, &#039;123456&#039;);
+		adminJar = adminLogin.jar;
+		adminCSRF = adminLogin.csrf_token;
+		const fooLogin = await helpers.loginUser(&#039;foo&#039;, &#039;123456&#039;);
+		fooJar = fooLogin.jar;
+		fooCSRF = fooLogin.csrf_token;
+
+		categoryObj = await categories.create({
+			name: &#039;Test Category&#039;,
+			description: &#039;Test category created by testing script&#039;,
+		});
+		topicObj = await topics.post({
+			uid: adminUid,
+			cid: categoryObj.cid,
+			title: &#039;Test Topic Title&#039;,
+			content: &#039;The content of test topic&#039;,
+		});
+
+		// Touch a couple files and associate it to a topic
+		createFiles();
+		await db.sortedSetAdd(`topic:${topicObj.topicData.tid}:thumbs`, 0, `${relativeThumbPaths[0]}`);
+	});
+
+	it(&#039;should return bool for whether a thumb exists&#039;, async () =&gt; {
+		const exists = await topics.thumbs.exists(topicObj.topicData.tid, `${relativeThumbPaths[0]}`);
+		assert.strictEqual(exists, true);
+	});
+
+	describe(&#039;.get()&#039;, () =&gt; {
+		it(&#039;should return an array of thumbs&#039;, async () =&gt; {
+			require(&#039;../../src/cache&#039;).del(`topic:${topicObj.topicData.tid}:thumbs`);
+			const thumbs = await topics.thumbs.get(topicObj.topicData.tid);
+			assert.deepStrictEqual(thumbs, [{
+				id: topicObj.topicData.tid,
+				name: &#039;test.png&#039;,
+				path: `${relativeThumbPaths[0]}`,
+				url: `${nconf.get(&#039;relative_path&#039;)}${nconf.get(&#039;upload_url&#039;)}${relativeThumbPaths[0]}`,
+			}]);
+		});
+
+		it(&#039;should return an array of an array of thumbs if multiple tids are passed in&#039;, async () =&gt; {
+			const thumbs = await topics.thumbs.get([topicObj.topicData.tid, topicObj.topicData.tid + 1]);
+			assert.deepStrictEqual(thumbs, [
+				[{
+					id: topicObj.topicData.tid,
+					name: &#039;test.png&#039;,
+					path: `${relativeThumbPaths[0]}`,
+					url: `${nconf.get(&#039;relative_path&#039;)}${nconf.get(&#039;upload_url&#039;)}${relativeThumbPaths[0]}`,
+				}],
+				[],
+			]);
+		});
+	});
+
+	describe(&#039;.associate()&#039;, () =&gt; {
+		let tid;
+		let mainPid;
+
+		before(async () =&gt; {
+			topicObj = await topics.post({
+				uid: adminUid,
+				cid: categoryObj.cid,
+				title: &#039;Test Topic Title&#039;,
+				content: &#039;The content of test topic&#039;,
+			});
+			tid = topicObj.topicData.tid;
+			mainPid = topicObj.postData.pid;
+		});
+
+		it(&#039;should add an uploaded file to a zset&#039;, async () =&gt; {
+			await topics.thumbs.associate({
+				id: tid,
+				path: relativeThumbPaths[0],
+			});
+
+			const exists = await db.isSortedSetMember(`topic:${tid}:thumbs`, relativeThumbPaths[0]);
+			assert(exists);
+		});
+
+		it(&#039;should also work with UUIDs&#039;, async () =&gt; {
+			await topics.thumbs.associate({
+				id: uuid,
+				path: relativeThumbPaths[1],
+				score: 5,
+			});
+
+			const exists = await db.isSortedSetMember(`draft:${uuid}:thumbs`, relativeThumbPaths[1]);
+			assert(exists);
+		});
+
+		it(&#039;should also work with a URL&#039;, async () =&gt; {
+			await topics.thumbs.associate({
+				id: tid,
+				path: relativeThumbPaths[2],
+			});
+
+			const exists = await db.isSortedSetMember(`topic:${tid}:thumbs`, relativeThumbPaths[2]);
+			assert(exists);
+		});
+
+		it(&#039;should have a score equal to the number of thumbs prior to addition&#039;, async () =&gt; {
+			const scores = await db.sortedSetScores(`topic:${tid}:thumbs`, [relativeThumbPaths[0], relativeThumbPaths[2]]);
+			assert.deepStrictEqual(scores, [0, 1]);
+		});
+
+		it(&#039;should update the relevant topic hash with the number of thumbnails&#039;, async () =&gt; {
+			const numThumbs = await topics.getTopicField(tid, &#039;numThumbs&#039;);
+			assert.strictEqual(parseInt(numThumbs, 10), 2);
+		});
+
+		it(&#039;should successfully associate a thumb with a topic even if it already contains that thumbnail (updates score)&#039;, async () =&gt; {
+			await topics.thumbs.associate({
+				id: tid,
+				path: relativeThumbPaths[0],
+			});
+
+			const score = await db.sortedSetScore(`topic:${tid}:thumbs`, relativeThumbPaths[0]);
+
+			assert(isFinite(score)); // exists in set
+			assert.strictEqual(score, 2);
+		});
+
+		it(&#039;should update the score to be passed in as the third argument&#039;, async () =&gt; {
+			await topics.thumbs.associate({
+				id: tid,
+				path: relativeThumbPaths[0],
+				score: 0,
+			});
+
+			const score = await db.sortedSetScore(`topic:${tid}:thumbs`, relativeThumbPaths[0]);
+
+			assert(isFinite(score)); // exists in set
+			assert.strictEqual(score, 0);
+		});
+
+		it(&#039;should associate the thumbnail with that topic\&#039;s main pid\&#039;s uploads&#039;, async () =&gt; {
+			const uploads = await posts.uploads.list(mainPid);
+			assert(uploads.includes(relativeThumbPaths[0]));
+		});
+
+		it(&#039;should maintain state in the topic\&#039;s main pid\&#039;s uploads if posts.uploads.sync() is called&#039;, async () =&gt; {
+			await posts.uploads.sync(mainPid);
+			const uploads = await posts.uploads.list(mainPid);
+			assert(uploads.includes(relativeThumbPaths[0]));
+		});
+
+		it(&#039;should combine the thumbs uploaded to a UUID zset and combine it with a topic\&#039;s thumb zset&#039;, async () =&gt; {
+			await topics.thumbs.migrate(uuid, tid);
+
+			const thumbs = await topics.thumbs.get(tid);
+			assert.strictEqual(thumbs.length, 3);
+			assert.deepStrictEqual(thumbs, [
+				{
+					id: tid,
+					name: &#039;test.png&#039;,
+					path: relativeThumbPaths[0],
+					url: `${nconf.get(&#039;relative_path&#039;)}${nconf.get(&#039;upload_url&#039;)}${relativeThumbPaths[0]}`,
+				},
+				{
+					id: tid,
+					name: &#039;example.org&#039;,
+					path: &#039;https://example.org&#039;,
+					url: &#039;https://example.org&#039;,
+				},
+				{
+					id: tid,
+					name: &#039;test2.png&#039;,
+					path: relativeThumbPaths[1],
+					url: `${nconf.get(&#039;relative_path&#039;)}${nconf.get(&#039;upload_url&#039;)}${relativeThumbPaths[1]}`,
+				},
+			]);
+		});
+	});
+
+	describe(`.delete()`, () =&gt; {
+		it(&#039;should remove a file from sorted set&#039;, async () =&gt; {
+			await topics.thumbs.associate({
+				id: 1,
+				path: `/files/test.png`,
+			});
+			await topics.thumbs.delete(1, `/files/test.png`);
+
+			assert.strictEqual(await db.isSortedSetMember(&#039;topic:1:thumbs&#039;, &#039;/files/test.png&#039;), false);
+		});
+
+		it(&#039;should no longer be associated with that topic\&#039;s main pid\&#039;s uploads&#039;, async () =&gt; {
+			const mainPid = (await topics.getMainPids([1]))[0];
+			const uploads = await posts.uploads.list(mainPid);
+			assert(!uploads.includes(path.basename(relativeThumbPaths[0])));
+		});
+
+		it(&#039;should also work with UUIDs&#039;, async () =&gt; {
+			await topics.thumbs.associate({
+				id: uuid,
+				path: `/files/test.png`,
+			});
+			await topics.thumbs.delete(uuid, &#039;/files/test.png&#039;);
+
+			assert.strictEqual(await db.isSortedSetMember(`draft:${uuid}:thumbs`, &#039;/files/test.png&#039;), false);
+			assert.strictEqual(await file.exists(path.join(`${nconf.get(&#039;upload_path&#039;)}`, &#039;/files/test.png&#039;)), false);
+		});
+
+		it(&#039;should also work with URLs&#039;, async () =&gt; {
+			await topics.thumbs.associate({
+				id: uuid,
+				path: thumbPaths[2],
+			});
+			await topics.thumbs.delete(uuid, relativeThumbPaths[2]);
+
+			assert.strictEqual(await db.isSortedSetMember(`draft:${uuid}:thumbs`, relativeThumbPaths[2]), false);
+		});
+
+		it(&#039;should not delete the file from disk if not associated with the tid&#039;, async () =&gt; {
+			createFiles();
+			await topics.thumbs.delete(uuid, thumbPaths[0]);
+			assert.strictEqual(await file.exists(thumbPaths[0]), true);
+		});
+
+		it(&#039;should have no more thumbs left&#039;, async () =&gt; {
+			const associated = await db.isSortedSetMembers(`topic:1:thumbs`, [relativeThumbPaths[0], relativeThumbPaths[1]]);
+			assert.strictEqual(associated.some(Boolean), false);
+		});
+
+		it(&#039;should decrement numThumbs if dissociated one by one&#039;, async () =&gt; {
+			console.log(&#039;before&#039;, await db.getSortedSetRange(`topic:1:thumbs`, 0, -1));
+			await topics.thumbs.associate({ id: 1, path: `${nconf.get(&#039;relative_path&#039;)}${nconf.get(&#039;upload_url&#039;)}/files/test.png` });
+			await topics.thumbs.associate({ id: 1, path: `${nconf.get(&#039;relative_path&#039;)}${nconf.get(&#039;upload_url&#039;)}/files/test2.png` });
+
+			await topics.thumbs.delete(1, [relativeThumbPaths[0]]);
+			let numThumbs = parseInt(await db.getObjectField(&#039;topic:1&#039;, &#039;numThumbs&#039;), 10);
+			assert.strictEqual(numThumbs, 1);
+
+			await topics.thumbs.delete(1, [relativeThumbPaths[1]]);
+			numThumbs = parseInt(await db.getObjectField(&#039;topic:1&#039;, &#039;numThumbs&#039;), 10);
+			assert.strictEqual(numThumbs, 0);
+		});
+	});
+
+	describe(&#039;.deleteAll()&#039;, () =&gt; {
+		before(async () =&gt; {
+			await Promise.all([
+				topics.thumbs.associate({ id: 1, path: &#039;/files/test.png&#039; }),
+				topics.thumbs.associate({ id: 1, path: &#039;/files/test2.png&#039; }),
+			]);
+			createFiles();
+		});
+
+		it(&#039;should have thumbs prior to tests&#039;, async () =&gt; {
+			const associated = await db.isSortedSetMembers(
+				`topic:1:thumbs`, [&#039;/files/test.png&#039;, &#039;/files/test2.png&#039;]
+			);
+			assert.strictEqual(associated.every(Boolean), true);
+		});
+
+		it(&#039;should not error out&#039;, async () =&gt; {
+			await topics.thumbs.deleteAll(1);
+		});
+
+		it(&#039;should remove all associated thumbs with that topic&#039;, async () =&gt; {
+			const associated = await db.isSortedSetMembers(
+				`topic:1:thumbs`, [&#039;/files/test.png&#039;, &#039;/files/test2.png&#039;]
+			);
+			assert.strictEqual(associated.some(Boolean), false);
+		});
+
+		it(&#039;should no longer have a :thumbs zset&#039;, async () =&gt; {
+			assert.strictEqual(await db.exists(&#039;topic:1:thumbs&#039;), false);
+		});
+	});
+
+	describe(&#039;HTTP calls to topic thumb routes&#039;, () =&gt; {
+		before(() =&gt; {
+			createFiles();
+		});
+
+		it(&#039;should succeed with a valid tid&#039;, async () =&gt; {
+			const { response } = await helpers.uploadFile(`${nconf.get(&#039;url&#039;)}/api/v3/topics/1/thumbs`, path.join(__dirname, &#039;../files/test.png&#039;), {}, adminJar, adminCSRF);
+			assert.strictEqual(response.statusCode, 200);
+		});
+
+		it(&#039;should succeed with a uuid&#039;, async () =&gt; {
+			const { response } = await helpers.uploadFile(`${nconf.get(&#039;url&#039;)}/api/v3/topics/${uuid}/thumbs`, path.join(__dirname, &#039;../files/test.png&#039;), {}, adminJar, adminCSRF);
+			assert.strictEqual(response.statusCode, 200);
+		});
+
+		it(&#039;should succeed with uploader plugins&#039;, async () =&gt; {
+			const hookMethod = async () =&gt; ({
+				name: &#039;test.png&#039;,
+				url: &#039;https://example.org&#039;,
+			});
+			await plugins.hooks.register(&#039;test&#039;, {
+				hook: &#039;filter:uploadFile&#039;,
+				method: hookMethod,
+			});
+
+			const { response } = await helpers.uploadFile(
+				`${nconf.get(&#039;url&#039;)}/api/v3/topics/${uuid}/thumbs`,
+				path.join(__dirname, &#039;../files/test.png&#039;),
+				{},
+				adminJar,
+				adminCSRF
+			);
+			assert.strictEqual(response.statusCode, 200);
+
+			await plugins.hooks.unregister(&#039;test&#039;, &#039;filter:uploadFile&#039;, hookMethod);
+		});
+
+		it(&#039;should fail with a non-existant tid&#039;, async () =&gt; {
+			const { response } = await helpers.uploadFile(`${nconf.get(&#039;url&#039;)}/api/v3/topics/${Number.MAX_SAFE_INTEGER}/thumbs`, path.join(__dirname, &#039;../files/test.png&#039;), {}, adminJar, adminCSRF);
+			assert.strictEqual(response.statusCode, 404);
+		});
+
+		it(&#039;should fail when garbage is passed in&#039;, async () =&gt; {
+			const { response } = await helpers.uploadFile(`${nconf.get(&#039;url&#039;)}/api/v3/topics/abracadabra/thumbs`, path.join(__dirname, &#039;../files/test.png&#039;), {}, adminJar, adminCSRF);
+			assert.strictEqual(response.statusCode, 404);
+		});
+
+		it(&#039;should fail when calling user cannot edit the tid&#039;, async () =&gt; {
+			const { response } = await helpers.uploadFile(`${nconf.get(&#039;url&#039;)}/api/v3/topics/2/thumbs`, path.join(__dirname, &#039;../files/test.png&#039;), {}, fooJar, fooCSRF);
+			assert.strictEqual(response.statusCode, 403);
+		});
+
+		it(&#039;should fail if thumbnails are not enabled&#039;, async () =&gt; {
+			meta.config.allowTopicsThumbnail = 0;
+
+			const { response, body } = await helpers.uploadFile(`${nconf.get(&#039;url&#039;)}/api/v3/topics/${uuid}/thumbs`, path.join(__dirname, &#039;../files/test.png&#039;), {}, adminJar, adminCSRF);
+			assert.strictEqual(response.statusCode, 503);
+			assert(body &amp;&amp; body.status);
+			assert.strictEqual(body.status.message, &#039;Topic thumbnails are disabled.&#039;);
+		});
+
+		it(&#039;should fail if file is not image&#039;, async () =&gt; {
+			meta.config.allowTopicsThumbnail = 1;
+
+			const { response, body } = await helpers.uploadFile(`${nconf.get(&#039;url&#039;)}/api/v3/topics/${uuid}/thumbs`, path.join(__dirname, &#039;../files/503.html&#039;), {}, adminJar, adminCSRF);
+			assert.strictEqual(response.statusCode, 500);
+			assert(body &amp;&amp; body.status);
+			assert.strictEqual(body.status.message, &#039;Invalid File&#039;);
+		});
+	});
+
+	describe(&#039;behaviour on topic purge&#039;, () =&gt; {
+		let topicObj;
+
+		before(async () =&gt; {
+			topicObj = await topics.post({
+				uid: adminUid,
+				cid: categoryObj.cid,
+				title: &#039;Test Topic Title&#039;,
+				content: &#039;The content of test topic&#039;,
+			});
+
+			await Promise.all([
+				topics.thumbs.associate({ id: topicObj.tid, path: thumbPaths[0] }),
+				topics.thumbs.associate({ id: topicObj.tid, path: thumbPaths[1] }),
+			]);
+			createFiles();
+
+			await topics.purge(topicObj.tid, adminUid);
+		});
+
+		it(&#039;should no longer have a :thumbs zset&#039;, async () =&gt; {
+			assert.strictEqual(await db.exists(`topic:${topicObj.tid}:thumbs`), false);
+		});
+
+		it(&#039;should not leave post upload associations behind&#039;, async () =&gt; {
+			const uploads = await db.getSortedSetMembers(`post:${topicObj.postData.pid}:uploads`);
+			assert.strictEqual(uploads.length, 0);
+		});
+	});
+});
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

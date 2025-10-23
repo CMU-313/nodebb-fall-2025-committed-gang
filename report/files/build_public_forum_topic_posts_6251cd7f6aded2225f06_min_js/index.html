@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/forum/topic-posts.6251cd7f6aded2225f06.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/forum/topic-posts.6251cd7f6aded2225f06.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">72.11</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">90.14</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">8.87</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[22765,75264],{2269:(b,R)=&gt;{var a,I;a=[],I=function(){const h={},C=/-resized(\.[\w]+)?$/;return h.wrapImagesInLinks=function(P){P.find(&#039;[component=&quot;post/content&quot;] img:not(.emoji)&#039;).each(function(){h.wrapImageInLink($(this))})},h.wrapImageInLink=function(P){let x=P.attr(&quot;src&quot;)||&quot;&quot;;if(x!==&quot;about:blank&quot;&amp;&amp;!P.parent().is(&quot;a&quot;)){utils.isRelativeUrl(x)&amp;&amp;C.test(x)&amp;&amp;(x=x.replace(C,&quot;$1&quot;));const S=P.attr(&quot;alt&quot;)||&quot;&quot;,w=x.split(&quot;.&quot;).slice(1).pop(),l=S.split(&quot;/&quot;).pop(),g=l.split(&quot;.&quot;).slice(1).pop();P.wrap(&#039;&lt;a href=&quot;&#039;+x+&#039;&quot; &#039;+(!w&amp;&amp;g?&#039; download=&quot;&#039;+utils.escapeHTML(l)+&#039;&quot; &#039;:&quot;&quot;)+&#039; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&#039;)}},h}.apply(R,a),I!==void 0&amp;&amp;(b.exports=I)},22410:(b,R,a)=&gt;{var I,h;I=[a(91749),a(29930),a(49897)],h=function(C,P,x){const S={};let w,l=0,g=!1,j,B=0;S.init=function(r,T){const c=$(&quot;body&quot;);typeof r==&quot;function&quot;?(w=r,j=c):(w=T,j=r||c),l=$(window).scrollTop(),$(window).off(&quot;scroll&quot;,s).on(&quot;scroll&quot;,s),c.height()&lt;=$(window).height()&amp;&amp;(!ajaxify.data.hasOwnProperty(&quot;pageCount&quot;)||ajaxify.data.pageCount&gt;1)&amp;&amp;w(1)};function s(){B&amp;&amp;clearTimeout(B),B=setTimeout(function(){B=0,_()},60)}function _(){const r=utils.findBootstrapEnvironment(),T=(r===&quot;xs&quot;||r===&quot;sm&quot;)&amp;&amp;$(&quot;html&quot;).hasClass(&quot;composing&quot;);if(g||T||app.flags._glance)return;const c=$(window).scrollTop(),d=$(window).height(),m=j.height()-d,M=j.offset()?j.offset().top:0,A=100*(c-M)/(m&lt;=0?d:m),O=15,L=85,D=c&gt;l?1:-1;(A&lt;O&amp;&amp;c&lt;l||A&gt;L&amp;&amp;c&gt;l||A&lt;0&amp;&amp;D&gt;0&amp;&amp;m&lt;0)&amp;&amp;w(D),l=c}return S.loadMore=function(r,T,c){if(g)return;g=!0;const d={method:r,data:T};C.fire(&quot;action:infinitescroll.loadmore&quot;,d),(d.method.startsWith(&quot;/&quot;)?x.get:socket.emit)(d.method,d.data,function(M,A){if(M)return g=!1,P.error(M);c(A,function(){g=!1})})},S.loadMoreXhr=function(r,T){if(g)return;g=!0;const c=config.relative_path+&quot;/api&quot;+location.pathname.replace(new RegExp(&quot;^&quot;+config.relative_path),&quot;&quot;),d={url:c,data:r};C.fire(&quot;action:infinitescroll.loadmore.xhr&quot;,d),$.get(c,r,function(m){T(m,function(){g=!1})}).fail(function(m){g=!1,P.error(String(m.responseJSON||&quot;[[error:no-connection]]&quot;))})},S.removeExtra=function(r,T,c){let d=$();if(r.length&lt;=c)return d;const m=r.length-c;if(T&gt;0){const M=$(document).height(),A=$(window).scrollTop();d=r.slice(0,m).remove(),$(window).scrollTop(A+($(document).height()-M))}else d=r.slice(r.length-m).remove();return d},S}.apply(R,I),h!==void 0&amp;&amp;(b.exports=h)},47536:(b,R,a)=&gt;{var I,h;I=[a(25967),a(22410),a(8454),a(2269),a(96352),a(52473),a(17459),a(91749),a(30076)],h=function(C,P,x,S,w,l,g,j,B){const s={};s.signaturesShown={};const _=$(window);s.onNewPost=function(t){!t||!t.posts||!t.posts.length||String(t.posts[0].tid)!==String(ajaxify.data.tid)||(t.loggedIn=!!app.user.uid,t.privileges=ajaxify.data.privileges,t.posts[0].timestamp=t.posts[0].topic.scheduled?t.posts[0].timestamp:Date.now()-1e3,t.posts[0].timestampISO=utils.toISOString(t.posts[0].timestamp),s.modifyPostsByPrivileges(t.posts),T(t.posts),r(t.posts[0]),c(t.posts),ajaxify.data.postcount+=1,x.updatePostCount(ajaxify.data.postcount),config.usePagination?d(t):M(t),a.e(18631).then(function(){var o=[a(18631)];(function(e){e.onNewPost(t)}).apply(null,o)}).catch(a.oe))};function r(t){$(&quot;.pagination-block .pagebottom .timeago&quot;).timeago(&quot;update&quot;,t.timestampISO)}s.modifyPostsByPrivileges=function(t){t.forEach(function(o){o.selfPost=!!app.user.uid&amp;&amp;parseInt(o.uid,10)===parseInt(app.user.uid,10),o.topicOwnerPost=parseInt(o.uid,10)===parseInt(ajaxify.data.uid,10),o.display_edit_tools=ajaxify.data.privileges[&quot;posts:edit&quot;]&amp;&amp;o.selfPost||ajaxify.data.privileges.isAdminOrMod,o.display_delete_tools=ajaxify.data.privileges[&quot;posts:delete&quot;]&amp;&amp;o.selfPost||ajaxify.data.privileges.isAdminOrMod,o.display_moderator_tools=o.display_edit_tools||o.display_delete_tools,o.display_move_tools=ajaxify.data.privileges.isAdminOrMod,o.display_post_menu=ajaxify.data.privileges.isAdminOrMod||o.selfPost&amp;&amp;!ajaxify.data.locked&amp;&amp;!o.deleted||o.selfPost&amp;&amp;o.deleted&amp;&amp;parseInt(o.deleterUid,10)===parseInt(app.user.uid,10)||(app.user.uid||ajaxify.data.postSharing.length)&amp;&amp;!o.deleted})};function T(t){for(let o=0;o&lt;t.length;o+=1){const e=l.get(&quot;user/postcount&quot;,t[o].uid);e.html(B.formattedNumber(parseInt(e.attr(&quot;data-postcount&quot;),10)+1))}}function c(t){config.topicPostSort===&quot;newest_to_oldest&quot;&amp;&amp;(t[0].index=1,l.get(&quot;post&quot;).not(&quot;[data-index=0]&quot;).each(function(){const o=parseInt($(this).attr(&quot;data-index&quot;),10)+1;$(this).attr(&quot;data-index&quot;,o)}))}function d(t){function o(){A(t.posts[0])}const e=t.posts;ajaxify.data.pagination.pageCount=Math.max(1,Math.ceil(e[0].topic.postcount/config.postsPerPage));const n=config.topicPostSort===&quot;oldest_to_newest&quot;||config.topicPostSort===&quot;most_votes&quot;?1:-1;if(ajaxify.data.pagination.currentPage===ajaxify.data.pagination.pageCount&amp;&amp;n===1||ajaxify.data.pagination.currentPage===1&amp;&amp;n===-1){const y=$(&#039;[component=&quot;post&quot;]:not([data-index=0]), [component=&quot;topic/event&quot;]&#039;);O(t,y,n,!1,o)}else ajaxify.data.scrollToMyPost&amp;&amp;parseInt(e[0].uid,10)===parseInt(app.user.uid,10)?setTimeout(function(){C.loadPage(ajaxify.data.pagination.pageCount,o)},250):m()}function m(){$.get(config.relative_path+&quot;/api/topic/pagination/&quot;+ajaxify.data.tid,{page:ajaxify.data.pagination.currentPage},function(t){app.parseAndTranslate(&quot;partials/paginator&quot;,t,function(o){$(&#039;[component=&quot;pagination&quot;]&#039;).after(o).remove()})})}function M(t){const o=config.topicPostSort===&quot;oldest_to_newest&quot;||config.topicPostSort===&quot;most_votes&quot;?1:-1,e=$(&#039;[component=&quot;post&quot;][data-index=&quot;&#039;+(t.posts[0].index-1)+&#039;&quot;]&#039;).length;if(!e&amp;&amp;(!t.posts[0].selfPost||!ajaxify.data.scrollToMyPost))return;if(!e&amp;&amp;t.posts[0].selfPost)return ajaxify.go(&quot;post/&quot;+t.posts[0].pid);const n=$(&#039;[component=&quot;topic&quot;]&gt;[component=&quot;post&quot;]:not([data-index=0]), [component=&quot;topic&quot;]&gt;[component=&quot;topic/event&quot;]&#039;);O(t,n,o,!1,function(i){i&amp;&amp;i.addClass(&quot;new&quot;),A(t.posts[0])})}function A(t){t.selfPost&amp;&amp;ajaxify.data.scrollToMyPost&amp;&amp;w.scrollBottom(t.index)}function O(t,o,e,n,i){if(i=i||function(){},!t||t.posts&amp;&amp;!t.posts.length)return i();function y(){const u=$(&#039;[component=&quot;post&quot;].new&#039;);if(u.length===t.posts.length){let v=!0;if(u.each(function(f,N){parseInt($(N).attr(&quot;data-pid&quot;),10)!==parseInt(t.posts[f].pid,10)&amp;&amp;(v=!1)}),v){u.each(function(){$(this).removeClass(&quot;new&quot;)}),t.posts.length=0;return}}u.length&amp;&amp;t.posts.length&gt;1&amp;&amp;t.posts.forEach(function(v){const f=l.get(&quot;post&quot;,&quot;pid&quot;,v.pid);f.hasClass(&quot;new&quot;)&amp;&amp;f.remove()}),t.posts=t.posts.filter(function(v){return v.allowDupe||$(&#039;[component=&quot;post&quot;][data-pid=&quot;&#039;+v.pid+&#039;&quot;]&#039;).length===0})}if(y(),!t.posts.length)return i();let p,E;e&gt;0&amp;&amp;o.length?p=o.last():e&lt;0&amp;&amp;o.length&amp;&amp;(E=o.first()),j.fire(&quot;action:posts.loading&quot;,{posts:t.posts,after:p,before:E}),app.parseAndTranslate(&quot;topic&quot;,&quot;posts&quot;,Object.assign({},ajaxify.data,t),async function(u){u=u.filter(function(){const f=$(this),N=f.attr(&quot;data-pid&quot;),k=f.attr(&quot;data-allow-dupe&quot;);return!f.is(&#039;[component=&quot;post&quot;]&#039;)||k||N&amp;&amp;$(&#039;[component=&quot;post&quot;][data-pid=&quot;&#039;+N+&#039;&quot;]&#039;).length===0});const v=P.removeExtra($(&#039;[component=&quot;post&quot;]&#039;),e,Math.max(20,config.postsPerPage*2));if(p)u.insertAfter(p);else if(E){const f=$(document).height(),N=_.scrollTop();u.insertBefore(E),(n||N&gt;0)&amp;&amp;_.scrollTop(N+($(document).height()-f))}else l.get(&quot;topic&quot;).append(u);await s.onNewPostsAddedToDom(u),W(v),j.fire(&quot;action:posts.loaded&quot;,{posts:t.posts}),i(u)})}s.loadMorePosts=function(t){if(!l.get(&quot;topic&quot;).length||w.scrollActive)return;const o=l.get(&quot;topic&quot;).find(l.get(&quot;post&quot;).not(&quot;[data-index=0]&quot;).not(&quot;.new&quot;)),e=t&gt;0?o.last():o.first(),n=parseInt(e.attr(&quot;data-index&quot;),10)||0,i=ajaxify.data.tid;if(!utils.isNumber(n)||t&lt;0&amp;&amp;l.get(&quot;post&quot;,&quot;index&quot;,0).length)return;const y=$(&quot;.loading-indicator&quot;);y.is(&quot;:animated&quot;)||y.fadeIn(),P.loadMore(&quot;topics.loadMore&quot;,{tid:i,after:n+(t&gt;0?1:0),count:config.postsPerPage,direction:t,topicPostSort:utils.params().sort||config.topicPostSort},function(p,E){if(y.fadeOut(),p&amp;&amp;p.posts&amp;&amp;p.posts.length){const u=$(&#039;[component=&quot;post&quot;]:not([data-index=0]):not(.new), [component=&quot;topic/event&quot;]&#039;);O(p,u,t,!0,E)}else w.update(),E()})},s.onTopicPageLoad=async function(t){F(t),S.wrapImagesInLinks(t),D(t),s.showBottomPostBar(),t.find(&#039;[component=&quot;post/content&quot;] img:not(.not-responsive)&#039;).addClass(&quot;img-fluid&quot;),s.addBlockquoteEllipses(t),U(t),await L()},s.addTopicEvents=async function(t){if(config.topicPostSort===&quot;most_votes&quot;)return;const o=await Promise.all(t.map(e=&gt;app.parseAndTranslate(&quot;partials/topic/event&quot;,{...e,privileges:ajaxify.data.privileges})));if(config.topicPostSort===&quot;oldest_to_newest&quot;)$(&#039;[component=&quot;topic&quot;]&#039;).append(o);else if(config.topicPostSort===&quot;newest_to_oldest&quot;){const e=$(&#039;[component=&quot;topic&quot;] [component=&quot;post&quot;][data-index=&quot;0&quot;]&#039;);e.length?e.after(o.reverse()):$(&#039;[component=&quot;topic&quot;]&#039;).prepend(o.reverse())}$(&#039;[component=&quot;topic/event&quot;] .timeago&#039;).timeago()};async function L(){const t=ajaxify.data.necroThreshold*24*60*60*1e3;if(!t||config.topicPostSort!==&quot;newest_to_oldest&quot;&amp;&amp;config.topicPostSort!==&quot;oldest_to_newest&quot;)return;const o=_.scrollTop(),e=$(&#039;[component=&quot;post&quot;]&#039;).toArray();await Promise.all(e.map(async function(n){n=$(n);const i=n.prev(&#039;[component=&quot;post&quot;]&#039;);if(n.is(&quot;:has(.necro-post)&quot;)||!i.length||config.topicPostSort===&quot;newest_to_oldest&quot;&amp;&amp;parseInt(i.attr(&quot;data-index&quot;),10)===0)return;const y=n.attr(&quot;data-timestamp&quot;)-i.attr(&quot;data-timestamp&quot;);if(Math.abs(y)&gt;=t){const p=[&quot;suffixAgo&quot;,&quot;prefixAgo&quot;,&quot;suffixFromNow&quot;,&quot;prefixFromNow&quot;],E={};p.forEach(f=&gt;{E[f]=$.timeago.settings.strings[f],$.timeago.settings.strings[f]=&quot;&quot;});const u=(y&gt;0?&quot;[[topic:timeago-later,&quot;:&quot;[[topic:timeago-earlier,&quot;)+$.timeago.inWords(y)+&quot;]]&quot;;p.forEach(f=&gt;{$.timeago.settings.strings[f]=E[f]});const v=await app.parseAndTranslate(&quot;partials/topic/necro-post&quot;,{text:u});v.attr(&quot;data-necro-post-index&quot;,i.attr(&quot;data-index&quot;)),v.insertBefore(n)}})),o&gt;0&amp;&amp;_.scrollTop()&lt;o&amp;&amp;_.scrollTop(o)}function D(t){ajaxify.data[&quot;signatures:hideDuplicates&quot;]&amp;&amp;t.each((o,e)=&gt;{const n=$(e).find(&#039;[component=&quot;post/signature&quot;]&#039;),i=n.attr(&quot;data-uid&quot;);s.signaturesShown[i]?n.addClass(&quot;hidden&quot;):s.signaturesShown[i]=!0})}function W(t){t.each((o,e)=&gt;{$(`[data-necro-post-index=&quot;${$(e).attr(&quot;data-index&quot;)}&quot;]`).remove()})}function F(t){if(app.user.uid||!ajaxify.data.privateUploads)return;const o=document.createElement(&quot;a&quot;);o.className=&quot;login-required&quot;,o.href=config.relative_path+&quot;/login&quot;,g.translate(&quot;[[topic:login-to-view]]&quot;,function(e){o.appendChild(document.createTextNode(e)),t.each(function(n,i){$(i).find(&#039;[component=&quot;post/content&quot;] img&#039;).each(function(y,p){p=$(p),p.attr(&quot;src&quot;).startsWith(config.relative_path+config.upload_url)&amp;&amp;p.replaceWith(o.cloneNode(!0))})})})}s.onNewPostsAddedToDom=async function(t){await s.onTopicPageLoad(t),t.find(&quot;.timeago&quot;).timeago()},s.showBottomPostBar=function(){const t=l.get(&quot;post&quot;,&quot;index&quot;,0),o=$(&quot;.post-bar-placeholder&quot;),e=$(&#039;[component=&quot;post&quot;]&#039;);t.length&amp;&amp;e.length&gt;1&amp;&amp;$(&quot;.post-bar&quot;).length&lt;2&amp;&amp;o.length?($(&quot;.post-bar&quot;).clone().insertAfter(o),o.remove()):t.length&amp;&amp;e.length&lt;2&amp;&amp;t.find(&quot;.post-bar&quot;).remove()};function U(t){t.each(function(){$(this).hasClass(&quot;deleted&quot;)&amp;&amp;x.toggle($(this).attr(&quot;data-pid&quot;),!0)})}return s.addBlockquoteEllipses=function(t){t.find(&#039;[component=&quot;post/content&quot;] blockquote&#039;).filter((n,i)=&gt;!$(i).parent().is(&quot;blockquote&quot;)).find(&quot;&gt;blockquote&quot;).each(function(){const n=$(this);n.find(&quot;:hidden:not(br)&quot;).length&amp;&amp;!n.find(&quot;.toggle&quot;).length&amp;&amp;n.append(&#039;&lt;i class=&quot;d-inline-block fa fa-angle-down pointer toggle py-1 px-3 border text-bg-light&quot;&gt;&lt;/i&gt;&#039;)})},s}.apply(R,I),h!==void 0&amp;&amp;(b.exports=h)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

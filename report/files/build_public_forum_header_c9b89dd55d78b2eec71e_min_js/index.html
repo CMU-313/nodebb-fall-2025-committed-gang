@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/forum/header.c9b89dd55d78b2eec71e.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/forum/header.c9b89dd55d78b2eec71e.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">73.34</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">70.71</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">5.38</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[1091,13201,34271,34590,49897,68326,98813,99127],{11599:(C,m,c)=&gt;{var l,p;l=[c(52473),c(91749),c(49897)],p=function(g,w,h){const f={};f.prepareDOM=function(){const r=$(&#039;[component=&quot;chat/dropdown&quot;]&#039;);r.on(&quot;show.bs.dropdown&quot;,e=&gt;{d(&quot;loadChatsDropdown&quot;,$(e.target).parent().find(&#039;[component=&quot;chat/list&quot;]&#039;))}),r.each((e,o)=&gt;{const t=$(o).parent().find(&quot;.dropdown-menu&quot;);t.hasClass(&quot;show&quot;)&amp;&amp;d(&quot;loadChatsDropdown&quot;,t.find(&#039;[component=&quot;chat/list&quot;]&#039;))}),socket.removeListener(&quot;event:chats.receive&quot;,u),socket.on(&quot;event:chats.receive&quot;,u),socket.removeListener(&quot;event:chats.typing&quot;,n),socket.on(&quot;event:chats.typing&quot;,n),socket.removeListener(&quot;event:chats.roomRename&quot;,s),socket.on(&quot;event:chats.roomRename&quot;,s),socket.on(&quot;event:unread.updateChatCount&quot;,async function(e){if(e){const[a,v]=await app.require([&quot;chat&quot;,&quot;forum/chats&quot;]);if(a.isFromBlockedUser(e.fromUid)||a.isLookingAtRoom(e.roomId)||app.user.uid===parseInt(e.fromUid,10))return;v.markChatPageElUnread(e),v.updateTeaser(e.roomId,e.teaser)}let{count:o}=await h.get(&quot;/chats/unread&quot;);const t=g.get(&quot;chat/icon&quot;);o=Math.max(0,o),t.toggleClass(&quot;fa-comment&quot;,o&gt;0).toggleClass(&quot;fa-comment-o&quot;,o&lt;=0);const i=o&gt;99?&quot;99+&quot;:o;g.get(&quot;chat/icon&quot;).toggleClass(&quot;unread-count&quot;,o&gt;0).attr(&quot;data-content&quot;,i),g.get(&quot;chat/count&quot;).toggleClass(&quot;hidden&quot;,o&lt;=0).text(i),w.fire(&quot;action:chat.updateCount&quot;,{count:o})})};function u(r){d(&quot;onChatMessageReceived&quot;,r)}function n(r){d(&quot;onUserTyping&quot;,r)}function s(r){d(&quot;onRoomRename&quot;,r)}async function d(r,e){(await app.require(&quot;chat&quot;))[r](e)}return f}.apply(m,l),p!==void 0&amp;&amp;(C.exports=p)},19046:(C,m,c)=&gt;{var l,p;l=[c(91749)],p=function(g){const w={},h={ignoring:1,notwatching:2,watching:3};w.initUnreadTopics=function(){const n=app.user.unreadData;function s(e){if(e&amp;&amp;e.posts&amp;&amp;e.posts.length&amp;&amp;n){const o=e.posts[0];if(parseInt(o.uid,10)===parseInt(app.user.uid,10)||!o.topic.isFollowing&amp;&amp;o.categoryWatchState!==h.watching)return;const t=o.topic.tid;(!n[&quot;&quot;][t]||!n.new[t]||!n.watched[t]||!n.unreplied[t])&amp;&amp;r(t),n[&quot;&quot;][t]||(d(&quot;&quot;),n[&quot;&quot;][t]=!0),o.isMain&amp;&amp;parseInt(o.uid,10)!==parseInt(app.user.uid,10)&amp;&amp;!n.new[t]&amp;&amp;(d(&quot;new&quot;),n.new[t]=!0),parseInt(o.topic.postcount,10)&lt;=1&amp;&amp;!n.unreplied[t]&amp;&amp;(d(&quot;unreplied&quot;),n.unreplied[t]=!0),o.topic.isFollowing&amp;&amp;!n.watched[t]&amp;&amp;(d(&quot;watched&quot;),n.watched[t]=!0)}}function d(e){const o=&quot;/unread&quot;+(e?&quot;?filter=&quot;+e:&quot;&quot;),t=1+parseInt($(&#039;a[href=&quot;&#039;+config.relative_path+o+&#039;&quot;].navigation-link i&#039;).attr(&quot;data-content&quot;),10);u(o,t)}function r(e){$(&#039;[data-tid=&quot;&#039;+e+&#039;&quot;]&#039;).addClass(&quot;unread&quot;)}$(window).on(&quot;action:ajaxify.end&quot;,function(){ajaxify.data.template.topic&amp;&amp;[&quot;&quot;,&quot;new&quot;,&quot;watched&quot;,&quot;unreplied&quot;].forEach(function(e){delete n[e][ajaxify.data.tid]})}),socket.removeListener(&quot;event:new_post&quot;,s),socket.on(&quot;event:new_post&quot;,s),socket.removeListener(&quot;event:unread.updateCount&quot;,f),socket.on(&quot;event:unread.updateCount&quot;,f)};function f(n){u(&quot;/unread&quot;,n.unreadTopicCount),u(&quot;/unread?filter=new&quot;,n.unreadNewTopicCount),u(&quot;/unread?filter=watched&quot;,n.unreadWatchedTopicCount),u(&quot;/unread?filter=unreplied&quot;,n.unreadUnrepliedTopicCount)}function u(n,s){if(!utils.isNumber(s))return;s=Math.max(0,s);const d=s&gt;99?&quot;99+&quot;:s,r=$(&#039;a[href=&quot;&#039;+config.relative_path+n+&#039;&quot;].navigation-link&#039;);r.find(&quot;i&quot;).toggleClass(&quot;unread-count&quot;,s&gt;0).attr(&quot;data-content&quot;,d),r.find(&#039;[component=&quot;navigation/count&quot;]&#039;).toggleClass(&quot;hidden&quot;,s&lt;=0).text(s),r.length&amp;&amp;($(&#039;#mobile-menu [data-unread-url=&quot;&#039;+n+&#039;&quot;]&#039;).attr(&quot;data-content&quot;,d),$(&#039;[component=&quot;unread/count&quot;][data-unread-url=&quot;&#039;+n+&#039;&quot;]&#039;).toggleClass(&quot;hidden&quot;,s&lt;=0).text(d)),g.fire(&quot;action:unread.updateCount&quot;,{url:n,count:s})}return w.updateUnreadTopicCount=u,w}.apply(m,l),p!==void 0&amp;&amp;(C.exports=p)},49897:(C,m,c)=&gt;{c.r(m),c.d(m,{del:()=&gt;o,get:()=&gt;n,head:()=&gt;s,patch:()=&gt;r,post:()=&gt;d,put:()=&gt;e});var l=c(91749),p=c.n(l),g=c(33530),w=c.n(g);const h=config.relative_path+&quot;/api/v3&quot;;async function f(t,i){if(t.url=t.url.startsWith(&quot;/api&quot;)?config.relative_path+t.url:h+t.url,typeof i==&quot;function&quot;){u(t).then(a=&gt;i(null,a),a=&gt;i(a));return}try{return await u(t)}catch(a){if(a.message===&quot;A valid login session was not found. Please log in and try again.&quot;){const{url:v}=await(0,l.fire)(&quot;filter:admin.reauth&quot;,{url:&quot;login&quot;});return(0,g.confirm)(&quot;[[error:api.reauth-required]]&quot;,D=&gt;{D&amp;&amp;ajaxify.go(v)})}throw a}}async function u(t){const{url:i}=t;delete t.url,t.data&amp;&amp;!(t.data instanceof FormData)&amp;&amp;(t.data=JSON.stringify(t.data||{}),t.headers[&quot;content-type&quot;]=&quot;application/json; charset=utf-8&quot;),{options:t}=await(0,l.fire)(&quot;filter:api.options&quot;,{options:t}),t.data&amp;&amp;(t.body=t.data,delete t.data);const a=await fetch(i,t),{headers:v}=a;if(v.get(&quot;x-redirect&quot;))return u({url:v.get(&quot;x-redirect&quot;),...t});const D=v.get(&quot;content-type&quot;),T=D&amp;&amp;D.startsWith(&quot;application/json&quot;);let E;if(t.method!==&quot;HEAD&quot;&amp;&amp;(T?E=await a.json():E=await a.text()),!a.ok)throw E?new Error(T?E.status.message:E):new Error(a.statusText);return T&amp;&amp;E&amp;&amp;E.hasOwnProperty(&quot;status&quot;)&amp;&amp;E.hasOwnProperty(&quot;response&quot;)?E.response:E}function n(t,i,a){return f({url:t+(i&amp;&amp;Object.keys(i).length?&quot;?&quot;+$.param(i):&quot;&quot;)},a)}function s(t,i,a){return f({url:t+(i&amp;&amp;Object.keys(i).length?&quot;?&quot;+$.param(i):&quot;&quot;),method:&quot;HEAD&quot;},a)}function d(t,i,a){return f({url:t,method:&quot;POST&quot;,data:i,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}function r(t,i,a){return f({url:t,method:&quot;PATCH&quot;,data:i,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}function e(t,i,a){return f({url:t,method:&quot;PUT&quot;,data:i,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}function o(t,i,a){return f({url:t,method:&quot;DELETE&quot;,data:i,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}},71949:(C,m,c)=&gt;{var l;l=function(){const p={};p.prepareDOM=function(){const h=$(&#039;[component=&quot;notifications&quot;] [data-bs-toggle=&quot;dropdown&quot;]&#039;);h.on(&quot;show.bs.dropdown&quot;,async f=&gt;{const u=await app.require(&quot;notifications&quot;),n=$(f.target);u.loadNotifications(n,n.parent().find(&#039;[component=&quot;notifications/list&quot;]&#039;))}),h.each((f,u)=&gt;{const n=$(u),s=n.parent().find(&quot;.dropdown-menu&quot;);s.hasClass(&quot;show&quot;)&amp;&amp;app.require(&quot;notifications&quot;).then(d=&gt;{d.loadNotifications(n,s.find(&#039;[component=&quot;notifications/list&quot;]&#039;))})}),socket.removeListener(&quot;event:new_notification&quot;,g),socket.on(&quot;event:new_notification&quot;,g),socket.removeListener(&quot;event:notifications.updateCount&quot;,w),socket.on(&quot;event:notifications.updateCount&quot;,w)};async function g(h){(await app.require(&quot;notifications&quot;)).onNewNotification(h)}async function w(h){(await app.require(&quot;notifications&quot;)).updateNotifCount(h)}return p}.call(m,c,m,C),l!==void 0&amp;&amp;(C.exports=l)},86174:(C,m,c)=&gt;{var l,p;l=[c(19046),c(71949),c(11599),c(29930)],p=function(g,w,h,f){const u={};u.prepareDOM=function(){app.user.uid&gt;0&amp;&amp;g.initUnreadTopics(),w.prepareDOM(),h.prepareDOM(),n(),s(),d()};function n(){$(&#039;[component=&quot;header/usercontrol&quot;] [data-status]&#039;).off(&quot;click&quot;).on(&quot;click&quot;,function(r){const e=$(this).attr(&quot;data-status&quot;);socket.emit(&quot;user.setStatus&quot;,e,function(o){if(o)return f.error(o);$(&#039;[data-uid=&quot;&#039;+app.user.uid+&#039;&quot;] [component=&quot;user/status&quot;], [component=&quot;header/profilelink&quot;] [component=&quot;user/status&quot;]&#039;).removeClass(&quot;away online dnd offline&quot;).addClass(e),$(&#039;[component=&quot;header/usercontrol&quot;] [data-status]&#039;).each(function(){$(this).toggleClass(&quot;selected&quot;,$(this).attr(&quot;data-status&quot;)===e)}),app.user.status=e}),r.preventDefault()})}function s(){const r=utils.findBootstrapEnvironment();if(r===&quot;xs&quot;||r===&quot;sm&quot;||utils.isTouchDevice())return;const e=$(&quot;#header-menu .nav-item[title]&quot;);e.tooltip({trigger:&quot;manual&quot;,animation:!1,placement:&quot;bottom&quot;}),e.on(&quot;mouseenter&quot;,function(o){const t=$(o.target);t.hasClass(&quot;dropdown-menu&quot;)||!!t.parents(&quot;.dropdown-menu&quot;).length||$(this).tooltip(&quot;show&quot;)}),e.on(&quot;click mouseleave&quot;,function(){$(this).tooltip(&quot;hide&quot;)})}function d(){$(&quot;body&quot;).on(&quot;click&quot;,&#039;[component=&quot;user/logout&quot;]&#039;,function(){return c.e(20739).then(function(){var r=[c(75427)];(function(e){e()}).apply(null,r)}).catch(c.oe),!1})}return u}.apply(m,l),p!==void 0&amp;&amp;(C.exports=p)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

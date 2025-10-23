@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/15914.58f05c017dc5f7831dac.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/15914.58f05c017dc5f7831dac.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">42.20</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">280</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">11.23</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">2.06</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[15914],
+	{
+		15914: (i) =&gt; {
+			const o = [
+					&quot;as&quot;,
+					&quot;in&quot;,
+					&quot;of&quot;,
+					&quot;if&quot;,
+					&quot;for&quot;,
+					&quot;while&quot;,
+					&quot;finally&quot;,
+					&quot;var&quot;,
+					&quot;new&quot;,
+					&quot;function&quot;,
+					&quot;do&quot;,
+					&quot;return&quot;,
+					&quot;void&quot;,
+					&quot;else&quot;,
+					&quot;break&quot;,
+					&quot;catch&quot;,
+					&quot;instanceof&quot;,
+					&quot;with&quot;,
+					&quot;throw&quot;,
+					&quot;case&quot;,
+					&quot;default&quot;,
+					&quot;try&quot;,
+					&quot;switch&quot;,
+					&quot;continue&quot;,
+					&quot;typeof&quot;,
+					&quot;delete&quot;,
+					&quot;let&quot;,
+					&quot;yield&quot;,
+					&quot;const&quot;,
+					&quot;class&quot;,
+					&quot;debugger&quot;,
+					&quot;async&quot;,
+					&quot;await&quot;,
+					&quot;static&quot;,
+					&quot;import&quot;,
+					&quot;from&quot;,
+					&quot;export&quot;,
+					&quot;extends&quot;,
+				],
+				c = [&quot;true&quot;, &quot;false&quot;, &quot;null&quot;, &quot;undefined&quot;, &quot;NaN&quot;, &quot;Infinity&quot;],
+				d = [
+					&quot;Object&quot;,
+					&quot;Function&quot;,
+					&quot;Boolean&quot;,
+					&quot;Symbol&quot;,
+					&quot;Math&quot;,
+					&quot;Date&quot;,
+					&quot;Number&quot;,
+					&quot;BigInt&quot;,
+					&quot;String&quot;,
+					&quot;RegExp&quot;,
+					&quot;Array&quot;,
+					&quot;Float32Array&quot;,
+					&quot;Float64Array&quot;,
+					&quot;Int8Array&quot;,
+					&quot;Uint8Array&quot;,
+					&quot;Uint8ClampedArray&quot;,
+					&quot;Int16Array&quot;,
+					&quot;Int32Array&quot;,
+					&quot;Uint16Array&quot;,
+					&quot;Uint32Array&quot;,
+					&quot;BigInt64Array&quot;,
+					&quot;BigUint64Array&quot;,
+					&quot;Set&quot;,
+					&quot;Map&quot;,
+					&quot;WeakSet&quot;,
+					&quot;WeakMap&quot;,
+					&quot;ArrayBuffer&quot;,
+					&quot;SharedArrayBuffer&quot;,
+					&quot;Atomics&quot;,
+					&quot;DataView&quot;,
+					&quot;JSON&quot;,
+					&quot;Promise&quot;,
+					&quot;Generator&quot;,
+					&quot;GeneratorFunction&quot;,
+					&quot;AsyncFunction&quot;,
+					&quot;Reflect&quot;,
+					&quot;Proxy&quot;,
+					&quot;Intl&quot;,
+					&quot;WebAssembly&quot;,
+				],
+				l = [
+					&quot;Error&quot;,
+					&quot;EvalError&quot;,
+					&quot;InternalError&quot;,
+					&quot;RangeError&quot;,
+					&quot;ReferenceError&quot;,
+					&quot;SyntaxError&quot;,
+					&quot;TypeError&quot;,
+					&quot;URIError&quot;,
+				],
+				E = [
+					&quot;setInterval&quot;,
+					&quot;setTimeout&quot;,
+					&quot;clearInterval&quot;,
+					&quot;clearTimeout&quot;,
+					&quot;require&quot;,
+					&quot;exports&quot;,
+					&quot;eval&quot;,
+					&quot;isFinite&quot;,
+					&quot;isNaN&quot;,
+					&quot;parseFloat&quot;,
+					&quot;parseInt&quot;,
+					&quot;decodeURI&quot;,
+					&quot;decodeURIComponent&quot;,
+					&quot;encodeURI&quot;,
+					&quot;encodeURIComponent&quot;,
+					&quot;escape&quot;,
+					&quot;unescape&quot;,
+				],
+				S = [].concat(E, d, l);
+			function u(e) {
+				const _ = [&quot;npm&quot;, &quot;print&quot;],
+					A = [&quot;yes&quot;, &quot;no&quot;, &quot;on&quot;, &quot;off&quot;, &quot;it&quot;, &quot;that&quot;, &quot;void&quot;],
+					b = [
+						&quot;then&quot;,
+						&quot;unless&quot;,
+						&quot;until&quot;,
+						&quot;loop&quot;,
+						&quot;of&quot;,
+						&quot;by&quot;,
+						&quot;when&quot;,
+						&quot;and&quot;,
+						&quot;or&quot;,
+						&quot;is&quot;,
+						&quot;isnt&quot;,
+						&quot;not&quot;,
+						&quot;it&quot;,
+						&quot;that&quot;,
+						&quot;otherwise&quot;,
+						&quot;from&quot;,
+						&quot;to&quot;,
+						&quot;til&quot;,
+						&quot;fallthrough&quot;,
+						&quot;case&quot;,
+						&quot;enum&quot;,
+						&quot;native&quot;,
+						&quot;list&quot;,
+						&quot;map&quot;,
+						&quot;__hasProp&quot;,
+						&quot;__extends&quot;,
+						&quot;__slice&quot;,
+						&quot;__bind&quot;,
+						&quot;__indexOf&quot;,
+					],
+					t = {
+						keyword: o.concat(b),
+						literal: c.concat(A),
+						built_in: S.concat(_),
+					},
+					n = &quot;[A-Za-z$_](?:-[0-9A-Za-z$_]|[0-9A-Za-z$_])*&quot;,
+					g = e.inherit(e.TITLE_MODE, { begin: n }),
+					a = { className: &quot;subst&quot;, begin: /#\{/, end: /\}/, keywords: t },
+					s = {
+						className: &quot;subst&quot;,
+						begin: /#[A-Za-z$_]/,
+						end: /(?:-[0-9A-Za-z$_]|[0-9A-Za-z$_])*/,
+						keywords: t,
+					},
+					r = [
+						e.BINARY_NUMBER_MODE,
+						{
+							className: &quot;number&quot;,
+							begin:
+								&quot;(\\b0[xX][a-fA-F0-9_]+)|(\\b\\d(\\d|_\\d)*(\\.(\\d(\\d|_\\d)*)?)?(_*[eE]([-+]\\d(_\\d|\\d)*)?)?[_a-z]*)&quot;,
+							relevance: 0,
+							starts: { end: &quot;(\\s*/)?&quot;, relevance: 0 },
+						},
+						{
+							className: &quot;string&quot;,
+							variants: [
+								{ begin: /&#039;&#039;&#039;/, end: /&#039;&#039;&#039;/, contains: [e.BACKSLASH_ESCAPE] },
+								{ begin: /&#039;/, end: /&#039;/, contains: [e.BACKSLASH_ESCAPE] },
+								{
+									begin: /&quot;&quot;&quot;/,
+									end: /&quot;&quot;&quot;/,
+									contains: [e.BACKSLASH_ESCAPE, a, s],
+								},
+								{ begin: /&quot;/, end: /&quot;/, contains: [e.BACKSLASH_ESCAPE, a, s] },
+								{ begin: /\\/, end: /(\s|$)/, excludeEnd: !0 },
+							],
+						},
+						{
+							className: &quot;regexp&quot;,
+							variants: [
+								{
+									begin: &quot;//&quot;,
+									end: &quot;//[gim]*&quot;,
+									contains: [a, e.HASH_COMMENT_MODE],
+								},
+								{ begin: /\/(?![ *])(\\.|[^\\\n])*?\/[gim]*(?=\W)/ },
+							],
+						},
+						{ begin: &quot;@&quot; + n },
+						{
+							begin: &quot;``&quot;,
+							end: &quot;``&quot;,
+							excludeBegin: !0,
+							excludeEnd: !0,
+							subLanguage: &quot;javascript&quot;,
+						},
+					];
+				a.contains = r;
+				const I = {
+						className: &quot;params&quot;,
+						begin: &quot;\\(&quot;,
+						returnBegin: !0,
+						contains: [
+							{
+								begin: /\(/,
+								end: /\)/,
+								keywords: t,
+								contains: [&quot;self&quot;].concat(r),
+							},
+						],
+					},
+					y = { begin: &quot;(#=&gt;|=&gt;|\\|&gt;&gt;|-?-&gt;|!-&gt;)&quot; },
+					f = {
+						variants: [
+							{ match: [/class\s+/, n, /\s+extends\s+/, n] },
+							{ match: [/class\s+/, n] },
+						],
+						scope: { 2: &quot;title.class&quot;, 4: &quot;title.class.inherited&quot; },
+						keywords: t,
+					};
+				return {
+					name: &quot;LiveScript&quot;,
+					aliases: [&quot;ls&quot;],
+					keywords: t,
+					illegal: /\/\*/,
+					contains: r.concat([
+						e.COMMENT(&quot;\\/\\*&quot;, &quot;\\*\\/&quot;),
+						e.HASH_COMMENT_MODE,
+						y,
+						{
+							className: &quot;function&quot;,
+							contains: [g, I],
+							returnBegin: !0,
+							variants: [
+								{
+									begin: &quot;(&quot; + n + &quot;\\s*(?:=|:=)\\s*)?(\\(.*\\)\\s*)?\\B-&gt;\\*?&quot;,
+									end: &quot;-&gt;\\*?&quot;,
+								},
+								{
+									begin:
+										&quot;(&quot; +
+										n +
+										&quot;\\s*(?:=|:=)\\s*)?!?(\\(.*\\)\\s*)?\\B[-~]{1,2}&gt;\\*?&quot;,
+									end: &quot;[-~]{1,2}&gt;\\*?&quot;,
+								},
+								{
+									begin:
+										&quot;(&quot; +
+										n +
+										&quot;\\s*(?:=|:=)\\s*)?(\\(.*\\)\\s*)?\\B!?[-~]{1,2}&gt;\\*?&quot;,
+									end: &quot;!?[-~]{1,2}&gt;\\*?&quot;,
+								},
+							],
+						},
+						f,
+						{
+							begin: n + &quot;:&quot;,
+							end: &quot;:&quot;,
+							returnBegin: !0,
+							returnEnd: !0,
+							relevance: 0,
+						},
+					]),
+				};
+			}
+			i.exports = u;
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

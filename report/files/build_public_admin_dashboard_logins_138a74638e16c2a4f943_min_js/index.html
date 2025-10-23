@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/admin/dashboard-logins.138a74638e16c2a4f943.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/admin/dashboard-logins.138a74638e16c2a4f943.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">68.80</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">61.17</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">4.34</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[1091,34271,49897,57843,78088,99127],{49897:(v,h,n)=&gt;{n.r(h),n.d(h,{del:()=&gt;p,get:()=&gt;R,head:()=&gt;P,patch:()=&gt;c,post:()=&gt;x,put:()=&gt;O});var i=n(91749),E=n.n(i),_=n(33530),m=n.n(_);const A=config.relative_path+&quot;/api/v3&quot;;async function f(t,e){if(t.url=t.url.startsWith(&quot;/api&quot;)?config.relative_path+t.url:A+t.url,typeof e==&quot;function&quot;){D(t).then(a=&gt;e(null,a),a=&gt;e(a));return}try{return await D(t)}catch(a){if(a.message===&quot;A valid login session was not found. Please log in and try again.&quot;){const{url:r}=await(0,i.fire)(&quot;filter:admin.reauth&quot;,{url:&quot;login&quot;});return(0,_.confirm)(&quot;[[error:api.reauth-required]]&quot;,d=&gt;{d&amp;&amp;ajaxify.go(r)})}throw a}}async function D(t){const{url:e}=t;delete t.url,t.data&amp;&amp;!(t.data instanceof FormData)&amp;&amp;(t.data=JSON.stringify(t.data||{}),t.headers[&quot;content-type&quot;]=&quot;application/json; charset=utf-8&quot;),{options:t}=await(0,i.fire)(&quot;filter:api.options&quot;,{options:t}),t.data&amp;&amp;(t.body=t.data,delete t.data);const a=await fetch(e,t),{headers:r}=a;if(r.get(&quot;x-redirect&quot;))return D({url:r.get(&quot;x-redirect&quot;),...t});const d=r.get(&quot;content-type&quot;),l=d&amp;&amp;d.startsWith(&quot;application/json&quot;);let o;if(t.method!==&quot;HEAD&quot;&amp;&amp;(l?o=await a.json():o=await a.text()),!a.ok)throw o?new Error(l?o.status.message:o):new Error(a.statusText);return l&amp;&amp;o&amp;&amp;o.hasOwnProperty(&quot;status&quot;)&amp;&amp;o.hasOwnProperty(&quot;response&quot;)?o.response:o}function R(t,e,a){return f({url:t+(e&amp;&amp;Object.keys(e).length?&quot;?&quot;+$.param(e):&quot;&quot;)},a)}function P(t,e,a){return f({url:t+(e&amp;&amp;Object.keys(e).length?&quot;?&quot;+$.param(e):&quot;&quot;),method:&quot;HEAD&quot;},a)}function x(t,e,a){return f({url:t,method:&quot;POST&quot;,data:e,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}function c(t,e,a){return f({url:t,method:&quot;PATCH&quot;,data:e,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}function O(t,e,a){return f({url:t,method:&quot;PUT&quot;,data:e,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}function p(t,e,a){return f({url:t,method:&quot;DELETE&quot;,data:e,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}},70500:(v,h,n)=&gt;{var i,E;i=[n(98569)],E=(_=&gt;{const m={};return m.init=()=&gt;{_.init({set:&quot;logins&quot;,dataset:ajaxify.data.dataset})},m}).apply(h,i),E!==void 0&amp;&amp;(v.exports=E)},98569:(v,h,n)=&gt;{n.r(h),n.d(h,{init:()=&gt;p});var i=n(70106),E=n(81335),_=n.n(E),m=n(33530),A=n.n(m),f=n(17459),D=n.n(f),R=n(49897),P=n(91749),x=n.n(P);i.t1.register(i.ZT,i.PP,i.kc,i.No,i.FN,i.m_,i.dN);let c=null,O=!1;function p({set:a,dataset:r}){const d=document.getElementById(&quot;analytics-traffic&quot;),l=d.getContext(&quot;2d&quot;),o=utils.getHoursArray();O=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),O&amp;&amp;(i.t1.defaults.plugins.tooltip.enabled=!1),t({set:a});const s=f.Translator.create();return new Promise(g=&gt;{s.translateKey(`admin/menu:${ajaxify.data.template.name.replace(&quot;admin/&quot;,&quot;&quot;)}`,[]).then(u=&gt;{const y={labels:o,datasets:[{label:u,fill:!0,tension:.25,backgroundColor:&quot;rgba(151,187,205,0.2)&quot;,borderColor:&quot;rgba(151,187,205,1)&quot;,pointBackgroundColor:&quot;rgba(151,187,205,1)&quot;,pointHoverBackgroundColor:&quot;rgba(151,187,205,1)&quot;,pointBorderColor:&quot;#fff&quot;,pointHoverBorderColor:&quot;rgba(151,187,205,1)&quot;,data:r||[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}]};d.width=$(d).parent().width(),y.datasets[0].yAxisID=&quot;left-y-axis&quot;,c=new i.t1(l,{type:&quot;line&quot;,data:y,options:{responsive:!0,scales:{&quot;left-y-axis&quot;:{type:&quot;linear&quot;,position:&quot;left&quot;,beginAtZero:!0,title:{display:!0,text:u}}},interaction:{intersect:!1,mode:&quot;index&quot;}}}),r?g(c):e(a).then(g)})})}function t({set:a}){$(&#039;[data-action=&quot;updateGraph&quot;]:not([data-units=&quot;custom&quot;])&#039;).on(&quot;click&quot;,function(){let r=new Date;const d=$(this).attr(&quot;data-amount&quot;);$(this).attr(&quot;data-units&quot;)===&quot;days&quot;&amp;&amp;r.setHours(0,0,0,0),r=r.getTime(),e(a,$(this).attr(&quot;data-units&quot;),r,d),Promise.resolve().then(function(){var l=[n(17459)];(function(o){o.translate(&quot;[[admin/dashboard:page-views-custom]]&quot;,function(s){$(&#039;[data-action=&quot;updateGraph&quot;][data-units=&quot;custom&quot;]&#039;).text(s)})}).apply(null,l)}).catch(n.oe)}),$(&#039;[data-action=&quot;updateGraph&quot;][data-units=&quot;custom&quot;]&#039;).on(&quot;click&quot;,function(){const r=$(this);E.render(&quot;admin/partials/pageviews-range-select&quot;,{}).then(function(d){const l=m.dialog({title:&quot;[[admin/dashboard:page-views-custom]]&quot;,message:d,buttons:{submit:{label:&quot;[[global:search]]&quot;,className:&quot;btn-primary&quot;,callback:o}}}).on(&quot;shown.bs.modal&quot;,function(){const s=new Date,g=s.toISOString().slice(0,10);s.setDate(s.getDate()-1);const u=s.toISOString().slice(0,10);l.find(&quot;#startRange&quot;).val(r.attr(&quot;data-startRange&quot;)||u),l.find(&quot;#endRange&quot;).val(r.attr(&quot;data-endRange&quot;)||g)});function o(){const s=l.find(&quot;form&quot;).serializeObject(),g=/\d{4}-\d{2}-\d{2}/;if(!s.startRange&amp;&amp;!s.endRange){e(a,&quot;days&quot;);return}else if(!g.test(s.startRange)||!g.test(s.endRange))return l.find(&quot;.alert-danger&quot;).removeClass(&quot;hidden&quot;),!1;let u=new Date(s.endRange);u.setDate(u.getDate()+1),u=u.getTime();const y=(u-new Date(s.startRange).getTime())/(1e3*60*60*24);e(a,&quot;days&quot;,u,y),r.attr(&quot;data-startRange&quot;,s.startRange),r.attr(&quot;data-endRange&quot;,s.endRange),r.html(s.startRange+&quot; &amp;ndash; &quot;+s.endRange)}})})}function e(a,r=ajaxify.data.query.units||&quot;hours&quot;,d=ajaxify.data.query.until,l=ajaxify.data.query.count){return c?new Promise(o=&gt;{R.get(`/admin/analytics/${a}`,{units:r,until:d,amount:l}).then(s=&gt;{r===&quot;days&quot;?c.data.xLabels=utils.getDaysArray(d,l):c.data.xLabels=utils.getHoursArray(),c.data.datasets[0].data=s,c.data.labels=c.data.xLabels,c.update();const g=$(&quot;#view-as-json&quot;),u=$.param({units:r||&quot;hours&quot;,until:d,count:l});g.attr(&quot;href&quot;,`${config.relative_path}/api/v3/admin/analytics/${ajaxify.data.set}?${u}`);const y=ajaxify.removeRelativePath(ajaxify.data.url.slice(1));ajaxify.updateHistory(`${y}?${u}`,!0),P.fire(&quot;action:admin.dashboard.updateGraph&quot;,{graph:c}),o(c)})}):Promise.reject(new Error(&quot;[[error:invalid-data]]&quot;))}}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

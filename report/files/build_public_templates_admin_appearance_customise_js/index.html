@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/templates/admin/appearance/customise.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/templates/admin/appearance/customise.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">75.59</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">21</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">10.33</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.10</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">
+(function (factory) {
+  if (typeof module === &#039;object&#039; &amp;&amp; module.exports) {
+    module.exports = factory();
+  } else if (typeof define === &#039;function&#039; &amp;&amp; define.amd) {
+    define(factory);
+  }
+})(function () {
+  function compiled(helpers, context, guard, iter, helper) {
+    var __escape = helpers.__escape;
+    var value = context;
+    return &quot;&lt;div class=\&quot;tags d-flex flex-column gap-2 px-lg-4\&quot;&gt;\n&lt;div class=\&quot;d-flex border-bottom py-2 m-0 sticky-top acp-page-main-header align-items-center justify-content-between flex-wrap gap-2\&quot;&gt;\n&lt;div class=\&quot;d-flex flex-wrap gap-3 align-items-center\&quot;&gt;\n&lt;h4 class=\&quot;fw-bold tracking-tight mb-1\&quot;&gt;[[admin/appearance/customise:customise]]&lt;/h4&gt;\n&lt;ul class=\&quot;nav nav-pills d-flex gap-1 text-sm\&quot;&gt;\n&lt;li class=\&quot;nav-item\&quot;&gt;&lt;a class=\&quot;nav-link active px-2 py-1\&quot; href=\&quot;#custom-css\&quot; data-bs-toggle=\&quot;tab\&quot;&gt;[[admin/appearance/customise:custom-css]]&lt;/a&gt;&lt;/li&gt;\n&lt;li class=\&quot;nav-item\&quot;&gt;&lt;a class=\&quot;nav-link px-2 py-1\&quot; href=\&quot;#custom-js\&quot; data-bs-toggle=\&quot;tab\&quot;&gt;[[admin/appearance/customise:custom-js]]&lt;/a&gt;&lt;/li&gt;\n&lt;li class=\&quot;nav-item\&quot;&gt;&lt;a class=\&quot;nav-link px-2 py-1\&quot; href=\&quot;#custom-header\&quot; data-bs-toggle=\&quot;tab\&quot;&gt;[[admin/appearance/customise:custom-header]]&lt;/a&gt;&lt;/li&gt;\n&lt;li class=\&quot;nav-item\&quot;&gt;&lt;a class=\&quot;nav-link px-2 py-1\&quot; href=\&quot;#bsvariables\&quot; data-bs-toggle=\&quot;tab\&quot;&gt;[[admin/appearance/customise:bsvariables]]&lt;/a&gt;&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;d-flex align-items-center gap-1\&quot;&gt;\n&lt;button id=\&quot;save\&quot; class=\&quot;btn btn-primary btn-sm fw-semibold ff-secondary w-100 text-center text-nowrap\&quot;&gt;[[admin/admin:save-changes]]&lt;/button&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div id=\&quot;customise\&quot; class=\&quot;customise px-2\&quot;&gt;\n&lt;div class=\&quot;tab-content\&quot;&gt;\n&lt;div class=\&quot;tab-pane fade show active\&quot; id=\&quot;custom-css\&quot;&gt;\n&lt;p&gt;\n[[admin/appearance/customise:custom-css.description]]\n&lt;/p&gt;\n&lt;div id=\&quot;customCSS\&quot;&gt;&lt;/div&gt;\n&lt;input type=\&quot;hidden\&quot; id=\&quot;customCSS-holder\&quot; value=\&quot;\&quot; data-field=\&quot;customCSS\&quot; /&gt;\n&lt;br /&gt;\n&lt;form class=\&quot;form\&quot;&gt;\n&lt;div class=\&quot;form-check form-switch\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; id=\&quot;useCustomCSS\&quot; type=\&quot;checkbox\&quot; data-field=\&quot;useCustomCSS\&quot; /&gt;\n&lt;label class=\&quot;form-check-label\&quot; for=\&quot;useCustomCSS\&quot;&gt;[[admin/appearance/customise:custom-css.enable]]&lt;/label&gt;\n&lt;/div&gt;\n&lt;/form&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;tab-pane fade\&quot; id=\&quot;custom-js\&quot;&gt;\n&lt;p&gt;\n[[admin/appearance/customise:custom-js.description]]\n&lt;/p&gt;\n&lt;div id=\&quot;customJS\&quot;&gt;&lt;/div&gt;\n&lt;input type=\&quot;hidden\&quot; id=\&quot;customJS-holder\&quot; value=\&quot;\&quot; data-field=\&quot;customJS\&quot; /&gt;\n&lt;br /&gt;\n&lt;form class=\&quot;form\&quot;&gt;\n&lt;div class=\&quot;form-check form-switch\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; id=\&quot;useCustomJS\&quot; type=\&quot;checkbox\&quot; data-field=\&quot;useCustomJS\&quot; /&gt;\n&lt;label class=\&quot;form-check-label\&quot; for=\&quot;useCustomJS\&quot;&gt;[[admin/appearance/customise:custom-js.enable]]&lt;/label&gt;\n&lt;/div&gt;\n&lt;/form&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;tab-pane fade\&quot; id=\&quot;custom-header\&quot;&gt;\n&lt;p&gt;\n[[admin/appearance/customise:custom-header.description]]\n&lt;/p&gt;\n&lt;div id=\&quot;customHTML\&quot;&gt;&lt;/div&gt;\n&lt;input type=\&quot;hidden\&quot; id=\&quot;customHTML-holder\&quot; value=\&quot;\&quot; data-field=\&quot;customHTML\&quot; /&gt;\n&lt;br/&gt;\n&lt;form class=\&quot;form\&quot;&gt;\n&lt;div class=\&quot;form-check form-switch\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; id=\&quot;useCustomHTML\&quot; type=\&quot;checkbox\&quot; data-field=\&quot;useCustomHTML\&quot; /&gt;\n&lt;label class=\&quot;form-check-label\&quot; for=\&quot;useCustomHTML\&quot;&gt;[[admin/appearance/customise:custom-header.enable]]&lt;/label&gt;\n&lt;/div&gt;\n&lt;/form&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;tab-pane fade\&quot; id=\&quot;bsvariables\&quot;&gt;\n&lt;p&gt;\n[[admin/appearance/customise:bsvariables.description]]\n&lt;/p&gt;\n&lt;div id=\&quot;customVariables\&quot;&gt;&lt;/div&gt;\n&lt;input type=\&quot;hidden\&quot; id=\&quot;customVariables-holder\&quot; value=\&quot;\&quot; data-field=\&quot;bsVariables\&quot; /&gt;\n&lt;br/&gt;\n&lt;form class=\&quot;form\&quot;&gt;\n&lt;div class=\&quot;form-check form-switch\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; id=\&quot;useBSVariables\&quot; type=\&quot;checkbox\&quot; data-field=\&quot;useBSVariables\&quot; /&gt;\n&lt;label class=\&quot;form-check-label\&quot; for=\&quot;useBSVariables\&quot;&gt;[[admin/appearance/customise:bsvariables.enable]]&lt;/label&gt;\n&lt;/div&gt;\n&lt;/form&gt;\n&lt;/div&gt;\n&lt;form class=\&quot;form\&quot;&gt;\n&lt;div class=\&quot;form-check form-switch\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; id=\&quot;enableLiveReload\&quot; type=\&quot;checkbox\&quot; data-field=\&quot;enableLiveReload\&quot; checked /&gt;\n&lt;label class=\&quot;form-check-label\&quot; for=\&quot;enableLiveReload\&quot;&gt;[[admin/appearance/customise:custom-css.livereload]]&lt;/label&gt;\n&lt;div class=\&quot;form-text\&quot;&gt;[[admin/appearance/customise:custom-css.livereload.description]]&lt;/div&gt;\n&lt;/div&gt;\n&lt;/form&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;&quot;;
+  }
+
+  compiled.blocks = {
+    
+  };
+
+  return compiled;
+})
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

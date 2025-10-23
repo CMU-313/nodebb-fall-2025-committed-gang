@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/templates/partials/search-filters.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/templates/partials/search-filters.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">71.84</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">138</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">76.56</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">2.73</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">
+(function (factory) {
+  if (typeof module === &#039;object&#039; &amp;&amp; module.exports) {
+    module.exports = factory();
+  } else if (typeof define === &#039;function&#039; &amp;&amp; define.amd) {
+    define(factory);
+  }
+})(function () {
+  function compiled(helpers, context, guard, iter, helper) {
+    var __escape = helpers.__escape;
+    var value = context;
+    return &quot;&lt;div class=\&quot;d-flex flex-wrap gap-2 align-items-center\&quot; component=\&quot;search/filters\&quot;&gt;\n&lt;!-- category filter --&gt;\n&lt;div class=\&quot;post-search-item\&quot;&gt;\n&lt;div component=\&quot;category/filter\&quot; class=\&quot;dropdown\&quot; data-filter-name=\&quot;category\&quot;&gt;\n&lt;a component=\&quot;category/filter/button\&quot; class=\&quot;filter-btn btn btn-light btn-sm border &quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;categories&#039;] != null) ? context[&#039;filters&#039;][&#039;categories&#039;][&#039;active&#039;] : null) ?
+        &quot;active-filter&quot; :
+        &quot;&quot;) + 
+      &quot; dropdown-toggle\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; data-bs-toggle=\&quot;dropdown\&quot; data-bs-auto-close=\&quot;outside\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;span class=\&quot;filter-label\&quot;&gt;&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;categories&#039;] != null) ? context[&#039;filters&#039;][&#039;categories&#039;][&#039;active&#039;] : null) ?
+        __escape(guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;categories&#039;] != null) ? context[&#039;filters&#039;][&#039;categories&#039;][&#039;label&#039;] : null)) :
+        &quot;[[search:categories]]&quot;) + 
+      &quot;&lt;/span&gt;\n&lt;span class=\&quot;caret text-primary opacity-75\&quot;&gt;&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul class=\&quot;dropdown-menu p-1 text-sm\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li class=\&quot;px-2 py-1 mb-2 d-flex flex-column gap-2\&quot;&gt;\n&lt;div component=\&quot;category-selector-search\&quot;&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control form-control-sm\&quot; component=\&quot;category/filter/search\&quot; placeholder=\&quot;[[search:type-a-category]]\&quot;&gt;\n&lt;/div&gt;\n&lt;/li&gt;\n&lt;div component=\&quot;category/list\&quot; class=\&quot;overflow-auto ghost-scrollbar\&quot; style=\&quot;max-height: 350px;\&quot;&gt;&lt;/div&gt;\n&lt;div class=\&quot;px-3 py-1\&quot;&gt;\n&lt;div class=\&quot;form-check\&quot;&gt;\n&lt;input id=\&quot;search-children\&quot; class=\&quot;form-check-input\&quot; type=\&quot;checkbox\&quot;/&gt;\n&lt;label class=\&quot;form-check-label\&quot; for=\&quot;search-children\&quot;&gt;[[search:search-child-categories]]&lt;/label&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;!-- tag filter --&gt;\n&lt;div class=\&quot;post-search-item\&quot;&gt;\n&lt;div component=\&quot;tag/filter\&quot; class=\&quot;dropdown\&quot; data-filter-name=\&quot;tag\&quot;&gt;\n&lt;a component=\&quot;tag/filter/button\&quot; class=\&quot;filter-btn btn btn-light btn-sm border &quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;tags&#039;] != null) ? context[&#039;filters&#039;][&#039;tags&#039;][&#039;active&#039;] : null) ?
+        &quot;active-filter&quot; :
+        &quot;&quot;) + 
+      &quot; dropdown-toggle\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; data-bs-toggle=\&quot;dropdown\&quot; data-bs-auto-close=\&quot;outside\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;span class=\&quot;filter-label\&quot;&gt;&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;tags&#039;] != null) ? context[&#039;filters&#039;][&#039;tags&#039;][&#039;active&#039;] : null) ?
+        __escape(guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;tags&#039;] != null) ? context[&#039;filters&#039;][&#039;tags&#039;][&#039;label&#039;] : null)) :
+        &quot;[[search:tags]]&quot;) + 
+      &quot;&lt;/span&gt;\n&lt;span class=\&quot;caret text-primary opacity-75\&quot;&gt;&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul class=\&quot;dropdown-menu p-1 text-sm\&quot; style=\&quot;width: 350px;\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li class=\&quot;px-2 py-1 d-flex flex-column gap-2\&quot;&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control form-control-sm\&quot; component=\&quot;tag/filter/search\&quot; placeholder=\&quot;[[search:type-a-tag]]\&quot;&gt;\n&lt;div component=\&quot;tag/filter/selected\&quot; class=\&quot;d-flex flex-wrap gap-2\&quot;&gt;\n&quot; + 
+      compiled.blocks[&#039;tagFilterSelected&#039;](helpers, context, guard, iter, helper) + 
+      &quot;\n&lt;/div&gt;\n&lt;hr class=\&quot;my-2\&quot;/&gt;\n&lt;div component=\&quot;tag/filter/results\&quot; class=\&quot;d-flex flex-wrap gap-2\&quot;&gt;\n&quot; + 
+      compiled.blocks[&#039;tagFilterResults&#039;](helpers, context, guard, iter, helper) + 
+      &quot;\n&lt;/div&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;!-- user name filter --&gt;\n&lt;div class=\&quot;post-search-item\&quot;&gt;\n&lt;div component=\&quot;user/filter\&quot; class=\&quot;dropdown\&quot; data-filter-name=\&quot;user\&quot;&gt;\n&lt;a component=\&quot;user/filter/button\&quot; class=\&quot;filter-btn btn btn-light btn-sm border &quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;users&#039;] != null) ? context[&#039;filters&#039;][&#039;users&#039;][&#039;active&#039;] : null) ?
+        &quot;active-filter&quot; :
+        &quot;&quot;) + 
+      &quot; dropdown-toggle\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; data-bs-toggle=\&quot;dropdown\&quot; data-bs-auto-close=\&quot;outside\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;span class=\&quot;filter-label\&quot;&gt;&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;users&#039;] != null) ? context[&#039;filters&#039;][&#039;users&#039;][&#039;active&#039;] : null) ?
+        __escape(guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;users&#039;] != null) ? context[&#039;filters&#039;][&#039;users&#039;][&#039;label&#039;] : null)) :
+        &quot;[[search:posted-by]]&quot;) + 
+      &quot;&lt;/span&gt;\n&lt;span class=\&quot;caret text-primary opacity-75\&quot;&gt;&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul class=\&quot;dropdown-menu p-1 text-sm\&quot; style=\&quot;width: 350px;\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li class=\&quot;px-2 py-1 d-flex flex-column gap-2\&quot;&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control form-control-sm\&quot; component=\&quot;user/filter/search\&quot; placeholder=\&quot;[[search:type-a-username]]\&quot;&gt;\n&lt;div component=\&quot;user/filter/selected\&quot; class=\&quot;d-flex flex-wrap gap-2\&quot;&gt;\n&quot; + 
+      compiled.blocks[&#039;userFilterSelected&#039;](helpers, context, guard, iter, helper) + 
+      &quot;\n&lt;/div&gt;\n&lt;hr class=\&quot;my-2\&quot;/&gt;\n&lt;div component=\&quot;user/filter/results\&quot; class=\&quot;d-flex flex-wrap gap-2\&quot;&gt;\n&quot; + 
+      compiled.blocks[&#039;userFilterResults&#039;](helpers, context, guard, iter, helper) + 
+      &quot;\n&lt;/div&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;!-- reply count filter --&gt;\n&lt;div class=\&quot;post-search-item\&quot;&gt;\n&lt;div class=\&quot;dropdown\&quot; data-filter-name=\&quot;replies\&quot;&gt;\n&lt;a id=\&quot;reply-count-button\&quot; class=\&quot;filter-btn btn btn-light btn-sm border &quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;replies&#039;] != null) ? context[&#039;filters&#039;][&#039;replies&#039;][&#039;active&#039;] : null) ?
+        &quot;active-filter&quot; :
+        &quot;&quot;) + 
+      &quot; dropdown-toggle\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; data-bs-toggle=\&quot;dropdown\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;span class=\&quot;filter-label\&quot;&gt;&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;replies&#039;] != null) ? context[&#039;filters&#039;][&#039;replies&#039;][&#039;active&#039;] : null) ?
+        __escape(guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;replies&#039;] != null) ? context[&#039;filters&#039;][&#039;replies&#039;][&#039;label&#039;] : null)) :
+        &quot;[[search:replies]]&quot;) + 
+      &quot;&lt;/span&gt;\n&lt;span class=\&quot;caret text-primary opacity-75\&quot;&gt;&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul class=\&quot;dropdown-menu p-1 text-sm\&quot; style=\&quot;width: 300px;\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li class=\&quot;px-2 py-1 d-flex flex-nowrap gap-2\&quot;&gt;\n&lt;select id=\&quot;reply-count-filter\&quot; class=\&quot;form-select form-select-sm\&quot;&gt;\n&lt;option value=\&quot;atleast\&quot;&gt;[[search:at-least]]&lt;/option&gt;\n&lt;option value=\&quot;atmost\&quot;&gt;[[search:at-most]]&lt;/option&gt;\n&lt;/select&gt;\n&lt;input id=\&quot;reply-count\&quot; type=\&quot;number\&quot; min=\&quot;0\&quot; class=\&quot;form-control form-control-sm\&quot; /&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;!-- time filter --&gt;\n&lt;div class=\&quot;post-search-item\&quot;&gt;\n&lt;div class=\&quot;dropdown\&quot; data-filter-name=\&quot;time\&quot;&gt;\n&lt;a id=\&quot;post-time-button\&quot; class=\&quot;filter-btn btn btn-light btn-sm border &quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;time&#039;] != null) ? context[&#039;filters&#039;][&#039;time&#039;][&#039;active&#039;] : null) ?
+        &quot;active-filter&quot; :
+        &quot;&quot;) + 
+      &quot; dropdown-toggle\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; data-bs-toggle=\&quot;dropdown\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;span class=\&quot;filter-label\&quot;&gt;&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;time&#039;] != null) ? context[&#039;filters&#039;][&#039;time&#039;][&#039;active&#039;] : null) ?
+        __escape(guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;time&#039;] != null) ? context[&#039;filters&#039;][&#039;time&#039;][&#039;label&#039;] : null)) :
+        &quot;[[search:time]]&quot;) + 
+      &quot;&lt;/span&gt;\n&lt;span class=\&quot;caret text-primary opacity-75\&quot;&gt;&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul class=\&quot;dropdown-menu p-1 text-sm\&quot; style=\&quot;width: 350px;\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li class=\&quot;px-2 py-1 d-flex flex-nowrap gap-2\&quot;&gt;\n&lt;select id=\&quot;post-time-filter\&quot; class=\&quot;form-select form-select-sm\&quot;&gt;\n&lt;option value=\&quot;newer\&quot;&gt;[[search:newer-than]]&lt;/option&gt;\n&lt;option value=\&quot;older\&quot;&gt;[[search:older-than]]&lt;/option&gt;\n&lt;/select&gt;\n&lt;select id=\&quot;post-time-range\&quot; class=\&quot;form-select form-select-sm\&quot;&gt;\n&lt;option value=\&quot;\&quot;&gt;[[search:any-date]]&lt;/option&gt;\n&lt;option value=\&quot;86400\&quot;&gt;[[search:yesterday]]&lt;/option&gt;\n&lt;option value=\&quot;604800\&quot;&gt;[[search:one-week]]&lt;/option&gt;\n&lt;option value=\&quot;1209600\&quot;&gt;[[search:two-weeks]]&lt;/option&gt;\n&lt;option value=\&quot;2592000\&quot;&gt;[[search:one-month]]&lt;/option&gt;\n&lt;option value=\&quot;7776000\&quot;&gt;[[search:three-months]]&lt;/option&gt;\n&lt;option value=\&quot;15552000\&quot;&gt;[[search:six-months]]&lt;/option&gt;\n&lt;option value=\&quot;31104000\&quot;&gt;[[search:one-year]]&lt;/option&gt;\n&lt;/select&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;!-- sort filter --&gt;\n&lt;div class=\&quot;post-search-item\&quot;&gt;\n&lt;div class=\&quot;dropdown\&quot; data-filter-name=\&quot;sort\&quot;&gt;\n&lt;a id=\&quot;sort-by-button\&quot; class=\&quot;filter-btn btn btn-light btn-sm border &quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;sort&#039;] != null) ? context[&#039;filters&#039;][&#039;sort&#039;][&#039;active&#039;] : null) ?
+        &quot;active-filter&quot; :
+        &quot;&quot;) + 
+      &quot; dropdown-toggle\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; data-bs-toggle=\&quot;dropdown\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;span class=\&quot;filter-label\&quot;&gt;&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;sort&#039;] != null) ? context[&#039;filters&#039;][&#039;sort&#039;][&#039;active&#039;] : null) ?
+        __escape(guard((context != null &amp;&amp; context[&#039;filters&#039;] != null &amp;&amp; context[&#039;filters&#039;][&#039;sort&#039;] != null) ? context[&#039;filters&#039;][&#039;sort&#039;][&#039;label&#039;] : null)) :
+        &quot;[[search:sort]]&quot;) + 
+      &quot;&lt;/span&gt;\n&lt;span class=\&quot;caret text-primary opacity-75\&quot;&gt;&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul class=\&quot;dropdown-menu p-1 text-sm\&quot; style=\&quot;width: 250px;\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li class=\&quot;px-2 py-1 d-flex flex-column gap-2\&quot;&gt;\n&lt;select id=\&quot;post-sort-by\&quot; class=\&quot;form-select form-select-sm\&quot;&gt;\n&lt;option value=\&quot;relevance\&quot;&gt;[[search:relevance]]&lt;/option&gt;\n&lt;option value=\&quot;timestamp\&quot;&gt;[[search:post-time]]&lt;/option&gt;\n&lt;option value=\&quot;votes\&quot;&gt;[[search:votes]]&lt;/option&gt;\n&lt;option value=\&quot;topic.lastposttime\&quot;&gt;[[search:last-reply-time]]&lt;/option&gt;\n&lt;option value=\&quot;topic.title\&quot;&gt;[[search:topic-title]]&lt;/option&gt;\n&lt;option value=\&quot;topic.postcount\&quot;&gt;[[search:number-of-replies]]&lt;/option&gt;\n&lt;option value=\&quot;topic.viewcount\&quot;&gt;[[search:number-of-views]]&lt;/option&gt;\n&lt;option value=\&quot;topic.votes\&quot;&gt;[[search:topic-votes]]&lt;/option&gt;\n&lt;option value=\&quot;topic.timestamp\&quot;&gt;[[search:topic-start-date]]&lt;/option&gt;\n&lt;option value=\&quot;user.username\&quot;&gt;[[search:username]]&lt;/option&gt;\n&lt;option value=\&quot;category.name\&quot;&gt;[[search:category]]&lt;/option&gt;\n&lt;/select&gt;\n&lt;select id=\&quot;post-sort-direction\&quot; class=\&quot;form-select form-select-sm\&quot;&gt;\n&lt;option value=\&quot;desc\&quot;&gt;[[search:descending]]&lt;/option&gt;\n&lt;option value=\&quot;asc\&quot;&gt;[[search:ascending]]&lt;/option&gt;\n&lt;/select&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;!-- save &amp; reset preferences --&gt;\n&lt;div class=\&quot;post-search-item\&quot;&gt;\n&lt;div class=\&quot;dropdown\&quot;&gt;\n&lt;a class=\&quot;btn btn-light btn-sm border border-gray-300 dropdown-toggle\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; data-bs-toggle=\&quot;dropdown\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;[[search:save]] &lt;span class=\&quot;caret text-primary opacity-75\&quot;&gt;&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul class=\&quot;dropdown-menu p-1 text-sm\&quot; style=\&quot;width: 300px;\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li class=\&quot;px-2 py-1 d-flex flex-column gap-2\&quot;&gt;\n&lt;button id=\&quot;save-preferences\&quot; class=\&quot;btn btn-sm btn-primary\&quot;&gt;[[search:save-preferences]]&lt;/button&gt;\n&lt;button id=\&quot;clear-preferences\&quot; class=\&quot;btn btn-sm btn-ghost border\&quot;&gt;[[search:clear-preferences]]&lt;/button&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;&quot;;
+  }
+
+  compiled.blocks = {
+    &#039;tagFilterSelected&#039;: function tagFilterSelected(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null) ? context[&#039;tagFilterSelected&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&lt;div class=\&quot;d-flex px-2 py-1 rounded-1 text-bg-primary gap-2 align-items-center text-sm\&quot;&gt;\n&lt;div&gt;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;tagFilterSelected&#039;] != null &amp;&amp; context[&#039;tagFilterSelected&#039;][key0] != null) ? context[&#039;tagFilterSelected&#039;][key0][&#039;valueEscaped&#039;] : null)) + 
+          &quot;&lt;/div&gt;\n&lt;button component=\&quot;tag/filter/delete\&quot; data-tag=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;tagFilterSelected&#039;] != null &amp;&amp; context[&#039;tagFilterSelected&#039;][key0] != null) ? context[&#039;tagFilterSelected&#039;][key0][&#039;valueEscaped&#039;] : null)) + 
+          &quot;\&quot; class=\&quot;btn btn-primary btn-sm py-0\&quot;&gt;&lt;i class=\&quot;fa fa-times fa-xs\&quot;&gt;&lt;/i&gt;&lt;/button&gt;\n&lt;/div&gt;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    },
+    &#039;tagFilterResults&#039;: function tagFilterResults(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null) ? context[&#039;tagFilterResults&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&lt;button class=\&quot;btn btn-light btn-sm border\&quot; data-tag=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;tagFilterResults&#039;] != null &amp;&amp; context[&#039;tagFilterResults&#039;][key0] != null) ? context[&#039;tagFilterResults&#039;][key0][&#039;valueEscaped&#039;] : null)) + 
+          &quot;\&quot;&gt;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;tagFilterResults&#039;] != null &amp;&amp; context[&#039;tagFilterResults&#039;][key0] != null) ? context[&#039;tagFilterResults&#039;][key0][&#039;valueEscaped&#039;] : null)) + 
+          &quot;&lt;/button&gt;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    },
+    &#039;userFilterSelected&#039;: function userFilterSelected(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null) ? context[&#039;userFilterSelected&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&lt;div class=\&quot;d-flex px-2 py-1 rounded-1 text-bg-primary gap-2 align-items-center text-sm\&quot;&gt;\n&quot; + 
+          __escape(helper(context, helpers, &#039;buildAvatar&#039;, [guard(value), &quot;16px&quot;, guard((context != null) ? context[&#039;true&#039;] : null)])) + 
+          &quot; &quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;userFilterSelected&#039;] != null &amp;&amp; context[&#039;userFilterSelected&#039;][key0] != null) ? context[&#039;userFilterSelected&#039;][key0][&#039;username&#039;] : null)) + 
+          &quot;\n&lt;button component=\&quot;user/filter/delete\&quot; data-uid=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;userFilterSelected&#039;] != null &amp;&amp; context[&#039;userFilterSelected&#039;][key0] != null) ? context[&#039;userFilterSelected&#039;][key0][&#039;uid&#039;] : null)) + 
+          &quot;\&quot; class=\&quot;btn btn-primary btn-sm py-0\&quot;&gt;&lt;i class=\&quot;fa fa-times fa-xs\&quot;&gt;&lt;/i&gt;&lt;/button&gt;\n&lt;/div&gt;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    },
+    &#039;userFilterResults&#039;: function userFilterResults(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null) ? context[&#039;userFilterResults&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&lt;button class=\&quot;btn btn-light btn-sm border\&quot; data-uid=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;userFilterResults&#039;] != null &amp;&amp; context[&#039;userFilterResults&#039;][key0] != null) ? context[&#039;userFilterResults&#039;][key0][&#039;uid&#039;] : null)) + 
+          &quot;\&quot; data-username=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;userFilterResults&#039;] != null &amp;&amp; context[&#039;userFilterResults&#039;][key0] != null) ? context[&#039;userFilterResults&#039;][key0][&#039;username&#039;] : null)) + 
+          &quot;\&quot;&gt;&quot; + 
+          __escape(helper(context, helpers, &#039;buildAvatar&#039;, [guard(value), &quot;16px&quot;, guard((context != null) ? context[&#039;true&#039;] : null)])) + 
+          &quot; &quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;userFilterResults&#039;] != null &amp;&amp; context[&#039;userFilterResults&#039;][key0] != null) ? context[&#039;userFilterResults&#039;][key0][&#039;username&#039;] : null)) + 
+          &quot;&lt;/button&gt;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    }
+  };
+
+  return compiled;
+})
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

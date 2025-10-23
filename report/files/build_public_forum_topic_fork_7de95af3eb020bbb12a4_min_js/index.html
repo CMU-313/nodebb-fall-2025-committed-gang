@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/forum/topic-fork.7de95af3eb020bbb12a4.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/forum/topic-fork.7de95af3eb020bbb12a4.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">74.24</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">78.37</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">6.41</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[1091,34271,38395,49771,49897,69185,86198,95431,99127],{16227:(A,E,s)=&gt;{var h,g;h=[s(52473)],g=function(k){const i={};let C;i.pids=[];let m=!1;i.init=function(t,r){i.pids.length=0,C=t,r=r||{},m=r.allowMainPostSelect||!1,$(&quot;#content&quot;).on(&quot;click&quot;,&#039;[component=&quot;topic&quot;] [component=&quot;post&quot;]&#039;,l),c()};function l(t){t.stopPropagation();const r=$(this).attr(&quot;data-pid&quot;),d=$(&#039;[component=&quot;topic&quot;] [data-pid=&quot;&#039;+r+&#039;&quot;]&#039;);!m&amp;&amp;parseInt($(this).attr(&quot;data-index&quot;),10)===0||i.togglePostSelection(d,r)}i.disable=function(){i.pids.forEach(function(t){k.get(&quot;post&quot;,&quot;pid&quot;,t).toggleClass(&quot;selected&quot;,!1)}),$(&quot;#content&quot;).off(&quot;click&quot;,&#039;[component=&quot;topic&quot;] [component=&quot;post&quot;]&#039;,l),u()},i.togglePostSelection=function(t,r){if(r){const d=i.pids.indexOf(r);d===-1?(i.pids.push(r),t.toggleClass(&quot;selected&quot;,!0)):(i.pids.splice(d,1),t.toggleClass(&quot;selected&quot;,!1)),i.pids.length&amp;&amp;i.pids.sort(function(n,o){return n-o}),typeof C==&quot;function&quot;&amp;&amp;C()}};function e(){return!1}function c(){$(&quot;#content&quot;).on(&quot;click&quot;,&#039;[component=&quot;post&quot;] button, [component=&quot;post&quot;] a&#039;,e)}function u(){$(&quot;#content&quot;).off(&quot;click&quot;,&#039;[component=&quot;post&quot;] button, [component=&quot;post&quot;] a&#039;,e)}return i}.apply(E,h),g!==void 0&amp;&amp;(A.exports=g)},49771:(A,E,s)=&gt;{var h,g;h=[s(52473),s(16227),s(29930),s(65348)],g=function(k,i,C,m){const l={};let e,c,u,t;l.init=function(){u=ajaxify.data.tid,t=ajaxify.data.category,$(window).off(&quot;action:ajaxify.end&quot;,r).on(&quot;action:ajaxify.end&quot;,r),!e&amp;&amp;app.parseAndTranslate(&quot;modals/fork-topic&quot;,{selectedCategory:t},function(f){e=f,c=e.find(&quot;#fork_thread_commit&quot;),$(&quot;body&quot;).append(e);const p=e.find(&#039;[component=&quot;category-selector&quot;]&#039;);p.addClass(&quot;dropup&quot;),m.init(p,{onSelect:function(P){t=P},privilege:&quot;moderate&quot;}),e.find(&quot;#fork_thread_cancel&quot;).on(&quot;click&quot;,a),e.find(&quot;#fork-title&quot;).on(&quot;keyup&quot;,o),i.init(function(){o(),n()}),n(),c.on(&quot;click&quot;,d)})};function r(){(ajaxify.data.template.name!==&quot;topic&quot;||ajaxify.data.tid!==u)&amp;&amp;(a(),$(window).off(&quot;action:ajaxify.end&quot;,r))}function d(){t&amp;&amp;(c.attr(&quot;disabled&quot;,!0),socket.emit(&quot;topics.createTopicFromPosts&quot;,{title:e.find(&quot;#fork-title&quot;).val(),pids:i.pids,fromTid:u,cid:t.cid},function(f,p){function P(y){k.get(&quot;post&quot;,&quot;pid&quot;,y).fadeOut(500,function(){$(this).remove()})}if(c.removeAttr(&quot;disabled&quot;),f)return C.error(f.message);C.alert({timeout:5e3,title:&quot;[[global:alert.success]]&quot;,message:&quot;[[topic:fork-success]]&quot;,type:&quot;success&quot;,clickfn:function(){ajaxify.go(&quot;topic/&quot;+p.slug)}}),i.pids.forEach(function(y){P(y)}),a()}))}function n(){i.pids.length?e.find(&quot;#fork-pids&quot;).translateHtml(&quot;[[topic:fork-pid-count, &quot;+i.pids.length+&quot;]]&quot;):e.find(&quot;#fork-pids&quot;).translateHtml(&quot;[[topic:fork-no-pids]]&quot;)}function o(){e.find(&quot;#fork-title&quot;).val().length&amp;&amp;i.pids.length?c.removeAttr(&quot;disabled&quot;):c.attr(&quot;disabled&quot;,!0)}function a(){e&amp;&amp;(e.remove(),e=null,i.disable())}return l}.apply(E,h),g!==void 0&amp;&amp;(A.exports=g)},49897:(A,E,s)=&gt;{s.r(E),s.d(E,{del:()=&gt;d,get:()=&gt;e,head:()=&gt;c,patch:()=&gt;t,post:()=&gt;u,put:()=&gt;r});var h=s(91749),g=s.n(h),k=s(33530),i=s.n(k);const C=config.relative_path+&quot;/api/v3&quot;;async function m(n,o){if(n.url=n.url.startsWith(&quot;/api&quot;)?config.relative_path+n.url:C+n.url,typeof o==&quot;function&quot;){l(n).then(a=&gt;o(null,a),a=&gt;o(a));return}try{return await l(n)}catch(a){if(a.message===&quot;A valid login session was not found. Please log in and try again.&quot;){const{url:f}=await(0,h.fire)(&quot;filter:admin.reauth&quot;,{url:&quot;login&quot;});return(0,k.confirm)(&quot;[[error:api.reauth-required]]&quot;,p=&gt;{p&amp;&amp;ajaxify.go(f)})}throw a}}async function l(n){const{url:o}=n;delete n.url,n.data&amp;&amp;!(n.data instanceof FormData)&amp;&amp;(n.data=JSON.stringify(n.data||{}),n.headers[&quot;content-type&quot;]=&quot;application/json; charset=utf-8&quot;),{options:n}=await(0,h.fire)(&quot;filter:api.options&quot;,{options:n}),n.data&amp;&amp;(n.body=n.data,delete n.data);const a=await fetch(o,n),{headers:f}=a;if(f.get(&quot;x-redirect&quot;))return l({url:f.get(&quot;x-redirect&quot;),...n});const p=f.get(&quot;content-type&quot;),P=p&amp;&amp;p.startsWith(&quot;application/json&quot;);let y;if(n.method!==&quot;HEAD&quot;&amp;&amp;(P?y=await a.json():y=await a.text()),!a.ok)throw y?new Error(P?y.status.message:y):new Error(a.statusText);return P&amp;&amp;y&amp;&amp;y.hasOwnProperty(&quot;status&quot;)&amp;&amp;y.hasOwnProperty(&quot;response&quot;)?y.response:y}function e(n,o,a){return m({url:n+(o&amp;&amp;Object.keys(o).length?&quot;?&quot;+$.param(o):&quot;&quot;)},a)}function c(n,o,a){return m({url:n+(o&amp;&amp;Object.keys(o).length?&quot;?&quot;+$.param(o):&quot;&quot;),method:&quot;HEAD&quot;},a)}function u(n,o,a){return m({url:n,method:&quot;POST&quot;,data:o,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}function t(n,o,a){return m({url:n,method:&quot;PATCH&quot;,data:o,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}function r(n,o,a){return m({url:n,method:&quot;PUT&quot;,data:o,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}function d(n,o,a){return m({url:n,method:&quot;DELETE&quot;,data:o,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},a)}},65348:(A,E,s)=&gt;{var h,g;h=[s(96349),s(33530),s(91749),s(17459)],g=function(k,i,C,m){const l={};return l.init=function(e,c){if(!e||!e.length)return;c=c||{};const u=c.onSelect||function(){};c.states=c.states||[&quot;watching&quot;,&quot;tracking&quot;,&quot;notwatching&quot;,&quot;ignoring&quot;],c.template=c.template||&quot;partials/category/selector-dropdown-left&quot;,C.fire(&quot;action:category.selector.options&quot;,{el:e,options:c}),k.init(e,c);const t={el:e,selectedCategory:null};e.on(&quot;click&quot;,&quot;[data-cid]&quot;,function(){const d=$(this);return d.hasClass(&quot;disabled&quot;)?!1:(t.selectCategory(d.attr(&quot;data-cid&quot;)),u(t.selectedCategory))});let r=t.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html();return m.translate(r,d=&gt;{r=d}),t.selectCategory=function(d){const n=t.el.find(&#039;[data-cid=&quot;&#039;+d+&#039;&quot;]&#039;);t.selectedCategory={cid:d,name:n.attr(&quot;data-name&quot;)},n.length?t.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(n.find(&#039;[component=&quot;category-markup&quot;]&#039;).html()):t.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(r)},t.getSelectedCategory=function(){return t.selectedCategory},t.getSelectedCid=function(){return t.selectedCategory?t.selectedCategory.cid:0},c.hasOwnProperty(&quot;selectedCategory&quot;)&amp;&amp;app.parseAndTranslate(c.template,{selectedCategory:c.selectedCategory},function(d){t.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(d.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html())}),t},l.modal=function(e){e=e||{},e.onSelect=e.onSelect||function(){},e.onSubmit=e.onSubmit||function(){},app.parseAndTranslate(&quot;admin/partials/categories/select-category&quot;,{message:e.message},function(c){const u=i.dialog({title:e.title||&quot;[[modules:composer.select-category]]&quot;,message:c,buttons:{save:{label:&quot;[[global:select]]&quot;,className:&quot;btn-primary&quot;,callback:r}}}),t=l.init(u.find(&#039;[component=&quot;category-selector&quot;]&#039;),e);function r(d){return d.preventDefault(),t.selectedCategory&amp;&amp;(e.onSubmit(t.selectedCategory),u.modal(&quot;hide&quot;)),!1}e.openOnLoad&amp;&amp;u.on(&quot;shown.bs.modal&quot;,function(){u.find(&quot;.dropdown-toggle&quot;).dropdown(&quot;toggle&quot;)}),u.find(&quot;form&quot;).on(&quot;submit&quot;,r)})},l}.apply(E,h),g!==void 0&amp;&amp;(A.exports=g)},96349:(A,E,s)=&gt;{var h,g;h=[s(29930),s(89336),s(49897)],g=function(k,i,C){const m={};return m.init=function(l,e){let c=e.defaultCategories||null;e=e||{},e.privilege=e.privilege||&quot;topics:read&quot;,e.states=e.states||[&quot;watching&quot;,&quot;tracking&quot;,&quot;notwatching&quot;,&quot;ignoring&quot;],e.cacheList=e.hasOwnProperty(&quot;cacheList&quot;)?e.cacheList:!0;let u=[];Array.isArray(e.localCategories)&amp;&amp;(u=e.localCategories.map(o=&gt;({...o})),c&amp;&amp;(c=[...u,...c])),e.selectedCids=e.selectedCids||ajaxify.data.selectedCids||[];const t=l.find(&#039;[component=&quot;category-selector-search&quot;]&#039;);if(!t.length)return;const r=t.parents(&#039;[component=&quot;category/dropdown&quot;]&#039;).length&gt;0||t.parents(&#039;[component=&quot;category-selector&quot;]&#039;).length&gt;0;l.on(&quot;show.bs.dropdown&quot;,function(){r&amp;&amp;t.removeClass(&quot;hidden&quot;);function o(){const a=t.find(&quot;input&quot;).val();a.length&gt;1||!a&amp;&amp;!c?d(a,function(f){c=e.cacheList&amp;&amp;(c||f),n(f)}):!a&amp;&amp;c&amp;&amp;n(c)}t.on(&quot;click&quot;,function(a){a.preventDefault(),a.stopPropagation()}),t.find(&quot;input&quot;).val(&quot;&quot;).on(&quot;keyup&quot;,utils.debounce(o,300)),o()}),l.on(&quot;shown.bs.dropdown&quot;,function(){[&quot;xs&quot;,&quot;sm&quot;].includes(utils.findBootstrapEnvironment())||t.find(&quot;input&quot;).focus()}),l.on(&quot;hide.bs.dropdown&quot;,function(){r&amp;&amp;t.addClass(&quot;hidden&quot;),t.off(&quot;click&quot;),t.find(&quot;input&quot;).off(&quot;keyup&quot;)});function d(o,a){C.get(&quot;/search/categories&quot;,{search:o,query:utils.params(),parentCid:e.parentCid||0,selectedCids:e.selectedCids,privilege:e.privilege,states:e.states,showLinks:e.showLinks},function(f,{categories:p}){if(f)return k.error(f);a(u.concat(p))})}function n(o){const a=e.selectedCids.map(String);o.forEach(function(f){f.selected=a.includes(String(f.cid))}),app.parseAndTranslate(e.template,{categoryItems:o.slice(0,200),selectedCategory:ajaxify.data.selectedCategory,allCategoriesUrl:ajaxify.data.allCategoriesUrl},function(f){l.find(&#039;[component=&quot;category/list&quot;]&#039;).html(f.find(&#039;[component=&quot;category/list&quot;]&#039;).html()),l.find(&#039;[component=&quot;category/list&quot;] [component=&quot;category/no-matches&quot;]&#039;).toggleClass(&quot;hidden&quot;,!!o.length);const p=i.Dropdown.getInstance(l.find(&quot;.dropdown-toggle&quot;).get(0));p&amp;&amp;p.update()})}},m}.apply(E,h),g!==void 0&amp;&amp;(A.exports=g)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

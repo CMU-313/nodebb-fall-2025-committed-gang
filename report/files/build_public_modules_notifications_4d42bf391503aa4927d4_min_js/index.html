@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/modules/notifications.4d42bf391503aa4927d4.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/modules/notifications.4d42bf391503aa4927d4.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">71.36</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">7</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">79.39</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">5.19</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[81307],{36849:(R,D,p)=&gt;{&quot;use strict&quot;;var b,T;b=[p(17459),p(52473),p(96352),p(40279),p(91749),p(29930)],T=function(h,u,m,v,l,f){const o={};let c={};const F=({notifications:e})=&gt;new Promise(i=&gt;{for(let a=0;a&lt;e.length;a+=1)e[a].timeagoLong=$.timeago(new Date(parseInt(e[a].datetime,10)));h.toggleTimeagoShorthand(function(){for(let a=0;a&lt;e.length;a+=1)e[a].timeago=$.timeago(new Date(parseInt(e[a].datetime,10))),e[a].timeagoShort=e[a].timeago;h.toggleTimeagoShorthand(),i({notifications:e})})});l.on(&quot;filter:notifications.load&quot;,F),o.loadNotifications=function(e,i,a){a=a||function(){},socket.emit(&quot;notifications.get&quot;,null,function(r,k){if(r)return f.error(r);const M=k.unread.concat(k.read).sort(function(B,P){return parseInt(B.datetime,10)&gt;parseInt(P.datetime,10)?-1:1});l.fire(&quot;filter:notifications.load&quot;,{notifications:M}).then(({notifications:B})=&gt;{app.parseAndTranslate(&quot;partials/notifications_list&quot;,{notifications:B},function(P){i.html(P),i.off(&quot;click&quot;).on(&quot;click&quot;,&quot;[data-nid]&quot;,function(O){const N=$(this);if(I(N)&amp;&amp;(O.stopPropagation(),O.preventDefault(),e&amp;&amp;e.dropdown(&quot;toggle&quot;)),!N.hasClass(&quot;unread&quot;))return;const U=N.attr(&quot;data-nid&quot;);s(U,!0)}),u.get(&quot;notifications&quot;).on(&quot;click&quot;,&quot;.mark-all-read&quot;,o.markAllRead),o.handleUnreadButton(i),l.fire(&quot;action:notifications.loaded&quot;,{notifications:M,list:i}),a()})})})},o.handleUnreadButton=function(e){e.on(&quot;click&quot;,&quot;.mark-read&quot;,function(){const i=$(this),a=i.parents(&quot;[data-nid]&quot;),r=a.hasClass(&quot;unread&quot;),k=a.attr(&quot;data-nid&quot;);return s(k,r,function(){a.toggleClass(&quot;unread&quot;),i.find(&quot;.unread&quot;).toggleClass(&quot;hidden&quot;,r),i.find(&quot;.read&quot;).toggleClass(&quot;hidden&quot;,!r)}),!1})},o.onNewNotification=function(e){ajaxify.currentPage===&quot;notifications&quot;&amp;&amp;ajaxify.refresh(),!(ajaxify.data.template.chats&amp;&amp;parseInt(ajaxify.data.roomId,10)===parseInt(e.roomId,10))&amp;&amp;(socket.emit(&quot;notifications.getCount&quot;,function(i,a){if(i)return f.error(i);o.updateNotifCount(a)}),c[e.nid]||(c[e.nid]=!0))},o.markNotification=function(e,i,a){s(e,i,a)};function s(e,i,a){socket.emit(&quot;notifications.mark&quot;+(i?&quot;Read&quot;:&quot;Unread&quot;),e,function(r){if(r)return f.error(r);i&amp;&amp;c[e]&amp;&amp;delete c[e],a&amp;&amp;a()})}function I(e){const i=e.attr(&quot;data-pid&quot;),a=e.attr(&quot;data-path&quot;),r=u.get(&quot;post&quot;,&quot;pid&quot;,i);return a.startsWith(config.relative_path+&quot;/post/&quot;)&amp;&amp;i&amp;&amp;r.length&amp;&amp;ajaxify.data.template.topic?(m.scrollToIndex(r.attr(&quot;data-index&quot;),!0),!0):!1}return o.updateNotifCount=function(e){const i=u.get(&quot;notifications/icon&quot;);e=Math.max(0,e),i.toggleClass(&quot;fa-bell&quot;,e&gt;0).toggleClass(&quot;fa-bell-o&quot;,e&lt;=0);const a=e&gt;99?&quot;99+&quot;:e;i.toggleClass(&quot;unread-count&quot;,e&gt;0),i.attr(&quot;data-content&quot;,a),u.get(&quot;notifications/count&quot;).toggleClass(&quot;hidden&quot;,e&lt;=0).text(a);const r={count:e,updateFavicon:!0};l.fire(&quot;action:notification.updateCount&quot;,r),r.updateFavicon&amp;&amp;v.setBubble(a),m.setAppBadge&amp;&amp;m.setAppBadge(e)},o.markAllRead=function(){socket.emit(&quot;notifications.markAllRead&quot;,function(e){e&amp;&amp;f.error(e),c={};const i=$(&#039;[component=&quot;notifications/list&quot;] [data-nid]&#039;);i.removeClass(&quot;unread&quot;),i.find(&quot;.mark-read .unread&quot;).addClass(&quot;hidden&quot;),i.find(&quot;.mark-read .read&quot;).removeClass(&quot;hidden&quot;)})},o}.apply(D,b),T!==void 0&amp;&amp;(R.exports=T)},40279:(R,D,p)=&gt;{var b,T;/*!
+* Tinycon - A small library for manipulating the Favicon
+* Tom Moor, http://tommoor.com
+* Copyright (c) 2015 Tom Moor
+* @license MIT Licensed
+*/(function(){var h={},u=null,m=null,v=null,l=null,f={},o=Math.ceil(window.devicePixelRatio)||1,c=16*o,F={width:7,height:9,font:10*o+&quot;px arial&quot;,color:&quot;#ffffff&quot;,background:&quot;#F03D25&quot;,fallback:!0,crossOrigin:!0,abbreviate:!0},s=function(){var t=navigator.userAgent.toLowerCase();return function(n){return t.indexOf(n)!==-1}}(),I={ie:s(&quot;trident&quot;),chrome:s(&quot;chrome&quot;),webkit:s(&quot;chrome&quot;)||s(&quot;safari&quot;),safari:s(&quot;safari&quot;)&amp;&amp;!s(&quot;chrome&quot;),mozilla:s(&quot;mozilla&quot;)&amp;&amp;!s(&quot;chrome&quot;)&amp;&amp;!s(&quot;safari&quot;)},e=function(){for(var t=document.getElementsByTagName(&quot;link&quot;),n=0,d=t.length;n&lt;d;n++)if((t[n].getAttribute(&quot;rel&quot;)||&quot;&quot;).match(/\bicon\b/i))return t[n];return!1},i=function(){for(var t=document.getElementsByTagName(&quot;link&quot;),n=0,d=t.length;n&lt;d;n++){var w=typeof t[n]&lt;&quot;u&quot;;w&amp;&amp;(t[n].getAttribute(&quot;rel&quot;)||&quot;&quot;).match(/\bicon\b/i)&amp;&amp;t[n].parentNode.removeChild(t[n])}},a=function(){if(!m||!u){var t=e();u=t?t.getAttribute(&quot;href&quot;):&quot;/favicon.ico&quot;,m||(m=u)}return u},r=function(){return l||(l=document.createElement(&quot;canvas&quot;),l.width=c,l.height=c),l},k=function(t){if(t){i();var n=document.createElement(&quot;link&quot;);n.type=&quot;image/x-icon&quot;,n.rel=&quot;icon&quot;,n.href=t,document.getElementsByTagName(&quot;head&quot;)[0].appendChild(n)}},M=function(t){window.console&amp;&amp;window.console.log(t)},B=function(t,w){if(!r().getContext||I.ie||I.safari||f.fallback===&quot;force&quot;)return P(t);var d=r().getContext(&quot;2d&quot;),w=w||&quot;#000000&quot;,S=a();v=document.createElement(&quot;img&quot;),v.onload=function(){d.clearRect(0,0,c,c),d.drawImage(v,0,0,v.width,v.height,0,0,c,c),(t+&quot;&quot;).length&gt;0&amp;&amp;O(d,t,w),N()},!S.match(/^data/)&amp;&amp;f.crossOrigin&amp;&amp;(v.crossOrigin=&quot;anonymous&quot;),v.src=S},P=function(t){if(f.fallback){var n=document.title;n[0]===&quot;(&quot;&amp;&amp;(n=n.slice(n.indexOf(&quot; &quot;))),(t+&quot;&quot;).length&gt;0?document.title=&quot;(&quot;+t+&quot;) &quot;+n:document.title=n}},O=function(t,n,d){typeof n==&quot;number&quot;&amp;&amp;n&gt;99&amp;&amp;f.abbreviate&amp;&amp;(n=W(n));var w=(n+&quot;&quot;).length-1,S=f.width*o+6*o*w,_=f.height*o,y=c-_,A=c-S-o,C=16*o,E=16*o,g=2*o;t.font=(I.webkit?&quot;bold &quot;:&quot;&quot;)+f.font,t.fillStyle=f.background,t.strokeStyle=f.background,t.lineWidth=o,t.beginPath(),t.moveTo(A+g,y),t.quadraticCurveTo(A,y,A,y+g),t.lineTo(A,C-g),t.quadraticCurveTo(A,C,A+g,C),t.lineTo(E-g,C),t.quadraticCurveTo(E,C,E,C-g),t.lineTo(E,y+g),t.quadraticCurveTo(E,y,E-g,y),t.closePath(),t.fill(),t.beginPath(),t.strokeStyle=&quot;rgba(0,0,0,0.3)&quot;,t.moveTo(A+g/2,C),t.lineTo(E-g/2,C),t.stroke(),t.fillStyle=f.color,t.textAlign=&quot;right&quot;,t.textBaseline=&quot;top&quot;,t.fillText(n,o===2?29:15,I.mozilla?7*o:6*o)},N=function(){r().getContext&amp;&amp;k(r().toDataURL())},W=function(t){for(var n=[[&quot;G&quot;,1e9],[&quot;M&quot;,1e6],[&quot;k&quot;,1e3]],d=0;d&lt;n.length;++d)if(t&gt;=n[d][1]){t=U(t/n[d][1])+n[d][0];break}return t},U=function(t,n){var d=new Number(t);return d.toFixed(n)};h.setOptions=function(t){f={},t.colour&amp;&amp;(t.color=t.colour);for(var n in F)f[n]=t.hasOwnProperty(n)?t[n]:F[n];return this},h.setImage=function(t){return u=t,N(),this},h.setBubble=function(t,n){return t=t||&quot;&quot;,B(t,n),this},h.reset=function(){u=m,k(m)},h.setOptions(F),b=h,T=typeof b==&quot;function&quot;?b.call(D,p,D,R):b,T!==void 0&amp;&amp;(R.exports=T)})()}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

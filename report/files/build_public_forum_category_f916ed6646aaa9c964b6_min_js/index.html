@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/forum/category.f916ed6646aaa9c964b6.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/forum/category.f916ed6646aaa9c964b6.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">75.30</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">48.28</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">3.71</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[25285,77597],{31799:(u,m,c)=&gt;{var y,l;y=[c(22410),c(24962),c(96352),c(47682),c(43349),c(65348),c(91749),c(29930),c(49897),c(57576)],l=function(p,h,g,C,f,a,o,s,t,d){const n={};$(window).on(&quot;action:ajaxify.start&quot;,function(e,r){String(r.url).startsWith(&quot;category/&quot;)||g.disable()}),n.init=function(){const e=ajaxify.data.cid;app.enterRoom(&quot;category_&quot;+e),C.init(&quot;category&quot;,T),f.handleSort(&quot;categoryTopicSort&quot;,&quot;category/&quot;+ajaxify.data.slug),config.usePagination?g.disable():g.init(&#039;[component=&quot;category/topic&quot;]&#039;,ajaxify.data.topic_count,n.toTop,n.toBottom),x(),A(e),b(),j(),a.init($(&#039;[component=&quot;category-selector&quot;]&#039;),{privilege:&quot;find&quot;,parentCid:ajaxify.data.cid,onSelect:function(r){ajaxify.go(&quot;/category/&quot;+r.cid)}}),new d(&quot;[data-clipboard-text]&quot;),o.fire(&quot;action:topics.loaded&quot;,{topics:ajaxify.data.topics}),o.fire(&quot;action:category.loaded&quot;,{cid:ajaxify.data.cid})};function x(){let e=ajaxify.data.topicIndex;e&amp;&amp;utils.isNumber(e)&amp;&amp;(e=Math.max(0,parseInt(e,10)),e&amp;&amp;window.location.search.indexOf(&quot;page=&quot;)===-1&amp;&amp;g.scrollToElement($(&#039;[component=&quot;category/topic&quot;][data-index=&quot;&#039;+e+&#039;&quot;]&#039;),!0,0))}function A(e){$(&#039;[component=&quot;category/watching&quot;], [component=&quot;category/tracking&quot;], [component=&quot;category/ignoring&quot;], [component=&quot;category/notwatching&quot;]&#039;).on(&quot;click&quot;,function(){const i=$(this).attr(&quot;data-state&quot;);t.put(`/categories/${encodeURIComponent(e)}/watch`,{state:i},S=&gt;{if(S)return s.error(S);$(&#039;[component=&quot;category/watching/menu&quot;]&#039;).toggleClass(&quot;hidden&quot;,i!==&quot;watching&quot;),$(&#039;[component=&quot;category/watching/check&quot;]&#039;).toggleClass(&quot;fa-check&quot;,i===&quot;watching&quot;),$(&#039;[component=&quot;category/tracking/menu&quot;]&#039;).toggleClass(&quot;hidden&quot;,i!==&quot;tracking&quot;),$(&#039;[component=&quot;category/tracking/check&quot;]&#039;).toggleClass(&quot;fa-check&quot;,i===&quot;tracking&quot;),$(&#039;[component=&quot;category/notwatching/menu&quot;]&#039;).toggleClass(&quot;hidden&quot;,i!==&quot;notwatching&quot;),$(&#039;[component=&quot;category/notwatching/check&quot;]&#039;).toggleClass(&quot;fa-check&quot;,i===&quot;notwatching&quot;),$(&#039;[component=&quot;category/ignoring/menu&quot;]&#039;).toggleClass(&quot;hidden&quot;,i!==&quot;ignoring&quot;),$(&#039;[component=&quot;category/ignoring/check&quot;]&#039;).toggleClass(&quot;fa-check&quot;,i===&quot;ignoring&quot;),s.success(&quot;[[category:&quot;+i+&quot;.message]]&quot;)})})}function b(){$(&#039;[component=&quot;category/load-more-subcategories&quot;]&#039;).on(&quot;click&quot;,async function(){const e=$(this),{categories:r}=await t.get(`/categories/${ajaxify.data.cid}/children?start=${ajaxify.data.nextSubCategoryStart}`);if(e.toggleClass(&quot;hidden&quot;,!r.length||r.length&lt;ajaxify.data.subCategoriesPerPage),!!r.length)return app.parseAndTranslate(&quot;category&quot;,&quot;children&quot;,{children:r},function(i){i.find(&quot;.timeago&quot;).timeago(),$(&#039;[component=&quot;category/subcategory/container&quot;]&#039;).append(i),ajaxify.data.nextSubCategoryStart+=ajaxify.data.subCategoriesPerPage,ajaxify.data.subCategoriesLeft-=r.length,e.toggleClass(&quot;hidden&quot;,ajaxify.data.subCategoriesLeft&lt;=0).translateText(&quot;[[category:x-more-categories, &quot;+ajaxify.data.subCategoriesLeft+&quot;]]&quot;)}),!1})}function j(){const e=document.querySelector(&quot;.description.clamp-fade-4&quot;);e&amp;&amp;e.addEventListener(&quot;click&quot;,()=&gt;{const r=e.classList.contains(&quot;line-clamp-4&quot;);e.classList.toggle(&quot;line-clamp-4&quot;,!r)})}n.toTop=function(){g.scrollTop(0)},n.toBottom=async()=&gt;{const{count:e}=await t.get(`/categories/${encodeURIComponent(ajaxify.data.category.cid)}/count`);g.scrollBottom(e-1)};function T(e,r,i){i=i||function(){},o.fire(&quot;action:topics.loading&quot;);const S=utils.params();p.loadMore(`/categories/${encodeURIComponent(ajaxify.data.cid)}/topics`,{after:e,direction:r,query:S,categoryTopicSort:S.sort||config.categoryTopicSort},function(E,w){o.fire(&quot;action:topics.loaded&quot;,{topics:E.topics}),i(E,w)})}return n}.apply(m,y),l!==void 0&amp;&amp;(u.exports=l)},43349:(u,m,c)=&gt;{var y,l;y=[c(52473)],l=function(p){const h={};return h.handleSort=function(g,C){const f=p.get(&quot;thread/sort&quot;);f.find(&quot;i&quot;).removeClass(&quot;fa-check&quot;);const a=utils.params().sort||config[g];f.find(&#039;a[data-sort=&quot;&#039;+a+&#039;&quot;]&#039;).find(&quot;i&quot;).addClass(&quot;fa-check&quot;),$(&quot;body&quot;).off(&quot;click&quot;,&#039;[component=&quot;thread/sort&quot;] a[data-sort]&#039;).on(&quot;click&quot;,&#039;[component=&quot;thread/sort&quot;] a[data-sort]&#039;,function(){const s=$(this).attr(&quot;data-sort&quot;),t=utils.params();t.sort=s;const d=$.param(t);ajaxify.go(C+(d?&quot;?&quot;+d:&quot;&quot;))})},h}.apply(m,y),l!==void 0&amp;&amp;(u.exports=l)},65348:(u,m,c)=&gt;{var y,l;y=[c(96349),c(33530),c(91749),c(17459)],l=function(p,h,g,C){const f={};return f.init=function(a,o){if(!a||!a.length)return;o=o||{};const s=o.onSelect||function(){};o.states=o.states||[&quot;watching&quot;,&quot;tracking&quot;,&quot;notwatching&quot;,&quot;ignoring&quot;],o.template=o.template||&quot;partials/category/selector-dropdown-left&quot;,g.fire(&quot;action:category.selector.options&quot;,{el:a,options:o}),p.init(a,o);const t={el:a,selectedCategory:null};a.on(&quot;click&quot;,&quot;[data-cid]&quot;,function(){const n=$(this);return n.hasClass(&quot;disabled&quot;)?!1:(t.selectCategory(n.attr(&quot;data-cid&quot;)),s(t.selectedCategory))});let d=t.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html();return C.translate(d,n=&gt;{d=n}),t.selectCategory=function(n){const x=t.el.find(&#039;[data-cid=&quot;&#039;+n+&#039;&quot;]&#039;);t.selectedCategory={cid:n,name:x.attr(&quot;data-name&quot;)},x.length?t.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(x.find(&#039;[component=&quot;category-markup&quot;]&#039;).html()):t.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(d)},t.getSelectedCategory=function(){return t.selectedCategory},t.getSelectedCid=function(){return t.selectedCategory?t.selectedCategory.cid:0},o.hasOwnProperty(&quot;selectedCategory&quot;)&amp;&amp;app.parseAndTranslate(o.template,{selectedCategory:o.selectedCategory},function(n){t.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(n.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html())}),t},f.modal=function(a){a=a||{},a.onSelect=a.onSelect||function(){},a.onSubmit=a.onSubmit||function(){},app.parseAndTranslate(&quot;admin/partials/categories/select-category&quot;,{message:a.message},function(o){const s=h.dialog({title:a.title||&quot;[[modules:composer.select-category]]&quot;,message:o,buttons:{save:{label:&quot;[[global:select]]&quot;,className:&quot;btn-primary&quot;,callback:d}}}),t=f.init(s.find(&#039;[component=&quot;category-selector&quot;]&#039;),a);function d(n){return n.preventDefault(),t.selectedCategory&amp;&amp;(a.onSubmit(t.selectedCategory),s.modal(&quot;hide&quot;)),!1}a.openOnLoad&amp;&amp;s.on(&quot;shown.bs.modal&quot;,function(){s.find(&quot;.dropdown-toggle&quot;).dropdown(&quot;toggle&quot;)}),s.find(&quot;form&quot;).on(&quot;submit&quot;,d)})},f}.apply(m,y),l!==void 0&amp;&amp;(u.exports=l)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

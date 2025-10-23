@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/forum/topic-change-owner.55487ba49bd5d0fd35b3.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/forum/topic-change-owner.55487ba49bd5d0fd35b3.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">73.28</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">69.97</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">4.91</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[1091,3097,13417,17205,34271,34405,38395,49897,99127],{16227:(_,A,u)=&gt;{var g,h;g=[u(52473)],h=function(f){const c={};let P;c.pids=[];let d=!1;c.init=function(i,o){c.pids.length=0,P=i,o=o||{},d=o.allowMainPostSelect||!1,$(&quot;#content&quot;).on(&quot;click&quot;,&#039;[component=&quot;topic&quot;] [component=&quot;post&quot;]&#039;,a),y()};function a(i){i.stopPropagation();const o=$(this).attr(&quot;data-pid&quot;),r=$(&#039;[component=&quot;topic&quot;] [data-pid=&quot;&#039;+o+&#039;&quot;]&#039;);!d&amp;&amp;parseInt($(this).attr(&quot;data-index&quot;),10)===0||c.togglePostSelection(r,o)}c.disable=function(){c.pids.forEach(function(i){f.get(&quot;post&quot;,&quot;pid&quot;,i).toggleClass(&quot;selected&quot;,!1)}),$(&quot;#content&quot;).off(&quot;click&quot;,&#039;[component=&quot;topic&quot;] [component=&quot;post&quot;]&#039;,a),x()},c.togglePostSelection=function(i,o){if(o){const r=c.pids.indexOf(o);r===-1?(c.pids.push(o),i.toggleClass(&quot;selected&quot;,!0)):(c.pids.splice(r,1),i.toggleClass(&quot;selected&quot;,!1)),c.pids.length&amp;&amp;c.pids.sort(function(t,e){return t-e}),typeof P==&quot;function&quot;&amp;&amp;P()}};function s(){return!1}function y(){$(&quot;#content&quot;).on(&quot;click&quot;,&#039;[component=&quot;post&quot;] button, [component=&quot;post&quot;] a&#039;,s)}function x(){$(&quot;#content&quot;).off(&quot;click&quot;,&#039;[component=&quot;post&quot;] button, [component=&quot;post&quot;] a&#039;,s)}return c}.apply(A,g),h!==void 0&amp;&amp;(_.exports=h)},17205:(_,A,u)=&gt;{var g,h;g=[u(16227),u(34405),u(29930)],h=function(f,c,P){const d={};let a,s,y=0;d.init=function(e){a||app.parseAndTranslate(&quot;modals/change-owner&quot;,{},function(n){a=n,s=a.find(&quot;#change_owner_commit&quot;),$(&quot;body&quot;).append(a),a.find(&quot;#change_owner_cancel&quot;).on(&quot;click&quot;,t),a.find(&quot;#username&quot;).on(&quot;keyup&quot;,i),f.init(o,{allowMainPostSelect:!0}),x(),e&amp;&amp;f.togglePostSelection(e,e.attr(&quot;data-pid&quot;)),s.on(&quot;click&quot;,function(){r()}),c.user(a.find(&quot;#username&quot;),{filters:[&quot;notbanned&quot;]},function(E,p){y=p.item.user.uid,i()})})};function x(){f.pids.length?a.find(&quot;#pids&quot;).translateHtml(&quot;[[topic:fork-pid-count, &quot;+f.pids.length+&quot;]]&quot;):a.find(&quot;#pids&quot;).translateHtml(&quot;[[topic:fork-no-pids]]&quot;)}function i(){y&amp;&amp;a.find(&quot;#username&quot;).length&amp;&amp;a.find(&quot;#username&quot;).val().length&amp;&amp;f.pids.length?s.removeAttr(&quot;disabled&quot;):s.attr(&quot;disabled&quot;,!0)}function o(){i(),x()}function r(){y&amp;&amp;socket.emit(&quot;posts.changeOwner&quot;,{pids:f.pids,toUid:y},function(e){if(e)return P.error(e);ajaxify.go(`/post/${f.pids[0]}`),t()})}function t(){a&amp;&amp;(a.remove(),a=null,f.disable())}return d}.apply(A,g),h!==void 0&amp;&amp;(_.exports=h)},34405:(_,A,u)=&gt;{var g,h;g=[u(49897),u(29930),u(36e3),u(9787),u(35786)],h=function(f,c,{Textcomplete:P},{TextareaEditor:d},{ContenteditableEditor:a}){const s={},y={delay:200,appendTo:null};s.init=i=&gt;{const o={...y,...i},{input:r,onSelect:t}=o;app.loadJQueryUI(function(){r.autocomplete({...o,open:function(){$(this).autocomplete(&quot;widget&quot;).css(&quot;z-index&quot;,100005)},select:function(e,n){x(r,t,e,n)}})})},s.user=function(i,o,r){typeof o==&quot;function&quot;&amp;&amp;(r=o,o={}),o=o||{},s.init({input:i,onSelect:r,source:(t,e)=&gt;{o.query=t.term,f.get(&quot;/api/users&quot;,o,function(n,E){if(n)return c.error(n);if(E&amp;&amp;E.users){const p=E.users.map(function(l){const m=$(&quot;&lt;div&gt;&lt;/div&gt;&quot;).html(l.username).text();return l&amp;&amp;{label:m,value:m,user:{uid:l.uid,name:l.username,slug:l.userslug,username:l.username,userslug:l.userslug,displayname:l.displayname,picture:l.picture,banned:l.banned,&quot;icon:text&quot;:l[&quot;icon:text&quot;],&quot;icon:bgColor&quot;:l[&quot;icon:bgColor&quot;]}}});e(p)}$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;,&quot;false&quot;)})}})},s.group=function(i,o){s.init({input:i,onSelect:o,source:(r,t)=&gt;{socket.emit(&quot;groups.search&quot;,{query:r.term},function(e,n){if(e)return c.error(e);if(n&amp;&amp;n.length){const E=n.map(function(p){return p&amp;&amp;{label:p.name,value:p.name,group:p}});t(E)}$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;,&quot;false&quot;)})}})},s.tag=function(i,o){s.init({input:i,onSelect:o,delay:100,source:(r,t)=&gt;{socket.emit(&quot;topics.autocompleteTags&quot;,{query:r.term,cid:ajaxify.data.cid||0},function(e,n){if(e)return c.error(e);n&amp;&amp;t(n),$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;,&quot;false&quot;)})}})};function x(i,o,r,t){o=o||function(){};const e=jQuery.Event(&quot;keypress&quot;);e.which=13,e.keyCode=13,setTimeout(function(){i.trigger(e)},100),o(r,t)}return s.setup=function({element:i,strategies:o,options:r}){const t=i.get(0);if(t){var e;if(t.nodeName===&quot;TEXTAREA&quot;||t.nodeName===&quot;INPUT&quot;?e=new d(t):t.nodeName===&quot;DIV&quot;&amp;&amp;t.getAttribute(&quot;contenteditable&quot;)===&quot;true&quot;&amp;&amp;(e=new a(t)),!e)throw new Error(&quot;unknown target element type&quot;);t.setAttribute(&quot;dir&quot;,document.querySelector(&quot;html&quot;).getAttribute(&quot;data-dir&quot;));var n=new P(e,o,{dropdown:r});return n.on(&quot;rendered&quot;,function(){n.dropdown.items.length&amp;&amp;n.dropdown.items[0].activate()}),n}},s}.apply(A,g),h!==void 0&amp;&amp;(_.exports=h)},49897:(_,A,u)=&gt;{u.r(A),u.d(A,{del:()=&gt;r,get:()=&gt;s,head:()=&gt;y,patch:()=&gt;i,post:()=&gt;x,put:()=&gt;o});var g=u(91749),h=u.n(g),f=u(33530),c=u.n(f);const P=config.relative_path+&quot;/api/v3&quot;;async function d(t,e){if(t.url=t.url.startsWith(&quot;/api&quot;)?config.relative_path+t.url:P+t.url,typeof e==&quot;function&quot;){a(t).then(n=&gt;e(null,n),n=&gt;e(n));return}try{return await a(t)}catch(n){if(n.message===&quot;A valid login session was not found. Please log in and try again.&quot;){const{url:E}=await(0,g.fire)(&quot;filter:admin.reauth&quot;,{url:&quot;login&quot;});return(0,f.confirm)(&quot;[[error:api.reauth-required]]&quot;,p=&gt;{p&amp;&amp;ajaxify.go(E)})}throw n}}async function a(t){const{url:e}=t;delete t.url,t.data&amp;&amp;!(t.data instanceof FormData)&amp;&amp;(t.data=JSON.stringify(t.data||{}),t.headers[&quot;content-type&quot;]=&quot;application/json; charset=utf-8&quot;),{options:t}=await(0,g.fire)(&quot;filter:api.options&quot;,{options:t}),t.data&amp;&amp;(t.body=t.data,delete t.data);const n=await fetch(e,t),{headers:E}=n;if(E.get(&quot;x-redirect&quot;))return a({url:E.get(&quot;x-redirect&quot;),...t});const p=E.get(&quot;content-type&quot;),l=p&amp;&amp;p.startsWith(&quot;application/json&quot;);let m;if(t.method!==&quot;HEAD&quot;&amp;&amp;(l?m=await n.json():m=await n.text()),!n.ok)throw m?new Error(l?m.status.message:m):new Error(n.statusText);return l&amp;&amp;m&amp;&amp;m.hasOwnProperty(&quot;status&quot;)&amp;&amp;m.hasOwnProperty(&quot;response&quot;)?m.response:m}function s(t,e,n){return d({url:t+(e&amp;&amp;Object.keys(e).length?&quot;?&quot;+$.param(e):&quot;&quot;)},n)}function y(t,e,n){return d({url:t+(e&amp;&amp;Object.keys(e).length?&quot;?&quot;+$.param(e):&quot;&quot;),method:&quot;HEAD&quot;},n)}function x(t,e,n){return d({url:t,method:&quot;POST&quot;,data:e,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},n)}function i(t,e,n){return d({url:t,method:&quot;PATCH&quot;,data:e,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},n)}function o(t,e,n){return d({url:t,method:&quot;PUT&quot;,data:e,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},n)}function r(t,e,n){return d({url:t,method:&quot;DELETE&quot;,data:e,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},n)}}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

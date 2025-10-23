@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/modules/composer-resize.6988efeffb76a514ff9b.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/modules/composer-resize.6988efeffb76a514ff9b.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">71.69</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">73.61</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">4.66</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[18732,33069],{14063:(g,R,v)=&gt;{&quot;use strict&quot;;g=v.nmd(g);var _,h;_=[v(17459),v(91749)],h=function(I,f){const e={};let d=!1;e.init=function(){if(e.taskbar=$(&#039;[component=&quot;taskbar&quot;]&#039;),e.tasklist=e.taskbar.find(&quot;ul&quot;),!e.taskbar.length||!e.tasklist.length){d=!0;return}e.taskbar.on(&quot;click&quot;,&quot;li&quot;,async function(){const t=$(this),i=t.attr(&quot;data-module&quot;),a=t.attr(&quot;data-uuid&quot;),n=await app.require(i);return t.hasClass(&quot;active&quot;)?n.minimize(a):(B(),n.load(a),e.toggleNew(a,!1),e.tasklist.removeClass(&quot;active&quot;),t.addClass(&quot;active&quot;)),!1}),$(window).on(&quot;action:app.loggedOut&quot;,function(){e.closeAll()})},e.close=async function(t,i){if(d)return;if(e.tasklist.find(&#039;[data-module=&quot;&#039;+g+&#039;&quot;][data-uuid=&quot;&#039;+i+&#039;&quot;]&#039;).length){const n=await app.require(t);n&amp;&amp;typeof n.close==&quot;function&quot;&amp;&amp;n.close(i)}},e.closeAll=function(t){if(d)return;let i=&quot;[data-uuid]&quot;;t&amp;&amp;(i=&#039;[data-module=&quot;&#039;+t+&#039;&quot;]&#039;+i),e.tasklist.find(i).each(function(a,n){e.close(t||n.getAttribute(&quot;data-module&quot;),n.getAttribute(&quot;data-uuid&quot;))})},e.discard=function(t,i){if(d)return;e.tasklist.find(&#039;[data-module=&quot;&#039;+t+&#039;&quot;][data-uuid=&quot;&#039;+i+&#039;&quot;]&#039;).remove(),w()},e.push=function(t,i,a,n){if(n=n||function(){},d)return n();const c=e.tasklist.find(&#039;li[data-uuid=&quot;&#039;+i+&#039;&quot;]&#039;),l={module:t,uuid:i,options:a,element:c};f.fire(&quot;filter:taskbar.push&quot;,l),!c.length&amp;&amp;l.module?C(l,n):n(c)},e.get=function(t){return d?[]:$(&#039;[data-module=&quot;&#039;+t+&#039;&quot;]&#039;).map(function(a,n){return $(n).data()})},e.minimize=function(t,i){if(d)return;e.tasklist.find(&#039;[data-module=&quot;&#039;+t+&#039;&quot;][data-uuid=&quot;&#039;+i+&#039;&quot;]&#039;).toggleClass(&quot;active&quot;,!1)},e.toggleNew=function(t,i,a){if(d)return;e.tasklist.find(&#039;[data-uuid=&quot;&#039;+t+&#039;&quot;]&#039;).toggleClass(&quot;new&quot;,i),a||f.fire(&quot;action:taskbar.toggleNew&quot;,t)},e.updateActive=function(t){if(d)return;const i=e.tasklist.find(&quot;li&quot;);i.removeClass(&quot;active&quot;),i.filter(&#039;[data-uuid=&quot;&#039;+t+&#039;&quot;]&#039;).addClass(&quot;active&quot;),$(&quot;[data-uuid]:not([data-module])&quot;).toggleClass(&quot;modal-unfocused&quot;,!0),$(&#039;[data-uuid=&quot;&#039;+t+&#039;&quot;]:not([data-module])&#039;).toggleClass(&quot;modal-unfocused&quot;,!1)},e.isActive=function(t){return d?!1:e.tasklist.find(&#039;li[data-uuid=&quot;&#039;+t+&#039;&quot;]&#039;).hasClass(&quot;active&quot;)};function w(){if(d)return;e.tasklist.find(&quot;li&quot;).length&gt;0?e.taskbar.attr(&quot;data-active&quot;,&quot;1&quot;):e.taskbar.removeAttr(&quot;data-active&quot;)}function B(){d||e.tasklist.find(&quot;.active&quot;).removeClass(&quot;active&quot;)}function C(t,i){if(d)return i();I.translate(t.options.title,function(a){const n=$(&quot;&lt;div&gt;&lt;/div&gt;&quot;).text(a||&quot;NodeBB Task&quot;).html(),c=$(&quot;&lt;li&gt;&lt;/li&gt;&quot;).addClass(t.options.className).html(&#039;&lt;a href=&quot;#&quot;&#039;+(t.options.image?` style=&quot;background-image: url(&#039;`+t.options.image.replace(/&amp;#x2F;/g,&quot;/&quot;)+`&#039;); background-size: cover;&quot;`:&quot;&quot;)+&quot;&gt;&quot;+(t.options.icon?&#039;&lt;i class=&quot;fa &#039;+t.options.icon+&#039;&quot;&gt;&lt;/i&gt; &#039;:&quot;&quot;)+&#039;&lt;span aria-label=&quot;&#039;+n+&#039;&quot; component=&quot;taskbar/title&quot;&gt;&#039;+n+&quot;&lt;/span&gt;&lt;/a&gt;&quot;).attr({title:n,&quot;data-module&quot;:t.module,&quot;data-uuid&quot;:t.uuid}).addClass(t.options.state!==void 0?t.options.state:&quot;active&quot;);(!t.options.state||t.options.state===&quot;active&quot;)&amp;&amp;B(),e.tasklist.append(c),w(),t.element=c,c.data(t),f.fire(&quot;action:taskbar.pushed&quot;,t),i(c)})}const b=function(t,i,a){switch(i){case&quot;title&quot;:t.find(&#039;[component=&quot;taskbar/title&quot;]&#039;).text(a);break;case&quot;icon&quot;:t.find(&quot;i&quot;).attr(&quot;class&quot;,&quot;fa fa-&quot;+a);break;case&quot;image&quot;:t.find(&quot;a&quot;).css(&quot;background-image&quot;,a?&#039;url(&quot;&#039;+a.replace(/&amp;#x2F;/g,&quot;/&quot;)+&#039;&quot;)&#039;:&quot;&quot;);break;case&quot;background-color&quot;:t.find(&quot;a&quot;).css(&quot;background-color&quot;,a);break;case&quot;color&quot;:t.find(&quot;a&quot;).css(&quot;color&quot;,a);break}};return e.update=function(t,i,a){if(d)return;const n=e.tasklist.find(&#039;[data-module=&quot;&#039;+t+&#039;&quot;][data-uuid=&quot;&#039;+i+&#039;&quot;]&#039;);if(!n.length)return;const c=n.data();Object.keys(a).forEach(function(l){c[l]=a[l],b(n,l,a[l])}),n.data(c)},e}.apply(R,_),h!==void 0&amp;&amp;(g.exports=h)},57904:(g,R,v)=&gt;{&quot;use strict&quot;;var _,h;_=[v(14063)],h=function(I){var f={},e=0,d=.3,w=.05,B=768,C=$(&quot;body&quot;),b=$(window),t=$(&#039;[component=&quot;navbar&quot;]&#039;);const i=document.getElementById(&quot;content&quot;);var a=t[0];function n(){return localStorage.getItem(&quot;composer:resizeRatio&quot;)||.5}function c(o){localStorage.setItem(&quot;composer:resizeRatio&quot;,Math.min(o,1))}function l(){var o;a?o=a.getBoundingClientRect():o={bottom:0};var s=Math.max(o.bottom,0),r={top:0,left:0,right:window.innerWidth,bottom:window.innerHeight};return r.width=r.right,r.height=r.bottom,r.boundedTop=s,r.boundedHeight=r.bottom-s,r}function S(o,s){var r=l(),m=o[0],y=window.getComputedStyle(m),N=parseInt(y.getPropertyValue(&quot;min-height&quot;),10),D=Math.max(N/window.innerHeight,d);if(r.width&gt;=B){const M=(r.height-r.boundedHeight)/r.height;s=Math.min(Math.max(s,D+M),1);var x=s*r.boundedHeight/r.height;m.style.top=((1-x)*100).toString()+&quot;%&quot;;var A=m.getBoundingClientRect();i.style.paddingBottom=(A.bottom-A.top).toString()+&quot;px&quot;}else m.style.top=0,i.style.paddingBottom=0;o.ratio=s,I.updateActive(o.attr(&quot;data-uuid&quot;))}var z=S,F=window.requestAnimationFrame||window.webkitRequestAnimationFrame||window.mozRequestAnimationFrame;return F&amp;&amp;(z=function(o,s){F(function(){S(o,s),setTimeout(function(){b.trigger(&quot;action:composer.resize&quot;),o.trigger(&quot;action:composer.resize&quot;)},0)})}),f.reposition=function(o){var s=n();s&gt;=1-w&amp;&amp;(s=1,o.addClass(&quot;maximized&quot;)),z(o,s)},f.maximize=function(o,s){s?z(o,1):f.reposition(o)},f.handleResize=function(o){var s=0,r=0,m=0,y=o.find(&quot;.resizer&quot;),N=y[0];function D(u){var E=N.getBoundingClientRect(),p=(E.top+E.bottom)/2;s=(p-u.clientY)/2,r=u.clientY,b.on(&quot;mousemove&quot;,x),b.on(&quot;mouseup&quot;,A),C.on(&quot;touchmove&quot;,M)}function x(u){var E=u.clientY-s,p=l(),k=(p.height-E)/p.boundedHeight;z(o,k)}function A(u){u.preventDefault(),m=u.clientY,o.find(&quot;textarea&quot;).focus(),b.off(&quot;mousemove&quot;,x),b.off(&quot;mouseup&quot;,A),C.off(&quot;touchmove&quot;,M);var E=m-s,p=l(),k=(p.height-E)/p.boundedHeight;m-r===0&amp;&amp;o.hasClass(&quot;maximized&quot;)?(o.removeClass(&quot;maximized&quot;),k=!e||e&gt;=1-w?.5:e,z(o,k)):m-r===0||k&gt;=1-w?(z(o,1),o.addClass(&quot;maximized&quot;),e=k):o.removeClass(&quot;maximized&quot;),c(k)}function M(u){u.preventDefault(),x(u.touches[0])}y.on(&quot;mousedown&quot;,function(u){u.button===0&amp;&amp;(u.preventDefault(),D(u))}).on(&quot;touchstart&quot;,function(u){u.preventDefault(),D(u.touches[0])}).on(&quot;touchend&quot;,A)},f}.apply(R,_),h!==void 0&amp;&amp;(g.exports=h)},99594:(g,R,v)=&gt;{g.exports=v(57904)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

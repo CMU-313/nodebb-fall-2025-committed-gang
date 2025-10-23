@@ -1,0 +1,1769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/40559.1b8d71b20e809f39ea48.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/40559.1b8d71b20e809f39ea48.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">68.53</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">1649</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">113.28</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">25.97</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;
+(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[40559],
+	{
+		28721: (j, B, s) =&gt; {
+			var S, T;
+			((S = [s(29930)]),
+				(T = function (w) {
+					var E = {},
+						A,
+						b;
+					((E.init = function (c, r) {
+						var n = c.find(&quot;.tags&quot;);
+						if (n.length) {
+							((A = ajaxify.data.hasOwnProperty(&quot;minTags&quot;)
+								? ajaxify.data.minTags
+								: config.minimumTagsPerTopic),
+								(b = ajaxify.data.hasOwnProperty(&quot;maxTags&quot;)
+									? ajaxify.data.maxTags
+									: config.maximumTagsPerTopic),
+								n.tagsinput({
+									tagClass: &quot;badge bg-info rounded-1&quot;,
+									confirmKeys: [13, 44],
+									trimValue: !0,
+								}));
+							var l = c.find(&quot;.bootstrap-tagsinput input&quot;);
+							(p(c, r, ajaxify.data),
+								app.loadJQueryUI(function () {
+									(l.autocomplete({
+										delay: 100,
+										position: {
+											my: &quot;left bottom&quot;,
+											at: &quot;left top&quot;,
+											collision: &quot;flip&quot;,
+										},
+										appendTo: c.find(&quot;.bootstrap-tagsinput&quot;),
+										open: function () {
+											$(this).autocomplete(&quot;widget&quot;).css(&quot;z-index&quot;, 2e4);
+										},
+										source: function (a, u) {
+											socket.emit(
+												&quot;topics.autocompleteTags&quot;,
+												{ query: a.term, cid: r.cid },
+												function (C, I) {
+													if (C) return w.error(C);
+													(I &amp;&amp; u(I),
+														$(&quot;.ui-autocomplete a&quot;).attr(
+															&quot;data-ajaxify&quot;,
+															&quot;false&quot;,
+														));
+												},
+											);
+										},
+										select: function () {
+											m(l);
+										},
+									}),
+										D(r.tags, n),
+										n.on(&quot;beforeItemAdd&quot;, function (a) {
+											var u = b &amp;&amp; b &lt;= E.getTags(c.attr(&quot;data-uuid&quot;)).length,
+												C = utils.cleanUpTag(a.item, config.maximumTagLength),
+												I = C !== a.item;
+											if (
+												((a.cancel =
+													I ||
+													a.item.length &lt; config.minimumTagLength ||
+													a.item.length &gt; config.maximumTagLength ||
+													u),
+												a.item.length &lt; config.minimumTagLength)
+											)
+												return w.error(
+													&quot;[[error:tag-too-short, &quot; +
+														config.minimumTagLength +
+														&quot;]]&quot;,
+												);
+											if (a.item.length &gt; config.maximumTagLength)
+												return w.error(
+													&quot;[[error:tag-too-long, &quot; +
+														config.maximumTagLength +
+														&quot;]]&quot;,
+												);
+											if (u)
+												return w.error(&quot;[[error:too-many-tags, &quot; + b + &quot;]]&quot;);
+											var K = r.hasOwnProperty(&quot;cid&quot;)
+												? r.cid
+												: ajaxify.data.cid;
+											($(window).trigger(&quot;action:tag.beforeAdd&quot;, {
+												cid: K,
+												tagEl: n,
+												tag: a.item,
+												event: a,
+												inputAutocomplete: l,
+											}),
+												I &amp;&amp; n.tagsinput(&quot;add&quot;, C),
+												a.cancel &amp;&amp; l.length &amp;&amp; l.autocomplete(&quot;close&quot;));
+										}),
+										n.on(&quot;itemRemoved&quot;, function (a) {
+											!a.item ||
+												(a.options &amp;&amp; a.options.skipRemoveCheck) ||
+												socket.emit(
+													&quot;topics.canRemoveTag&quot;,
+													{ tag: a.item },
+													function (u, C) {
+														if (u) return w.error(u);
+														C ||
+															(w.error(&quot;[[error:cant-remove-system-tag]]&quot;),
+															n.tagsinput(&quot;add&quot;, a.item, { skipAddCheck: !0 }));
+													},
+												);
+										}),
+										n.on(&quot;itemAdded&quot;, function (a) {
+											if (!(a.options &amp;&amp; a.options.skipAddCheck)) {
+												var u = r.hasOwnProperty(&quot;cid&quot;)
+													? r.cid
+													: ajaxify.data.cid;
+												socket.emit(
+													&quot;topics.isTagAllowed&quot;,
+													{ tag: a.item, cid: u || 0 },
+													function (C, I) {
+														if (C) return w.error(C);
+														if (!I)
+															return n.tagsinput(&quot;remove&quot;, a.item, {
+																skipRemoveCheck: !0,
+															});
+														($(window).trigger(&quot;action:tag.added&quot;, {
+															cid: u,
+															tagEl: n,
+															tag: a.item,
+															inputAutocomplete: l,
+														}),
+															l.length &amp;&amp; l.autocomplete(&quot;close&quot;));
+													},
+												);
+											}
+										}));
+								}),
+								l.attr(&quot;tabIndex&quot;, n.attr(&quot;tabIndex&quot;)),
+								l.on(&quot;blur&quot;, function () {
+									m(l);
+								}),
+								$(&#039;[component=&quot;composer/tag/dropdown&quot;]&#039;).on(
+									&quot;click&quot;,
+									&quot;li&quot;,
+									function () {
+										var a = $(this).attr(&quot;data-tag&quot;);
+										return (a &amp;&amp; D([a], n), !1);
+									},
+								));
+						}
+					}),
+						(E.isEnoughTags = function (c) {
+							return E.getTags(c).length &gt;= A;
+						}),
+						(E.minTagCount = function () {
+							return A;
+						}),
+						(E.onChangeCategory = function (c, r, n, l) {
+							var a = c.find(&#039;[component=&quot;composer/tag/dropdown&quot;]&#039;);
+							a.length &amp;&amp;
+								(p(c, r, l),
+								a.toggleClass(
+									&quot;hidden&quot;,
+									!l.tagWhitelist || !l.tagWhitelist.length,
+								),
+								l.tagWhitelist &amp;&amp;
+									app.parseAndTranslate(
+										&quot;composer&quot;,
+										&quot;tagWhitelist&quot;,
+										{ tagWhitelist: l.tagWhitelist },
+										function (u) {
+											a.find(&quot;.dropdown-menu&quot;).html(u);
+										},
+									));
+						}));
+					function p(c, r, n) {
+						var l = c.find(&quot;.tags&quot;),
+							a = c.find(&quot;.bootstrap-tagsinput input&quot;);
+						a.length &amp;&amp;
+							(n.hasOwnProperty(&quot;minTags&quot;) &amp;&amp; (A = n.minTags),
+							n.hasOwnProperty(&quot;maxTags&quot;) &amp;&amp; (b = n.maxTags),
+							n.tagWhitelist &amp;&amp; n.tagWhitelist.length
+								? (a.attr(&quot;readonly&quot;, &quot;&quot;),
+									a.attr(&quot;placeholder&quot;, &quot;&quot;),
+									l
+										.tagsinput(&quot;items&quot;)
+										.slice()
+										.forEach(function (u) {
+											n.tagWhitelist.indexOf(u) === -1 &amp;&amp;
+												l.tagsinput(&quot;remove&quot;, u);
+										}))
+								: (a.removeAttr(&quot;readonly&quot;),
+									a.attr(
+										&quot;placeholder&quot;,
+										c.find(&quot;input.tags&quot;).attr(&quot;placeholder&quot;),
+									)),
+							c
+								.find(&quot;.tags-container&quot;)
+								.toggleClass(
+									&quot;haswhitelist&quot;,
+									!!(n.tagWhitelist &amp;&amp; n.tagWhitelist.length),
+								),
+							c
+								.find(&quot;.tags-container&quot;)
+								.toggleClass(
+									&quot;hidden&quot;,
+									(n.privileges &amp;&amp;
+										n.privileges.hasOwnProperty(&quot;topics:tag&quot;) &amp;&amp;
+										!n.privileges[&quot;topics:tag&quot;]) ||
+										(b === 0 &amp;&amp; !r &amp;&amp; !r.tags &amp;&amp; !r.tags.length),
+								),
+							n.privileges &amp;&amp;
+								n.privileges.hasOwnProperty(&quot;topics:tag&quot;) &amp;&amp;
+								!n.privileges[&quot;topics:tag&quot;] &amp;&amp;
+								l.tagsinput(&quot;removeAll&quot;),
+							$(window).trigger(&quot;action:tag.toggleInput&quot;, {
+								postContainer: c,
+								tagWhitelist: n.tagWhitelist,
+								tagsInput: a,
+							}));
+					}
+					function m(c) {
+						var r = jQuery.Event(&quot;keypress&quot;);
+						((r.which = 13),
+							(r.keyCode = 13),
+							setTimeout(function () {
+								c.trigger(r);
+							}, 100));
+					}
+					function D(c, r) {
+						if (c &amp;&amp; c.length)
+							for (var n = 0; n &lt; c.length; ++n) r.tagsinput(&quot;add&quot;, c[n]);
+					}
+					return (
+						(E.getTags = function (c) {
+							return $(&#039;.composer[data-uuid=&quot;&#039; + c + &#039;&quot;] .tags&#039;).tagsinput(
+								&quot;items&quot;,
+							);
+						}),
+						E
+					);
+				}.apply(B, S)),
+				T !== void 0 &amp;&amp; (j.exports = T));
+		},
+		36244: (j, B, s) =&gt; {
+			var S, T;
+			((S = [s(89596), s(13342), s(17459), s(29930), s(43103), s(64061)]),
+				(T = function (w, E, A, b, p) {
+					var m = { inProgress: {} },
+						D = &quot;&quot;;
+					m.initialize = function (d) {
+						(l(d),
+							a(d),
+							c(d),
+							r(d),
+							A.translate(&quot;[[modules:composer.uploading, 0%]]&quot;, function (f) {
+								D = f;
+							}));
+					};
+					function c(d) {
+						var f = $(&#039;.composer[data-uuid=&quot;&#039; + d + &#039;&quot;]&#039;);
+						f.find(&quot;#files&quot;).on(&quot;change&quot;, function (y) {
+							var O =
+								(y.target || {}).files ||
+								($(this).val()
+									? [
+											{
+												name: $(this).val(),
+												type: utils.fileMimeType($(this).val()),
+											},
+										]
+									: null);
+							O &amp;&amp; I({ files: O, post_uuid: d, route: &quot;/api/post/upload&quot; });
+						});
+					}
+					function r(d) {
+						var f = $(&#039;.composer[data-uuid=&quot;&#039; + d + &#039;&quot;]&#039;);
+						(f.on(&quot;click&quot;, &quot;.topic-thumb-clear-btn&quot;, function (y) {
+							(f.find(&quot;input#topic-thumb-url&quot;).val(&quot;&quot;).trigger(&quot;change&quot;),
+								n(f.find(&quot;input#topic-thumb-file&quot;)),
+								$(this).addClass(&quot;hide&quot;),
+								y.preventDefault());
+						}),
+							f.on(
+								&quot;paste change keypress&quot;,
+								&quot;input#topic-thumb-url&quot;,
+								function () {
+									var y = $(this);
+									setTimeout(function () {
+										var O = y.val();
+										(O
+											? f.find(&quot;.topic-thumb-clear-btn&quot;).removeClass(&quot;hide&quot;)
+											: (n(f.find(&quot;input#topic-thumb-file&quot;)),
+												f.find(&quot;.topic-thumb-clear-btn&quot;).addClass(&quot;hide&quot;)),
+											f.find(&quot;img.topic-thumb-preview&quot;).attr(&quot;src&quot;, O));
+									}, 100);
+								},
+							));
+					}
+					function n(d) {
+						(d.wrap(&quot;&lt;form /&gt;&quot;).closest(&quot;form&quot;).get(0).reset(), d.unwrap());
+					}
+					function l(d) {
+						var f = $(&#039;.composer[data-uuid=&quot;&#039; + d + &#039;&quot;]&#039;);
+						p.handleDragDrop({
+							container: f,
+							callback: function (y) {
+								I({
+									files: y.files,
+									post_uuid: d,
+									route: &quot;/api/post/upload&quot;,
+									formData: y.formData,
+								});
+							},
+						});
+					}
+					function a(d) {
+						var f = $(&#039;.composer[data-uuid=&quot;&#039; + d + &#039;&quot;]&#039;);
+						p.handlePaste({
+							container: f,
+							callback: function (y) {
+								I({
+									files: y.files,
+									fileNames: y.fileNames,
+									post_uuid: d,
+									route: &quot;/api/post/upload&quot;,
+									formData: y.formData,
+								});
+							},
+						});
+					}
+					function u(d) {
+						return d.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, &quot;\\$&amp;&quot;);
+					}
+					function C(d, f, y) {
+						return d.slice(0, f) + y + d.slice(f);
+					}
+					function I(d) {
+						var f = [...d.files],
+							y = d.post_uuid,
+							O = $(&#039;.composer[data-uuid=&quot;&#039; + y + &#039;&quot;]&#039;),
+							U = O.find(&quot;textarea&quot;),
+							i = U.val(),
+							W = O.find(&quot;#fileForm&quot;),
+							G = !1;
+						W.attr(&quot;action&quot;, config.relative_path + d.route);
+						var h = E.getSelectedCid();
+						!h &amp;&amp; ajaxify.data.cid &amp;&amp; (h = ajaxify.data.cid);
+						var g = 0,
+							x = !1;
+						for (g = 0; g &lt; f.length; ++g)
+							if (
+								((x = f[g].type.match(/image./)),
+								(x &amp;&amp; !app.user.privileges[&quot;upload:post:image&quot;]) ||
+									(!x &amp;&amp; !app.user.privileges[&quot;upload:post:file&quot;]))
+							)
+								return b.error(&quot;[[error:no-privileges]]&quot;);
+						var V = [];
+						let ne = &quot;&quot;;
+						for (g = 0; g &lt; f.length; ++g) {
+							if (
+								(V.push(
+									g +
+										&quot;_&quot; +
+										Date.now() +
+										&quot;_&quot; +
+										(d.fileNames ? d.fileNames[g] : f[g].name),
+								),
+								(x = f[g].type.match(/image./)),
+								!app.user.isAdmin &amp;&amp;
+									f[g].size &gt; parseInt(config.maximumFileSize, 10) * 1024)
+							)
+								return (
+									W[0].reset(),
+									b.error(
+										&quot;[[error:file-too-big, &quot; + config.maximumFileSize + &quot;]]&quot;,
+									)
+								);
+							ne += (x ? &quot;!&quot; : &quot;&quot;) + &quot;[&quot; + V[g] + &quot;](&quot; + D + &quot;) &quot;;
+						}
+						const oe = U.getCursorPosition(),
+							se = i.length;
+						((i = C(i, oe, ne)),
+							W.length &amp;&amp; O.find(&#039;[data-action=&quot;post&quot;]&#039;).prop(&quot;disabled&quot;, !0),
+							U.val(i),
+							$(window).trigger(&quot;action:composer.uploadStart&quot;, {
+								post_uuid: y,
+								files: V.map(function (q, F) {
+									return {
+										filename: q.replace(/^\d+_\d{13}_/, &quot;&quot;),
+										isImage: /image./.test(f[F].type),
+									};
+								}),
+								text: D,
+							}),
+							W.off(&quot;submit&quot;).submit(function () {
+								function q(F, N, R) {
+									var _;
+									R &amp;&amp; (_ = F.replace(/^\d+_\d{13}_/, &quot;&quot;));
+									var te = U.val(),
+										Z = new RegExp(u(F) + &quot;]\\([^)]+\\)&quot;, &quot;g&quot;);
+									(U.val(te.replace(Z, (_ || F) + &quot;](&quot; + N + &quot;)&quot;)),
+										$(window).trigger(&quot;action:composer.uploadUpdate&quot;, {
+											post_uuid: y,
+											filename: F,
+											text: N,
+										}));
+								}
+								return (
+									(m.inProgress[y] = m.inProgress[y] || []),
+									m.inProgress[y].push(1),
+									d.formData &amp;&amp; d.formData.append(&quot;cid&quot;, h),
+									$(this).ajaxSubmit({
+										headers: { &quot;x-csrf-token&quot;: config.csrf_token },
+										resetForm: !0,
+										clearForm: !0,
+										formData: d.formData,
+										data: { cid: h },
+										error: function (F) {
+											((G = !0),
+												O.find(&#039;[data-action=&quot;post&quot;]&#039;).prop(&quot;disabled&quot;, !1));
+											const N = K(F, y);
+											for (var R = 0; R &lt; f.length; ++R) q(V[R], N, !0);
+											w.render(O);
+										},
+										uploadProgress: function (F, N, R, _) {
+											A.translate(
+												&quot;[[modules:composer.uploading, &quot; + _ + &quot;%]]&quot;,
+												function (te) {
+													if (!G)
+														for (var Z = 0; Z &lt; f.length; ++Z) q(V[Z], te);
+												},
+											);
+										},
+										success: function (F) {
+											const N = F.response.images;
+											if (((G = !0), N &amp;&amp; N.length))
+												for (var R = 0; R &lt; N.length; ++R)
+													((N[R].filename = V[R].replace(/^\d+_\d{13}_/, &quot;&quot;)),
+														(N[R].isImage = /image./.test(f[R].type)),
+														q(V[R], N[R].url, !0));
+											(w.render(O),
+												U.prop(&quot;selectionEnd&quot;, oe + U.val().length - se),
+												U.focus(),
+												O.find(&#039;[data-action=&quot;post&quot;]&#039;).prop(&quot;disabled&quot;, !1),
+												$(window).trigger(&quot;action:composer.upload&quot;, {
+													post_uuid: y,
+													files: N,
+												}));
+										},
+										complete: function () {
+											(W[0].reset(), m.inProgress[y].pop());
+										},
+									}),
+									!1
+								);
+							}),
+							W.submit());
+					}
+					function K(d, f) {
+						var y =
+							(d.responseJSON &amp;&amp;
+								(d.responseJSON.error ||
+									(d.responseJSON.status &amp;&amp; d.responseJSON.status.message))) ||
+							&quot;[[error:parse-error]]&quot;;
+						return (
+							d &amp;&amp;
+								d.status === 413 &amp;&amp;
+								(y = d.statusText || &quot;Request Entity Too Large&quot;),
+							b.error(y),
+							$(window).trigger(&quot;action:composer.uploadError&quot;, {
+								post_uuid: f,
+								message: y,
+							}),
+							y
+						);
+					}
+					return m;
+				}.apply(B, S)),
+				T !== void 0 &amp;&amp; (j.exports = T));
+		},
+		41644: (j, B, s) =&gt; {
+			var S, T;
+			((S = [s(65348), s(14063), s(49897)]),
+				(T = function (w, E, A) {
+					var b = {},
+						p;
+					b.init = function (r, n) {
+						var l = r.find(&quot;.category-list-container&quot;);
+						l.length &amp;&amp;
+							(r.on(&quot;action:composer.resize&quot;, function () {
+								m(r);
+							}),
+							b.updateTaskbar(r, n),
+							(p = w.init(l.find(&#039;[component=&quot;category-selector&quot;]&#039;), {
+								privilege: &quot;topics:create&quot;,
+								states: [&quot;watching&quot;, &quot;tracking&quot;, &quot;notwatching&quot;, &quot;ignoring&quot;],
+								onSelect: function (a) {
+									n.hasOwnProperty(&quot;cid&quot;) &amp;&amp; c(r, n, a);
+								},
+							})),
+							p &amp;&amp;
+								(n.cid &amp;&amp; n.category
+									? (p.selectedCategory = { cid: n.cid, name: n.category.name })
+									: ajaxify.data.template.compose &amp;&amp;
+										ajaxify.data.selectedCategory &amp;&amp;
+										(p.selectedCategory = {
+											cid: ajaxify.data.cid,
+											name: ajaxify.data.selectedCategory,
+										}),
+								r
+									.find(&quot;.category-name&quot;)
+									.translateHtml(
+										p.selectedCategory
+											? p.selectedCategory.name
+											: &quot;[[modules:composer.select-category]]&quot;,
+									)
+									.on(&quot;click&quot;, function () {
+										w.modal({
+											privilege: &quot;topics:create&quot;,
+											states: [
+												&quot;watching&quot;,
+												&quot;tracking&quot;,
+												&quot;notwatching&quot;,
+												&quot;ignoring&quot;,
+											],
+											openOnLoad: !0,
+											showLinks: !1,
+											onSubmit: function (a) {
+												(r.find(&quot;.category-name&quot;).text(a.name),
+													p.selectCategory(a.cid),
+													n.hasOwnProperty(&quot;cid&quot;) &amp;&amp; c(r, n, a));
+											},
+										});
+									}),
+								m(r)));
+					};
+					function m(r) {
+						r.find(
+							&#039;.category-list-container [component=&quot;category-selector&quot;]&#039;,
+						).toggleClass(&quot;dropup&quot;, r.outerHeight() &lt; $(window).height() / 2);
+					}
+					((b.getSelectedCid = function () {
+						var r;
+						return (p &amp;&amp; (r = p.getSelectedCategory()), r ? r.cid : 0);
+					}),
+						(b.updateTaskbar = function (r, n) {
+							parseInt(n.cid, 10) &amp;&amp;
+								A.get(`/categories/${n.cid}`, {}).then(function (l) {
+									D(r, l);
+								});
+						}));
+					function D(r, n) {
+						if (n) {
+							var l = r.attr(&quot;data-uuid&quot;);
+							E.update(&quot;composer&quot;, l, {
+								image: n.backgroundImage,
+								color: n.color,
+								&quot;background-color&quot;: n.bgColor,
+								icon: n.icon &amp;&amp; n.icon.slice(3),
+							});
+						}
+					}
+					async function c(r, n, l) {
+						n.cid = l.cid;
+						const a = await window
+							.fetch(
+								`${config.relative_path}/api/category/${encodeURIComponent(l.cid)}`,
+							)
+							.then((u) =&gt; u.json());
+						((n.category = a),
+							D(r, a),
+							s
+								.e(56382)
+								.then(function () {
+									var u = [s(72573), s(52543), s(92762)];
+									(function (C, I, K) {
+										(C.onChangeCategory(a),
+											I.onChangeCategory(r, n, l.cid, a),
+											K.onChangeCategory(r, n),
+											$(window).trigger(&quot;action:composer.changeCategory&quot;, {
+												postContainer: r,
+												postData: n,
+												selectedCategory: l,
+												categoryData: a,
+											}));
+									}).apply(null, u);
+								})
+								.catch(s.oe));
+					}
+					return b;
+				}.apply(B, S)),
+				T !== void 0 &amp;&amp; (j.exports = T));
+		},
+		49641: (j, B, s) =&gt; {
+			var S, T;
+			((S = [
+				s(14063),
+				s(17459),
+				s(31494),
+				s(449),
+				s(74566),
+				s(52543),
+				s(13342),
+				s(89596),
+				s(99594),
+				s(88518),
+				s(72573),
+				s(92762),
+				s(41088),
+				s(36159),
+				s(49897),
+				s(33530),
+				s(29930),
+				s(91749),
+				s(10870),
+				s(69749),
+				s(51916),
+			]),
+				(T = function (
+					w,
+					E,
+					A,
+					b,
+					p,
+					m,
+					D,
+					c,
+					r,
+					n,
+					l,
+					a,
+					u,
+					C,
+					I,
+					K,
+					d,
+					f,
+					y,
+					O,
+					U,
+				) {
+					var i = {
+						active: void 0,
+						posts: {},
+						bsEnvironment: void 0,
+						formatting: void 0,
+					};
+					($(window).off(&quot;resize&quot;, G).on(&quot;resize&quot;, G),
+						G(),
+						$(window).on(&quot;action:composer.topics.post&quot;, function (e, t) {
+							(localStorage.removeItem(&quot;category:&quot; + t.data.cid + &quot;:bookmark&quot;),
+								localStorage.removeItem(
+									&quot;category:&quot; + t.data.cid + &quot;:bookmark:clicked&quot;,
+								));
+						}),
+						$(window).on(&quot;popstate&quot;, function () {
+							var e = utils.findBootstrapEnvironment();
+							if (i.active &amp;&amp; (e === &quot;xs&quot; || e === &quot;sm&quot;)) {
+								if (!i.posts[i.active].modified) {
+									(i.discard(i.active),
+										i.discardConfirm &amp;&amp;
+											i.discardConfirm.length &amp;&amp;
+											(i.discardConfirm.modal(&quot;hide&quot;),
+											delete i.discardConfirm));
+									return;
+								}
+								E.translate(&quot;[[modules:composer.discard]]&quot;, function (t) {
+									((i.discardConfirm = K.confirm(t, function (o) {
+										o ? i.discard(i.active) : (i.posts[i.active].modified = !0);
+									})),
+										(i.posts[i.active].modified = !1));
+								});
+							}
+						}));
+					function W() {
+						var e = i.bsEnvironment;
+						(ajaxify.data.template.compose === !0 ||
+							e === &quot;xs&quot; ||
+							e === &quot;sm&quot;) &amp;&amp;
+							history.back();
+					}
+					function G() {
+						var e = utils.findBootstrapEnvironment(),
+							t = e === &quot;xs&quot; || e === &quot;sm&quot;;
+						(c.toggle &amp;&amp;
+							(c.env !== e &amp;&amp; t &amp;&amp; ((c.env = e), c.toggle(!1)), (c.env = e)),
+							i.active !== void 0 &amp;&amp;
+								(r.reposition($(&#039;.composer[data-uuid=&quot;&#039; + i.active + &#039;&quot;]&#039;)),
+								!t &amp;&amp;
+								window.location.pathname.startsWith(
+									config.relative_path + &quot;/compose&quot;,
+								)
+									? history.back()
+									: t &amp;&amp;
+										!window.location.pathname.startsWith(
+											config.relative_path + &quot;/compose&quot;,
+										) &amp;&amp;
+										oe()),
+							(i.bsEnvironment = e));
+					}
+					function h(e) {
+						var t, o;
+						(e.hasOwnProperty(&quot;cid&quot;)
+							? (t = &quot;cid&quot;)
+							: e.hasOwnProperty(&quot;tid&quot;)
+								? (t = &quot;tid&quot;)
+								: e.hasOwnProperty(&quot;pid&quot;) &amp;&amp; (t = &quot;pid&quot;),
+							(o = e[t]));
+						for (const v of Object.keys(i.posts))
+							if (i.posts[v].hasOwnProperty(t) &amp;&amp; o === i.posts[v][t]) return v;
+						return !1;
+					}
+					function g(e) {
+						if (e) {
+							var t = utils.generateUUID(),
+								o = h(e);
+							if (o) return (w.updateActive(o), i.load(o));
+							var v = &quot;[[topic:composer.new-topic]]&quot;;
+							(e.action === &quot;posts.reply&quot;
+								? (v = &quot;[[topic:composer.replying-to]]&quot;)
+								: e.action === &quot;posts.edit&quot; &amp;&amp;
+									(v = &quot;[[topic:composer.editing-in]]&quot;),
+								E.translate(v, function (L) {
+									w.push(&quot;composer&quot;, t, {
+										title: L.replace(&quot;%1&quot;, &#039;&quot;&#039; + e.title + &#039;&quot;&#039;),
+									});
+								}),
+								(i.posts[t] = e),
+								i.load(t));
+						}
+					}
+					async function x(e, t) {
+						$(&#039;.composer[data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;)
+							.find(&quot;.composer-submit&quot;)
+							.removeAttr(&quot;disabled&quot;);
+						const { showAlert: o } = await f.fire(&quot;filter:composer.error&quot;, {
+							post_uuid: e,
+							message: t,
+							showAlert: !0,
+						});
+						o &amp;&amp;
+							d.alert({
+								type: &quot;danger&quot;,
+								timeout: 1e4,
+								title: &quot;&quot;,
+								message: t,
+								alert_id: &quot;post_error&quot;,
+							});
+					}
+					((i.findByTid = function (e) {
+						for (const t of Object.keys(i.posts))
+							if (
+								i.posts[t].hasOwnProperty(&quot;tid&quot;) &amp;&amp;
+								String(i.posts[t].tid) === String(e)
+							)
+								return t;
+						return null;
+					}),
+						(i.addButton = function (e, t, o) {
+							b.addButton(e, t, o);
+						}),
+						(i.newTopic = async (e) =&gt; {
+							let t = {
+								save_id: e.save_id,
+								action: &quot;topics.post&quot;,
+								cid: e.cid,
+								handle: e.handle,
+								title: e.title || &quot;&quot;,
+								body: e.body || &quot;&quot;,
+								tags: e.tags || [],
+								modified: !!(
+									(e.title &amp;&amp; e.title.length) ||
+									(e.body &amp;&amp; e.body.length)
+								),
+								isMain: !0,
+							};
+							(({ pushData: t } = await f.fire(&quot;filter:composer.topic.push&quot;, {
+								data: e,
+								pushData: t,
+							})),
+								g(t));
+						}),
+						(i.addQuote = function (e) {
+							e.uuid = e.uuid || i.active;
+							var t = (e.title || &quot;&quot;)
+								.replace(/([\\`*_{}[\]()#+\-.!])/g, &quot;\\$1&quot;)
+								.replace(/\[/g, &quot;&amp;#91;&quot;)
+								.replace(/\]/g, &quot;&amp;#93;&quot;)
+								.replace(/%/g, &quot;&amp;#37;&quot;)
+								.replace(/,/g, &quot;&amp;#44;&quot;);
+							e.body &amp;&amp;
+								(e.body =
+									&quot;&gt; &quot; +
+									e.body.replace(
+										/\n/g,
+										`
+&gt; `,
+									) +
+									`
+
+`);
+							var o =
+								&quot;[&quot; +
+								t +
+								&quot;](&quot; +
+								config.relative_path +
+								&quot;/post/&quot; +
+								encodeURIComponent(e.selectedPid || e.toPid) +
+								&quot;)&quot;;
+							if (e.uuid === void 0) {
+								e.title &amp;&amp; (e.selectedPid || e.toPid)
+									? i.newReply({
+											tid: e.tid,
+											toPid: e.toPid,
+											title: e.title,
+											body:
+												&quot;[[modules:composer.user-said-in, &quot; +
+												e.username +
+												&quot;, &quot; +
+												o +
+												`]]
+` +
+												e.body,
+										})
+									: i.newReply({
+											tid: e.tid,
+											toPid: e.toPid,
+											title: e.title,
+											body:
+												&quot;[[modules:composer.user-said, &quot; +
+												e.username +
+												`]]
+` +
+												e.body,
+										});
+								return;
+							} else e.uuid !== i.active &amp;&amp; i.load(e.uuid);
+							var v = $(&#039;.composer[data-uuid=&quot;&#039; + e.uuid + &#039;&quot;]&#039;),
+								L = v.find(&quot;textarea&quot;),
+								P = L.val();
+							e.title &amp;&amp; (e.selectedPid || e.toPid)
+								? E.translate(
+										&quot;[[modules:composer.user-said-in, &quot; +
+											e.username +
+											&quot;, &quot; +
+											o +
+											`]]
+`,
+										config.defaultLang,
+										M,
+									)
+								: E.translate(
+										&quot;[[modules:composer.user-said, &quot; +
+											e.username +
+											`]]
+`,
+										config.defaultLang,
+										M,
+									);
+							function M(X) {
+								((i.posts[e.uuid].body =
+									(P.length
+										? P +
+											`
+
+`
+										: &quot;&quot;) +
+									X +
+									e.body),
+									L.val(i.posts[e.uuid].body),
+									R(v),
+									c.render(v));
+							}
+						}),
+						(i.newReply = function (e) {
+							E.translate(e.body, config.defaultLang, function (t) {
+								g({
+									save_id: e.save_id,
+									action: &quot;posts.reply&quot;,
+									tid: e.tid,
+									toPid: e.toPid,
+									title: e.title,
+									body: t,
+									modified: !!(t &amp;&amp; t.length),
+									isMain: !1,
+								});
+							});
+						}),
+						(i.editPost = function (e) {
+							socket.emit(&quot;plugins.composer.push&quot;, e.pid, function (t, o) {
+								if (t) return d.error(t);
+								((o.save_id = e.save_id),
+									(o.action = &quot;posts.edit&quot;),
+									(o.pid = e.pid),
+									(o.modified = !1),
+									e.body &amp;&amp; ((o.body = e.body), (o.modified = !0)),
+									e.title &amp;&amp; ((o.title = e.title), (o.modified = !0)),
+									g(o));
+							});
+						}),
+						(i.load = function (e) {
+							var t = $(&#039;.composer[data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;);
+							t.length
+								? (N(e), r.reposition(t), R(t), te())
+								: i.formatting
+									? ne(e)
+									: socket.emit(
+											&quot;plugins.composer.getFormattingOptions&quot;,
+											function (o, v) {
+												if (o) return d.error(o);
+												((i.formatting = v), ne(e));
+											},
+										);
+						}),
+						(i.enhance = function (e, t, o) {
+							(!t &amp;&amp;
+								!o &amp;&amp;
+								((t = utils.generateUUID()),
+								(i.posts[t] = ajaxify.data),
+								(o = ajaxify.data),
+								e.attr(&quot;data-uuid&quot;, t)),
+								D.init(e, i.posts[t]),
+								l.init(e, i.posts),
+								b.addHandler(e),
+								b.addComposerButtons(),
+								c.handleToggler(e),
+								a.showAlert(e, o),
+								A.initialize(t),
+								m.init(e, i.posts[t]),
+								n.init(e, t),
+								e.on(&quot;change&quot;, &quot;input, textarea&quot;, function () {
+									i.posts[t].modified = !0;
+								}),
+								e.on(&quot;click&quot;, &quot;.composer-submit&quot;, function (P) {
+									(P.preventDefault(),
+										P.stopPropagation(),
+										$(this).attr(&quot;disabled&quot;, !0),
+										_(t));
+								}),
+								s
+									.e(6411)
+									.then(function () {
+										var P = [s(6411)];
+										(function (M) {
+											M(e.get(0)).bind(&quot;mod+enter&quot;, function () {
+												(e.find(&quot;.composer-submit&quot;).attr(&quot;disabled&quot;, !0), _(t));
+											});
+										}).apply(null, P);
+									})
+									.catch(s.oe),
+								e.find(&quot;.composer-discard&quot;).on(&quot;click&quot;, function (P) {
+									if ((P.preventDefault(), !i.posts[t].modified))
+										return (i.discard(t), W());
+									b.exitFullscreen();
+									var M = $(this).prop(&quot;disabled&quot;, !0);
+									E.translate(&quot;[[modules:composer.discard]]&quot;, function (X) {
+										K.confirm(X, function (ee) {
+											(ee &amp;&amp; (i.discard(t), W()), M.prop(&quot;disabled&quot;, !1));
+										});
+									});
+								}),
+								e
+									.find(&quot;.composer-minimize, .minimize .trigger&quot;)
+									.on(&quot;click&quot;, function (P) {
+										(P.preventDefault(), P.stopPropagation(), i.minimize(t));
+									}));
+							const v = e.find(&quot;textarea&quot;);
+							(v.on(
+								&quot;input propertychange&quot;,
+								utils.debounce(function () {
+									c.render(e);
+								}, 250),
+							),
+								v.on(&quot;scroll&quot;, function () {
+									c.matchScroll(e);
+								}),
+								p.init(e, o));
+							const L = p.get(o.save_id);
+							(c.render(e, function () {
+								c.matchScroll(e);
+							}),
+								o.action === &quot;posts.edit&quot; &amp;&amp; !utils.isNumber(o.pid) &amp;&amp; se(e),
+								q(e),
+								F(e),
+								R(e),
+								o.action === &quot;posts.edit&quot; &amp;&amp; i.updateThumbCount(t, e),
+								U.isEnabled ||
+									$(&#039;[data-format=&quot;zen&quot;]&#039;).parent().addClass(&quot;hidden&quot;),
+								f.fire(&quot;action:composer.enhanced&quot;, {
+									postContainer: e,
+									postData: o,
+									draft: L,
+								}));
+						}));
+					async function V(e) {
+						const { template: t } = ajaxify.data,
+							{ cid: o } = e;
+						if (
+							(t.category || t.world) &amp;&amp;
+							String(o) === String(ajaxify.data.cid)
+						)
+							return ajaxify.data;
+						if (o) {
+							const v =
+								o !== -1
+									? `/api/category/${encodeURIComponent(e.cid)}`
+									: &quot;/api/world&quot;;
+							return await I.get(v, {});
+						}
+						return null;
+					}
+					async function ne(e) {
+						var t = i.posts[e],
+							o = t ? t.hasOwnProperty(&quot;cid&quot;) : !1,
+							v = t ? !!t.isMain : !1,
+							L = t ? !!t.pid : !1,
+							P = t ? parseInt(t.uid, 10) === 0 : !1;
+						const M = t.timestamp &gt; Date.now();
+						var X = t.title.replace(/%/g, &quot;&amp;#37;&quot;).replace(/,/g, &quot;&amp;#44;&quot;);
+						t.category = await V(t);
+						const ee = t.category
+							? t.category.privileges
+							: ajaxify.data.privileges;
+						var z = {
+							topicTitle: X,
+							titleLength: X.length,
+							body: E.escape(utils.escapeHTML(t.body)),
+							mobile: i.bsEnvironment === &quot;xs&quot; || i.bsEnvironment === &quot;sm&quot;,
+							resizable: !0,
+							thumb: t.thumb,
+							isTopicOrMain: o || v,
+							maximumTitleLength: config.maximumTitleLength,
+							maximumPostLength: config.maximumPostLength,
+							minimumTagLength: config.minimumTagLength,
+							maximumTagLength: config.maximumTagLength,
+							&quot;composer:showHelpTab&quot;: config[&quot;composer:showHelpTab&quot;],
+							isTopic: o,
+							isEditing: L,
+							canSchedule: !!(
+								v &amp;&amp;
+								ee &amp;&amp;
+								((ee[&quot;topics:schedule&quot;] &amp;&amp; !L) || (M &amp;&amp; ee.view_scheduled))
+							),
+							canUploadImage:
+								app.user.privileges[&quot;upload:post:image&quot;] &amp;&amp;
+								(config.maximumFileSize &gt; 0 || app.user.isAdmin),
+							canUploadFile:
+								app.user.privileges[&quot;upload:post:file&quot;] &amp;&amp;
+								(config.maximumFileSize &gt; 0 || app.user.isAdmin),
+							showHandleInput:
+								config.allowGuestHandles &amp;&amp;
+								(app.user.uid === 0 || (L &amp;&amp; P &amp;&amp; app.user.isAdmin)),
+							handle: t ? t.handle || &quot;&quot; : void 0,
+							formatting: i.formatting,
+							tagWhitelist: t.category
+								? t.category.tagWhitelist
+								: ajaxify.data.tagWhitelist,
+							privileges: app.user.privileges,
+							selectedCategory: t.category,
+							submitOptions: [],
+						};
+						(z.mobile &amp;&amp; (oe(), app.toggleNavbar(!1)),
+							(t.mobile = i.bsEnvironment === &quot;xs&quot; || i.bsEnvironment === &quot;sm&quot;),
+							({ postData: t, createData: z } = await f.fire(
+								&quot;filter:composer.create&quot;,
+								{ postData: t, createData: z },
+							)),
+							app.parseAndTranslate(&quot;composer&quot;, z, function (k) {
+								if (!$(&#039;.composer.composer[data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;).length) {
+									((k = $(k)),
+										k.find(&quot;.title&quot;).each(function () {
+											$(this).text(E.unescape($(this).text()));
+										}),
+										k.attr(&quot;data-uuid&quot;, e),
+										$(document.body).append(k));
+									var H = $(k[0]);
+									if (
+										(r.reposition(H),
+										i.enhance(H, e, t),
+										N(e),
+										H.on(&quot;click&quot;, function () {
+											w.isActive(e) || w.updateActive(e);
+										}),
+										r.handleResize(H),
+										i.bsEnvironment === &quot;xs&quot; || i.bsEnvironment === &quot;sm&quot;)
+									) {
+										var Y = H.find(&quot;.composer-submit&quot;),
+											Q = H.find(&quot;.mobile-navbar .composer-submit&quot;),
+											ae = H.find(&quot;.write&quot;),
+											ie = ae.attr(&quot;tabindex&quot;);
+										(Y.removeAttr(&quot;tabindex&quot;),
+											Q.attr(&quot;tabindex&quot;, parseInt(ie, 10) + 1));
+									}
+									($(window).trigger(&quot;action:composer.loaded&quot;, {
+										postContainer: H,
+										post_uuid: e,
+										composerData: i.posts[e],
+										formatting: i.formatting,
+									}),
+										u.apply(H.find(&quot;.write&quot;)),
+										R(H),
+										te());
+								}
+							}));
+					}
+					function oe() {
+						var e = &quot;compose?p=&quot; + window.location.pathname,
+							t = window.location.pathname.slice(1) + window.location.search;
+						(t.startsWith(config.relative_path.slice(1)) &amp;&amp;
+							(t = t.slice(config.relative_path.length)),
+							window.history.replaceState(
+								{ url: null, returnPath: t },
+								t,
+								config.relative_path + &quot;/&quot; + t,
+							),
+							window.history.pushState(
+								{ url: e },
+								e,
+								`${config.relative_path}/${t}`,
+							));
+					}
+					function se(e) {
+						d.alert({
+							title: &quot;[[modules:composer.remote-pid-editing]]&quot;,
+							message: &quot;[[modules:composer.remote-pid-content-immutable]]&quot;,
+							timeout: 15e3,
+						});
+						var t = e.find(&quot;.write-container&quot;);
+						t.addClass(&quot;hidden&quot;);
+					}
+					function q(e) {
+						const t = e.find(&#039;[data-action=&quot;help&quot;]&#039;);
+						t.on(&quot;click&quot;, async function () {
+							const o = await socket.emit(&quot;plugins.composer.renderHelp&quot;);
+							o &amp;&amp;
+								o.length &gt; 0 &amp;&amp;
+								K.dialog({
+									size: &quot;large&quot;,
+									message: o,
+									onEscape: !0,
+									backdrop: !0,
+									onHidden: function () {
+										t.focus();
+									},
+								});
+						});
+					}
+					function F(e) {
+						var t = e.attr(&quot;data-uuid&quot;),
+							o = i.posts[t] &amp;&amp; i.posts[t].action === &quot;posts.edit&quot;,
+							v = utils.findBootstrapEnvironment(),
+							L = v === &quot;xs&quot; || v === &quot;sm&quot;;
+						o ||
+							L ||
+							O.enableQuickSearch({
+								searchElements: {
+									inputEl: e.find(&quot;input.title&quot;),
+									resultEl: e.find(&quot;.quick-search-container&quot;),
+								},
+								searchOptions: { composer: 1 },
+								hideOnNoMatches: !0,
+								hideDuringSearch: !0,
+							});
+					}
+					function N(e) {
+						(i.active &amp;&amp; i.active !== e &amp;&amp; i.minimize(i.active),
+							(i.active = e));
+						const t = $(&#039;.composer[data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;);
+						(t.css(&quot;visibility&quot;, &quot;visible&quot;),
+							$(window).trigger(&quot;action:composer.activate&quot;, {
+								post_uuid: e,
+								postContainer: t,
+							}));
+					}
+					function R(e) {
+						setTimeout(function () {
+							var t = e.find(&quot;input.title&quot;);
+							t.length
+								? t.focus()
+								: e.find(&quot;textarea&quot;).focus().putCursorAtEnd();
+						}, 20);
+					}
+					async function _(e) {
+						var t = i.posts[e],
+							o = $(&#039;.composer[data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;),
+							v = o.find(&quot;.handle&quot;),
+							L = o.find(&quot;.title&quot;),
+							P = o.find(&quot;textarea&quot;),
+							M = o.find(&quot;input#topic-thumb-url&quot;),
+							X = t.hasOwnProperty(&quot;template&quot;) &amp;&amp; t.template.compose === !0;
+						const ee = o.find(&quot;.composer-submit&quot;);
+						(L.val(L.val().trim()),
+							P.val(utils.rtrim(P.val())),
+							M.length &amp;&amp; M.val(M.val().trim()));
+						var z = t.action,
+							k =
+								(t.hasOwnProperty(&quot;cid&quot;) || parseInt(t.pid, 10)) &amp;&amp;
+								o.find(&quot;input.title&quot;).length,
+							H = !k || (k &amp;&amp; t.cid),
+							Y = {
+								post_uuid: e,
+								postData: t,
+								postContainer: o,
+								titleEl: L,
+								titleLen: L.val().length,
+								bodyEl: P,
+								bodyLen: P.val().length,
+							};
+						if (
+							(await f.fire(&quot;filter:composer.check&quot;, Y),
+							$(window).trigger(&quot;action:composer.check&quot;, Y),
+							Y.error)
+						)
+							return x(e, Y.error);
+						if (A.inProgress[e] &amp;&amp; A.inProgress[e].length)
+							return x(e, &quot;[[error:still-uploading]]&quot;);
+						if (k &amp;&amp; Y.titleLen &lt; parseInt(config.minimumTitleLength, 10))
+							return x(
+								e,
+								&quot;[[error:title-too-short, &quot; + config.minimumTitleLength + &quot;]]&quot;,
+							);
+						if (k &amp;&amp; Y.titleLen &gt; parseInt(config.maximumTitleLength, 10))
+							return x(
+								e,
+								&quot;[[error:title-too-long, &quot; + config.maximumTitleLength + &quot;]]&quot;,
+							);
+						if (z === &quot;topics.post&quot; &amp;&amp; !H)
+							return x(e, &quot;[[error:category-not-selected]]&quot;);
+						if (Y.bodyLen &lt; parseInt(config.minimumPostLength, 10))
+							return x(
+								e,
+								&quot;[[error:content-too-short, &quot; + config.minimumPostLength + &quot;]]&quot;,
+							);
+						if (Y.bodyLen &gt; parseInt(config.maximumPostLength, 10))
+							return x(
+								e,
+								&quot;[[error:content-too-long, &quot; + config.maximumPostLength + &quot;]]&quot;,
+							);
+						if (k &amp;&amp; !m.isEnoughTags(e))
+							return x(e, &quot;[[error:not-enough-tags, &quot; + m.minTagCount() + &quot;]]&quot;);
+						if (l.isActive() &amp;&amp; l.getTimestamp() &lt;= Date.now())
+							return x(e, &quot;[[error:scheduling-to-past]]&quot;);
+						let Q = { uuid: e },
+							ae = &quot;post&quot;,
+							ie = &quot;&quot;;
+						z === &quot;topics.post&quot;
+							? ((ie = &quot;/topics&quot;),
+								(Q = {
+									...Q,
+									handle: v ? v.val() : void 0,
+									title: L.val(),
+									content: P.val(),
+									thumb: M.val() || &quot;&quot;,
+									cid: D.getSelectedCid(),
+									tags: m.getTags(e),
+									timestamp: l.getTimestamp(),
+								}))
+							: z === &quot;posts.reply&quot;
+								? ((ie = `/topics/${t.tid}`),
+									(Q = {
+										...Q,
+										tid: t.tid,
+										handle: v ? v.val() : void 0,
+										content: P.val(),
+										toPid: t.toPid,
+									}))
+								: z === &quot;posts.edit&quot; &amp;&amp;
+									((ae = &quot;put&quot;),
+									(ie = `/posts/${encodeURIComponent(t.pid)}`),
+									(Q = {
+										...Q,
+										pid: t.pid,
+										handle: v ? v.val() : void 0,
+										content: P.val(),
+										title: L.val(),
+										thumb: M.val() || &quot;&quot;,
+										tags: m.getTags(e),
+										timestamp: l.getTimestamp(),
+									}));
+						var re = {
+							composerEl: o,
+							action: z,
+							composerData: Q,
+							postData: t,
+							redirect: !0,
+						};
+						(await f.fire(&quot;filter:composer.submit&quot;, re),
+							f.fire(&quot;action:composer.submit&quot;, Object.freeze(re)));
+						var le = $(&#039;#taskbar .composer[data-uuid=&quot;&#039; + e + &#039;&quot;] i&#039;),
+							ce = o.find(&quot;.write&quot;);
+						(le.removeClass(&quot;fa-plus&quot;).addClass(&quot;fa-circle-o-notch fa-spin&quot;),
+							i.minimize(e),
+							ce.prop(&quot;readonly&quot;, !0),
+							I[ae](ie, Q)
+								.then((J) =&gt; {
+									(ee.removeAttr(&quot;disabled&quot;),
+										(t.submitted = !0),
+										i.discard(e),
+										p.removeDraft(t.save_id),
+										J.queued
+											? d.alert({
+													type: &quot;success&quot;,
+													title: &quot;[[global:alert.success]]&quot;,
+													message: J.message,
+													timeout: 1e4,
+													clickfn: function () {
+														ajaxify.go(`/post-queue/${J.id}`);
+													},
+												})
+											: z === &quot;topics.post&quot;
+												? re.redirect &amp;&amp;
+													ajaxify.go(
+														&quot;topic/&quot; + J.slug,
+														void 0,
+														X ||
+															i.bsEnvironment === &quot;xs&quot; ||
+															i.bsEnvironment === &quot;sm&quot;,
+													)
+												: z === &quot;posts.reply&quot;
+													? X ||
+														i.bsEnvironment === &quot;xs&quot; ||
+														i.bsEnvironment === &quot;sm&quot;
+														? window.history.back()
+														: re.redirect &amp;&amp;
+															(ajaxify.data.template.name !== &quot;topic&quot; ||
+																(ajaxify.data.template.topic &amp;&amp;
+																	parseInt(t.tid, 10) !==
+																		parseInt(ajaxify.data.tid, 10))) &amp;&amp;
+															ajaxify.go(&quot;post/&quot; + J.pid)
+													: W(),
+										f.fire(&quot;action:composer.&quot; + z, {
+											composerData: Q,
+											data: J,
+										}));
+								})
+								.catch((J) =&gt; {
+									if (
+										(i.load(e),
+										ce.prop(&quot;readonly&quot;, !1),
+										J.message === &quot;[[error:email-not-confirmed]]&quot;)
+									)
+										return y.showEmailConfirmWarning(J.message);
+									x(e, J.message);
+								}));
+					}
+					function te() {
+						$(&quot;html&quot;).addClass(&quot;composing&quot;);
+					}
+					function Z() {
+						($(&quot;#content&quot;).css({ paddingBottom: 0 }),
+							$(&quot;html&quot;).removeClass(&quot;composing&quot;),
+							app.toggleNavbar(!0),
+							b.exitFullscreen());
+					}
+					return (
+						(i.discard = function (e) {
+							if (i.posts[e]) {
+								var t = i.posts[e],
+									o = $(&#039;.composer[data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;);
+								(o.remove(),
+									p.removeDraft(t.save_id),
+									C.deleteAll(e),
+									w.discard(&quot;composer&quot;, e),
+									$(&#039;[data-action=&quot;post&quot;]&#039;).removeAttr(&quot;disabled&quot;),
+									f.fire(&quot;action:composer.discard&quot;, {
+										post_uuid: e,
+										postData: t,
+									}),
+									delete i.posts[e],
+									(i.active = void 0));
+							}
+							(l.reset(), Z());
+						}),
+						(i.close = i.discard),
+						(i.minimize = function (e) {
+							var t = $(&#039;.composer[data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;);
+							(t.css(&quot;visibility&quot;, &quot;hidden&quot;),
+								(i.active = void 0),
+								w.minimize(&quot;composer&quot;, e),
+								$(window).trigger(&quot;action:composer.minimize&quot;, { post_uuid: e }),
+								Z());
+						}),
+						(i.minimizeActive = function () {
+							i.active &amp;&amp; i.miminize(i.active);
+						}),
+						(i.updateThumbCount = function (e, t) {
+							const o = i.posts[e];
+							if (
+								o.action === &quot;topics.post&quot; ||
+								(o.action === &quot;posts.edit&quot; &amp;&amp; o.isMain)
+							) {
+								const v = [C.get(e)];
+								(o.pid &amp;&amp; v.push(C.getByPid(o.pid)),
+									Promise.all(v).then((L) =&gt; {
+										const P = L.flat().length;
+										t.find(&#039;[data-format=&quot;thumbs&quot;]&#039;)
+											.find(&quot;.badge&quot;)
+											.text(P)
+											.toggleClass(&quot;hidden&quot;, !P);
+									}));
+							}
+						}),
+						i
+					);
+				}.apply(B, S)),
+				T !== void 0 &amp;&amp; (j.exports = T));
+		},
+		54516: (j, B, s) =&gt; {
+			var S, T;
+			((S = [s(89596), s(34405)]),
+				(T = function (w, E) {
+					var A = { _active: {} };
+					return (
+						$(window).on(&quot;action:composer.discard&quot;, function (b, p) {
+							A._active.hasOwnProperty(p.post_uuid) &amp;&amp;
+								(A._active[p.post_uuid].destroy(),
+								delete A._active[p.post_uuid]);
+						}),
+						(A.init = function (b, p) {
+							var m = b.find(&quot;.write&quot;),
+								D = &quot;composer-autocomplete-dropdown-&quot; + p,
+								c;
+							if (m.length) {
+								var r = {
+									element: m,
+									strategies: [],
+									options: {
+										style: { &quot;z-index&quot;: 2e4 },
+										className: D + &quot; dropdown-menu textcomplete-dropdown&quot;,
+									},
+								};
+								(m.on(&quot;keyup&quot;, function () {
+									(clearTimeout(c),
+										(c = setTimeout(function () {
+											var n = document.querySelector(&quot;.&quot; + D);
+											if (n) {
+												var l = n.getBoundingClientRect(),
+													a = parseFloat(n.style.marginTop, 10) || 0,
+													u = window.innerHeight + a - 10 - l.bottom;
+												n.style.marginTop = Math.min(u, 0) + &quot;px&quot;;
+											}
+										}, 0)));
+								}),
+									$(window).trigger(&quot;composer:autocomplete:init&quot;, r),
+									(A._active[p] = E.setup(r)),
+									r.element.on(&quot;textComplete:select&quot;, function () {
+										w.render(b);
+									}));
+							}
+						}),
+						A
+					);
+				}.apply(B, S)),
+				T !== void 0 &amp;&amp; (j.exports = T));
+		},
+		59367: (j, B, s) =&gt; {
+			var S, T;
+			((S = [s(81335), s(33530), s(29930), s(17459)]),
+				(T = function (w, E, A, b) {
+					const p = {},
+						m = { timestamp: 0, open: !1, edit: !1, posts: {} };
+					let D = [],
+						c,
+						r,
+						n,
+						l;
+					const a = { el: null, defaultText: &quot;&quot;, activeText: &quot;&quot; },
+						u = { el: null, icon: null, defaultText: &quot;&quot;, activeText: &quot;&quot; };
+					let C, I;
+					($(window).on(&quot;action:composer.activate&quot;, y),
+						(p.init = function (h, g) {
+							((m.timestamp = 0),
+								(m.posts = g),
+								b
+									.translateKeys([
+										&quot;[[topic:composer.post-later]]&quot;,
+										&quot;[[modules:composer.change-schedule-date]]&quot;,
+									])
+									.then((x) =&gt; {
+										((a.defaultText = x[0]), (a.activeText = x[1]));
+									}),
+								(D = h[0].querySelectorAll(&quot;.display-scheduler&quot;)),
+								(c = h[0].querySelectorAll(&quot;.display-scheduler i&quot;)),
+								(a.el = h[0].querySelector(&quot;.dropdown-item.display-scheduler&quot;)),
+								(r = h[0].querySelector(&quot;.dropdown-item.cancel-scheduling&quot;)),
+								(n = h.find(&#039;[component=&quot;composer/submit/container&quot;]&#039;)),
+								(l = h.find(&#039;[component=&quot;composer/submit/options/container&quot;]&#039;)),
+								(u.el = h[0].querySelector(&quot;.composer-submit:not(.btn-sm)&quot;)),
+								(u.icon = u.el.querySelector(&quot;i&quot;)),
+								(u.defaultText = u.el.lastChild.textContent),
+								(u.activeText = u.el.getAttribute(&quot;data-text-variant&quot;)),
+								r.addEventListener(&quot;click&quot;, i),
+								D.forEach((x) =&gt; x.addEventListener(&quot;click&quot;, K)));
+						}),
+						(p.getTimestamp = function () {
+							return !p.isActive() || isNaN(m.timestamp) ? 0 : m.timestamp;
+						}),
+						(p.isActive = function () {
+							return m.timestamp &gt; 0;
+						}),
+						(p.isOpen = function () {
+							return m.open;
+						}),
+						(p.reset = function () {
+							m.timestamp = 0;
+						}),
+						(p.onChangeCategory = function (h) {
+							(G(h.privileges[&quot;topics:schedule&quot;]), W(!1));
+							const g =
+								h.privileges[&quot;topics:schedule&quot;] ||
+								l.attr(&quot;data-submit-options&quot;) &gt; 0;
+							(n.find(&quot;.composer-submit&quot;).toggleClass(&quot;rounded-1&quot;, !g),
+								l.toggleClass(&quot;hidden&quot;, !g),
+								p.reset());
+						}));
+					async function K() {
+						const h = await w.render(&quot;modals/topic-scheduler&quot;);
+						E.dialog({
+							message: h,
+							title: &quot;[[modules:composer.schedule-for]]&quot;,
+							className: &quot;topic-scheduler&quot;,
+							onShown: d,
+							onHidden: f,
+							onEscape: !0,
+							buttons: {
+								cancel: {
+									label: m.timestamp
+										? &quot;[[modules:composer.cancel-scheduling]]&quot;
+										: &quot;[[modules:bootbox.cancel]]&quot;,
+									className:
+										(m.timestamp ? &quot;btn-warning&quot; : &quot;btn-outline-secondary&quot;) +
+										(m.edit ? &quot; hidden&quot; : &quot;&quot;),
+									callback: i,
+								},
+								set: {
+									label: &quot;[[modules:composer.set-schedule-date]]&quot;,
+									className: &quot;btn-primary&quot;,
+									callback: U,
+								},
+							},
+						});
+					}
+					function d(h) {
+						m.open = !0;
+						const g = h.target.querySelector(&quot;.datetime-picker&quot;);
+						((C = g.querySelector(&#039;input[type=&quot;date&quot;]&#039;)),
+							(I = g.querySelector(&#039;input[type=&quot;time&quot;]&#039;)),
+							O());
+					}
+					function f() {
+						m.open = !1;
+					}
+					function y(h, { post_uuid: g }) {
+						m.edit = !1;
+						const x = m.posts[g];
+						x &amp;&amp;
+							x.isMain &amp;&amp;
+							x.timestamp &gt; Date.now() &amp;&amp;
+							((m.timestamp = x.timestamp), (m.edit = !0), W());
+					}
+					function O() {
+						const h = new Date(),
+							g = new Date(h.getTime() - h.getTimezoneOffset() * 6e4).toJSON();
+						if (
+							(C.setAttribute(&quot;min&quot;, g.slice(0, 10)),
+							I.setAttribute(&quot;min&quot;, g.slice(11, -8)),
+							p.isActive())
+						) {
+							const x = new Date(
+								m.timestamp - h.getTimezoneOffset() * 6e4,
+							).toJSON();
+							((C.value = x.slice(0, 10)), (I.value = x.slice(11, -8)));
+						}
+					}
+					function U() {
+						const h = C.value &amp;&amp; I.value,
+							g = new Date(`${C.value} ${I.value}`).getTime();
+						if (!h || isNaN(g) || g &lt; Date.now()) {
+							m.timestamp = 0;
+							const x =
+								g &lt; Date.now()
+									? &quot;[[error:scheduling-to-past]]&quot;
+									: &quot;[[error:invalid-schedule-date]]&quot;;
+							return (
+								A.alert({
+									type: &quot;danger&quot;,
+									timeout: 3e3,
+									title: &quot;&quot;,
+									alert_id: &quot;post_error&quot;,
+									message: x,
+								}),
+								!1
+							);
+						}
+						(m.timestamp || W(!0), (m.timestamp = g));
+					}
+					function i() {
+						m.timestamp &amp;&amp; (W(!1), (m.timestamp = 0));
+					}
+					function W(h = !0) {
+						(c.forEach((g) =&gt; g.classList.toggle(&quot;active&quot;, h)),
+							u.icon &amp;&amp;
+								(u.icon.classList.toggle(&quot;fa-check&quot;, !h),
+								u.icon.classList.toggle(&quot;fa-clock-o&quot;, h)),
+							a.el &amp;&amp;
+								((a.el.textContent = h ? a.activeText : a.defaultText),
+								r.classList.toggle(&quot;hidden&quot;, !h)),
+							(u.el.lastChild.textContent = h ? u.activeText : u.defaultText));
+					}
+					function G(h) {
+						D.forEach((g) =&gt; g.classList.toggle(&quot;hidden&quot;, !h));
+					}
+					return p;
+				}.apply(B, S)),
+				T !== void 0 &amp;&amp; (j.exports = T));
+		},
+		94252: (j, B) =&gt; {
+			var s, S;
+			((s = []),
+				(S = function () {
+					const T = {};
+					return (
+						(T.showAlert = async function (w, E) {
+							const A = w.find(&#039;[component=&quot;composer/post-queue/alert&quot;]&#039;);
+							if (
+								!config.postQueue ||
+								app.user.isAdmin ||
+								app.user.isGlobalMod ||
+								app.user.isMod
+							) {
+								A.remove();
+								return;
+							}
+							const b = await socket.emit(&quot;plugins.composer.shouldQueue&quot;, {
+								postData: E,
+							});
+							(A.toggleClass(&quot;show&quot;, b), A.toggleClass(&quot;pe-none&quot;, !b));
+						}),
+						(T.onChangeCategory = async function (w, E) {
+							config.postQueue &amp;&amp; T.showAlert(w, E);
+						}),
+						T
+					);
+				}.apply(B, s)),
+				S !== void 0 &amp;&amp; (j.exports = S));
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

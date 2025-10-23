@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/63187.c82844356de1a1dd87da.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/63187.c82844356de1a1dd87da.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">42.16</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">179</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">14.83</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.39</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[63187],
+	{
+		63187: (T) =&gt; {
+			function l(e) {
+				const n = e.regex,
+					a = {
+						$pattern: /[\w.\/]+/,
+						built_in: [
+							&quot;action&quot;,
+							&quot;bindattr&quot;,
+							&quot;collection&quot;,
+							&quot;component&quot;,
+							&quot;concat&quot;,
+							&quot;debugger&quot;,
+							&quot;each&quot;,
+							&quot;each-in&quot;,
+							&quot;get&quot;,
+							&quot;hash&quot;,
+							&quot;if&quot;,
+							&quot;in&quot;,
+							&quot;input&quot;,
+							&quot;link-to&quot;,
+							&quot;loc&quot;,
+							&quot;log&quot;,
+							&quot;lookup&quot;,
+							&quot;mut&quot;,
+							&quot;outlet&quot;,
+							&quot;partial&quot;,
+							&quot;query-params&quot;,
+							&quot;render&quot;,
+							&quot;template&quot;,
+							&quot;textarea&quot;,
+							&quot;unbound&quot;,
+							&quot;unless&quot;,
+							&quot;view&quot;,
+							&quot;with&quot;,
+							&quot;yield&quot;,
+						],
+					},
+					A = {
+						$pattern: /[\w.\/]+/,
+						literal: [&quot;true&quot;, &quot;false&quot;, &quot;undefined&quot;, &quot;null&quot;],
+					},
+					d = /&quot;&quot;|&quot;[^&quot;]+&quot;/,
+					R = /&#039;&#039;|&#039;[^&#039;]+&#039;/,
+					i = /\[\]|\[[^\]]+\]/,
+					c = /[^\s!&quot;#%&amp;&#039;()*+,.\/;&lt;=&gt;@\[\\\]^`{|}~]+/,
+					b = /(\.|\/)/,
+					_ = n.either(d, R, i, c),
+					m = n.concat(
+						n.optional(/\.|\.\/|\//),
+						_,
+						n.anyNumberOfTimes(n.concat(b, _)),
+					),
+					I = n.concat(&quot;(&quot;, i, &quot;|&quot;, c, &quot;)(?==)&quot;),
+					t = { begin: m },
+					o = e.inherit(t, { keywords: A }),
+					s = { begin: /\(/, end: /\)/ },
+					g = {
+						className: &quot;attr&quot;,
+						begin: I,
+						relevance: 0,
+						starts: {
+							begin: /=/,
+							end: /=/,
+							starts: {
+								contains: [
+									e.NUMBER_MODE,
+									e.QUOTE_STRING_MODE,
+									e.APOS_STRING_MODE,
+									o,
+									s,
+								],
+							},
+						},
+					},
+					O = {
+						begin: /as\s+\|/,
+						keywords: { keyword: &quot;as&quot; },
+						end: /\|/,
+						contains: [{ begin: /\w+/ }],
+					},
+					E = {
+						contains: [
+							e.NUMBER_MODE,
+							e.QUOTE_STRING_MODE,
+							e.APOS_STRING_MODE,
+							O,
+							g,
+							o,
+							s,
+						],
+						returnEnd: !0,
+					},
+					C = e.inherit(t, {
+						className: &quot;name&quot;,
+						keywords: a,
+						starts: e.inherit(E, { end: /\)/ }),
+					});
+				s.contains = [C];
+				const r = e.inherit(t, {
+						keywords: a,
+						className: &quot;name&quot;,
+						starts: e.inherit(E, { end: /\}\}/ }),
+					}),
+					N = e.inherit(t, { keywords: a, className: &quot;name&quot; }),
+					S = e.inherit(t, {
+						className: &quot;name&quot;,
+						keywords: a,
+						starts: e.inherit(E, { end: /\}\}/ }),
+					});
+				return {
+					name: &quot;Handlebars&quot;,
+					aliases: [&quot;hbs&quot;, &quot;html.hbs&quot;, &quot;html.handlebars&quot;, &quot;htmlbars&quot;],
+					case_insensitive: !0,
+					subLanguage: &quot;xml&quot;,
+					contains: [
+						{ begin: /\\\{\{/, skip: !0 },
+						{ begin: /\\\\(?=\{\{)/, skip: !0 },
+						e.COMMENT(/\{\{!--/, /--\}\}/),
+						e.COMMENT(/\{\{!/, /\}\}/),
+						{
+							className: &quot;template-tag&quot;,
+							begin: /\{\{\{\{(?!\/)/,
+							end: /\}\}\}\}/,
+							contains: [r],
+							starts: { end: /\{\{\{\{\//, returnEnd: !0, subLanguage: &quot;xml&quot; },
+						},
+						{
+							className: &quot;template-tag&quot;,
+							begin: /\{\{\{\{\//,
+							end: /\}\}\}\}/,
+							contains: [N],
+						},
+						{
+							className: &quot;template-tag&quot;,
+							begin: /\{\{#/,
+							end: /\}\}/,
+							contains: [r],
+						},
+						{
+							className: &quot;template-tag&quot;,
+							begin: /\{\{(?=else\}\})/,
+							end: /\}\}/,
+							keywords: &quot;else&quot;,
+						},
+						{
+							className: &quot;template-tag&quot;,
+							begin: /\{\{(?=else if)/,
+							end: /\}\}/,
+							keywords: &quot;else if&quot;,
+						},
+						{
+							className: &quot;template-tag&quot;,
+							begin: /\{\{\//,
+							end: /\}\}/,
+							contains: [N],
+						},
+						{
+							className: &quot;template-variable&quot;,
+							begin: /\{\{\{/,
+							end: /\}\}\}/,
+							contains: [S],
+						},
+						{
+							className: &quot;template-variable&quot;,
+							begin: /\{\{/,
+							end: /\}\}/,
+							contains: [S],
+						},
+					],
+				};
+			}
+			T.exports = l;
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

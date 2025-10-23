@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/modules/categoryFilter.6382395c7345f54ae9a3.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/modules/categoryFilter.6382395c7345f54ae9a3.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">70.86</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">72.37</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">4.43</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[1091,34271,49897,51831,69185,99127],{39259:(A,C,l)=&gt;{var y,m;y=[l(96349),l(49897),l(91749)],m=function(p,v,E){const f={};f.init=function(n,r){if(!n||!n.length)return;r=r||{},r.states=r.states||[&quot;watching&quot;,&quot;tracking&quot;,&quot;notwatching&quot;,&quot;ignoring&quot;],r.template=r.template||&quot;partials/category/filter-dropdown-left&quot;,E.fire(&quot;action:category.filter.options&quot;,{el:n,options:r}),p.init(n,r);let i=[],c=[];Array.isArray(r.selectedCids)?i=r.selectedCids.map(String):Array.isArray(ajaxify.data.selectedCids)&amp;&amp;(i=ajaxify.data.selectedCids.map(String)),c=i.slice(),n.on(&quot;hidden.bs.dropdown&quot;,function(){let d=c.length!==i.length;if(c.forEach(function(u,e){u!==i[e]&amp;&amp;(d=!0)}),c=i.slice(),d&amp;&amp;(r.updateButton?r.updateButton({el:n,changed:d,selectedCids:i.slice()}):r.updateButton!==!1&amp;&amp;o(n,i)),r.onHidden){r.onHidden({changed:d,selectedCids:i.slice()});return}if(d){let u=window.location.pathname;const e=utils.params();i.length?e.cid=i:delete e.cid,delete e.page,Object.keys(e).length&amp;&amp;(u+=&quot;?&quot;+$.param(e)),ajaxify.go(u)}}),n.on(&quot;click&quot;,&#039;[component=&quot;category/list&quot;] [data-cid]&#039;,function(d){const u=n.find(&#039;[component=&quot;category/list&quot;]&#039;),e=$(this),a=e.find(&quot;a&quot;).attr(&quot;href&quot;);if(a&amp;&amp;a!==&quot;#&quot;&amp;&amp;a.length){d.stopPropagation();return}const t=e.attr(&quot;data-cid&quot;),s=e.find(&#039;[component=&quot;category/select/icon&quot;]&#039;);return t!==&quot;all&quot;?(i.includes(t)?i.splice(i.indexOf(t),1):i.push(t),i.sort(function(g,w){return g-w}),s.toggleClass(&quot;invisible&quot;),u.find(&#039;[data-cid=&quot;all&quot;] i&#039;).toggleClass(&quot;invisible&quot;,!!i.length)):(n.find(&#039;[component=&quot;category/select/icon&quot;]&#039;).addClass(&quot;invisible&quot;),u.find(&#039;[data-cid=&quot;all&quot;] i&#039;).removeClass(&quot;invisible&quot;),i=[]),r.selectedCids=i,r.onSelect&amp;&amp;r.onSelect({cid:t,selectedCids:i.slice()}),!1})};function o(n,r){r.length&gt;1?i({icon:&quot;fa-plus&quot;,name:&quot;[[unread:multiple-categories-selected]]&quot;,bgColor:&quot;#ddd&quot;}):r.length===1?v.get(`/categories/${r[0]}`,{}).then(i):i();function i(c){app.parseAndTranslate(&quot;partials/category/filter-dropdown-content&quot;,{selectedCategory:c},function(d){n.find(&quot;button&quot;).replaceWith($(&quot;&lt;div/&gt;&quot;).html(d).find(&quot;button&quot;))})}}return f}.apply(C,y),m!==void 0&amp;&amp;(A.exports=m)},49897:(A,C,l)=&gt;{l.r(C),l.d(C,{del:()=&gt;u,get:()=&gt;n,head:()=&gt;r,patch:()=&gt;c,post:()=&gt;i,put:()=&gt;d});var y=l(91749),m=l.n(y),p=l(33530),v=l.n(p);const E=config.relative_path+&quot;/api/v3&quot;;async function f(e,a){if(e.url=e.url.startsWith(&quot;/api&quot;)?config.relative_path+e.url:E+e.url,typeof a==&quot;function&quot;){o(e).then(t=&gt;a(null,t),t=&gt;a(t));return}try{return await o(e)}catch(t){if(t.message===&quot;A valid login session was not found. Please log in and try again.&quot;){const{url:s}=await(0,y.fire)(&quot;filter:admin.reauth&quot;,{url:&quot;login&quot;});return(0,p.confirm)(&quot;[[error:api.reauth-required]]&quot;,g=&gt;{g&amp;&amp;ajaxify.go(s)})}throw t}}async function o(e){const{url:a}=e;delete e.url,e.data&amp;&amp;!(e.data instanceof FormData)&amp;&amp;(e.data=JSON.stringify(e.data||{}),e.headers[&quot;content-type&quot;]=&quot;application/json; charset=utf-8&quot;),{options:e}=await(0,y.fire)(&quot;filter:api.options&quot;,{options:e}),e.data&amp;&amp;(e.body=e.data,delete e.data);const t=await fetch(a,e),{headers:s}=t;if(s.get(&quot;x-redirect&quot;))return o({url:s.get(&quot;x-redirect&quot;),...e});const g=s.get(&quot;content-type&quot;),w=g&amp;&amp;g.startsWith(&quot;application/json&quot;);let h;if(e.method!==&quot;HEAD&quot;&amp;&amp;(w?h=await t.json():h=await t.text()),!t.ok)throw h?new Error(w?h.status.message:h):new Error(t.statusText);return w&amp;&amp;h&amp;&amp;h.hasOwnProperty(&quot;status&quot;)&amp;&amp;h.hasOwnProperty(&quot;response&quot;)?h.response:h}function n(e,a,t){return f({url:e+(a&amp;&amp;Object.keys(a).length?&quot;?&quot;+$.param(a):&quot;&quot;)},t)}function r(e,a,t){return f({url:e+(a&amp;&amp;Object.keys(a).length?&quot;?&quot;+$.param(a):&quot;&quot;),method:&quot;HEAD&quot;},t)}function i(e,a,t){return f({url:e,method:&quot;POST&quot;,data:a,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},t)}function c(e,a,t){return f({url:e,method:&quot;PATCH&quot;,data:a,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},t)}function d(e,a,t){return f({url:e,method:&quot;PUT&quot;,data:a,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},t)}function u(e,a,t){return f({url:e,method:&quot;DELETE&quot;,data:a,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},t)}},96349:(A,C,l)=&gt;{var y,m;y=[l(29930),l(89336),l(49897)],m=function(p,v,E){const f={};return f.init=function(o,n){let r=n.defaultCategories||null;n=n||{},n.privilege=n.privilege||&quot;topics:read&quot;,n.states=n.states||[&quot;watching&quot;,&quot;tracking&quot;,&quot;notwatching&quot;,&quot;ignoring&quot;],n.cacheList=n.hasOwnProperty(&quot;cacheList&quot;)?n.cacheList:!0;let i=[];Array.isArray(n.localCategories)&amp;&amp;(i=n.localCategories.map(a=&gt;({...a})),r&amp;&amp;(r=[...i,...r])),n.selectedCids=n.selectedCids||ajaxify.data.selectedCids||[];const c=o.find(&#039;[component=&quot;category-selector-search&quot;]&#039;);if(!c.length)return;const d=c.parents(&#039;[component=&quot;category/dropdown&quot;]&#039;).length&gt;0||c.parents(&#039;[component=&quot;category-selector&quot;]&#039;).length&gt;0;o.on(&quot;show.bs.dropdown&quot;,function(){d&amp;&amp;c.removeClass(&quot;hidden&quot;);function a(){const t=c.find(&quot;input&quot;).val();t.length&gt;1||!t&amp;&amp;!r?u(t,function(s){r=n.cacheList&amp;&amp;(r||s),e(s)}):!t&amp;&amp;r&amp;&amp;e(r)}c.on(&quot;click&quot;,function(t){t.preventDefault(),t.stopPropagation()}),c.find(&quot;input&quot;).val(&quot;&quot;).on(&quot;keyup&quot;,utils.debounce(a,300)),a()}),o.on(&quot;shown.bs.dropdown&quot;,function(){[&quot;xs&quot;,&quot;sm&quot;].includes(utils.findBootstrapEnvironment())||c.find(&quot;input&quot;).focus()}),o.on(&quot;hide.bs.dropdown&quot;,function(){d&amp;&amp;c.addClass(&quot;hidden&quot;),c.off(&quot;click&quot;),c.find(&quot;input&quot;).off(&quot;keyup&quot;)});function u(a,t){E.get(&quot;/search/categories&quot;,{search:a,query:utils.params(),parentCid:n.parentCid||0,selectedCids:n.selectedCids,privilege:n.privilege,states:n.states,showLinks:n.showLinks},function(s,{categories:g}){if(s)return p.error(s);t(i.concat(g))})}function e(a){const t=n.selectedCids.map(String);a.forEach(function(s){s.selected=t.includes(String(s.cid))}),app.parseAndTranslate(n.template,{categoryItems:a.slice(0,200),selectedCategory:ajaxify.data.selectedCategory,allCategoriesUrl:ajaxify.data.allCategoriesUrl},function(s){o.find(&#039;[component=&quot;category/list&quot;]&#039;).html(s.find(&#039;[component=&quot;category/list&quot;]&#039;).html()),o.find(&#039;[component=&quot;category/list&quot;] [component=&quot;category/no-matches&quot;]&#039;).toggleClass(&quot;hidden&quot;,!!a.length);const g=v.Dropdown.getInstance(o.find(&quot;.dropdown-toggle&quot;).get(0));g&amp;&amp;g.update()})}},f}.apply(C,y),m!==void 0&amp;&amp;(A.exports=m)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

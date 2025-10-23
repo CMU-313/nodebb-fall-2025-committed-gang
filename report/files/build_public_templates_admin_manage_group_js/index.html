@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/templates/admin/manage/group.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/templates/admin/manage/group.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">70.99</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">256</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">73.97</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">5.74</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">
+(function (factory) {
+  if (typeof module === &#039;object&#039; &amp;&amp; module.exports) {
+    module.exports = factory();
+  } else if (typeof define === &#039;function&#039; &amp;&amp; define.amd) {
+    define(factory);
+  }
+})(function () {
+  function compiled(helpers, context, guard, iter, helper) {
+    var __escape = helpers.__escape;
+    var value = context;
+    return &quot;&lt;div class=\&quot;acp-page-container px-lg-4\&quot;&gt;\n&lt;div component=\&quot;settings/main/header\&quot; class=\&quot;row border-bottom py-2 m-0 sticky-top acp-page-main-header align-items-center\&quot;&gt;\n&lt;div class=\&quot;col-12 col-md-8 px-0 mb-1 mb-md-0 d-flex justify-content-between align-items-center\&quot;&gt;\n&lt;h4 class=\&quot;fw-bold tracking-tight mb-0\&quot;&gt;[[admin/manage/groups:edit-group]]&lt;/h4&gt;\n&lt;div component=\&quot;group-selector\&quot; class=\&quot;btn-group\&quot;&gt;\n&lt;button type=\&quot;button\&quot; class=\&quot;btn btn-ghost btn-sm dropdown-toggle w-100\&quot; data-bs-toggle=\&quot;dropdown\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;span component=\&quot;group-selector-selected\&quot;&gt;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;displayName&#039;] : null)) + 
+      &quot;&lt;/span&gt; &lt;span class=\&quot;caret\&quot;&gt;&lt;/span&gt;\n&lt;/button&gt;\n&lt;div class=\&quot;dropdown-menu p-1\&quot;&gt;\n&lt;div component=\&quot;group-selector-search\&quot; class=\&quot;p-1 hidden\&quot;&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control form-control-sm\&quot; placeholder=\&quot;[[search:type-to-search]]\&quot; autocomplete=\&quot;off\&quot;&gt;\n&lt;hr class=\&quot;mt-2 mb-0\&quot;/&gt;\n&lt;/div&gt;\n&lt;ul component=\&quot;group-list\&quot; class=\&quot;list-unstyled mb-0 text-sm dropdown-menu-end group-dropdown-menu overflow-auto ghost-scrollbar\&quot; role=\&quot;menu\&quot; style=\&quot;max-height: 500px;\&quot;&gt;\n&lt;li component=\&quot;group-no-matches\&quot; role=\&quot;presentation\&quot; class=\&quot;group hidden\&quot;&gt;\n&lt;a class=\&quot;dropdown-item rounded-1\&quot; role=\&quot;menuitem\&quot;&gt;[[search:no-matches]]&lt;/a&gt;\n&lt;/li&gt;\n&quot; + 
+      compiled.blocks[&#039;groupNames&#039;](helpers, context, guard, iter, helper) + 
+      &quot;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;col-12 col-md-4 px-0 px-md-3 \&quot;&gt;\n&lt;button id=\&quot;save\&quot; class=\&quot;btn btn-primary btn-sm btn btn-primary btn-sm fw-semibold ff-secondary w-100 text-center text-nowrap\&quot;&gt;[[admin/admin:save-changes]]&lt;/button&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;row m-0\&quot; data-groupname=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;displayName&#039;] : null)) + 
+      &quot;\&quot;&gt;\n&lt;div class=\&quot;col-12 col-md-8 px-0\&quot;&gt;\n&lt;div class=\&quot;group-settings-form\&quot;&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot; for=\&quot;change-group-name\&quot;&gt;[[admin/manage/groups:edit.name]]&lt;/label&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control\&quot; id=\&quot;change-group-name\&quot; value=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;displayName&#039;] : null)) + 
+      &quot;\&quot; maxlength=\&quot;&quot; + 
+      __escape(guard((context != null) ? context[&#039;maximumGroupNameLength&#039;] : null)) + 
+      &quot;\&quot; data-property &quot; + 
+      (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;system&#039;] : null) ?
+        &quot;readonly&quot; :
+        &quot;&quot;) + 
+      &quot;/&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot; for=\&quot;change-group-desc\&quot;&gt;[[admin/manage/groups:edit.description]]&lt;/label&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control\&quot; id=\&quot;change-group-desc\&quot; value=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;description&#039;] : null)) + 
+      &quot;\&quot; maxlength=\&quot;255\&quot; data-property /&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3 d-flex flex-column gap-1\&quot;&gt;\n&lt;div class=\&quot;d-flex gap-2\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot; for=\&quot;category-image\&quot;&gt;\n[[admin/manage/groups:icon-and-title]]\n&lt;/label&gt;\n&lt;span id=\&quot;group-label-preview\&quot; class=\&quot;badge\&quot; style=\&quot;color:&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;textColor&#039;] : null) ?
+        __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;textColor&#039;] : null)) :
+        &quot;#ffffff&quot;) + 
+      &quot;; background:&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;labelColor&#039;] : null) ?
+        __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;labelColor&#039;] : null)) :
+        &quot;#000000&quot;) + 
+      &quot;;\&quot;&gt;&lt;i id=\&quot;group-icon-preview\&quot; class=\&quot;fa &quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;icon&#039;] : null)) + 
+      &quot; &quot; + 
+      (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;icon&#039;] : null) ?
+        &quot;&quot; :
+        &quot;hidden&quot;) + 
+      &quot;\&quot;&gt;&lt;/i&gt; &lt;span id=\&quot;group-label-preview-text\&quot;&gt;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;userTitle&#039;] : null)) + 
+      &quot;&lt;/span&gt;&lt;/span&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;d-flex gap-2 align-items-center\&quot;&gt;\n&lt;div class=\&quot;pointer border rounded-1 p-1 d-flex align-items-center justify-content-center\&quot; id=\&quot;group-icon-container\&quot; style=\&quot;width:40px; height:40px;\&quot; data-bs-toggle=\&quot;tooltip\&quot; title=\&quot;[[admin/admin:select-icon]]\&quot;&gt;\n&lt;i id=\&quot;group-icon\&quot; class=\&quot;fa fa-2x &quot; + 
+      (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;icon&#039;] : null) ?
+        __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;icon&#039;] : null)) :
+        &quot;&quot;) + 
+      &quot;\&quot; value=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;icon&#039;] : null)) + 
+      &quot;\&quot;&gt;&lt;/i&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;w-100\&quot;&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control\&quot; id=\&quot;change-group-user-title\&quot; placeholder=\&quot;The title of users if they are a member of this group\&quot; value=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;userTitleEscaped&#039;] : null)) + 
+      &quot;\&quot; maxlength=\&quot;&quot; + 
+      __escape(guard((context != null) ? context[&#039;maximumGroupTitleLength&#039;] : null)) + 
+      &quot;\&quot; data-property /&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3 d-flex justify-content-between align-items-center gap-2\&quot;&gt;\n&lt;label class=\&quot;form-label text-nowrap\&quot; for=\&quot;change-group-label-color\&quot;&gt;[[admin/manage/groups:edit.label-color]]&lt;/label&gt;\n&lt;!-- added this to match the height of other blocks --&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control invisible\&quot; style=\&quot;width: 0px;\&quot;&gt;\n&lt;input type=\&quot;color\&quot; id=\&quot;change-group-label-color\&quot; placeholder=\&quot;#0059b2\&quot; data-name=\&quot;bgColor\&quot; value=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;labelColor&#039;] : null)) + 
+      &quot;\&quot; class=\&quot;form-control p-1 h-auto align-self-stretch\&quot; data-property style=\&quot;max-width: 64px;\&quot; /&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3 d-flex justify-content-between align-items-center gap-2\&quot;&gt;\n&lt;label class=\&quot;form-label text-nowrap\&quot; for=\&quot;change-group-text-color\&quot;&gt;[[admin/manage/groups:edit.text-color]]&lt;/label&gt;\n&lt;!-- added this to match the height of other blocks --&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control invisible\&quot; style=\&quot;width: 0px;\&quot;&gt;\n&lt;input type=\&quot;color\&quot; id=\&quot;change-group-text-color\&quot; placeholder=\&quot;#ffffff\&quot; data-name=\&quot;textColor\&quot; value=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;textColor&#039;] : null)) + 
+      &quot;\&quot; class=\&quot;form-control p-1 h-auto align-self-stretch\&quot; data-property style=\&quot;max-width: 64px;\&quot;/&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;div class=\&quot;form-check form-switch\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; id=\&quot;group-userTitleEnabled\&quot; name=\&quot;userTitleEnabled\&quot; data-property type=\&quot;checkbox\&quot;&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;userTitleEnabled&#039;] : null) ?
+        &quot; checked&quot; :
+        &quot;&quot;) + 
+      &quot;&gt;\n&lt;label class=\&quot;form-check-label\&quot; for=\&quot;group-userTitleEnabled\&quot;&gt;[[admin/manage/groups:edit.show-badge]]&lt;/label&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;div class=\&quot;form-check form-switch\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; id=\&quot;group-private\&quot; name=\&quot;private\&quot; data-property type=\&quot;checkbox\&quot;&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;private&#039;] : null) ?
+        &quot; checked&quot; :
+        &quot;&quot;) + 
+      &quot;&gt;\n&lt;label class=\&quot;form-check-label\&quot; for=\&quot;group-private\&quot;&gt;[[groups:details.private]]&lt;/label&gt;\n&lt;/div&gt;\n&lt;p class=\&quot;form-text\&quot;&gt;\n[[admin/manage/groups:edit.private-details]]\n&lt;/p&gt;\n&quot; + 
+      (guard((context != null) ? context[&#039;allowPrivateGroups&#039;] : null) ?
+        &quot;&quot; :
+        &quot;\n&lt;p class=\&quot;form-text\&quot;&gt;\n[[admin/manage/groups:edit.private-override]]\n&lt;/p&gt;\n&quot;) + 
+      &quot;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;div class=\&quot;form-check form-switch\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; id=\&quot;group-disableJoinRequests\&quot; name=\&quot;disableJoinRequests\&quot; data-property type=\&quot;checkbox\&quot;&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;disableJoinRequests&#039;] : null) ?
+        &quot; checked&quot; :
+        &quot;&quot;) + 
+      &quot;&gt;\n&lt;label class=\&quot;form-check-label\&quot; for=\&quot;group-disableJoinRequests\&quot;&gt;[[admin/manage/groups:edit.disable-join]]&lt;/label&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;div class=\&quot;form-check form-switch\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; id=\&quot;group-disableLeave\&quot; name=\&quot;disableLeave\&quot; data-property type=\&quot;checkbox\&quot;&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;disableLeave&#039;] : null) ?
+        &quot; checked&quot; :
+        &quot;&quot;) + 
+      &quot;&gt;\n&lt;label class=\&quot;form-check-label\&quot; for=\&quot;group-disableLeave\&quot;&gt;[[admin/manage/groups:edit.disable-leave]]&lt;/label&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;mb-3\&quot;&gt;\n&lt;div class=\&quot;form-check form-switch\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; id=\&quot;group-hidden\&quot; name=\&quot;hidden\&quot; data-property type=\&quot;checkbox\&quot;&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;hidden&#039;] : null) ?
+        &quot; checked&quot; :
+        &quot;&quot;) + 
+      &quot;&gt;\n&lt;label class=\&quot;form-check-label\&quot; for=\&quot;group-hidden\&quot;&gt;[[admin/manage/groups:edit.hidden]]&lt;/label&gt;\n&lt;p class=\&quot;form-text\&quot;&gt;\n[[admin/manage/groups:edit.hidden-details]]\n&lt;/p&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;hr /&gt;\n&lt;div class=\&quot;d-flex flex-column gap-1 mb-3\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot; for=\&quot;memberPostCids\&quot; for=\&quot;memberPostCids\&quot;&gt;[[groups:details.member-post-cids]]&lt;/label&gt;\n&lt;div class=\&quot;d-flex gap-1 align-items-center\&quot;&gt;\n&lt;div class=\&quot;member-post-cids-selector\&quot;&gt;\n&lt;div component=\&quot;category-selector\&quot; class=\&quot;btn-group dropdown-left bottom-sheet\&quot;&gt;\n&lt;button type=\&quot;button\&quot; class=\&quot;btn btn-ghost btn-sm dropdown-toggle\&quot; data-bs-toggle=\&quot;dropdown\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;span component=\&quot;category-selector-selected\&quot;&gt;\n&lt;span class=\&quot;category-item d-inline-flex align-items-center gap-1\&quot;&gt;\n&quot; + 
+      ((guard((context != null) ? context[&#039;selectedCategory&#039;] : null) &amp;&amp; !guard((context != null) ? context[&#039;showCategorySelectLabel&#039;] : null)) ?
+        &quot;\n&quot; + 
+          __escape(helper(context, helpers, &#039;buildCategoryIcon&#039;, [guard((context != null) ? context[&#039;selectedCategory&#039;] : null), &quot;24px&quot;, &quot;rounded-circle&quot;])) + 
+          &quot;\n&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;selectedCategory&#039;] != null) ? context[&#039;selectedCategory&#039;][&#039;name&#039;] : null)) + 
+          &quot;\n&quot; :
+        &quot;\n&lt;i class=\&quot;fa fa-fw &quot; + 
+          (guard((context != null) ? context[&#039;selectCategoryIcon&#039;] : null) ?
+            __escape(guard((context != null) ? context[&#039;selectCategoryIcon&#039;] : null)) :
+            &quot;fa-list&quot;) + 
+          &quot;\&quot;&gt;&lt;/i&gt;\n&quot; + 
+          (guard((context != null) ? context[&#039;selectCategoryLabel&#039;] : null) ?
+            __escape(guard((context != null) ? context[&#039;selectCategoryLabel&#039;] : null)) :
+            &quot;[[topic:thread-tools.select-category]]&quot;) + 
+          &quot;\n&quot;) + 
+      &quot;\n&lt;/span&gt;\n&lt;/span&gt; &lt;span class=\&quot;caret\&quot;&gt;&lt;/span&gt;\n&lt;/button&gt;\n&lt;div class=\&quot;dropdown-menu p-1\&quot;&gt;\n&lt;div component=\&quot;category-selector-search\&quot; class=\&quot;p-1 hidden\&quot;&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control form-control-sm\&quot; placeholder=\&quot;[[search:type-to-search]]\&quot; autocomplete=\&quot;off\&quot;&gt;\n&lt;hr class=\&quot;mt-2 mb-0\&quot;/&gt;\n&lt;/div&gt;\n&lt;ul component=\&quot;category/list\&quot; class=\&quot;list-unstyled mb-0 text-sm category-dropdown-menu\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li component=\&quot;category/no-matches\&quot; role=\&quot;presentation\&quot; class=\&quot;category hidden\&quot;&gt;\n&lt;a class=\&quot;dropdown-item rounded-1\&quot; role=\&quot;menu-item\&quot;&gt;[[search:no-matches]]&lt;/a&gt;\n&lt;/li&gt;\n&quot; + 
+      compiled.blocks[&#039;categoryItems&#039;](helpers, context, guard, iter, helper) + 
+      &quot;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;input id=\&quot;memberPostCids\&quot; type=\&quot;text\&quot; class=\&quot;form-control form-control-sm\&quot; value=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;memberPostCids&#039;] : null)) + 
+      &quot;\&quot;&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;hr /&gt;\n&lt;div class=\&quot;d-flex flex-column gap-2\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot;&gt;[[admin/manage/groups:edit.members]]&lt;/label&gt;\n&lt;div class=\&quot;\&quot;&gt;\n&lt;div class=\&quot;d-flex justify-content-between mb-2\&quot;&gt;\n&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;isOwner&#039;] : null) ?
+        &quot;\n&lt;button component=\&quot;groups/members/add\&quot; type=\&quot;button\&quot; class=\&quot;btn btn-primary btn-sm text-nowrap\&quot; title=\&quot;[[groups:details.add-member]]\&quot;&gt;[[groups:details.add-member]]&lt;/button&gt;\n&quot; :
+        &quot;&quot;) + 
+      &quot;\n&lt;div&gt;\n&lt;div class=\&quot;input-group\&quot;&gt;\n&lt;input class=\&quot;form-control form-control-sm\&quot; type=\&quot;text\&quot; component=\&quot;groups/members/search\&quot; placeholder=\&quot;[[global:search]]\&quot;/&gt;\n&lt;span class=\&quot;input-group-text search-button px-2\&quot;&gt;&lt;i class=\&quot;fa fa-fw fa-search\&quot;&gt;&lt;/i&gt;&lt;/span&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div component=\&quot;groups/members\&quot; data-nextstart=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;membersNextStart&#039;] : null)) + 
+      &quot;\&quot; class=\&quot;overflow-auto\&quot; style=\&quot;max-height: 500px;\&quot;&gt;\n&lt;table  class=\&quot;table table-hover\&quot;&gt;\n&lt;tbody&gt;\n&quot; + 
+      compiled.blocks[&#039;group.members&#039;](helpers, context, guard, iter, helper) + 
+      &quot;\n&lt;/tbody&gt;\n&lt;/table&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;col-12 col-md-4 px-0 px-md-3 acp-sidebar\&quot;&gt;\n&lt;div class=\&quot;p-2 d-flex flex-column text-bg-light border rounded-1 gap-1\&quot;&gt;\n&lt;a href=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;relative_path&#039;] : null)) + 
+      &quot;/admin/manage/groups\&quot; class=\&quot;btn btn-ghost btn-sm d-flex gap-2 align-items-center\&quot;&gt;&lt;i class=\&quot;fa fa-fw fa-chevron-left text-primary\&quot;&gt;&lt;/i&gt; [[admin/manage/groups:back-to-groups]]&lt;/a&gt;\n&lt;hr class=\&quot;my-1\&quot;/&gt;\n&lt;div class=\&quot;edit-privileges-selector w-100\&quot;&gt;\n&lt;div component=\&quot;category-selector\&quot; class=\&quot;btn-group w-100\&quot;&gt;\n&lt;button type=\&quot;button\&quot; class=\&quot;btn btn-ghost btn-sm d-flex gap-2 align-items-center flex-fill dropdown-toggle\&quot; data-bs-toggle=\&quot;dropdown\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-lock text-primary\&quot;&gt;&lt;/i&gt; &lt;span&gt;[[admin/manage/groups:privileges]]&lt;/span&gt; &lt;span class=\&quot;caret\&quot;&gt;&lt;/span&gt;\n&lt;/button&gt;\n&lt;div class=\&quot;dropdown-menu p-1\&quot;&gt;\n&lt;div component=\&quot;category-selector-search\&quot; class=\&quot;p-1 hidden\&quot;&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control form-control-sm\&quot; placeholder=\&quot;[[search:type-to-search]]\&quot; autocomplete=\&quot;off\&quot;&gt;\n&lt;hr class=\&quot;mt-2 mb-0\&quot;/&gt;\n&lt;/div&gt;\n&lt;ul component=\&quot;category/list\&quot; class=\&quot;list-unstyled mb-0 text-sm category-dropdown-menu dropdown-menu-end ghost-scrollbar\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li component=\&quot;category/no-matches\&quot; role=\&quot;presentation\&quot; class=\&quot;category hidden\&quot;&gt;\n&lt;a class=\&quot;dropdown-item\&quot; role=\&quot;menuitem\&quot;&gt;[[search:no-matches]]&lt;/a&gt;\n&lt;/li&gt;\n&quot; + 
+      compiled.blocks[&#039;categories&#039;](helpers, context, guard, iter, helper) + 
+      &quot;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;a href=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;relative_path&#039;] : null)) + 
+      &quot;/api/admin/groups/&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;nameEncoded&#039;] : null)) + 
+      &quot;/csv\&quot; class=\&quot;btn btn-ghost btn-sm d-flex gap-2 align-items-center\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-file-csv text-primary\&quot;&gt;&lt;/i&gt;[[admin/manage/groups:members-csv]]&lt;/a&gt;\n&lt;a href=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;relative_path&#039;] : null)) + 
+      &quot;/groups/&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;slug&#039;] : null)) + 
+      &quot;\&quot; class=\&quot;btn btn-ghost btn-sm d-flex gap-2 align-items-center\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-eye text-primary\&quot;&gt;&lt;/i&gt; [[admin/manage/groups:view-group]]\n&lt;/a&gt;\n&lt;hr class=\&quot;my-1\&quot;/&gt;\n&lt;button data-action=\&quot;delete\&quot; class=\&quot;btn btn-ghost btn-sm d-flex gap-2 align-items-center\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-trash text-danger\&quot;&gt;&lt;/i&gt; [[admin/manage/groups:delete]]\n&lt;/button&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/form&gt;\n&lt;/div&gt;\n&lt;div id=\&quot;icons\&quot; style=\&quot;display:none;\&quot;&gt;\n&lt;div class=\&quot;icon-container\&quot;&gt;\n&lt;div class=\&quot;row nbb-fa-icons\&quot;&gt;\n&lt;div class=\&quot;icon-container\&quot;&gt;\n&lt;div class=\&quot;form-group\&quot;&gt;\n&lt;label class=\&quot;form-label\&quot; for=\&quot;fa-filter\&quot;&gt;Type to search for icons&lt;/label&gt;\n&lt;input type=\&quot;text\&quot; class=\&quot;form-control\&quot; id=\&quot;fa-filter\&quot; data-action=\&quot;filter\&quot; placeholder=\&quot;e.g. umbrella\&quot; /&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;d-flex nbb-fa-icons flex-wrap\&quot;&gt;\n&quot; + 
+      compiled.blocks[&#039;icons&#039;](helpers, context, guard, iter, helper) + 
+      &quot;\n&lt;/div&gt;\n&lt;p class=\&quot;form-text text-center\&quot;&gt;\nFor a full list of icons, please consult:\n&lt;a href=\&quot;https://fontawesome.com/v6/icons/\&quot;&gt;FontAwesome&lt;/a&gt;\n&lt;/p&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;&quot;;
+  }
+
+  compiled.blocks = {
+    &#039;groupNames&#039;: function groupNames(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null) ? context[&#039;groupNames&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&lt;li role=\&quot;presentation\&quot; class=\&quot;group\&quot; data-name=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;groupNames&#039;] != null &amp;&amp; context[&#039;groupNames&#039;][key0] != null) ? context[&#039;groupNames&#039;][key0][&#039;displayName&#039;] : null)) + 
+          &quot;\&quot;&gt;\n&lt;a class=\&quot;dropdown-item rounded-1\&quot; href=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;relative_path&#039;] : null)) + 
+          &quot;/admin/manage/groups/&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;groupNames&#039;] != null &amp;&amp; context[&#039;groupNames&#039;][key0] != null) ? context[&#039;groupNames&#039;][key0][&#039;slug&#039;] : null)) + 
+          &quot;\&quot; role=\&quot;menuitem\&quot;&gt;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;groupNames&#039;] != null &amp;&amp; context[&#039;groupNames&#039;][key0] != null) ? context[&#039;groupNames&#039;][key0][&#039;displayName&#039;] : null)) + 
+          &quot;&lt;/a&gt;\n&lt;/li&gt;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    },
+    &#039;categoryItems&#039;: function categoryItems(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null) ? context[&#039;categoryItems&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&lt;li role=\&quot;presentation\&quot; class=\&quot;category &quot; + 
+          (guard((context != null &amp;&amp; context[&#039;categoryItems&#039;] != null &amp;&amp; context[&#039;categoryItems&#039;][key0] != null) ? context[&#039;categoryItems&#039;][key0][&#039;disabledClass&#039;] : null) ?
+            &quot;disabled &quot; :
+            &quot;&quot;) + 
+          &quot;\&quot; data-cid=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;categoryItems&#039;] != null &amp;&amp; context[&#039;categoryItems&#039;][key0] != null) ? context[&#039;categoryItems&#039;][key0][&#039;cid&#039;] : null)) + 
+          &quot;\&quot; data-name=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;categoryItems&#039;] != null &amp;&amp; context[&#039;categoryItems&#039;][key0] != null) ? context[&#039;categoryItems&#039;][key0][&#039;name&#039;] : null)) + 
+          &quot;\&quot; data-parent-cid=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;categoryItems&#039;] != null &amp;&amp; context[&#039;categoryItems&#039;][key0] != null) ? context[&#039;categoryItems&#039;][key0][&#039;parentCid&#039;] : null)) + 
+          &quot;\&quot;&gt;\n&lt;a href=\&quot;#\&quot; class=\&quot;dropdown-item rounded-1\&quot; role=\&quot;menu-item\&quot;&gt;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;categoryItems&#039;] != null &amp;&amp; context[&#039;categoryItems&#039;][key0] != null) ? context[&#039;categoryItems&#039;][key0][&#039;level&#039;] : null)) + 
+          &quot;\n&lt;span component=\&quot;category-markup\&quot; style=\&quot;&quot; + 
+          (guard((context != null &amp;&amp; context[&#039;categoryItems&#039;] != null &amp;&amp; context[&#039;categoryItems&#039;][key0] != null) ? context[&#039;categoryItems&#039;][key0][&#039;match&#039;] : null) ?
+            &quot;font-weight: bold;&quot; :
+            &quot;&quot;) + 
+          &quot;\&quot;&gt;\n&lt;div class=\&quot;category-item d-inline-flex align-items-center gap-1\&quot;&gt;\n&quot; + 
+          (guard((context != null &amp;&amp; context[&#039;categoryItems&#039;] != null &amp;&amp; context[&#039;categoryItems&#039;][key0] != null) ? context[&#039;categoryItems&#039;][key0][&#039;icon&#039;] : null) ?
+            &quot;\n&quot; + 
+              __escape(helper(context, helpers, &#039;buildCategoryIcon&#039;, [guard(value), &quot;24px&quot;, &quot;rounded-circle&quot;])) + 
+              &quot;\n&quot; :
+            &quot;&quot;) + 
+          &quot;\n&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;categoryItems&#039;] != null &amp;&amp; context[&#039;categoryItems&#039;][key0] != null) ? context[&#039;categoryItems&#039;][key0][&#039;name&#039;] : null)) + 
+          &quot;\n&lt;/div&gt;\n&lt;/span&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    },
+    &#039;group.members&#039;: function groupmembers(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;members&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&lt;tr data-uid=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null &amp;&amp; context[&#039;group&#039;][&#039;members&#039;] != null &amp;&amp; context[&#039;group&#039;][&#039;members&#039;][key0] != null) ? context[&#039;group&#039;][&#039;members&#039;][key0][&#039;uid&#039;] : null)) + 
+          &quot;\&quot;&gt;\n&lt;td class=\&quot;member-name d-flex justify-content-between align-items-center\&quot;&gt;\n&lt;div class=\&quot;d-flex align-items-center gap-2\&quot;&gt;\n&lt;a href=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;relative_path&#039;] : null)) + 
+          &quot;/user/&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null &amp;&amp; context[&#039;group&#039;][&#039;members&#039;] != null &amp;&amp; context[&#039;group&#039;][&#039;members&#039;][key0] != null) ? context[&#039;group&#039;][&#039;members&#039;][key0][&#039;userslug&#039;] : null)) + 
+          &quot;\&quot;&gt;&quot; + 
+          __escape(helper(context, helpers, &#039;buildAvatar&#039;, [guard((context != null &amp;&amp; context[&#039;group&#039;] != null &amp;&amp; context[&#039;group&#039;][&#039;members&#039;] != null) ? context[&#039;group&#039;][&#039;members&#039;][key0] : null), &quot;24px&quot;, guard((context != null) ? context[&#039;true&#039;] : null)])) + 
+          &quot;&lt;/a&gt;\n&lt;a href=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;relative_path&#039;] : null)) + 
+          &quot;/user/&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null &amp;&amp; context[&#039;group&#039;][&#039;members&#039;] != null &amp;&amp; context[&#039;group&#039;][&#039;members&#039;][key0] != null) ? context[&#039;group&#039;][&#039;members&#039;][key0][&#039;userslug&#039;] : null)) + 
+          &quot;\&quot;&gt;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;group&#039;] != null &amp;&amp; context[&#039;group&#039;][&#039;members&#039;] != null &amp;&amp; context[&#039;group&#039;][&#039;members&#039;][key0] != null) ? context[&#039;group&#039;][&#039;members&#039;][key0][&#039;username&#039;] : null)) + 
+          &quot;&lt;/a&gt; &lt;i title=\&quot;[[groups:owner]]\&quot; class=\&quot;user-owner-icon fa fa-star text-warning &quot; + 
+          (guard((context != null &amp;&amp; context[&#039;group&#039;] != null &amp;&amp; context[&#039;group&#039;][&#039;members&#039;] != null &amp;&amp; context[&#039;group&#039;][&#039;members&#039;][key0] != null) ? context[&#039;group&#039;][&#039;members&#039;][key0][&#039;isOwner&#039;] : null) ?
+            &quot;&quot; :
+            &quot;invisible&quot;) + 
+          &quot;\&quot;&gt;&lt;/i&gt;\n&lt;/div&gt;\n&quot; + 
+          (guard((context != null &amp;&amp; context[&#039;group&#039;] != null) ? context[&#039;group&#039;][&#039;isOwner&#039;] : null) ?
+            &quot;\n&lt;div class=\&quot;owner-controls d-flex gap-1\&quot;&gt;\n&lt;a class=\&quot;btn btn-light btn-sm\&quot; href=\&quot;#\&quot; data-action=\&quot;toggleOwnership\&quot; title=\&quot;[[groups:details.grant]]\&quot;&gt;\n&lt;i class=\&quot;fa fa-star text-warning\&quot;&gt;&lt;/i&gt;\n&lt;/a&gt;\n&lt;a class=\&quot;btn btn-light btn-sm\&quot; href=\&quot;#\&quot; data-action=\&quot;kick\&quot; title=\&quot;[[groups:details.kick]]\&quot;&gt;\n&lt;i class=\&quot;fa fa-ban text-danger\&quot;&gt;&lt;/i&gt;\n&lt;/a&gt;\n&lt;/div&gt;\n&quot; :
+            &quot;&quot;) + 
+          &quot;\n&lt;/td&gt;\n&lt;/tr&gt;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    },
+    &#039;categories&#039;: function categories(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null) ? context[&#039;categories&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&lt;li role=\&quot;presentation\&quot; class=\&quot;category &quot; + 
+          (guard((context != null &amp;&amp; context[&#039;categories&#039;] != null &amp;&amp; context[&#039;categories&#039;][key0] != null) ? context[&#039;categories&#039;][key0][&#039;disabledClass&#039;] : null) ?
+            &quot;disabled&quot; :
+            &quot;&quot;) + 
+          &quot;\&quot; data-cid=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;categories&#039;] != null &amp;&amp; context[&#039;categories&#039;][key0] != null) ? context[&#039;categories&#039;][key0][&#039;cid&#039;] : null)) + 
+          &quot;\&quot; data-name=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;categories&#039;] != null &amp;&amp; context[&#039;categories&#039;][key0] != null) ? context[&#039;categories&#039;][key0][&#039;name&#039;] : null)) + 
+          &quot;\&quot; data-parent-cid=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;categories&#039;] != null &amp;&amp; context[&#039;categories&#039;][key0] != null) ? context[&#039;categories&#039;][key0][&#039;parentCid&#039;] : null)) + 
+          &quot;\&quot;&gt;\n&lt;a class=\&quot;dropdown-item rounded-1\&quot; role=\&quot;menuitem\&quot;&gt;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;categories&#039;] != null &amp;&amp; context[&#039;categories&#039;][key0] != null) ? context[&#039;categories&#039;][key0][&#039;level&#039;] : null)) + 
+          &quot;\n&lt;span component=\&quot;category-markup\&quot;&gt;\n&lt;div class=\&quot;category-item d-inline-block\&quot;&gt;\n&quot; + 
+          __escape(helper(context, helpers, &#039;buildCategoryIcon&#039;, [guard(value), &quot;24px&quot;, &quot;rounded-circle&quot;])) + 
+          &quot;\n&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;categories&#039;] != null &amp;&amp; context[&#039;categories&#039;][key0] != null) ? context[&#039;categories&#039;][key0][&#039;name&#039;] : null)) + 
+          &quot;\n&lt;/div&gt;\n&lt;/span&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    },
+    &#039;icons&#039;: function icons(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null) ? context[&#039;icons&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&lt;i class=\&quot;fa fa-xl fa-&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;icons&#039;] != null &amp;&amp; context[&#039;icons&#039;][key0] != null) ? context[&#039;icons&#039;][key0][&#039;style&#039;] : null)) + 
+          &quot; fa-&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;icons&#039;] != null &amp;&amp; context[&#039;icons&#039;][key0] != null) ? context[&#039;icons&#039;][key0][&#039;id&#039;] : null)) + 
+          &quot; rounded-1\&quot;&gt;&lt;/i&gt;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    }
+  };
+
+  return compiled;
+})
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

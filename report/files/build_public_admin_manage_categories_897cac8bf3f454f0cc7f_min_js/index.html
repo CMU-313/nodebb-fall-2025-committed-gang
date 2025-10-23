@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/admin/manage-categories.897cac8bf3f454f0cc7f.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/admin/manage-categories.897cac8bf3f454f0cc7f.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">71.87</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">90.52</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">8.44</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[1091,34271,49897,69185,86198,90479,99127],{29195:(w,x,d)=&gt;{var E,b;E=[d(17459),d(81335),d(65348),d(49897),d(10246),d(33530),d(29930)],b=function(A,D,v,h,u,a,i){u=u.default;const s={};let o=-1,p;s.init=function(){v.init($(&#039;[component=&quot;category-selector&quot;]&#039;),{parentCid:ajaxify.data.selectedCategory?ajaxify.data.selectedCategory.cid:0,onSelect:function(t){ajaxify.go(&quot;/admin/manage/categories&quot;+(t.cid?&quot;?cid=&quot;+t.cid:&quot;&quot;))},cacheList:!1,localCategories:[],template:&quot;admin/partials/category/selector-dropdown-right&quot;}),s.render(ajaxify.data.categoriesTree),$(&#039;button[data-action=&quot;create&quot;]&#039;).on(&quot;click&quot;,s.throwCreateModal),$(&quot;.categories&quot;).on(&quot;click&quot;,&#039;.category-tools [data-action=&quot;toggle&quot;]&#039;,function(){const t=$(this),c=t.attr(&quot;data-disable-cid&quot;),g=t.parents(&#039;li[data-cid=&quot;&#039;+c+&#039;&quot;]&#039;),l=g.hasClass(&quot;disabled&quot;),f=g.find(&quot;li[data-cid]&quot;).map(function(){return $(this).attr(&quot;data-cid&quot;)}).get();s.toggle([c].concat(f),!l)}),$(&quot;.categories&quot;).on(&quot;click&quot;,&quot;.toggle&quot;,function(){const t=$(this);t.find(&quot;i&quot;).toggleClass(&quot;fa-chevron-down&quot;).toggleClass(&quot;fa-chevron-right&quot;),t.closest(&quot;[data-cid]&quot;).find(&quot;&gt; ul[data-cid]&quot;).toggleClass(&quot;hidden&quot;);const c=t.closest(&quot;[data-cid]&quot;).find(&quot;&gt; ul.has-more-categories&quot;);parseInt(c.attr(&quot;data-hasmore&quot;),10)===1&amp;&amp;c.toggleClass(&quot;hidden&quot;)}),$(&quot;.categories&quot;).on(&quot;click&quot;,&quot;.set-order&quot;,function(){const t=$(this).attr(&quot;data-cid&quot;),c=$(this).attr(&quot;data-order&quot;),g=a.dialog({title:&quot;[[admin/manage/categories:set-order]]&quot;,message:&#039;&lt;input type=&quot;number&quot; min=&quot;1&quot; class=&quot;form-control input-lg&quot; value=&#039;+c+&#039; /&gt;&lt;p class=&quot;form-text&quot;&gt;[[admin/manage/categories:set-order-help]]&lt;/p&gt;&#039;,show:!0,buttons:{save:{label:&quot;[[modules:bootbox.confirm]]&quot;,className:&quot;btn-primary&quot;,callback:function(){const l=g.find(&quot;input&quot;).val();if(l&amp;&amp;t){const y={};y[t]={order:Math.max(1,parseInt(l,10))},h.put(&quot;/categories/&quot;+t,y[t]).then(function(){ajaxify.refresh()}).catch(i.error)}else return!1}}}})}),$(&quot;#toggle-collapse-all&quot;).on(&quot;click&quot;,function(){const t=$(this),c=parseInt(t.attr(&quot;data-collapsed&quot;),10)===1;e(c),t.attr(&quot;data-collapsed&quot;,c?0:1).translateText(c?&quot;[[admin/manage/categories:collapse-all]]&quot;:&quot;[[admin/manage/categories:expand-all]]&quot;)});function e(t){const c=$(&quot;.categories .toggle&quot;);c.find(&quot;i&quot;).toggleClass(&quot;fa-chevron-down&quot;,t).toggleClass(&quot;fa-chevron-right&quot;,!t),c.closest(&quot;[data-cid]&quot;).find(&quot;&gt; ul[data-cid]&quot;).toggleClass(&quot;hidden&quot;,!t)}},s.throwCreateModal=function(){D.render(&quot;admin/partials/categories/create&quot;,{}).then(function(e){const t=a.dialog({title:&quot;[[admin/manage/categories:alert.create]]&quot;,message:e,buttons:{save:{label:&quot;[[global:create]]&quot;,className:&quot;btn-primary&quot;,callback:y}}}),c={localCategories:[{cid:0,name:&quot;[[admin/manage/categories:parent-category-none]]&quot;,icon:&quot;fa-none&quot;}],template:&quot;admin/partials/category/selector-dropdown-left&quot;},g=v.init(t.find(&#039;#parentCidGroup [component=&quot;category-selector&quot;]&#039;),c),l=v.init(t.find(&#039;#cloneFromCidGroup [component=&quot;category-selector&quot;]&#039;),c);function y(){const f=t.find(&quot;form&quot;).serializeObject();return f.description=&quot;&quot;,f.icon=&quot;fa-comments&quot;,f.uid=app.user.uid,f.parentCid=g.getSelectedCid(),f.cloneFromCid=l.getSelectedCid(),s.create(f),t.modal(&quot;hide&quot;),!1}$(&quot;#cloneChildren&quot;).on(&quot;change&quot;,function(){const f=$(this),C=t.find(&#039;#parentCidGroup [component=&quot;category-selector&quot;] .dropdown-toggle&#039;);f.prop(&quot;checked&quot;)?(C.attr(&quot;disabled&quot;,&quot;disabled&quot;),g.selectCategory(0)):C.removeAttr(&quot;disabled&quot;)}),t.find(&quot;form&quot;).on(&quot;submit&quot;,y)})},s.create=function(e){h.post(&quot;/categories&quot;,e,function(t,c){if(t)return i.error(t);i.alert({alert_id:&quot;category_created&quot;,title:&quot;[[admin/manage/categories:alert.created]]&quot;,message:&quot;[[admin/manage/categories:alert.create-success]]&quot;,type:&quot;success&quot;,timeout:2e3}),ajaxify.go(&quot;admin/manage/categories/&quot;+c.cid)})},s.render=function(e){const t=$(&quot;.categories&quot;);!e||!e.length?A.translate(&quot;[[admin/manage/categories:alert.none-active]]&quot;,function(c){$(&quot;&lt;div&gt;&lt;/div&gt;&quot;).addClass(&quot;alert alert-info text-center&quot;).text(c).appendTo(t)}):(p={},r(e,t,{cid:0}))},s.toggle=function(e,t){const c=document.querySelector(&#039;.categories [data-cid=&quot;0&quot;]&#039;);Promise.all(e.map(g=&gt;h.put(&quot;/categories/&quot;+g,{disabled:t?1:0}).then(()=&gt;{const l=c.querySelector(`li[data-cid=&quot;${g}&quot;]`);l.classList[t?&quot;add&quot;:&quot;remove&quot;](&quot;disabled&quot;),$(l).find(&#039;li a[data-action=&quot;toggle&quot;]&#039;).first().translateText(t?&quot;[[admin/manage/categories:enable]]&quot;:&quot;[[admin/manage/categories:disable]]&quot;)}).catch(i.error)))};function m(e){o=e.to.dataset.cid}function n(e){const t=parseInt(o,10)!==-1;if(e.newIndex!=null&amp;&amp;parseInt(e.oldIndex,10)!==parseInt(e.newIndex,10)||t){const c=e.item.dataset.cid,g={},l=(ajaxify.data.pagination.currentPage-1)*ajaxify.data.categoriesPerPage;if(g[c]={order:l+e.newIndex+1},t){g[c].parentCid=o;const y=parseInt(e.from.getAttribute(&quot;data-cid&quot;),10),f=parseInt(e.to.getAttribute(&quot;data-cid&quot;),10);if(y!==f){const C=document.querySelector(`.categories li[data-cid=&quot;${f}&quot;] .toggle`);if(C&amp;&amp;C.classList.toggle(&quot;invisible&quot;,!1),!document.querySelectorAll(`.categories li[data-cid=&quot;${y}&quot;] ul[data-cid] li[data-cid]`).length){const P=document.querySelector(`.categories li[data-cid=&quot;${y}&quot;] .toggle`);P&amp;&amp;P.classList.toggle(&quot;invisible&quot;,!0)}e.item.dataset.parentCid=f}}o=-1,h.put(&quot;/categories/&quot;+c,g[c]).catch(i.error)}}function r(e,t,c){let g=0;const l=c.cid;e.forEach(function(f,C,S){A.translate(f.name,function(P){f.name!==P&amp;&amp;(f.name=P),g+=1,g===S.length&amp;&amp;y()})}),e.length||y();function y(){app.parseAndTranslate(&quot;admin/partials/categories/category-rows&quot;,{cid:c.cid,categories:e,parentCategory:c},function(f){t.find(&quot;.category-row&quot;).length?t.find(&quot;.category-row&quot;).after(f):t.append(f),e.length||t.get(0).querySelector(&quot;.toggle&quot;).classList.toggle(&quot;invisible&quot;,!0);for(let C=0,S=e.length;C&lt;S;C+=1)r(e[C].children,$(&#039;li[data-cid=&quot;&#039;+e[C].cid+&#039;&quot;]&#039;),e[C]);p[l]=u.create($(&#039;ul[data-cid=&quot;&#039;+l+&#039;&quot;]&#039;)[0],{group:&quot;cross-categories&quot;,animation:150,handle:&quot;.information&quot;,dataIdAttr:&quot;data-cid&quot;,ghostClass:&quot;placeholder&quot;,onAdd:m,onEnd:n})})}}return s}.apply(x,E),b!==void 0&amp;&amp;(w.exports=b)},49897:(w,x,d)=&gt;{d.r(x),d.d(x,{del:()=&gt;m,get:()=&gt;a,head:()=&gt;i,patch:()=&gt;o,post:()=&gt;s,put:()=&gt;p});var E=d(91749),b=d.n(E),A=d(33530),D=d.n(A);const v=config.relative_path+&quot;/api/v3&quot;;async function h(n,r){if(n.url=n.url.startsWith(&quot;/api&quot;)?config.relative_path+n.url:v+n.url,typeof r==&quot;function&quot;){u(n).then(e=&gt;r(null,e),e=&gt;r(e));return}try{return await u(n)}catch(e){if(e.message===&quot;A valid login session was not found. Please log in and try again.&quot;){const{url:t}=await(0,E.fire)(&quot;filter:admin.reauth&quot;,{url:&quot;login&quot;});return(0,A.confirm)(&quot;[[error:api.reauth-required]]&quot;,c=&gt;{c&amp;&amp;ajaxify.go(t)})}throw e}}async function u(n){const{url:r}=n;delete n.url,n.data&amp;&amp;!(n.data instanceof FormData)&amp;&amp;(n.data=JSON.stringify(n.data||{}),n.headers[&quot;content-type&quot;]=&quot;application/json; charset=utf-8&quot;),{options:n}=await(0,E.fire)(&quot;filter:api.options&quot;,{options:n}),n.data&amp;&amp;(n.body=n.data,delete n.data);const e=await fetch(r,n),{headers:t}=e;if(t.get(&quot;x-redirect&quot;))return u({url:t.get(&quot;x-redirect&quot;),...n});const c=t.get(&quot;content-type&quot;),g=c&amp;&amp;c.startsWith(&quot;application/json&quot;);let l;if(n.method!==&quot;HEAD&quot;&amp;&amp;(g?l=await e.json():l=await e.text()),!e.ok)throw l?new Error(g?l.status.message:l):new Error(e.statusText);return g&amp;&amp;l&amp;&amp;l.hasOwnProperty(&quot;status&quot;)&amp;&amp;l.hasOwnProperty(&quot;response&quot;)?l.response:l}function a(n,r,e){return h({url:n+(r&amp;&amp;Object.keys(r).length?&quot;?&quot;+$.param(r):&quot;&quot;)},e)}function i(n,r,e){return h({url:n+(r&amp;&amp;Object.keys(r).length?&quot;?&quot;+$.param(r):&quot;&quot;),method:&quot;HEAD&quot;},e)}function s(n,r,e){return h({url:n,method:&quot;POST&quot;,data:r,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},e)}function o(n,r,e){return h({url:n,method:&quot;PATCH&quot;,data:r,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},e)}function p(n,r,e){return h({url:n,method:&quot;PUT&quot;,data:r,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},e)}function m(n,r,e){return h({url:n,method:&quot;DELETE&quot;,data:r,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},e)}},65348:(w,x,d)=&gt;{var E,b;E=[d(96349),d(33530),d(91749),d(17459)],b=function(A,D,v,h){const u={};return u.init=function(a,i){if(!a||!a.length)return;i=i||{};const s=i.onSelect||function(){};i.states=i.states||[&quot;watching&quot;,&quot;tracking&quot;,&quot;notwatching&quot;,&quot;ignoring&quot;],i.template=i.template||&quot;partials/category/selector-dropdown-left&quot;,v.fire(&quot;action:category.selector.options&quot;,{el:a,options:i}),A.init(a,i);const o={el:a,selectedCategory:null};a.on(&quot;click&quot;,&quot;[data-cid]&quot;,function(){const m=$(this);return m.hasClass(&quot;disabled&quot;)?!1:(o.selectCategory(m.attr(&quot;data-cid&quot;)),s(o.selectedCategory))});let p=o.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html();return h.translate(p,m=&gt;{p=m}),o.selectCategory=function(m){const n=o.el.find(&#039;[data-cid=&quot;&#039;+m+&#039;&quot;]&#039;);o.selectedCategory={cid:m,name:n.attr(&quot;data-name&quot;)},n.length?o.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(n.find(&#039;[component=&quot;category-markup&quot;]&#039;).html()):o.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(p)},o.getSelectedCategory=function(){return o.selectedCategory},o.getSelectedCid=function(){return o.selectedCategory?o.selectedCategory.cid:0},i.hasOwnProperty(&quot;selectedCategory&quot;)&amp;&amp;app.parseAndTranslate(i.template,{selectedCategory:i.selectedCategory},function(m){o.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(m.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html())}),o},u.modal=function(a){a=a||{},a.onSelect=a.onSelect||function(){},a.onSubmit=a.onSubmit||function(){},app.parseAndTranslate(&quot;admin/partials/categories/select-category&quot;,{message:a.message},function(i){const s=D.dialog({title:a.title||&quot;[[modules:composer.select-category]]&quot;,message:i,buttons:{save:{label:&quot;[[global:select]]&quot;,className:&quot;btn-primary&quot;,callback:p}}}),o=u.init(s.find(&#039;[component=&quot;category-selector&quot;]&#039;),a);function p(m){return m.preventDefault(),o.selectedCategory&amp;&amp;(a.onSubmit(o.selectedCategory),s.modal(&quot;hide&quot;)),!1}a.openOnLoad&amp;&amp;s.on(&quot;shown.bs.modal&quot;,function(){s.find(&quot;.dropdown-toggle&quot;).dropdown(&quot;toggle&quot;)}),s.find(&quot;form&quot;).on(&quot;submit&quot;,p)})},u}.apply(x,E),b!==void 0&amp;&amp;(w.exports=b)},96349:(w,x,d)=&gt;{var E,b;E=[d(29930),d(89336),d(49897)],b=function(A,D,v){const h={};return h.init=function(u,a){let i=a.defaultCategories||null;a=a||{},a.privilege=a.privilege||&quot;topics:read&quot;,a.states=a.states||[&quot;watching&quot;,&quot;tracking&quot;,&quot;notwatching&quot;,&quot;ignoring&quot;],a.cacheList=a.hasOwnProperty(&quot;cacheList&quot;)?a.cacheList:!0;let s=[];Array.isArray(a.localCategories)&amp;&amp;(s=a.localCategories.map(r=&gt;({...r})),i&amp;&amp;(i=[...s,...i])),a.selectedCids=a.selectedCids||ajaxify.data.selectedCids||[];const o=u.find(&#039;[component=&quot;category-selector-search&quot;]&#039;);if(!o.length)return;const p=o.parents(&#039;[component=&quot;category/dropdown&quot;]&#039;).length&gt;0||o.parents(&#039;[component=&quot;category-selector&quot;]&#039;).length&gt;0;u.on(&quot;show.bs.dropdown&quot;,function(){p&amp;&amp;o.removeClass(&quot;hidden&quot;);function r(){const e=o.find(&quot;input&quot;).val();e.length&gt;1||!e&amp;&amp;!i?m(e,function(t){i=a.cacheList&amp;&amp;(i||t),n(t)}):!e&amp;&amp;i&amp;&amp;n(i)}o.on(&quot;click&quot;,function(e){e.preventDefault(),e.stopPropagation()}),o.find(&quot;input&quot;).val(&quot;&quot;).on(&quot;keyup&quot;,utils.debounce(r,300)),r()}),u.on(&quot;shown.bs.dropdown&quot;,function(){[&quot;xs&quot;,&quot;sm&quot;].includes(utils.findBootstrapEnvironment())||o.find(&quot;input&quot;).focus()}),u.on(&quot;hide.bs.dropdown&quot;,function(){p&amp;&amp;o.addClass(&quot;hidden&quot;),o.off(&quot;click&quot;),o.find(&quot;input&quot;).off(&quot;keyup&quot;)});function m(r,e){v.get(&quot;/search/categories&quot;,{search:r,query:utils.params(),parentCid:a.parentCid||0,selectedCids:a.selectedCids,privilege:a.privilege,states:a.states,showLinks:a.showLinks},function(t,{categories:c}){if(t)return A.error(t);e(s.concat(c))})}function n(r){const e=a.selectedCids.map(String);r.forEach(function(t){t.selected=e.includes(String(t.cid))}),app.parseAndTranslate(a.template,{categoryItems:r.slice(0,200),selectedCategory:ajaxify.data.selectedCategory,allCategoriesUrl:ajaxify.data.allCategoriesUrl},function(t){u.find(&#039;[component=&quot;category/list&quot;]&#039;).html(t.find(&#039;[component=&quot;category/list&quot;]&#039;).html()),u.find(&#039;[component=&quot;category/list&quot;] [component=&quot;category/no-matches&quot;]&#039;).toggleClass(&quot;hidden&quot;,!!r.length);const c=D.Dropdown.getInstance(u.find(&quot;.dropdown-toggle&quot;).get(0));c&amp;&amp;c.update()})}},h}.apply(x,E),b!==void 0&amp;&amp;(w.exports=b)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

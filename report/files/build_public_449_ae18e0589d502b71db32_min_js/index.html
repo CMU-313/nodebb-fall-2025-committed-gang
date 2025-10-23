@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/449.ae18e0589d502b71db32.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/449.ae18e0589d502b71db32.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">72.92</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">756</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">91.34</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">10.47</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[449, 6232, 18732, 33069],
+	{
+		449: (p, h, f) =&gt; {
+			p.exports = f(91943);
+		},
+		14063: (p, h, f) =&gt; {
+			&quot;use strict&quot;;
+			p = f.nmd(p);
+			var m, E;
+			((m = [f(17459), f(91749)]),
+				(E = function (F, a) {
+					const t = {};
+					let n = !1;
+					((t.init = function () {
+						if (
+							((t.taskbar = $(&#039;[component=&quot;taskbar&quot;]&#039;)),
+							(t.tasklist = t.taskbar.find(&quot;ul&quot;)),
+							!t.taskbar.length || !t.tasklist.length)
+						) {
+							n = !0;
+							return;
+						}
+						(t.taskbar.on(&quot;click&quot;, &quot;li&quot;, async function () {
+							const i = $(this),
+								e = i.attr(&quot;data-module&quot;),
+								o = i.attr(&quot;data-uuid&quot;),
+								r = await app.require(e);
+							return (
+								i.hasClass(&quot;active&quot;)
+									? r.minimize(o)
+									: (c(),
+										r.load(o),
+										t.toggleNew(o, !1),
+										t.tasklist.removeClass(&quot;active&quot;),
+										i.addClass(&quot;active&quot;)),
+								!1
+							);
+						}),
+							$(window).on(&quot;action:app.loggedOut&quot;, function () {
+								t.closeAll();
+							}));
+					}),
+						(t.close = async function (i, e) {
+							if (n) return;
+							if (
+								t.tasklist.find(
+									&#039;[data-module=&quot;&#039; + p + &#039;&quot;][data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;,
+								).length
+							) {
+								const r = await app.require(i);
+								r &amp;&amp; typeof r.close == &quot;function&quot; &amp;&amp; r.close(e);
+							}
+						}),
+						(t.closeAll = function (i) {
+							if (n) return;
+							let e = &quot;[data-uuid]&quot;;
+							(i &amp;&amp; (e = &#039;[data-module=&quot;&#039; + i + &#039;&quot;]&#039; + e),
+								t.tasklist.find(e).each(function (o, r) {
+									t.close(
+										i || r.getAttribute(&quot;data-module&quot;),
+										r.getAttribute(&quot;data-uuid&quot;),
+									);
+								}));
+						}),
+						(t.discard = function (i, e) {
+							if (n) return;
+							(t.tasklist
+								.find(&#039;[data-module=&quot;&#039; + i + &#039;&quot;][data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;)
+								.remove(),
+								l());
+						}),
+						(t.push = function (i, e, o, r) {
+							if (((r = r || function () {}), n)) return r();
+							const s = t.tasklist.find(&#039;li[data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;),
+								u = { module: i, uuid: e, options: o, element: s };
+							(a.fire(&quot;filter:taskbar.push&quot;, u),
+								!s.length &amp;&amp; u.module ? g(u, r) : r(s));
+						}),
+						(t.get = function (i) {
+							return n
+								? []
+								: $(&#039;[data-module=&quot;&#039; + i + &#039;&quot;]&#039;).map(function (o, r) {
+										return $(r).data();
+									});
+						}),
+						(t.minimize = function (i, e) {
+							if (n) return;
+							t.tasklist
+								.find(&#039;[data-module=&quot;&#039; + i + &#039;&quot;][data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;)
+								.toggleClass(&quot;active&quot;, !1);
+						}),
+						(t.toggleNew = function (i, e, o) {
+							if (n) return;
+							(t.tasklist.find(&#039;[data-uuid=&quot;&#039; + i + &#039;&quot;]&#039;).toggleClass(&quot;new&quot;, e),
+								o || a.fire(&quot;action:taskbar.toggleNew&quot;, i));
+						}),
+						(t.updateActive = function (i) {
+							if (n) return;
+							const e = t.tasklist.find(&quot;li&quot;);
+							(e.removeClass(&quot;active&quot;),
+								e.filter(&#039;[data-uuid=&quot;&#039; + i + &#039;&quot;]&#039;).addClass(&quot;active&quot;),
+								$(&quot;[data-uuid]:not([data-module])&quot;).toggleClass(
+									&quot;modal-unfocused&quot;,
+									!0,
+								),
+								$(&#039;[data-uuid=&quot;&#039; + i + &#039;&quot;]:not([data-module])&#039;).toggleClass(
+									&quot;modal-unfocused&quot;,
+									!1,
+								));
+						}),
+						(t.isActive = function (i) {
+							return n
+								? !1
+								: t.tasklist
+										.find(&#039;li[data-uuid=&quot;&#039; + i + &#039;&quot;]&#039;)
+										.hasClass(&quot;active&quot;);
+						}));
+					function l() {
+						if (n) return;
+						t.tasklist.find(&quot;li&quot;).length &gt; 0
+							? t.taskbar.attr(&quot;data-active&quot;, &quot;1&quot;)
+							: t.taskbar.removeAttr(&quot;data-active&quot;);
+					}
+					function c() {
+						n || t.tasklist.find(&quot;.active&quot;).removeClass(&quot;active&quot;);
+					}
+					function g(i, e) {
+						if (n) return e();
+						F.translate(i.options.title, function (o) {
+							const r = $(&quot;&lt;div&gt;&lt;/div&gt;&quot;)
+									.text(o || &quot;NodeBB Task&quot;)
+									.html(),
+								s = $(&quot;&lt;li&gt;&lt;/li&gt;&quot;)
+									.addClass(i.options.className)
+									.html(
+										&#039;&lt;a href=&quot;#&quot;&#039; +
+											(i.options.image
+												? ` style=&quot;background-image: url(&#039;` +
+													i.options.image.replace(/&amp;#x2F;/g, &quot;/&quot;) +
+													`&#039;); background-size: cover;&quot;`
+												: &quot;&quot;) +
+											&quot;&gt;&quot; +
+											(i.options.icon
+												? &#039;&lt;i class=&quot;fa &#039; + i.options.icon + &#039;&quot;&gt;&lt;/i&gt; &#039;
+												: &quot;&quot;) +
+											&#039;&lt;span aria-label=&quot;&#039; +
+											r +
+											&#039;&quot; component=&quot;taskbar/title&quot;&gt;&#039; +
+											r +
+											&quot;&lt;/span&gt;&lt;/a&gt;&quot;,
+									)
+									.attr({
+										title: r,
+										&quot;data-module&quot;: i.module,
+										&quot;data-uuid&quot;: i.uuid,
+									})
+									.addClass(
+										i.options.state !== void 0 ? i.options.state : &quot;active&quot;,
+									);
+							((!i.options.state || i.options.state === &quot;active&quot;) &amp;&amp; c(),
+								t.tasklist.append(s),
+								l(),
+								(i.element = s),
+								s.data(i),
+								a.fire(&quot;action:taskbar.pushed&quot;, i),
+								e(s));
+						});
+					}
+					const k = function (i, e, o) {
+						switch (e) {
+							case &quot;title&quot;:
+								i.find(&#039;[component=&quot;taskbar/title&quot;]&#039;).text(o);
+								break;
+							case &quot;icon&quot;:
+								i.find(&quot;i&quot;).attr(&quot;class&quot;, &quot;fa fa-&quot; + o);
+								break;
+							case &quot;image&quot;:
+								i.find(&quot;a&quot;).css(
+									&quot;background-image&quot;,
+									o ? &#039;url(&quot;&#039; + o.replace(/&amp;#x2F;/g, &quot;/&quot;) + &#039;&quot;)&#039; : &quot;&quot;,
+								);
+								break;
+							case &quot;background-color&quot;:
+								i.find(&quot;a&quot;).css(&quot;background-color&quot;, o);
+								break;
+							case &quot;color&quot;:
+								i.find(&quot;a&quot;).css(&quot;color&quot;, o);
+								break;
+						}
+					};
+					return (
+						(t.update = function (i, e, o) {
+							if (n) return;
+							const r = t.tasklist.find(
+								&#039;[data-module=&quot;&#039; + i + &#039;&quot;][data-uuid=&quot;&#039; + e + &#039;&quot;]&#039;,
+							);
+							if (!r.length) return;
+							const s = r.data();
+							(Object.keys(o).forEach(function (u) {
+								((s[u] = o[u]), k(r, u, o[u]));
+							}),
+								r.data(s));
+						}),
+						t
+					);
+				}.apply(h, m)),
+				E !== void 0 &amp;&amp; (p.exports = E));
+		},
+		51916: (p) =&gt; {
+			/*!
+			 * screenfull
+			 * v5.2.0 - 2021-11-03
+			 * (c) Sindre Sorhus; MIT License
+			 */ (function () {
+				&quot;use strict&quot;;
+				var h =
+						typeof window &lt; &quot;u&quot; &amp;&amp; typeof window.document &lt; &quot;u&quot;
+							? window.document
+							: {},
+					f = p.exports,
+					m = (function () {
+						for (
+							var a,
+								t = [
+									[
+										&quot;requestFullscreen&quot;,
+										&quot;exitFullscreen&quot;,
+										&quot;fullscreenElement&quot;,
+										&quot;fullscreenEnabled&quot;,
+										&quot;fullscreenchange&quot;,
+										&quot;fullscreenerror&quot;,
+									],
+									[
+										&quot;webkitRequestFullscreen&quot;,
+										&quot;webkitExitFullscreen&quot;,
+										&quot;webkitFullscreenElement&quot;,
+										&quot;webkitFullscreenEnabled&quot;,
+										&quot;webkitfullscreenchange&quot;,
+										&quot;webkitfullscreenerror&quot;,
+									],
+									[
+										&quot;webkitRequestFullScreen&quot;,
+										&quot;webkitCancelFullScreen&quot;,
+										&quot;webkitCurrentFullScreenElement&quot;,
+										&quot;webkitCancelFullScreen&quot;,
+										&quot;webkitfullscreenchange&quot;,
+										&quot;webkitfullscreenerror&quot;,
+									],
+									[
+										&quot;mozRequestFullScreen&quot;,
+										&quot;mozCancelFullScreen&quot;,
+										&quot;mozFullScreenElement&quot;,
+										&quot;mozFullScreenEnabled&quot;,
+										&quot;mozfullscreenchange&quot;,
+										&quot;mozfullscreenerror&quot;,
+									],
+									[
+										&quot;msRequestFullscreen&quot;,
+										&quot;msExitFullscreen&quot;,
+										&quot;msFullscreenElement&quot;,
+										&quot;msFullscreenEnabled&quot;,
+										&quot;MSFullscreenChange&quot;,
+										&quot;MSFullscreenError&quot;,
+									],
+								],
+								n = 0,
+								l = t.length,
+								c = {};
+							n &lt; l;
+							n++
+						)
+							if (((a = t[n]), a &amp;&amp; a[1] in h)) {
+								for (n = 0; n &lt; a.length; n++) c[t[0][n]] = a[n];
+								return c;
+							}
+						return !1;
+					})(),
+					E = { change: m.fullscreenchange, error: m.fullscreenerror },
+					F = {
+						request: function (a, t) {
+							return new Promise(
+								function (n, l) {
+									var c = function () {
+										(this.off(&quot;change&quot;, c), n());
+									}.bind(this);
+									(this.on(&quot;change&quot;, c), (a = a || h.documentElement));
+									var g = a[m.requestFullscreen](t);
+									g instanceof Promise &amp;&amp; g.then(c).catch(l);
+								}.bind(this),
+							);
+						},
+						exit: function () {
+							return new Promise(
+								function (a, t) {
+									if (!this.isFullscreen) {
+										a();
+										return;
+									}
+									var n = function () {
+										(this.off(&quot;change&quot;, n), a());
+									}.bind(this);
+									this.on(&quot;change&quot;, n);
+									var l = h[m.exitFullscreen]();
+									l instanceof Promise &amp;&amp; l.then(n).catch(t);
+								}.bind(this),
+							);
+						},
+						toggle: function (a, t) {
+							return this.isFullscreen ? this.exit() : this.request(a, t);
+						},
+						onchange: function (a) {
+							this.on(&quot;change&quot;, a);
+						},
+						onerror: function (a) {
+							this.on(&quot;error&quot;, a);
+						},
+						on: function (a, t) {
+							var n = E[a];
+							n &amp;&amp; h.addEventListener(n, t, !1);
+						},
+						off: function (a, t) {
+							var n = E[a];
+							n &amp;&amp; h.removeEventListener(n, t, !1);
+						},
+						raw: m,
+					};
+				if (!m) {
+					f
+						? (p.exports = { isEnabled: !1 })
+						: (window.screenfull = { isEnabled: !1 });
+					return;
+				}
+				(Object.defineProperties(F, {
+					isFullscreen: {
+						get: function () {
+							return !!h[m.fullscreenElement];
+						},
+					},
+					element: {
+						enumerable: !0,
+						get: function () {
+							return h[m.fullscreenElement];
+						},
+					},
+					isEnabled: {
+						enumerable: !0,
+						get: function () {
+							return !!h[m.fullscreenEnabled];
+						},
+					},
+				}),
+					f ? (p.exports = F) : (window.screenfull = F));
+			})();
+		},
+		57904: (p, h, f) =&gt; {
+			&quot;use strict&quot;;
+			var m, E;
+			((m = [f(14063)]),
+				(E = function (F) {
+					var a = {},
+						t = 0,
+						n = 0.3,
+						l = 0.05,
+						c = 768,
+						g = $(&quot;body&quot;),
+						k = $(window),
+						i = $(&#039;[component=&quot;navbar&quot;]&#039;);
+					const e = document.getElementById(&quot;content&quot;);
+					var o = i[0];
+					function r() {
+						return localStorage.getItem(&quot;composer:resizeRatio&quot;) || 0.5;
+					}
+					function s(d) {
+						localStorage.setItem(&quot;composer:resizeRatio&quot;, Math.min(d, 1));
+					}
+					function u() {
+						var d;
+						o ? (d = o.getBoundingClientRect()) : (d = { bottom: 0 });
+						var b = Math.max(d.bottom, 0),
+							w = {
+								top: 0,
+								left: 0,
+								right: window.innerWidth,
+								bottom: window.innerHeight,
+							};
+						return (
+							(w.width = w.right),
+							(w.height = w.bottom),
+							(w.boundedTop = b),
+							(w.boundedHeight = w.bottom - b),
+							w
+						);
+					}
+					function v(d, b) {
+						var w = u(),
+							z = d[0],
+							D = window.getComputedStyle(z),
+							P = parseInt(D.getPropertyValue(&quot;min-height&quot;), 10),
+							M = Math.max(P / window.innerHeight, n);
+						if (w.width &gt;= c) {
+							const I = (w.height - w.boundedHeight) / w.height;
+							b = Math.min(Math.max(b, M + I), 1);
+							var y = (b * w.boundedHeight) / w.height;
+							z.style.top = ((1 - y) * 100).toString() + &quot;%&quot;;
+							var S = z.getBoundingClientRect();
+							e.style.paddingBottom = (S.bottom - S.top).toString() + &quot;px&quot;;
+						} else ((z.style.top = 0), (e.style.paddingBottom = 0));
+						((d.ratio = b), F.updateActive(d.attr(&quot;data-uuid&quot;)));
+					}
+					var R = v,
+						T =
+							window.requestAnimationFrame ||
+							window.webkitRequestAnimationFrame ||
+							window.mozRequestAnimationFrame;
+					return (
+						T &amp;&amp;
+							(R = function (d, b) {
+								T(function () {
+									(v(d, b),
+										setTimeout(function () {
+											(k.trigger(&quot;action:composer.resize&quot;),
+												d.trigger(&quot;action:composer.resize&quot;));
+										}, 0));
+								});
+							}),
+						(a.reposition = function (d) {
+							var b = r();
+							(b &gt;= 1 - l &amp;&amp; ((b = 1), d.addClass(&quot;maximized&quot;)), R(d, b));
+						}),
+						(a.maximize = function (d, b) {
+							b ? R(d, 1) : a.reposition(d);
+						}),
+						(a.handleResize = function (d) {
+							var b = 0,
+								w = 0,
+								z = 0,
+								D = d.find(&quot;.resizer&quot;),
+								P = D[0];
+							function M(x) {
+								var B = P.getBoundingClientRect(),
+									A = (B.top + B.bottom) / 2;
+								((b = (A - x.clientY) / 2),
+									(w = x.clientY),
+									k.on(&quot;mousemove&quot;, y),
+									k.on(&quot;mouseup&quot;, S),
+									g.on(&quot;touchmove&quot;, I));
+							}
+							function y(x) {
+								var B = x.clientY - b,
+									A = u(),
+									C = (A.height - B) / A.boundedHeight;
+								R(d, C);
+							}
+							function S(x) {
+								(x.preventDefault(),
+									(z = x.clientY),
+									d.find(&quot;textarea&quot;).focus(),
+									k.off(&quot;mousemove&quot;, y),
+									k.off(&quot;mouseup&quot;, S),
+									g.off(&quot;touchmove&quot;, I));
+								var B = z - b,
+									A = u(),
+									C = (A.height - B) / A.boundedHeight;
+								(z - w === 0 &amp;&amp; d.hasClass(&quot;maximized&quot;)
+									? (d.removeClass(&quot;maximized&quot;),
+										(C = !t || t &gt;= 1 - l ? 0.5 : t),
+										R(d, C))
+									: z - w === 0 || C &gt;= 1 - l
+										? (R(d, 1), d.addClass(&quot;maximized&quot;), (t = C))
+										: d.removeClass(&quot;maximized&quot;),
+									s(C));
+							}
+							function I(x) {
+								(x.preventDefault(), y(x.touches[0]));
+							}
+							D.on(&quot;mousedown&quot;, function (x) {
+								x.button === 0 &amp;&amp; (x.preventDefault(), M(x));
+							})
+								.on(&quot;touchstart&quot;, function (x) {
+									(x.preventDefault(), M(x.touches[0]));
+								})
+								.on(&quot;touchend&quot;, S);
+						}),
+						a
+					);
+				}.apply(h, m)),
+				E !== void 0 &amp;&amp; (p.exports = E));
+		},
+		62590: (p, h, f) =&gt; {
+			&quot;use strict&quot;;
+			var m, E;
+			((m = [f(91749)]),
+				(E = function (F) {
+					var a = {};
+					return (
+						(a.render = function (t, n) {
+							if (
+								((n = n || function () {}),
+								!t.find(&quot;.preview-container&quot;).is(&quot;:visible&quot;))
+							)
+								return n();
+							var l = t.find(&quot;textarea&quot;);
+							socket.emit(
+								&quot;plugins.composer.renderPreview&quot;,
+								l.val(),
+								function (c, g) {
+									c ||
+										((g = $(&quot;&lt;div&gt;&quot; + g + &quot;&lt;/div&gt;&quot;)),
+										g.find(&quot;img:not(.not-responsive)&quot;).addClass(&quot;img-fluid&quot;),
+										t.find(&quot;.preview&quot;).html(g),
+										F.fire(&quot;action:composer.preview&quot;, {
+											postContainer: t,
+											preview: g,
+										}),
+										n());
+								},
+							);
+						}),
+						(a.matchScroll = function (t) {
+							if (t.find(&quot;.preview-container&quot;).is(&quot;:visible&quot;)) {
+								var n = t.find(&quot;textarea&quot;),
+									l = t.find(&quot;.preview&quot;);
+								if (n.length &amp;&amp; l.length) {
+									var c = n[0].scrollHeight - n.height();
+									if (c === 0) return;
+									var g = n.scrollTop() / c;
+									l.scrollTop(Math.max(l[0].scrollHeight - l.height(), 0) * g);
+								}
+							}
+						}),
+						(a.handleToggler = function (t) {
+							const n = t.get(0);
+							a.env = utils.findBootstrapEnvironment();
+							const l = [&quot;xs&quot;, &quot;sm&quot;].includes(a.env),
+								c = n.querySelector(&#039;.formatting-bar [data-action=&quot;preview&quot;]&#039;),
+								g = c.querySelector(&quot;.show-text&quot;),
+								k = c.querySelector(&quot;.hide-text&quot;),
+								i = localStorage.getItem(&quot;composer:previewToggled&quot;),
+								e =
+									config[&quot;composer-default&quot;] &amp;&amp;
+									config[&quot;composer-default&quot;].hidePreviewOnOpen === &quot;on&quot;;
+							let o = !l &amp;&amp; ((i === null &amp;&amp; !e) || i === &quot;true&quot;);
+							const r = n.querySelector(&quot;.preview-container&quot;),
+								s = n.querySelector(&quot;.write-container&quot;);
+							if (!c) return;
+							function u(v) {
+								(l
+									? (r.classList.toggle(&quot;hide&quot;, !1),
+										s.classList.toggle(&quot;maximized&quot;, !1),
+										r.classList.toggle(&quot;d-none&quot;, !v),
+										r.classList.toggle(&quot;d-flex&quot;, v),
+										r.classList.toggle(&quot;w-100&quot;, v),
+										s.classList.toggle(&quot;d-flex&quot;, !v),
+										s.classList.toggle(&quot;d-none&quot;, v),
+										s.classList.toggle(&quot;w-100&quot;, !v))
+									: (r.classList.toggle(&quot;hide&quot;, !v),
+										s.classList.toggle(&quot;w-50&quot;, v),
+										s.classList.toggle(&quot;w-100&quot;, !v),
+										localStorage.setItem(&quot;composer:previewToggled&quot;, v)),
+									g.classList.toggle(&quot;hide&quot;, v),
+									k.classList.toggle(&quot;hide&quot;, !v),
+									v &amp;&amp; a.render(t),
+									a.matchScroll(t));
+							}
+							((a.toggle = u),
+								c.addEventListener(&quot;click&quot;, (v) =&gt; {
+									v.button === 0 &amp;&amp; ((o = !o), u(o));
+								}),
+								u(o));
+						}),
+						a
+					);
+				}.apply(h, m)),
+				E !== void 0 &amp;&amp; (p.exports = E));
+		},
+		89596: (p, h, f) =&gt; {
+			p.exports = f(62590);
+		},
+		91943: (p, h, f) =&gt; {
+			&quot;use strict&quot;;
+			var m, E;
+			((m = [f(89596), f(99594), f(36159), f(51916)]),
+				(E = function (F, a, t, n) {
+					var l = {},
+						c = {
+							picture: function () {
+								var e = this;
+								e.find(&quot;#files&quot;).attr(&quot;accept&quot;, &quot;image/*&quot;).click();
+							},
+							upload: function () {
+								var e = this;
+								e.find(&quot;#files&quot;).attr(&quot;accept&quot;, &quot;&quot;).click();
+							},
+							thumbs: function () {
+								l.exitFullscreen();
+								var e = this;
+								Promise.all([f.e(20056), f.e(40559), f.e(5785), f.e(74566)])
+									.then(function () {
+										var o = [f(71431)];
+										(function (r) {
+											const s = e.get(0).getAttribute(&quot;data-uuid&quot;),
+												u = r.posts[s];
+											(u.action === &quot;topics.post&quot; ||
+												(u.action === &quot;posts.edit&quot; &amp;&amp; u.isMain)) &amp;&amp;
+												t.modal.open({ id: s, pid: u.pid }).then(() =&gt; {
+													(e.trigger(&quot;thumb.uploaded&quot;),
+														r.updateThumbCount(s, e));
+												});
+										}).apply(null, o);
+									})
+									.catch(f.oe);
+							},
+							tags: function () {
+								var e = this;
+								e.find(&quot;.tags-container&quot;).toggleClass(&quot;hidden&quot;);
+							},
+							zen: function () {
+								var e = this;
+								($(window).one(&quot;resize&quot;, function () {
+									function o() {
+										n.isFullscreen ||
+											(app.toggleNavbar(!0),
+											$(&quot;html&quot;).removeClass(&quot;zen-mode&quot;),
+											a.reposition(e),
+											$(window).off(&quot;resize&quot;, o));
+									}
+									n.isFullscreen &amp;&amp;
+										(app.toggleNavbar(!1),
+										$(&quot;html&quot;).addClass(&quot;zen-mode&quot;),
+										e.find(&quot;.write&quot;).focus(),
+										$(window).on(&quot;resize&quot;, o),
+										$(window).one(
+											&quot;action:composer.topics.post action:composer.posts.reply action:composer.posts.edit action:composer.discard&quot;,
+											n.exit,
+										));
+								}),
+									n.toggle(e.get(0)),
+									$(window).trigger(&quot;action:composer.fullscreen&quot;, {
+										postContainer: e,
+									}));
+							},
+						},
+						g = [];
+					((l.exitFullscreen = function () {
+						n.isEnabled &amp;&amp; n.isFullscreen &amp;&amp; n.exit();
+					}),
+						(l.addComposerButtons = function () {
+							const e = $(&quot;.formatting-bar&quot;),
+								o = e.find(&quot;.formatting-group #fileForm&quot;);
+							(g.forEach((s) =&gt; {
+								let u = &quot;&quot;;
+								(Array.isArray(s.dropdownItems) &amp;&amp; s.dropdownItems.length
+									? (u = i(s))
+									: (u = `
+					&lt;li title=&quot;${s.title || &quot;&quot;}&quot;&gt;
+						&lt;button data-format=&quot;${s.name}&quot; class=&quot;btn btn-sm btn-link text-reset position-relative&quot; aria-label=&quot;${s.title || &quot;&quot;}&quot;&gt;
+							&lt;i class=&quot;${s.iconClass}&quot;&gt;&lt;/i&gt;
+							${k(s)}
+						&lt;/button&gt;
+					&lt;/li&gt;
+				`),
+									o.before(u));
+							}),
+								e
+									.find(&quot;.formatting-group&gt;li&quot;)
+									.tooltip({
+										container: &quot;#content&quot;,
+										animation: !1,
+										trigger: &quot;manual&quot;,
+									})
+									.on(&quot;mouseenter&quot;, function (s) {
+										const u = $(s.target);
+										u.hasClass(&quot;dropdown-menu&quot;) ||
+											!!u.parents(&quot;.dropdown-menu&quot;).length ||
+											$(this).tooltip(&quot;show&quot;);
+									})
+									.on(&quot;click mouseleave&quot;, function () {
+										$(this).tooltip(&quot;hide&quot;);
+									}));
+						}));
+					function k(e) {
+						let o = &quot;&quot;;
+						return (
+							e.badge &amp;&amp;
+								(o =
+									&#039;&lt;span class=&quot;px-1 position-absolute top-0 start-100 translate-middle badge rounded text-bg-info&quot;&gt;&lt;/span&gt;&#039;),
+							o
+						);
+					}
+					function i(e) {
+						const o = e.dropdownItems.map(function (r) {
+							return `
+				&lt;li&gt;
+					&lt;a href=&quot;#&quot; data-format=&quot;${r.name}&quot; class=&quot;dropdown-item rounded-1 position-relative&quot; role=&quot;menuitem&quot;&gt;
+						&lt;i class=&quot;${r.iconClass} text-secondary&quot;&gt;&lt;/i&gt; ${r.text}
+						${k(r)}
+					&lt;/a&gt;
+				&lt;/li&gt;
+			`;
+						});
+						return `
+			&lt;li class=&quot;dropdown bottom-sheet&quot; tab-index=&quot;-1&quot; title=&quot;${e.title}&quot;&gt;
+				&lt;button class=&quot;btn btn-sm btn-link text-reset&quot; data-bs-toggle=&quot;dropdown&quot; aria-haspopup=&quot;true&quot; aria-expanded=&quot;false&quot; aria-label=&quot;${e.title}&quot;&gt;
+					&lt;i class=&quot;${e.iconClass}&quot;&gt;&lt;/i&gt;
+				&lt;/button&gt;
+				&lt;ul class=&quot;dropdown-menu p-1&quot; role=&quot;menu&quot;&gt;
+				${o}
+				&lt;/ul&gt;
+			&lt;/li&gt;
+		`;
+					}
+					return (
+						(l.addButton = function (e, o, r, s) {
+							((s = s || e.replace(&quot;fa fa-&quot;, &quot;&quot;)),
+								(c[s] = o),
+								g.push({ name: s, iconClass: e, title: r }));
+						}),
+						(l.addDropdown = function (e) {
+							(g.push({
+								iconClass: e.iconClass,
+								title: e.title,
+								dropdownItems: e.dropdownItems,
+							}),
+								e.dropdownItems.forEach((o) =&gt; {
+									o.name &amp;&amp; o.onClick &amp;&amp; (c[o.name] = o.onClick);
+								}));
+						}),
+						(l.getDispatchTable = function () {
+							return c;
+						}),
+						(l.addButtonDispatch = function (e, o) {
+							c[e] = o;
+						}),
+						(l.addHandler = function (e) {
+							e.on(&quot;click&quot;, &quot;.formatting-bar [data-format]&quot;, function (o) {
+								var r = $(this).attr(&quot;data-format&quot;),
+									s = $(this)
+										.parents(&#039;[component=&quot;composer&quot;]&#039;)
+										.find(&quot;textarea&quot;)[0];
+								c.hasOwnProperty(r) &amp;&amp;
+									(c[r].call(e, s, s.selectionStart, s.selectionEnd, o),
+									F.render(e));
+							});
+						}),
+						l
+					);
+				}.apply(h, m)),
+				E !== void 0 &amp;&amp; (p.exports = E));
+		},
+		99594: (p, h, f) =&gt; {
+			p.exports = f(57904);
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

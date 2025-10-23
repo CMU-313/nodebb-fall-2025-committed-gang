@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/10943.c49a2890909ab9bdb9ce.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/10943.c49a2890909ab9bdb9ce.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">51.05</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">227</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">8.98</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.38</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[10943],
+	{
+		10943: (t) =&gt; {
+			function i(e) {
+				const a = {
+						className: &quot;built_in&quot;,
+						begin:
+							&quot;\\b(AV|CA|CF|CG|CI|CL|CM|CN|CT|MK|MP|MTK|MTL|NS|SCN|SK|UI|WK|XC)\\w+&quot;,
+					},
+					n = /[a-zA-Z@][a-zA-Z0-9_]*/,
+					o = {
+						$pattern: n,
+						keyword: [
+							&quot;int&quot;,
+							&quot;float&quot;,
+							&quot;while&quot;,
+							&quot;char&quot;,
+							&quot;export&quot;,
+							&quot;sizeof&quot;,
+							&quot;typedef&quot;,
+							&quot;const&quot;,
+							&quot;struct&quot;,
+							&quot;for&quot;,
+							&quot;union&quot;,
+							&quot;unsigned&quot;,
+							&quot;long&quot;,
+							&quot;volatile&quot;,
+							&quot;static&quot;,
+							&quot;bool&quot;,
+							&quot;mutable&quot;,
+							&quot;if&quot;,
+							&quot;do&quot;,
+							&quot;return&quot;,
+							&quot;goto&quot;,
+							&quot;void&quot;,
+							&quot;enum&quot;,
+							&quot;else&quot;,
+							&quot;break&quot;,
+							&quot;extern&quot;,
+							&quot;asm&quot;,
+							&quot;case&quot;,
+							&quot;short&quot;,
+							&quot;default&quot;,
+							&quot;double&quot;,
+							&quot;register&quot;,
+							&quot;explicit&quot;,
+							&quot;signed&quot;,
+							&quot;typename&quot;,
+							&quot;this&quot;,
+							&quot;switch&quot;,
+							&quot;continue&quot;,
+							&quot;wchar_t&quot;,
+							&quot;inline&quot;,
+							&quot;readonly&quot;,
+							&quot;assign&quot;,
+							&quot;readwrite&quot;,
+							&quot;self&quot;,
+							&quot;@synchronized&quot;,
+							&quot;id&quot;,
+							&quot;typeof&quot;,
+							&quot;nonatomic&quot;,
+							&quot;super&quot;,
+							&quot;unichar&quot;,
+							&quot;IBOutlet&quot;,
+							&quot;IBAction&quot;,
+							&quot;strong&quot;,
+							&quot;weak&quot;,
+							&quot;copy&quot;,
+							&quot;in&quot;,
+							&quot;out&quot;,
+							&quot;inout&quot;,
+							&quot;bycopy&quot;,
+							&quot;byref&quot;,
+							&quot;oneway&quot;,
+							&quot;__strong&quot;,
+							&quot;__weak&quot;,
+							&quot;__block&quot;,
+							&quot;__autoreleasing&quot;,
+							&quot;@private&quot;,
+							&quot;@protected&quot;,
+							&quot;@public&quot;,
+							&quot;@try&quot;,
+							&quot;@property&quot;,
+							&quot;@end&quot;,
+							&quot;@throw&quot;,
+							&quot;@catch&quot;,
+							&quot;@finally&quot;,
+							&quot;@autoreleasepool&quot;,
+							&quot;@synthesize&quot;,
+							&quot;@dynamic&quot;,
+							&quot;@selector&quot;,
+							&quot;@optional&quot;,
+							&quot;@required&quot;,
+							&quot;@encode&quot;,
+							&quot;@package&quot;,
+							&quot;@import&quot;,
+							&quot;@defs&quot;,
+							&quot;@compatibility_alias&quot;,
+							&quot;__bridge&quot;,
+							&quot;__bridge_transfer&quot;,
+							&quot;__bridge_retained&quot;,
+							&quot;__bridge_retain&quot;,
+							&quot;__covariant&quot;,
+							&quot;__contravariant&quot;,
+							&quot;__kindof&quot;,
+							&quot;_Nonnull&quot;,
+							&quot;_Nullable&quot;,
+							&quot;_Null_unspecified&quot;,
+							&quot;__FUNCTION__&quot;,
+							&quot;__PRETTY_FUNCTION__&quot;,
+							&quot;__attribute__&quot;,
+							&quot;getter&quot;,
+							&quot;setter&quot;,
+							&quot;retain&quot;,
+							&quot;unsafe_unretained&quot;,
+							&quot;nonnull&quot;,
+							&quot;nullable&quot;,
+							&quot;null_unspecified&quot;,
+							&quot;null_resettable&quot;,
+							&quot;class&quot;,
+							&quot;instancetype&quot;,
+							&quot;NS_DESIGNATED_INITIALIZER&quot;,
+							&quot;NS_UNAVAILABLE&quot;,
+							&quot;NS_REQUIRES_SUPER&quot;,
+							&quot;NS_RETURNS_INNER_POINTER&quot;,
+							&quot;NS_INLINE&quot;,
+							&quot;NS_AVAILABLE&quot;,
+							&quot;NS_DEPRECATED&quot;,
+							&quot;NS_ENUM&quot;,
+							&quot;NS_OPTIONS&quot;,
+							&quot;NS_SWIFT_UNAVAILABLE&quot;,
+							&quot;NS_ASSUME_NONNULL_BEGIN&quot;,
+							&quot;NS_ASSUME_NONNULL_END&quot;,
+							&quot;NS_REFINED_FOR_SWIFT&quot;,
+							&quot;NS_SWIFT_NAME&quot;,
+							&quot;NS_SWIFT_NOTHROW&quot;,
+							&quot;NS_DURING&quot;,
+							&quot;NS_HANDLER&quot;,
+							&quot;NS_ENDHANDLER&quot;,
+							&quot;NS_VALUERETURN&quot;,
+							&quot;NS_VOIDRETURN&quot;,
+						],
+						literal: [
+							&quot;false&quot;,
+							&quot;true&quot;,
+							&quot;FALSE&quot;,
+							&quot;TRUE&quot;,
+							&quot;nil&quot;,
+							&quot;YES&quot;,
+							&quot;NO&quot;,
+							&quot;NULL&quot;,
+						],
+						built_in: [
+							&quot;BOOL&quot;,
+							&quot;dispatch_once_t&quot;,
+							&quot;dispatch_queue_t&quot;,
+							&quot;dispatch_sync&quot;,
+							&quot;dispatch_async&quot;,
+							&quot;dispatch_once&quot;,
+						],
+					},
+					_ = {
+						$pattern: n,
+						keyword: [&quot;@interface&quot;, &quot;@class&quot;, &quot;@protocol&quot;, &quot;@implementation&quot;],
+					};
+				return {
+					name: &quot;Objective-C&quot;,
+					aliases: [&quot;mm&quot;, &quot;objc&quot;, &quot;obj-c&quot;, &quot;obj-c++&quot;, &quot;objective-c++&quot;],
+					keywords: o,
+					illegal: &quot;&lt;/&quot;,
+					contains: [
+						a,
+						e.C_LINE_COMMENT_MODE,
+						e.C_BLOCK_COMMENT_MODE,
+						e.C_NUMBER_MODE,
+						e.QUOTE_STRING_MODE,
+						e.APOS_STRING_MODE,
+						{
+							className: &quot;string&quot;,
+							variants: [
+								{
+									begin: &#039;@&quot;&#039;,
+									end: &#039;&quot;&#039;,
+									illegal: &quot;\\n&quot;,
+									contains: [e.BACKSLASH_ESCAPE],
+								},
+							],
+						},
+						{
+							className: &quot;meta&quot;,
+							begin: /#\s*[a-z]+\b/,
+							end: /$/,
+							keywords: {
+								keyword:
+									&quot;if else elif endif define undef warning error line pragma ifdef ifndef include&quot;,
+							},
+							contains: [
+								{ begin: /\\\n/, relevance: 0 },
+								e.inherit(e.QUOTE_STRING_MODE, { className: &quot;string&quot; }),
+								{
+									className: &quot;string&quot;,
+									begin: /&lt;.*?&gt;/,
+									end: /$/,
+									illegal: &quot;\\n&quot;,
+								},
+								e.C_LINE_COMMENT_MODE,
+								e.C_BLOCK_COMMENT_MODE,
+							],
+						},
+						{
+							className: &quot;class&quot;,
+							begin: &quot;(&quot; + _.keyword.join(&quot;|&quot;) + &quot;)\\b&quot;,
+							end: /(\{|$)/,
+							excludeEnd: !0,
+							keywords: _,
+							contains: [e.UNDERSCORE_TITLE_MODE],
+						},
+						{ begin: &quot;\\.&quot; + e.UNDERSCORE_IDENT_RE, relevance: 0 },
+					],
+				};
+			}
+			t.exports = i;
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

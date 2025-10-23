@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/modules/accounts-picture.992a3abcd8408f9077ce.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/modules/accounts-picture.992a3abcd8408f9077ce.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">71.02</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">83.69</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">7.64</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[1091,16852,34271,43400,49897,99127],{7524:(D,C,c)=&gt;{var m,y;m=[c(72254),c(49897),c(33530),c(29930)],y=((p,x,v,d)=&gt;{const f={};f.openChangeModal=()=&gt;{socket.emit(&quot;user.getProfilePictures&quot;,{uid:ajaxify.data.uid},function(a,r){if(a)return d.error(a);const s=r.reduce(function(o,e){return o||e.type===&quot;uploaded&quot;},!1);app.parseAndTranslate(&quot;modals/change-picture&quot;,{pictures:r,uploaded:s,icon:{text:ajaxify.data[&quot;icon:text&quot;],bgColor:ajaxify.data[&quot;icon:bgColor&quot;]},defaultAvatar:ajaxify.data.defaultAvatar,allowProfileImageUploads:ajaxify.data.allowProfileImageUploads,iconBackgrounds:ajaxify.data.iconBackgrounds,user:{uid:ajaxify.data.uid,username:ajaxify.data.username,picture:ajaxify.data.picture,&quot;icon:text&quot;:ajaxify.data[&quot;icon:text&quot;],&quot;icon:bgColor&quot;:ajaxify.data[&quot;icon:bgColor&quot;]}},function(o){const e=v.dialog({className:&quot;picture-switcher&quot;,title:&quot;[[user:change-picture]]&quot;,message:o,show:!0,size:&quot;large&quot;,buttons:{close:{label:&quot;[[global:close]]&quot;,callback:g,className:&quot;btn-link&quot;},update:{label:&quot;[[global:save-changes]]&quot;,callback:n}}});e.on(&quot;shown.bs.modal&quot;,i),e.on(&quot;click&quot;,&quot;.list-group-item&quot;,function(){e.find(&quot;.list-group-item&quot;).removeClass(&quot;active&quot;),$(this).addClass(&quot;active&quot;)}),e.on(&quot;click&quot;,&quot;[data-bg-color]&quot;,function(){const u=$(this).attr(&quot;data-bg-color&quot;);$(this).addClass(&quot;selected&quot;).siblings().removeClass(&quot;selected&quot;),e.find(&#039;[component=&quot;avatar/icon&quot;]&#039;).css(&quot;background-color&quot;,u)}),t(e);function i(){ajaxify.data.picture?e.find(&quot;.list-group-item img&quot;).each(function(){this.getAttribute(&quot;src&quot;)===ajaxify.data.picture&amp;&amp;$(this).parents(&quot;.list-group-item&quot;).addClass(&quot;active&quot;)}):e.find(&#039;[data-type=&quot;default&quot;]&#039;).addClass(&quot;active&quot;);const u=e.find(`[data-bg-color=&quot;${ajaxify.data[&quot;icon:bgColor&quot;]}&quot;]`);u.length?u.addClass(&quot;selected&quot;):e.find(&#039;[data-bg-color=&quot;transparent&quot;]&#039;).addClass(&quot;selected&quot;)}function n(){const u=e.find(&quot;.list-group-item.active&quot;).attr(&quot;data-type&quot;),b=e.find(&quot;[data-bg-color].selected&quot;).attr(&quot;data-bg-color&quot;)||&quot;transparent&quot;;l(u,b).then(()=&gt;{f.updateHeader(u===&quot;default&quot;?&quot;&quot;:e.find(&quot;.list-group-item.active img&quot;).attr(&quot;src&quot;),b),ajaxify.refresh()}).catch(d.error)}function g(){e.modal(&quot;hide&quot;)}})})},f.updateHeader=(a,r)=&gt;{if(parseInt(ajaxify.data.theirid,10)!==parseInt(ajaxify.data.yourid,10))return;!a&amp;&amp;ajaxify.data.defaultAvatar&amp;&amp;(a=ajaxify.data.defaultAvatar);const s=$(&#039;[component=&quot;header/avatar&quot;] [component=&quot;avatar/picture&quot;]&#039;),o=$(&#039;[component=&quot;header/avatar&quot;] [component=&quot;avatar/icon&quot;]&#039;);if(a){if(!s.length&amp;&amp;o.length){const e=$(&quot;&lt;img/&gt;&quot;);$(o[0].attributes).each(function(){e.attr(this.nodeName,this.nodeValue)}),e.attr(&quot;component&quot;,&quot;avatar/picture&quot;).attr(&quot;src&quot;,a).insertBefore(o)}}else s.remove();r&amp;&amp;o.css({&quot;background-color&quot;:r})};function t(a){function r(o){o=(o.startsWith(&quot;http&quot;)?&quot;&quot;:config.relative_path)+o;const e=o+&quot;?&quot;+Date.now();f.updateHeader(e),ajaxify.data.picture&amp;&amp;ajaxify.data.picture.length?($(`#user-current-picture, img[data-uid=&quot;${ajaxify.data.theirid}&quot;].avatar`).attr(&quot;src&quot;,e),ajaxify.data.uploadedpicture=o,ajaxify.data.picture=o):ajaxify.refresh(function(){$(`#user-current-picture, img[data-uid=&quot;${ajaxify.data.theirid}&quot;].avatar`).attr(&quot;src&quot;,e)})}function s(){ajaxify.data.uploadedpicture===ajaxify.data.picture&amp;&amp;(ajaxify.refresh(),f.updateHeader())}a.find(&#039;[data-action=&quot;upload&quot;]&#039;).on(&quot;click&quot;,function(){return a.modal(&quot;hide&quot;),p.show({socketMethod:&quot;user.uploadCroppedPicture&quot;,route:config.relative_path+&quot;/api/user/&quot;+ajaxify.data.userslug+&quot;/uploadpicture&quot;,aspectRatio:1/1,paramName:&quot;uid&quot;,paramValue:ajaxify.data.theirid,fileSize:ajaxify.data.maximumProfileImageSize,allowSkippingCrop:!1,title:&quot;[[user:upload-picture]]&quot;,description:&quot;[[user:upload-a-picture]]&quot;,accept:ajaxify.data.allowedProfileImageExtensions},function(o){r(o)}),!1}),a.find(&#039;[data-action=&quot;upload-url&quot;]&#039;).on(&quot;click&quot;,function(){return a.modal(&quot;hide&quot;),app.parseAndTranslate(&quot;modals/upload-picture-from-url&quot;,{},function(o){o.modal(&quot;show&quot;),o.find(&quot;.upload-btn&quot;).on(&quot;click&quot;,function(){const e=o.find(&quot;#uploadFromUrl&quot;).val();return e&amp;&amp;(o.modal(&quot;hide&quot;),p.handleImageCrop({url:e,socketMethod:&quot;user.uploadCroppedPicture&quot;,aspectRatio:1,allowSkippingCrop:!1,paramName:&quot;uid&quot;,paramValue:ajaxify.data.theirid},r)),!1})}),!1}),a.find(&#039;[data-action=&quot;remove-uploaded&quot;]&#039;).on(&quot;click&quot;,function(){socket.emit(&quot;user.removeUploadedPicture&quot;,{uid:ajaxify.data.theirid},function(o){if(a.modal(&quot;hide&quot;),o)return d.error(o);s()})})}function l(a,r){return x.put(`/users/${ajaxify.data.theirid}/picture`,{type:a,bgColor:r})}return f}).apply(C,m),y!==void 0&amp;&amp;(D.exports=y)},49897:(D,C,c)=&gt;{c.r(C),c.d(C,{del:()=&gt;o,get:()=&gt;t,head:()=&gt;l,patch:()=&gt;r,post:()=&gt;a,put:()=&gt;s});var m=c(91749),y=c.n(m),p=c(33530),x=c.n(p);const v=config.relative_path+&quot;/api/v3&quot;;async function d(e,i){if(e.url=e.url.startsWith(&quot;/api&quot;)?config.relative_path+e.url:v+e.url,typeof i==&quot;function&quot;){f(e).then(n=&gt;i(null,n),n=&gt;i(n));return}try{return await f(e)}catch(n){if(n.message===&quot;A valid login session was not found. Please log in and try again.&quot;){const{url:g}=await(0,m.fire)(&quot;filter:admin.reauth&quot;,{url:&quot;login&quot;});return(0,p.confirm)(&quot;[[error:api.reauth-required]]&quot;,u=&gt;{u&amp;&amp;ajaxify.go(g)})}throw n}}async function f(e){const{url:i}=e;delete e.url,e.data&amp;&amp;!(e.data instanceof FormData)&amp;&amp;(e.data=JSON.stringify(e.data||{}),e.headers[&quot;content-type&quot;]=&quot;application/json; charset=utf-8&quot;),{options:e}=await(0,m.fire)(&quot;filter:api.options&quot;,{options:e}),e.data&amp;&amp;(e.body=e.data,delete e.data);const n=await fetch(i,e),{headers:g}=n;if(g.get(&quot;x-redirect&quot;))return f({url:g.get(&quot;x-redirect&quot;),...e});const u=g.get(&quot;content-type&quot;),b=u&amp;&amp;u.startsWith(&quot;application/json&quot;);let h;if(e.method!==&quot;HEAD&quot;&amp;&amp;(b?h=await n.json():h=await n.text()),!n.ok)throw h?new Error(b?h.status.message:h):new Error(n.statusText);return b&amp;&amp;h&amp;&amp;h.hasOwnProperty(&quot;status&quot;)&amp;&amp;h.hasOwnProperty(&quot;response&quot;)?h.response:h}function t(e,i,n){return d({url:e+(i&amp;&amp;Object.keys(i).length?&quot;?&quot;+$.param(i):&quot;&quot;)},n)}function l(e,i,n){return d({url:e+(i&amp;&amp;Object.keys(i).length?&quot;?&quot;+$.param(i):&quot;&quot;),method:&quot;HEAD&quot;},n)}function a(e,i,n){return d({url:e,method:&quot;POST&quot;,data:i,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},n)}function r(e,i,n){return d({url:e,method:&quot;PATCH&quot;,data:i,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},n)}function s(e,i,n){return d({url:e,method:&quot;PUT&quot;,data:i,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},n)}function o(e,i,n){return d({url:e,method:&quot;DELETE&quot;,data:i,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},n)}},72254:(D,C,c)=&gt;{var m,y;m=[c(29930)],y=function(p){const x={};x.show=function(t,l){const a=t.hasOwnProperty(&quot;fileSize&quot;)&amp;&amp;t.fileSize!==void 0?parseInt(t.fileSize,10):!1;app.parseAndTranslate(&quot;modals/upload-file&quot;,{showHelp:t.hasOwnProperty(&quot;showHelp&quot;)&amp;&amp;t.showHelp!==void 0?t.showHelp:!0,fileSize:a,title:t.title||&quot;[[global:upload-file]]&quot;,description:t.description||&quot;&quot;,button:t.button||&quot;[[global:upload]]&quot;,accept:t.accept?t.accept.replace(/,/g,&quot;&amp;#44; &quot;):&quot;&quot;},function(r){r.modal(&quot;show&quot;),r.on(&quot;hidden.bs.modal&quot;,function(){r.remove()});const s=r.find(&quot;#uploadForm&quot;);t.route&amp;&amp;s.attr(&quot;action&quot;,t.route),r.find(&quot;#fileUploadSubmitBtn&quot;).on(&quot;click&quot;,function(){return $(this).addClass(&quot;disabled&quot;),t.uploadModal=r,f(t,l),!1})})},x.handleImageCrop=function(t,l){$(&quot;#crop-picture-modal&quot;).remove(),app.parseAndTranslate(&quot;modals/crop_picture&quot;,{url:utils.escapeHTML(t.url)},async function(a){a.modal({backdrop:&quot;static&quot;}).modal(&quot;show&quot;);const r=parseInt($(window).height()/2,10),s=document.getElementById(&quot;cropped-image&quot;);$(s).css(&quot;max-height&quot;,r);const o=(await c.e(60239).then(c.t.bind(c,65643,23))).default;let e=new o(s,{aspectRatio:t.aspectRatio,autoCropArea:1,viewMode:1,checkCrossOrigin:!0,cropmove:function(){t.restrictImageDimension&amp;&amp;(e.cropBoxData.width&gt;t.imageDimension&amp;&amp;e.setCropBoxData({width:t.imageDimension}),e.cropBoxData.height&gt;t.imageDimension&amp;&amp;e.setCropBoxData({height:t.imageDimension}))},ready:function(){if(!d(e,t))return a.modal(&quot;hide&quot;);if(t.restrictImageDimension){const i=s.width&lt;s.height?s.width:s.height,n=i&gt;t.imageDimension?t.imageDimension:i;e.setCropBoxData({width:n,height:n})}a.find(&quot;.rotate&quot;).on(&quot;click&quot;,function(){const i=this.getAttribute(&quot;data-degrees&quot;);e.rotate(i)}),a.find(&quot;.flip&quot;).on(&quot;click&quot;,function(){const i=this.getAttribute(&quot;data-option&quot;);this.getAttribute(&quot;data-method&quot;)===&quot;scaleX&quot;?e.scaleX(i):e.scaleY(i),this.setAttribute(&quot;data-option&quot;,i*-1)}),a.find(&quot;.reset&quot;).on(&quot;click&quot;,function(){e.reset()}),a.find(&quot;.crop-btn&quot;).on(&quot;click&quot;,function(){$(this).addClass(&quot;disabled&quot;);const i=d(e,t);i&amp;&amp;(a.find(&quot;#upload-progress-bar&quot;).css(&quot;width&quot;,&quot;0%&quot;),a.find(&quot;#upload-progress-box&quot;).show().removeClass(&quot;hide&quot;),v({data:t,imageData:i,progressBarEl:a.find(&quot;#upload-progress-bar&quot;)},function(n,g){if(n)return a.find(&quot;#upload-progress-box&quot;).hide(),a.find(&quot;.upload-btn&quot;).removeClass(&quot;disabled&quot;),a.find(&quot;.crop-btn&quot;).removeClass(&quot;disabled&quot;),p.error(n);l(g.url),a.modal(&quot;hide&quot;)}))}),a.find(&quot;.upload-btn&quot;).on(&quot;click&quot;,async function(){$(this).addClass(&quot;disabled&quot;),e.destroy();const i=(await c.e(60239).then(c.t.bind(c,65643,23))).default;e=new i(s,{viewMode:1,autoCropArea:1,ready:function(){a.find(&quot;.crop-btn&quot;).trigger(&quot;click&quot;)}})})}})})};function v(t,l){const a={};a[t.data.paramName]=t.data.paramValue,a.method=t.data.socketMethod,a.size=t.imageData.length,a.progress=0;const r=1e5;function s(){const o=t.imageData.slice(a.progress,a.progress+r);socket.emit(&quot;uploads.upload&quot;,{chunk:o,params:a},function(e,i){if(e)return p.error(e);if(a.progress+r&lt;a.size)return a.progress+=o.length,t.progressBarEl.css(&quot;width&quot;,(a.progress/a.size*100).toFixed(2)+&quot;%&quot;),setTimeout(s,100);t.progressBarEl.css(&quot;width&quot;,&quot;100%&quot;),l(null,i)})}s()}function d(t,l){let a;try{a=l.imageType?t.getCroppedCanvas().toDataURL(l.imageType):t.getCroppedCanvas().toDataURL()}catch(r){[&quot;The operation is insecure.&quot;,&quot;Failed to execute &#039;toDataURL&#039; on &#039;HTMLCanvasElement&#039;: Tainted canvases may not be exported.&quot;].indexOf(r.message)!==-1?p.error(&quot;[[error:cors-error]]&quot;):p.error(r.message);return}return a}function f(t,l){function a(i,n){i===&quot;error&quot;&amp;&amp;t.uploadModal.find(&quot;#fileUploadSubmitBtn&quot;).removeClass(&quot;disabled&quot;),t.uploadModal.find(&quot;#alert-&quot;+i).translateText(n).removeClass(&quot;hide&quot;)}const r=t.uploadModal.find(&quot;#fileInput&quot;);if(!r.val())return a(&quot;error&quot;,&quot;[[uploads:select-file-to-upload]]&quot;);const s=r[0].files[0],o=t.hasOwnProperty(&quot;fileSize&quot;)&amp;&amp;t.fileSize!==void 0?parseInt(t.fileSize,10):!1;if(o&amp;&amp;s.size&gt;o*1024)return a(&quot;error&quot;,&quot;[[error:file-too-big, &quot;+o+&quot;]]&quot;);if(s.name.endsWith(&quot;.gif&quot;)){c.e(98463).then(function(){var i=[c(24187)];(function(n){n.ajaxSubmit(t.uploadModal,l)}).apply(null,i)}).catch(c.oe);return}const e=new FileReader;e.addEventListener(&quot;load&quot;,function(){const i=e.result;t.uploadModal.modal(&quot;hide&quot;),x.handleImageCrop({url:i,imageType:s.type,socketMethod:t.socketMethod,aspectRatio:t.aspectRatio,allowSkippingCrop:t.allowSkippingCrop,restrictImageDimension:t.restrictImageDimension,imageDimension:t.imageDimension,paramName:t.paramName,paramValue:t.paramValue},l)},!1),s&amp;&amp;e.readAsDataURL(s)}return x}.apply(C,m),y!==void 0&amp;&amp;(D.exports=y)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

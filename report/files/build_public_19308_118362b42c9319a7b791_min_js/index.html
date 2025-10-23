@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/19308.118362b42c9319a7b791.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/19308.118362b42c9319a7b791.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">70.42</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">660</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">126.82</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">9.14</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;
+(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[11848, 19308, 42032, 48118, 48815, 65274, 66173, 87353, 95004],
+	{
+		474: (h, g, A) =&gt; {
+			var u;
+			((u = function () {
+				return {
+					types: [&quot;number&quot;],
+					get: function (d, E, m) {
+						const i = d.val();
+						return m ? (i ? +i : 0) : i ? +i : void 0;
+					},
+				};
+			}.call(g, A, g, h)),
+				u !== void 0 &amp;&amp; (h.exports = u));
+		},
+		17708: (h, g, A) =&gt; {
+			var u;
+			((u = function () {
+				let d = null,
+					E = null,
+					m = null;
+				const i = Object.freeze({
+					0: &quot;&quot;,
+					8: &quot;Backspace&quot;,
+					9: &quot;Tab&quot;,
+					13: &quot;Enter&quot;,
+					27: &quot;Escape&quot;,
+					32: &quot;Space&quot;,
+					37: &quot;Left&quot;,
+					38: &quot;Up&quot;,
+					39: &quot;Right&quot;,
+					40: &quot;Down&quot;,
+					45: &quot;Insert&quot;,
+					46: &quot;Delete&quot;,
+					187: &quot;=&quot;,
+					189: &quot;-&quot;,
+					190: &quot;.&quot;,
+					191: &quot;/&quot;,
+					219: &quot;[&quot;,
+					220: &quot;\\&quot;,
+					221: &quot;]&quot;,
+				});
+				function o() {
+					((this.c = !1),
+						(this.a = !1),
+						(this.s = !1),
+						(this.m = !1),
+						(this.code = 0),
+						(this.char = &quot;&quot;));
+				}
+				function n(t) {
+					const e =
+							t.ctrlKey !== E.c ||
+							t.altKey !== E.a ||
+							t.shiftKey !== E.s ||
+							t.metaKey !== E.m,
+						r =
+							t.ctrlKey +
+							t.altKey +
+							t.shiftKey +
+							t.metaKey -
+							E.c -
+							E.a -
+							E.s -
+							E.m,
+						s = new o();
+					if (
+						((s.c = t.ctrlKey),
+						(s.a = t.altKey),
+						(s.s = t.shiftKey),
+						(s.m = t.metaKey),
+						(E = s),
+						e)
+					) {
+						if (r &lt; 0) return null;
+						((s.code = m.code), (s.char = m.char));
+					} else ((s.code = t.which), (s.char = c(s.code)));
+					return ((m = s), s);
+				}
+				function c(t) {
+					return (
+						(t = +t),
+						t === 0
+							? &quot;&quot;
+							: t &gt;= 48 &amp;&amp; t &lt;= 90
+								? String.fromCharCode(t).toUpperCase()
+								: t &gt;= 112 &amp;&amp; t &lt;= 123
+									? &quot;F&quot; + (t - 111)
+									: i[t] || &quot;#&quot; + t
+					);
+				}
+				function l(t, e, r, s) {
+					let p = &quot;&quot;;
+					if (!(t instanceof o)) return p;
+					if (!t.char) return e ? &quot;Enter a key&quot; : &quot;&quot;;
+					((!s || /CtrlAShifMea#/.test(s)) &amp;&amp; (s = e ? &quot; + &quot; : &quot;+&quot;),
+						t.c &amp;&amp; (p += (r ? &quot;C&quot; : &quot;Ctrl&quot;) + s),
+						t.a &amp;&amp; (p += (r ? &quot;A&quot; : &quot;Alt&quot;) + s),
+						t.s &amp;&amp; (p += (r ? &quot;S&quot; : &quot;Shift&quot;) + s),
+						t.m &amp;&amp; (p += (r ? &quot;M&quot; : &quot;Meta&quot;) + s));
+					let _;
+					return (e ? (_ = t.char) : t.code &amp;&amp; (_ = &quot;#&quot; + t.code || 0), p + _);
+				}
+				function y(t) {
+					if (t instanceof o) return t;
+					const e = new o(),
+						r = /([^CtrlAShifMea#\d]+)(?:#|\d)/.exec(t),
+						s = r != null ? t.split(r[1]) : [t];
+					for (let p = 0; p &lt; s.length; p += 1) {
+						const _ = s[p];
+						switch (_) {
+							case &quot;C&quot;:
+							case &quot;Ctrl&quot;:
+								e.c = !0;
+								break;
+							case &quot;A&quot;:
+							case &quot;Alt&quot;:
+								e.a = !0;
+								break;
+							case &quot;S&quot;:
+							case &quot;Shift&quot;:
+								e.s = !0;
+								break;
+							case &quot;M&quot;:
+							case &quot;Meta&quot;:
+								e.m = !0;
+								break;
+							default: {
+								const S = /\d+/.exec(_);
+								(S != null &amp;&amp; (e.code = S[0]), (e.char = c(e.code)));
+							}
+						}
+					}
+					return e;
+				}
+				const f = {
+					types: [&quot;key&quot;],
+					use: function () {
+						d = this.helper;
+					},
+					init: function (t) {
+						return (
+							t
+								.focus(function () {
+									((m = t.data(&quot;keyData&quot;) || new o()), (E = new o()));
+								})
+								.keydown(function (e) {
+									(e.preventDefault(), a(t, e));
+								})
+								.keyup(function (e) {
+									a(t, e);
+								}),
+							t
+						);
+					},
+					set: function (t, e) {
+						const r = y(e || &quot;&quot;);
+						(t.data(&quot;keyData&quot;, r),
+							r.code
+								? t.removeClass(&quot;alert-danger&quot;)
+								: t.addClass(&quot;alert-danger&quot;),
+							t.val(l(r, !0, !1, &quot; + &quot;)));
+					},
+					get: function (t, e, r) {
+						const s = t.data(&quot;keyData&quot;),
+							p = t.data(&quot;split&quot;) || t.data(&quot;separator&quot;) || &quot;+&quot;,
+							_ = !d.isFalse(t.data(&quot;short&quot;));
+						if (e) {
+							if (r || (s != null &amp;&amp; s.char)) return l(s, !1, _, p);
+						} else if (r || (s != null &amp;&amp; s.code)) return s;
+					},
+				};
+				function a(t, e) {
+					((e = e || window.event), (e.which = e.which || e.keyCode || e.key));
+					const r = n(e);
+					r != null &amp;&amp; f.set(t, r);
+				}
+				return f;
+			}.call(g, A, g, h)),
+				u !== void 0 &amp;&amp; (h.exports = u));
+		},
+		40054: (h, g, A) =&gt; {
+			var u;
+			((u = function () {
+				let d = null;
+				function E(n) {
+					const c = $(
+						d.createElement(
+							&quot;button&quot;,
+							{ class: &quot;btn btn-sm btn-primary remove&quot;, title: &quot;Remove Item&quot; },
+							&quot;-&quot;,
+						),
+					);
+					return (
+						c.click(function (l) {
+							(l.preventDefault(),
+								n.remove(),
+								c.remove(),
+								n.each(function (y, f) {
+									((f = $(f)), f.is(&quot;[data-key]&quot;) &amp;&amp; d.destructElement(f));
+								}));
+						}),
+						c
+					);
+				}
+				function m(n, c, l, y, f, a) {
+					l = d.deepClone(l);
+					const t = l[&quot;data-type&quot;] || l.type || &quot;text&quot;,
+						e = $(d.createElementOfType(t, l.tagName, l));
+					(e.attr(&quot;data-parent&quot;, &quot;_&quot; + c),
+						delete l[&quot;data-type&quot;],
+						delete l.tagName);
+					for (const [r, s] of Object.entries(l))
+						r.search(&quot;data-&quot;) === 0
+							? e.data(r.substring(5), s)
+							: r.search(&quot;prop-&quot;) === 0
+								? e.prop(r.substring(5), s)
+								: e.attr(r, s);
+					(d.fillField(e, y),
+						$(&#039;[data-parent=&quot;_&#039; + c + &#039;&quot;]&#039;, n).length &amp;&amp; a(f),
+						a(e),
+						a(E(e.add(f))));
+				}
+				function i(n, c, l, y) {
+					const f = $(document.createTextNode(&quot; &quot;)),
+						a = n.data(&quot;new&quot;) || &quot;&quot;,
+						t = $(
+							d.createElement(
+								&quot;button&quot;,
+								{ class: &quot;btn btn-sm btn-primary add&quot;, title: &quot;Expand Array&quot; },
+								&quot;+&quot;,
+							),
+						);
+					(t.click(function (e) {
+						(e.preventDefault(),
+							m(n, c, l, a, y.clone(), function (r) {
+								f.before(r);
+							}));
+					}),
+						n.append(f),
+						n.append(t));
+				}
+				return {
+					types: [&quot;array&quot;, &quot;div&quot;],
+					use: function () {
+						d = this.helper;
+					},
+					create: function (n, c) {
+						return d.createElement(c || &quot;div&quot;);
+					},
+					set: function (n, c) {
+						let l = n.data(&quot;attributes&quot;);
+						const y = n.data(&quot;key&quot;) || n.data(&quot;parent&quot;);
+						let f = n.data(&quot;split&quot;) || &quot;, &quot;;
+						((f = (function () {
+							try {
+								return $(f);
+							} catch (a) {
+								return (console.error(a), $(document.createTextNode(f)));
+							}
+						})()),
+							typeof l != &quot;object&quot; &amp;&amp; (l = {}),
+							n.empty(),
+							c instanceof Array || (c = []));
+						for (let a = 0; a &lt; c.length; a += 1)
+							m(n, y, l, c[a], f.clone(), function (t) {
+								n.append(t);
+							});
+						i(n, y, l, f);
+					},
+					get: function (n, c, l) {
+						const y = n.data(&quot;key&quot;) || n.data(&quot;parent&quot;),
+							f = $(&#039;[data-parent=&quot;_&#039; + y + &#039;&quot;]&#039;, n),
+							a = [];
+						if (
+							(f.each(function (t, e) {
+								e = $(e);
+								const r = d.readValue(e);
+								if (
+									d.isTrue(e.data(&quot;empty&quot;)) ||
+									(r !== void 0 &amp;&amp; (r == null || r.length !== 0))
+								)
+									return a.push(r);
+							}),
+							l || a.length)
+						)
+							return a;
+					},
+				};
+			}.call(g, A, g, h)),
+				u !== void 0 &amp;&amp; (h.exports = u));
+		},
+		46700: (h, g, A) =&gt; {
+			var u;
+			((u = function () {
+				let d = null;
+				function E(i, o, n, c, l, y, f) {
+					const a = n[&quot;data-prepend&quot;],
+						t = n[&quot;data-append&quot;];
+					(delete n[&quot;data-prepend&quot;],
+						delete n[&quot;data-append&quot;],
+						(n = d.deepClone(n)));
+					const e = n[&quot;data-type&quot;] || n.type || &quot;text&quot;,
+						r = $(d.createElementOfType(e, n.tagName, n));
+					(r.attr(&quot;data-parent&quot;, &quot;_&quot; + o),
+						r.attr(&quot;data-prop&quot;, c),
+						delete n[&quot;data-type&quot;],
+						delete n.tagName);
+					for (const [s, p] of Object.entries(n))
+						s.search(&quot;data-&quot;) === 0
+							? r.data(s.substring(5), p)
+							: s.search(&quot;prop-&quot;) === 0
+								? r.prop(s.substring(5), p)
+								: r.attr(s, p);
+					(d.fillField(r, l),
+						$(&#039;[data-parent=&quot;_&#039; + o + &#039;&quot;]&#039;, i).length &amp;&amp; f(y),
+						a &amp;&amp; f(a),
+						f(r),
+						t &amp;&amp; f(t));
+				}
+				return {
+					types: [&quot;object&quot;],
+					use: function () {
+						d = this.helper;
+					},
+					create: function (i, o) {
+						return d.createElement(o || &quot;div&quot;);
+					},
+					set: function (i, o) {
+						const n = i.data(&quot;attributes&quot;) || i.data(&quot;properties&quot;),
+							c = i.data(&quot;key&quot;) || i.data(&quot;parent&quot;);
+						let l = i.data(&quot;split&quot;) || &quot;, &quot;;
+						if (
+							((l = (function () {
+								try {
+									return $(l);
+								} catch (y) {
+									return (console.error(y), $(document.createTextNode(l)));
+								}
+							})()),
+							i.empty(),
+							typeof o != &quot;object&quot; &amp;&amp; (o = {}),
+							Array.isArray(n))
+						)
+							for (const [y, f] of Object.entries(n)) {
+								let a = f;
+								typeof f != &quot;object&quot; &amp;&amp; (a = {});
+								const t = a[&quot;data-prop&quot;] || a[&quot;data-property&quot;] || y;
+								(o[t] === void 0 &amp;&amp;
+									a[&quot;data-new&quot;] !== void 0 &amp;&amp;
+									(o[t] = a[&quot;data-new&quot;]),
+									E(i, c, a, t, o[t], l.clone(), function (e) {
+										i.append(e);
+									}));
+							}
+					},
+					get: function (i, o, n) {
+						const c = i.data(&quot;key&quot;) || i.data(&quot;parent&quot;),
+							l = $(&#039;[data-parent=&quot;_&#039; + c + &#039;&quot;]&#039;, i),
+							y = {};
+						if (
+							(l.each(function (f, a) {
+								a = $(a);
+								const t = d.readValue(a),
+									e = a.data(&quot;prop&quot;);
+								if (
+									d.isTrue(a.data(&quot;empty&quot;)) ||
+									(t !== void 0 &amp;&amp; (t == null || t.length !== 0))
+								)
+									return ((y[e] = t), t);
+							}),
+							n || Object.keys(y).length)
+						)
+							return y;
+					},
+				};
+			}.call(g, A, g, h)),
+				u !== void 0 &amp;&amp; (h.exports = u));
+		},
+		50397: (h, g, A) =&gt; {
+			var u;
+			((u = function () {
+				let d = null;
+				return {
+					types: [&quot;textarea&quot;],
+					use: function () {
+						d = this;
+					},
+					create: function () {
+						return d.helper.createElement(&quot;textarea&quot;);
+					},
+					set: function (m, i, o) {
+						(o &amp;&amp; i != null &amp;&amp; typeof i.trim == &quot;function&quot; &amp;&amp; (i = i.trim()),
+							m.val(i || &quot;&quot;));
+					},
+					get: function (m, i, o) {
+						let n = m.val();
+						if ((i &amp;&amp; (n == null ? (n = void 0) : (n = n.trim())), o || n))
+							return n;
+					},
+				};
+			}.call(g, A, g, h)),
+				u !== void 0 &amp;&amp; (h.exports = u));
+		},
+		59175: (h, g, A) =&gt; {
+			var u, d;
+			((u = [A(81335), A(33530), A(91749), A(65285)]),
+				(d = function (E, m, i) {
+					let o;
+					const n = {
+						types: [&quot;sorted-list&quot;],
+						use: function () {
+							o = this;
+						},
+						set: function (a, t) {
+							const e = a.attr(&quot;data-sorted-list&quot;);
+							((t[e] = []),
+								a.find(&#039;[data-type=&quot;item&quot;]&#039;).each(function (r, s) {
+									const p = $(s).attr(&quot;data-sorted-list-uuid&quot;),
+										_ = o.helper.serializeForm(
+											$(
+												&#039;[data-sorted-list-object=&quot;&#039; +
+													e +
+													&#039;&quot;][data-sorted-list-uuid=&quot;&#039; +
+													p +
+													&#039;&quot;]&#039;,
+											),
+										);
+									(f(_), t[e].push(_));
+								}));
+						},
+						get: async (a, t) =&gt; {
+							const {
+									listEl: e,
+									key: r,
+									formTpl: s,
+									formValues: p,
+								} = await i.fire(&quot;filter:settings.sorted-list.load&quot;, {
+									listEl: a.find(&#039;[data-type=&quot;list&quot;]&#039;),
+									key: a.attr(&quot;data-sorted-list&quot;),
+									formTpl: a.attr(&quot;data-form-template&quot;),
+									formValues: {},
+								}),
+								_ = await E.render(s, p);
+							$(&#039;[data-sorted-list=&quot;&#039; + r + &#039;&quot;] [data-type=&quot;add&quot;]&#039;).on(
+								&quot;click&quot;,
+								function () {
+									const C = m.confirm(_, function (K) {
+										K &amp;&amp; n.addItem(C.find(&quot;form&quot;).children(), a);
+									});
+									i.fire(&quot;action:settings.sorted-list.modal&quot;, { modal: C });
+								},
+							);
+							const T = a.parents(&quot;form&quot;).attr(&quot;data-socket-get&quot;),
+								k = ajaxify.data[T ? t : &quot;settings&quot;][r];
+							if (Array.isArray(k) &amp;&amp; typeof k[0] != &quot;string&quot;) {
+								const C = await Promise.all(
+									k.map(async (K) =&gt; {
+										({ item: K } = await i.fire(
+											&quot;filter:settings.sorted-list.loadItem&quot;,
+											{ item: K },
+										));
+										const w = utils.generateUUID(),
+											D = $(_).deserialize(K);
+										return (
+											D.attr(&quot;data-sorted-list-uuid&quot;, w),
+											D.attr(&quot;data-sorted-list-object&quot;, r),
+											$(&quot;#content&quot;).append(D.hide()),
+											{ itemUUID: w, item: K }
+										);
+									}),
+								);
+								for (const { itemUUID: K, item: w } of C) {
+									const D = await y(a, K, w);
+									i.fire(&quot;action:settings.sorted-list.itemLoaded&quot;, {
+										element: D,
+									});
+								}
+								i.fire(&quot;action:settings.sorted-list.loaded&quot;, {
+									containerEl: a.get(0),
+									listEl: e.get(0),
+									hash: t,
+									key: r,
+								});
+							}
+							e.sortable().addClass(&quot;pointer&quot;);
+						},
+						addItem: async (a, t) =&gt; {
+							const e = t.attr(&quot;data-sorted-list&quot;),
+								r = utils.generateUUID(),
+								s = $(
+									&#039;&lt;form class=&quot;&quot; data-sorted-list-uuid=&quot;&#039; +
+										r +
+										&#039;&quot; data-sorted-list-object=&quot;&#039; +
+										e +
+										&#039;&quot;&gt;&lt;/form&gt;&#039;,
+								);
+							(s.append(a), $(&quot;#content&quot;).append(s.hide()));
+							let p = o.helper.serializeForm(s);
+							(({ item: p } = await i.fire(
+								&quot;filter:settings.sorted-list.loadItem&quot;,
+								{ item: p },
+							)),
+								y(t, r, p));
+						},
+					};
+					function c(a, t) {
+						a.find(
+							&#039;[data-sorted-list-uuid=&quot;&#039; + t + &#039;&quot;] [data-type=&quot;remove&quot;]&#039;,
+						).on(&quot;click&quot;, function () {
+							$(&#039;[data-sorted-list-uuid=&quot;&#039; + t + &#039;&quot;]&#039;).remove();
+						});
+					}
+					function l(a, t) {
+						const e = a.find(&#039;[data-type=&quot;list&quot;]&#039;),
+							r = a.attr(&quot;data-sorted-list&quot;);
+						$(&#039;[data-sorted-list-uuid=&quot;&#039; + t + &#039;&quot;] [data-type=&quot;edit&quot;]&#039;).on(
+							&quot;click&quot;,
+							function () {
+								const p = $(
+										&#039;[data-sorted-list-uuid=&quot;&#039; +
+											t +
+											&#039;&quot;][data-sorted-list-object=&quot;&#039; +
+											r +
+											&#039;&quot;]&#039;,
+									),
+									_ = p.clone(!0).show();
+								_.find(&quot;select&quot;).each((T, k) =&gt; {
+									k.value = p.find(`select#${k.id}`).val();
+								});
+								const S = m.confirm(_, async (T) =&gt; {
+									if (T) {
+										const k = $(
+											&#039;&lt;form class=&quot;&quot; data-sorted-list-uuid=&quot;&#039; +
+												t +
+												&#039;&quot; data-sorted-list-object=&quot;&#039; +
+												r +
+												&#039;&quot;&gt;&lt;/form&gt;&#039;,
+										);
+										(k.append(S.find(&quot;form&quot;).children()),
+											$(&quot;#content&quot;)
+												.find(
+													&#039;[data-sorted-list-uuid=&quot;&#039; +
+														t +
+														&#039;&quot;][data-sorted-list-object=&quot;&#039; +
+														r +
+														&#039;&quot;]&#039;,
+												)
+												.remove(),
+											$(&quot;#content&quot;).append(k.hide()));
+										let C = o.helper.serializeForm(k);
+										(({ item: C } = await i.fire(
+											&quot;filter:settings.sorted-list.loadItem&quot;,
+											{ item: C },
+										)),
+											f(C));
+										const K = e.find(&#039;[data-sorted-list-uuid=&quot;&#039; + t + &#039;&quot;]&#039;);
+										y(a, t, C, K);
+									}
+								});
+								i.fire(&quot;action:settings.sorted-list.modal&quot;, { modal: S });
+							},
+						);
+					}
+					function y(a, t, e, r) {
+						const s = a.find(&#039;[data-type=&quot;list&quot;]&#039;),
+							p = a.attr(&quot;data-item-template&quot;);
+						return (
+							f(e),
+							new Promise((_) =&gt; {
+								app.parseAndTranslate(p, e, function (S) {
+									((S = $(S)),
+										r ? r.replaceWith(S) : s.append(S),
+										S.attr(&quot;data-sorted-list-uuid&quot;, t),
+										c(a, t),
+										l(a, t),
+										i.fire(&quot;action:settings.sorted-list.parse&quot;, {
+											itemHtml: S,
+										}),
+										_(S.get(0)));
+								});
+							})
+						);
+					}
+					function f(a) {
+						return Object.entries(a || {}).forEach(([t, e]) =&gt; {
+							a[t] =
+								typeof e == &quot;string&quot;
+									? utils.stripHTMLTags(e, utils.stripTags)
+									: e;
+						});
+					}
+					return n;
+				}.apply(g, u)),
+				d !== void 0 &amp;&amp; (h.exports = d));
+		},
+		71575: (h, g, A) =&gt; {
+			var u;
+			((u = function () {
+				let d = null;
+				function E(i, o) {
+					for (let n = 0; n &lt; o.length; n += 1) {
+						const c = o[n],
+							l = c.text || c.value;
+						(delete c.text,
+							i.append($(d.helper.createElement(&quot;option&quot;, c)).text(l)));
+					}
+				}
+				return {
+					types: [&quot;select&quot;],
+					use: function () {
+						d = this;
+					},
+					create: function (i, o, n) {
+						const c = $(d.helper.createElement(&quot;select&quot;));
+						return (E(c, n[&quot;data-options&quot;]), delete n[&quot;data-options&quot;], c);
+					},
+					init: function (i) {
+						const o = i.data(&quot;options&quot;);
+						o != null &amp;&amp; E(i, o);
+					},
+					set: function (i, o) {
+						i.val(o || &quot;&quot;);
+					},
+					get: function (i, o, n) {
+						const c = i.val();
+						if (n || c) return c;
+					},
+				};
+			}.call(g, A, g, h)),
+				u !== void 0 &amp;&amp; (h.exports = u));
+		},
+		75210: (h, g, A) =&gt; {
+			var u;
+			((u = function () {
+				let d = null;
+				return {
+					types: [&quot;checkbox&quot;],
+					use: function () {
+						d = this;
+					},
+					create: function () {
+						return d.helper.createElement(&quot;input&quot;, { type: &quot;checkbox&quot; });
+					},
+					set: function (m, i) {
+						m.prop(&quot;checked&quot;, i);
+					},
+					get: function (m, i, o) {
+						const n = m.prop(&quot;checked&quot;);
+						if (n != null) return o ? (i ? (n ? 1 : 0) : n) : n || void 0;
+					},
+				};
+			}.call(g, A, g, h)),
+				u !== void 0 &amp;&amp; (h.exports = u));
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

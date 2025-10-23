@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/89917.a015c4818c962a383817.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/89917.a015c4818c962a383817.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">53.37</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">367</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">13.25</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">3.07</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[70946, 89917],
+	{
+		70946: (a) =&gt; {
+			function g(n) {
+				const e = n.regex,
+					w = [
+						&quot;abs&quot;,
+						&quot;accept&quot;,
+						&quot;alarm&quot;,
+						&quot;and&quot;,
+						&quot;atan2&quot;,
+						&quot;bind&quot;,
+						&quot;binmode&quot;,
+						&quot;bless&quot;,
+						&quot;break&quot;,
+						&quot;caller&quot;,
+						&quot;chdir&quot;,
+						&quot;chmod&quot;,
+						&quot;chomp&quot;,
+						&quot;chop&quot;,
+						&quot;chown&quot;,
+						&quot;chr&quot;,
+						&quot;chroot&quot;,
+						&quot;close&quot;,
+						&quot;closedir&quot;,
+						&quot;connect&quot;,
+						&quot;continue&quot;,
+						&quot;cos&quot;,
+						&quot;crypt&quot;,
+						&quot;dbmclose&quot;,
+						&quot;dbmopen&quot;,
+						&quot;defined&quot;,
+						&quot;delete&quot;,
+						&quot;die&quot;,
+						&quot;do&quot;,
+						&quot;dump&quot;,
+						&quot;each&quot;,
+						&quot;else&quot;,
+						&quot;elsif&quot;,
+						&quot;endgrent&quot;,
+						&quot;endhostent&quot;,
+						&quot;endnetent&quot;,
+						&quot;endprotoent&quot;,
+						&quot;endpwent&quot;,
+						&quot;endservent&quot;,
+						&quot;eof&quot;,
+						&quot;eval&quot;,
+						&quot;exec&quot;,
+						&quot;exists&quot;,
+						&quot;exit&quot;,
+						&quot;exp&quot;,
+						&quot;fcntl&quot;,
+						&quot;fileno&quot;,
+						&quot;flock&quot;,
+						&quot;for&quot;,
+						&quot;foreach&quot;,
+						&quot;fork&quot;,
+						&quot;format&quot;,
+						&quot;formline&quot;,
+						&quot;getc&quot;,
+						&quot;getgrent&quot;,
+						&quot;getgrgid&quot;,
+						&quot;getgrnam&quot;,
+						&quot;gethostbyaddr&quot;,
+						&quot;gethostbyname&quot;,
+						&quot;gethostent&quot;,
+						&quot;getlogin&quot;,
+						&quot;getnetbyaddr&quot;,
+						&quot;getnetbyname&quot;,
+						&quot;getnetent&quot;,
+						&quot;getpeername&quot;,
+						&quot;getpgrp&quot;,
+						&quot;getpriority&quot;,
+						&quot;getprotobyname&quot;,
+						&quot;getprotobynumber&quot;,
+						&quot;getprotoent&quot;,
+						&quot;getpwent&quot;,
+						&quot;getpwnam&quot;,
+						&quot;getpwuid&quot;,
+						&quot;getservbyname&quot;,
+						&quot;getservbyport&quot;,
+						&quot;getservent&quot;,
+						&quot;getsockname&quot;,
+						&quot;getsockopt&quot;,
+						&quot;given&quot;,
+						&quot;glob&quot;,
+						&quot;gmtime&quot;,
+						&quot;goto&quot;,
+						&quot;grep&quot;,
+						&quot;gt&quot;,
+						&quot;hex&quot;,
+						&quot;if&quot;,
+						&quot;index&quot;,
+						&quot;int&quot;,
+						&quot;ioctl&quot;,
+						&quot;join&quot;,
+						&quot;keys&quot;,
+						&quot;kill&quot;,
+						&quot;last&quot;,
+						&quot;lc&quot;,
+						&quot;lcfirst&quot;,
+						&quot;length&quot;,
+						&quot;link&quot;,
+						&quot;listen&quot;,
+						&quot;local&quot;,
+						&quot;localtime&quot;,
+						&quot;log&quot;,
+						&quot;lstat&quot;,
+						&quot;lt&quot;,
+						&quot;ma&quot;,
+						&quot;map&quot;,
+						&quot;mkdir&quot;,
+						&quot;msgctl&quot;,
+						&quot;msgget&quot;,
+						&quot;msgrcv&quot;,
+						&quot;msgsnd&quot;,
+						&quot;my&quot;,
+						&quot;ne&quot;,
+						&quot;next&quot;,
+						&quot;no&quot;,
+						&quot;not&quot;,
+						&quot;oct&quot;,
+						&quot;open&quot;,
+						&quot;opendir&quot;,
+						&quot;or&quot;,
+						&quot;ord&quot;,
+						&quot;our&quot;,
+						&quot;pack&quot;,
+						&quot;package&quot;,
+						&quot;pipe&quot;,
+						&quot;pop&quot;,
+						&quot;pos&quot;,
+						&quot;print&quot;,
+						&quot;printf&quot;,
+						&quot;prototype&quot;,
+						&quot;push&quot;,
+						&quot;q|0&quot;,
+						&quot;qq&quot;,
+						&quot;quotemeta&quot;,
+						&quot;qw&quot;,
+						&quot;qx&quot;,
+						&quot;rand&quot;,
+						&quot;read&quot;,
+						&quot;readdir&quot;,
+						&quot;readline&quot;,
+						&quot;readlink&quot;,
+						&quot;readpipe&quot;,
+						&quot;recv&quot;,
+						&quot;redo&quot;,
+						&quot;ref&quot;,
+						&quot;rename&quot;,
+						&quot;require&quot;,
+						&quot;reset&quot;,
+						&quot;return&quot;,
+						&quot;reverse&quot;,
+						&quot;rewinddir&quot;,
+						&quot;rindex&quot;,
+						&quot;rmdir&quot;,
+						&quot;say&quot;,
+						&quot;scalar&quot;,
+						&quot;seek&quot;,
+						&quot;seekdir&quot;,
+						&quot;select&quot;,
+						&quot;semctl&quot;,
+						&quot;semget&quot;,
+						&quot;semop&quot;,
+						&quot;send&quot;,
+						&quot;setgrent&quot;,
+						&quot;sethostent&quot;,
+						&quot;setnetent&quot;,
+						&quot;setpgrp&quot;,
+						&quot;setpriority&quot;,
+						&quot;setprotoent&quot;,
+						&quot;setpwent&quot;,
+						&quot;setservent&quot;,
+						&quot;setsockopt&quot;,
+						&quot;shift&quot;,
+						&quot;shmctl&quot;,
+						&quot;shmget&quot;,
+						&quot;shmread&quot;,
+						&quot;shmwrite&quot;,
+						&quot;shutdown&quot;,
+						&quot;sin&quot;,
+						&quot;sleep&quot;,
+						&quot;socket&quot;,
+						&quot;socketpair&quot;,
+						&quot;sort&quot;,
+						&quot;splice&quot;,
+						&quot;split&quot;,
+						&quot;sprintf&quot;,
+						&quot;sqrt&quot;,
+						&quot;srand&quot;,
+						&quot;stat&quot;,
+						&quot;state&quot;,
+						&quot;study&quot;,
+						&quot;sub&quot;,
+						&quot;substr&quot;,
+						&quot;symlink&quot;,
+						&quot;syscall&quot;,
+						&quot;sysopen&quot;,
+						&quot;sysread&quot;,
+						&quot;sysseek&quot;,
+						&quot;system&quot;,
+						&quot;syswrite&quot;,
+						&quot;tell&quot;,
+						&quot;telldir&quot;,
+						&quot;tie&quot;,
+						&quot;tied&quot;,
+						&quot;time&quot;,
+						&quot;times&quot;,
+						&quot;tr&quot;,
+						&quot;truncate&quot;,
+						&quot;uc&quot;,
+						&quot;ucfirst&quot;,
+						&quot;umask&quot;,
+						&quot;undef&quot;,
+						&quot;unless&quot;,
+						&quot;unlink&quot;,
+						&quot;unpack&quot;,
+						&quot;unshift&quot;,
+						&quot;untie&quot;,
+						&quot;until&quot;,
+						&quot;use&quot;,
+						&quot;utime&quot;,
+						&quot;values&quot;,
+						&quot;vec&quot;,
+						&quot;wait&quot;,
+						&quot;waitpid&quot;,
+						&quot;wantarray&quot;,
+						&quot;warn&quot;,
+						&quot;when&quot;,
+						&quot;while&quot;,
+						&quot;write&quot;,
+						&quot;x|0&quot;,
+						&quot;xor&quot;,
+						&quot;y|0&quot;,
+					],
+					l = /[dualxmsipngr]{0,12}/,
+					d = { $pattern: /[\w.]+/, keyword: w.join(&quot; &quot;) },
+					p = { className: &quot;subst&quot;, begin: &quot;[$@]\\{&quot;, end: &quot;\\}&quot;, keywords: d },
+					b = { begin: /-&gt;\{/, end: /\}/ },
+					m = {
+						variants: [
+							{ begin: /\$\d/ },
+							{
+								begin: e.concat(
+									/[$%@](\^\w\b|#\w+(::\w+)*|\{\w+\}|\w+(::\w*)*)/,
+									&quot;(?![A-Za-z])(?![@$%])&quot;,
+								),
+							},
+							{ begin: /[$%@][^\s\w{]/, relevance: 0 },
+						],
+					},
+					_ = [n.BACKSLASH_ESCAPE, p, m],
+					u = [/!/, /\//, /\|/, /\?/, /&#039;/, /&quot;/, /#/],
+					s = (c, i, t = &quot;\\1&quot;) =&gt; {
+						const E = t === &quot;\\1&quot; ? t : e.concat(t, i);
+						return e.concat(
+							e.concat(&quot;(?:&quot;, c, &quot;)&quot;),
+							i,
+							/(?:\\.|[^\\\/])*?/,
+							E,
+							/(?:\\.|[^\\\/])*?/,
+							t,
+							l,
+						);
+					},
+					r = (c, i, t) =&gt;
+						e.concat(e.concat(&quot;(?:&quot;, c, &quot;)&quot;), i, /(?:\\.|[^\\\/])*?/, t, l),
+					o = [
+						m,
+						n.HASH_COMMENT_MODE,
+						n.COMMENT(/^=\w/, /=cut/, { endsWithParent: !0 }),
+						b,
+						{
+							className: &quot;string&quot;,
+							contains: _,
+							variants: [
+								{ begin: &quot;q[qwxr]?\\s*\\(&quot;, end: &quot;\\)&quot;, relevance: 5 },
+								{ begin: &quot;q[qwxr]?\\s*\\[&quot;, end: &quot;\\]&quot;, relevance: 5 },
+								{ begin: &quot;q[qwxr]?\\s*\\{&quot;, end: &quot;\\}&quot;, relevance: 5 },
+								{ begin: &quot;q[qwxr]?\\s*\\|&quot;, end: &quot;\\|&quot;, relevance: 5 },
+								{ begin: &quot;q[qwxr]?\\s*&lt;&quot;, end: &quot;&gt;&quot;, relevance: 5 },
+								{ begin: &quot;qw\\s+q&quot;, end: &quot;q&quot;, relevance: 5 },
+								{ begin: &quot;&#039;&quot;, end: &quot;&#039;&quot;, contains: [n.BACKSLASH_ESCAPE] },
+								{ begin: &#039;&quot;&#039;, end: &#039;&quot;&#039; },
+								{ begin: &quot;`&quot;, end: &quot;`&quot;, contains: [n.BACKSLASH_ESCAPE] },
+								{ begin: /\{\w+\}/, relevance: 0 },
+								{ begin: &quot;-?\\w+\\s*=&gt;&quot;, relevance: 0 },
+							],
+						},
+						{
+							className: &quot;number&quot;,
+							begin:
+								&quot;(\\b0[0-7_]+)|(\\b0x[0-9a-fA-F_]+)|(\\b[1-9][0-9_]*(\\.[0-9_]+)?)|[0_]\\b&quot;,
+							relevance: 0,
+						},
+						{
+							begin:
+								&quot;(\\/\\/|&quot; +
+								n.RE_STARTERS_RE +
+								&quot;|\\b(split|return|print|reverse|grep)\\b)\\s*&quot;,
+							keywords: &quot;split return print reverse grep&quot;,
+							relevance: 0,
+							contains: [
+								n.HASH_COMMENT_MODE,
+								{
+									className: &quot;regexp&quot;,
+									variants: [
+										{ begin: s(&quot;s|tr|y&quot;, e.either(...u, { capture: !0 })) },
+										{ begin: s(&quot;s|tr|y&quot;, &quot;\\(&quot;, &quot;\\)&quot;) },
+										{ begin: s(&quot;s|tr|y&quot;, &quot;\\[&quot;, &quot;\\]&quot;) },
+										{ begin: s(&quot;s|tr|y&quot;, &quot;\\{&quot;, &quot;\\}&quot;) },
+									],
+									relevance: 2,
+								},
+								{
+									className: &quot;regexp&quot;,
+									variants: [
+										{ begin: /(m|qr)\/\//, relevance: 0 },
+										{ begin: r(&quot;(?:m|qr)?&quot;, /\//, /\//) },
+										{ begin: r(&quot;m|qr&quot;, e.either(...u, { capture: !0 }), /\1/) },
+										{ begin: r(&quot;m|qr&quot;, /\(/, /\)/) },
+										{ begin: r(&quot;m|qr&quot;, /\[/, /\]/) },
+										{ begin: r(&quot;m|qr&quot;, /\{/, /\}/) },
+									],
+								},
+							],
+						},
+						{
+							className: &quot;function&quot;,
+							beginKeywords: &quot;sub&quot;,
+							end: &quot;(\\s*\\(.*?\\))?[;{]&quot;,
+							excludeEnd: !0,
+							relevance: 5,
+							contains: [n.TITLE_MODE],
+						},
+						{ begin: &quot;-\\w\\b&quot;, relevance: 0 },
+						{
+							begin: &quot;^__DATA__$&quot;,
+							end: &quot;^__END__$&quot;,
+							subLanguage: &quot;mojolicious&quot;,
+							contains: [{ begin: &quot;^@@.*&quot;, end: &quot;$&quot;, className: &quot;comment&quot; }],
+						},
+					];
+				return (
+					(p.contains = o),
+					(b.contains = o),
+					{ name: &quot;Perl&quot;, aliases: [&quot;pl&quot;, &quot;pm&quot;], keywords: d, contains: o }
+				);
+			}
+			a.exports = g;
+		},
+		89917: (a, g, n) =&gt; {
+			function e() {
+				e.warned ||
+					((e.warned = !0),
+					console.log(
+						&#039;Deprecation (warning): Using file extension in specifier is deprecated, use &quot;highlight.js/lib/languages/perl&quot; instead of &quot;highlight.js/lib/languages/perl.js&quot;&#039;,
+					));
+			}
+			(e(), (a.exports = n(70946)));
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

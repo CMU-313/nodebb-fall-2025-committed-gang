@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/forum/category-tools.89260e8834eddf8bd83e.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/forum/category-tools.89260e8834eddf8bd83e.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">77.48</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">84.34</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">4.93</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[14526,42619],{70550:(S,M,c)=&gt;{var x,v;x=[c(52473)],v=function(a){const C={};let i,u;C.init=function(o){u=$(&#039;[component=&quot;category&quot;]&#039;),u.on(&quot;selectstart&quot;,&#039;[component=&quot;topic/select&quot;]&#039;,function(s){s.preventDefault()}),u.on(&quot;click&quot;,&#039;[component=&quot;topic/select&quot;]&#039;,function(s){const l=$(this).parents(&#039;[component=&quot;category/topic&quot;]&#039;);if(s.shiftKey)return A(l.attr(&quot;data-tid&quot;)),i=l,!1;const k=l.hasClass(&quot;selected&quot;);D(l,!k),i=l,typeof o==&quot;function&quot;&amp;&amp;o()})};function D(o,s){const f=o.find(&#039;[component=&quot;topic/select&quot;]&#039;);f.toggleClass(&quot;fa-check-square-o&quot;,s),f.toggleClass(&quot;fa-square-o&quot;,!s),f.parents(&#039;[component=&quot;category/topic&quot;]&#039;).toggleClass(&quot;selected&quot;,s),d()}function d(){const o=$(&#039;[component=&quot;topic/selected/badge&quot;]&#039;);if(o.length){const s=u.find(&#039;[component=&quot;category/topic&quot;].selected&#039;).length;o.text(s&gt;0?s:&quot;&quot;)}}C.getSelectedTids=function(){const o=[];return u&amp;&amp;u.find(&#039;[component=&quot;category/topic&quot;].selected&#039;).each(function(){o.push($(this).attr(&quot;data-tid&quot;))}),o},C.unselectAll=function(){u&amp;&amp;(u.find(&#039;[component=&quot;category/topic&quot;].selected&#039;).removeClass(&quot;selected&quot;),u.find(&#039;[component=&quot;topic/select&quot;]&#039;).toggleClass(&quot;fa-check-square-o&quot;,!1).toggleClass(&quot;fa-square-o&quot;,!0),d())};function A(o){i||(i=$(&#039;[component=&quot;category/topic&quot;]&#039;).first());const s=a.get(&quot;category/topic&quot;,&quot;tid&quot;,o).hasClass(&quot;selected&quot;),f=E(o),l=E(i.attr(&quot;data-tid&quot;));p(f,l,!s)}function p(o,s,f){if(o&gt;s){const l=o;o=s,s=l}for(let l=o;l&lt;=s;l+=1){const k=$(&#039;[component=&quot;category/topic&quot;]&#039;).eq(l);D(k,f)}}function E(o){return a.get(&quot;category/topic&quot;,&quot;tid&quot;,o).index(&#039;[component=&quot;category/topic&quot;]&#039;)}return C}.apply(M,x),v!==void 0&amp;&amp;(S.exports=v)},71131:(S,M,c)=&gt;{var x,v;x=[c(70550),c(60984),c(52473),c(49897),c(33530),c(29930)],v=function(a,C,i,u,D,d){const A={};A.init=function(){a.init(l),N(),$(&#039;[component=&quot;category/topic&quot;]&#039;).each((e,t)=&gt;{C.observeTopicLabels($(t).find(&#039;[component=&quot;topic/labels&quot;]&#039;))}),i.get(&quot;topic/delete&quot;).on(&quot;click&quot;,function(){return p(&quot;del&quot;,&quot;/state&quot;,&quot;delete&quot;,s),!1}),i.get(&quot;topic/restore&quot;).on(&quot;click&quot;,function(){return p(&quot;put&quot;,&quot;/state&quot;,&quot;restore&quot;,s),!1}),i.get(&quot;topic/purge&quot;).on(&quot;click&quot;,function(){return p(&quot;del&quot;,&quot;&quot;,&quot;purge&quot;,f),!1}),i.get(&quot;topic/lock&quot;).on(&quot;click&quot;,function(){return p(&quot;put&quot;,&quot;/lock&quot;,&quot;lock&quot;,o),!1}),i.get(&quot;topic/unlock&quot;).on(&quot;click&quot;,function(){return p(&quot;del&quot;,&quot;/lock&quot;,&quot;unlock&quot;,o),!1}),i.get(&quot;topic/pin&quot;).on(&quot;click&quot;,function(){return p(&quot;put&quot;,&quot;/pin&quot;,&quot;pin&quot;,o),!1}),i.get(&quot;topic/unpin&quot;).on(&quot;click&quot;,function(){return p(&quot;del&quot;,&quot;/pin&quot;,&quot;unpin&quot;,o),!1}),i.get(&quot;topic/mark-unread-for-all&quot;).on(&quot;click&quot;,function(){const e=a.getSelectedTids();return e.length?(socket.emit(&quot;topics.markAsUnreadForAll&quot;,e,function(t){if(t)return d.error(t);d.success(&quot;[[topic:markAsUnreadForAll.success]]&quot;),e.forEach(function(n){$(&#039;[component=&quot;category/topic&quot;][data-tid=&quot;&#039;+n+&#039;&quot;]&#039;).addClass(&quot;unread&quot;)}),o()}),!1):d.error(&quot;[[error:no-topics-selected]]&quot;)}),i.get(&quot;topic/move&quot;).on(&quot;click&quot;,function(){return c.e(28310).then(function(){var e=[c(28310)];(function(t){const n=a.getSelectedTids();if(!n.length)return d.error(&quot;[[error:no-topics-selected]]&quot;);t.init(n,null,o)}).apply(null,e)}).catch(c.oe),!1}),i.get(&quot;topic/move-all&quot;).on(&quot;click&quot;,function(){const e=ajaxify.data.cid;if(!ajaxify.data.template.category)return d.error(&quot;[[error:invalid-data]]&quot;);c.e(28310).then(function(){var t=[c(28310)];(function(n){n.init(null,e,function(r){if(r)return d.error(r);ajaxify.refresh()})}).apply(null,t)}).catch(c.oe)}),i.get(&quot;topic/merge&quot;).on(&quot;click&quot;,function(){const e=a.getSelectedTids();c.e(2403).then(function(){var t=[c(2403)];(function(n){n.init(function(){e.length&amp;&amp;e.forEach(function(r){n.addTopic(r)})})}).apply(null,t)}).catch(c.oe)}),i.get(&quot;topic/tag&quot;).on(&quot;click&quot;,async function(){const e=a.getSelectedTids();if(!e.length)return d.error(&quot;[[error:no-topics-selected]]&quot;);const t=await Promise.all(e.map(n=&gt;u.get(`/topics/${n}`)));Promise.all([c.e(20056),c.e(63)]).then(function(){var n=[c(63)];(function(r){r.init(t,ajaxify.data.tagWhitelist,o)}).apply(null,n)}).catch(c.oe)}),A.removeListeners(),socket.on(&quot;event:topic_deleted&quot;,P),socket.on(&quot;event:topic_restored&quot;,P),socket.on(&quot;event:topic_purged&quot;,F),socket.on(&quot;event:topic_locked&quot;,L),socket.on(&quot;event:topic_unlocked&quot;,L),socket.on(&quot;event:topic_pinned&quot;,T),socket.on(&quot;event:topic_unpinned&quot;,T),socket.on(&quot;event:topic_moved&quot;,j)};function p(e,t,n,r){r||(r=function(){});const h=a.getSelectedTids(),m={},y=function(I){I&amp;&amp;Promise.all(h.map(R=&gt;u[e](`/topics/${R}${t}`,m))).then(r).catch(d.error)};if(!h.length)return d.error(&quot;[[error:no-topics-selected]]&quot;);switch(n){case&quot;delete&quot;:case&quot;restore&quot;:case&quot;purge&quot;:D.confirm(`[[topic:thread-tools.${n}-confirm]]`,y);break;case&quot;pin&quot;:C.requestPinExpiry(m,y.bind(null,!0));break;default:y(!0);break}}A.removeListeners=function(){socket.removeListener(&quot;event:topic_deleted&quot;,P),socket.removeListener(&quot;event:topic_restored&quot;,P),socket.removeListener(&quot;event:topic_purged&quot;,F),socket.removeListener(&quot;event:topic_locked&quot;,L),socket.removeListener(&quot;event:topic_unlocked&quot;,L),socket.removeListener(&quot;event:topic_pinned&quot;,T),socket.removeListener(&quot;event:topic_unpinned&quot;,T),socket.removeListener(&quot;event:topic_moved&quot;,j)};function E(){$(&quot;.thread-tools .show&quot;).removeClass(&quot;show&quot;)}function o(){E(),a.unselectAll()}function s(){E(),l()}function f(){E(),a.unselectAll(),l()}function l(){const e=a.getSelectedTids(),t=k(U,e),n=K(U,e),r=k(Q,e),h=k(Y,e),m=k(W,e),y=K(W,e);i.get(&quot;topic/delete&quot;).toggleClass(&quot;hidden&quot;,t),i.get(&quot;topic/restore&quot;).toggleClass(&quot;hidden&quot;,m||!t),i.get(&quot;topic/purge&quot;).toggleClass(&quot;hidden&quot;,!n||!e.length),i.get(&quot;topic/lock&quot;).toggleClass(&quot;hidden&quot;,h),i.get(&quot;topic/unlock&quot;).toggleClass(&quot;hidden&quot;,!h),i.get(&quot;topic/pin&quot;).toggleClass(&quot;hidden&quot;,y||r),i.get(&quot;topic/unpin&quot;).toggleClass(&quot;hidden&quot;,y||!r),i.get(&quot;topic/merge&quot;).toggleClass(&quot;hidden&quot;,m)}function k(e,t){for(let n=0;n&lt;t.length;n+=1)if(e(t[n]))return!0;return!1}function K(e,t){for(let n=0;n&lt;t.length;n+=1)if(!e(t[n]))return!1;return!0}function U(e){return g(e).hasClass(&quot;deleted&quot;)}function Y(e){return g(e).hasClass(&quot;locked&quot;)}function Q(e){return g(e).hasClass(&quot;pinned&quot;)}function W(e){return g(e).hasClass(&quot;scheduled&quot;)}function g(e){return i.get(&quot;category/topic&quot;,&quot;tid&quot;,e)}function P(e){const t=g(e.tid);t.toggleClass(&quot;deleted&quot;,e.isDeleted),t.find(&#039;[component=&quot;topic/locked&quot;]&#039;).toggleClass(&quot;hidden&quot;,!e.isDeleted)}function T(e){const t=g(e.tid);t.toggleClass(&quot;pinned&quot;,e.isPinned),t.find(&#039;[component=&quot;topic/pinned&quot;]&#039;).toggleClass(&quot;hidden&quot;,!e.isPinned),ajaxify.refresh()}function L(e){const t=g(e.tid);t.toggleClass(&quot;locked&quot;,e.isLocked),t.find(&#039;[component=&quot;topic/locked&quot;]&#039;).toggleClass(&quot;hidden&quot;,!e.isLocked)}function j(e){g(e.tid).remove()}function F(e){g(e.tid).remove()}function N(){if(!ajaxify.data.topics||!ajaxify.data.template.category)return;const e=ajaxify.data.topics.filter(t=&gt;t.pinned).length;!app.user.isAdmin&amp;&amp;!app.user.isMod||e&lt;2||app.loadJQueryUI(function(){const t=$(&#039;[component=&quot;category&quot;]&#039;).filter(function(r,h){return!$(h).parents(&quot;[widget-area],[data-widget-area]&quot;).length});let n=0;t.sortable({axis:&quot;y&quot;,handle:&#039;[component=&quot;topic/pinned&quot;]&#039;,items:&#039;[component=&quot;category/topic&quot;].pinned&#039;,start:function(){n=parseInt(t.find(&#039;[component=&quot;category/topic&quot;].pinned&#039;).first().attr(&quot;data-index&quot;),10)},update:function(r,h){const m=h.item.attr(&quot;data-tid&quot;),y=t.find(&#039;[component=&quot;category/topic&quot;].pinned&#039;);let I=0;y.each((R,B)=&gt;{if($(B).attr(&quot;data-tid&quot;)===m)return I=R,!1}),socket.emit(&quot;topics.orderPinnedTopics&quot;,{tid:m,order:n+I},function(R){if(R)return d.error(R);y.each((B,J)=&gt;{$(J).attr(&quot;data-index&quot;,n+B)})})}})})}return A}.apply(M,x),v!==void 0&amp;&amp;(S.exports=v)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

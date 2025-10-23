@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - test/posts/uploads.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>test/posts/uploads.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">73.77</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">368</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">37.86</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">4.04</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&#039;use strict&#039;;
+
+const assert = require(&#039;assert&#039;);
+const fs = require(&#039;fs&#039;);
+const path = require(&#039;path&#039;);
+const os = require(&#039;os&#039;);
+
+const nconf = require(&#039;nconf&#039;);
+const crypto = require(&#039;crypto&#039;);
+
+const db = require(&#039;../mocks/databasemock&#039;);
+
+const categories = require(&#039;../../src/categories&#039;);
+const topics = require(&#039;../../src/topics&#039;);
+const posts = require(&#039;../../src/posts&#039;);
+const user = require(&#039;../../src/user&#039;);
+const meta = require(&#039;../../src/meta&#039;);
+const file = require(&#039;../../src/file&#039;);
+const utils = require(&#039;../../src/utils&#039;);
+
+const _filenames = [&#039;abracadabra.png&#039;, &#039;shazam.jpg&#039;, &#039;whoa.gif&#039;, &#039;amazeballs.jpg&#039;, &#039;wut.txt&#039;, &#039;test.bmp&#039;];
+const _recreateFiles = () =&gt; {
+	// Create stub files for testing
+	_filenames.forEach(filename =&gt; fs.closeSync(fs.openSync(path.join(nconf.get(&#039;upload_path&#039;), &#039;files&#039;, filename), &#039;w&#039;)));
+};
+
+describe(&#039;upload methods&#039;, () =&gt; {
+	let pid;
+	let purgePid;
+	let cid;
+	let uid;
+
+	before(async () =&gt; {
+		_recreateFiles();
+
+		uid = await user.create({
+			username: &#039;uploads user&#039;,
+			password: &#039;abracadabra&#039;,
+			gdpr_consent: 1,
+		});
+
+		({ cid } = await categories.create({
+			name: &#039;Test Category&#039;,
+			description: &#039;Test category created by testing script&#039;,
+		}));
+
+		const topicPostData = await topics.post({
+			uid,
+			cid,
+			title: &#039;topic with some images&#039;,
+			content: &#039;here is an image [alt text](/assets/uploads/files/abracadabra.png) and another [alt text](/assets/uploads/files/shazam.jpg)&#039;,
+		});
+		pid = topicPostData.postData.pid;
+
+		const purgePostData = await topics.post({
+			uid,
+			cid,
+			title: &#039;topic with some images, to be purged&#039;,
+			content: &#039;here is an image [alt text](/assets/uploads/files/whoa.gif) and another [alt text](/assets/uploads/files/amazeballs.jpg)&#039;,
+		});
+		purgePid = purgePostData.postData.pid;
+	});
+
+	describe(&#039;.sync()&#039;, () =&gt; {
+		it(&#039;should properly add new images to the post\&#039;s zset&#039;, (done) =&gt; {
+			posts.uploads.sync(pid, (err) =&gt; {
+				assert.ifError(err);
+
+				db.sortedSetCard(`post:${pid}:uploads`, (err, length) =&gt; {
+					assert.ifError(err);
+					assert.strictEqual(length, 2);
+					done();
+				});
+			});
+		});
+
+		it(&#039;should remove an image if it is edited out of the post&#039;, async () =&gt; {
+			await posts.edit({
+				pid: pid,
+				uid,
+				content: &#039;here is an image [alt text](/assets/uploads/files/abracadabra.png)... AND NO MORE!&#039;,
+			});
+			await posts.uploads.sync(pid);
+			const length = await db.sortedSetCard(`post:${pid}:uploads`);
+			assert.strictEqual(1, length);
+		});
+	});
+
+	describe(&#039;.list()&#039;, () =&gt; {
+		it(&#039;should display the uploaded files for a specific post&#039;, (done) =&gt; {
+			posts.uploads.list(pid, (err, uploads) =&gt; {
+				assert.ifError(err);
+				assert.equal(true, Array.isArray(uploads));
+				assert.strictEqual(1, uploads.length);
+				assert.equal(&#039;string&#039;, typeof uploads[0]);
+				done();
+			});
+		});
+	});
+
+	describe(&#039;.isOrphan()&#039;, () =&gt; {
+		it(&#039;should return false if upload is not an orphan&#039;, (done) =&gt; {
+			posts.uploads.isOrphan(&#039;/files/abracadabra.png&#039;, (err, isOrphan) =&gt; {
+				assert.ifError(err);
+				assert.strictEqual(isOrphan, false);
+				done();
+			});
+		});
+
+		it(&#039;should return true if upload is an orphan&#039;, (done) =&gt; {
+			posts.uploads.isOrphan(&#039;/files/shazam.jpg&#039;, (err, isOrphan) =&gt; {
+				assert.ifError(err);
+				assert.strictEqual(isOrphan, true);
+				done();
+			});
+		});
+	});
+
+	describe(&#039;.associate()&#039;, () =&gt; {
+		it(&#039;should add an image to the post\&#039;s maintained list of uploads&#039;, async () =&gt; {
+			await posts.uploads.associate(pid, &#039;/files/whoa.gif&#039;);
+			const uploads = await posts.uploads.list(pid);
+			assert.strictEqual(2, uploads.length);
+			assert.strictEqual(true, uploads.includes(&#039;/files/whoa.gif&#039;));
+		});
+
+		it(&#039;should allow arrays to be passed in&#039;, async () =&gt; {
+			await posts.uploads.associate(pid, [&#039;/files/amazeballs.jpg&#039;, &#039;/files/wut.txt&#039;]);
+			const uploads = await posts.uploads.list(pid);
+			assert.strictEqual(4, uploads.length);
+			assert.strictEqual(true, uploads.includes(&#039;/files/amazeballs.jpg&#039;));
+			assert.strictEqual(true, uploads.includes(&#039;/files/wut.txt&#039;));
+		});
+
+		it(&#039;should save a reverse association of md5sum to pid&#039;, async () =&gt; {
+			const md5 = filename =&gt; crypto.createHash(&#039;md5&#039;).update(filename).digest(&#039;hex&#039;);
+			await posts.uploads.associate(pid, [&#039;/files/test.bmp&#039;]);
+			const pids = await db.getSortedSetRange(`upload:${md5(&#039;/files/test.bmp&#039;)}:pids`, 0, -1);
+			assert.strictEqual(true, Array.isArray(pids));
+			assert.strictEqual(true, pids.length &gt; 0);
+			assert.equal(pid, pids[0]);
+		});
+
+		it(&#039;should not associate a file that does not exist on the local disk&#039;, async () =&gt; {
+			await posts.uploads.associate(pid, [&#039;/files/nonexistant.xls&#039;]);
+			const uploads = await posts.uploads.list(pid);
+			assert.strictEqual(uploads.length, 5);
+			assert.strictEqual(false, uploads.includes(&#039;/files/nonexistant.xls&#039;));
+		});
+	});
+
+	describe(&#039;.dissociate()&#039;, () =&gt; {
+		it(&#039;should remove an image from the post\&#039;s maintained list of uploads&#039;, async () =&gt; {
+			await posts.uploads.dissociate(pid, &#039;/files/whoa.gif&#039;);
+			const uploads = await posts.uploads.list(pid);
+			assert.strictEqual(4, uploads.length, uploads);
+			assert.strictEqual(false, uploads.includes(&#039;/files/whoa.gif&#039;));
+		});
+
+		it(&#039;should allow arrays to be passed in&#039;, async () =&gt; {
+			await posts.uploads.dissociate(pid, [&#039;/files/amazeballs.jpg&#039;, &#039;/files/wut.txt&#039;]);
+			const uploads = await posts.uploads.list(pid);
+			assert.strictEqual(2, uploads.length);
+			assert.strictEqual(false, uploads.includes(&#039;/files/amazeballs.jpg&#039;));
+			assert.strictEqual(false, uploads.includes(&#039;/files/wut.txt&#039;));
+		});
+
+		it(&#039;should remove the image\&#039;s user association, if present&#039;, async () =&gt; {
+			_recreateFiles();
+			await posts.uploads.associate(pid, &#039;/files/wut.txt&#039;);
+			await user.associateUpload(uid, &#039;/files/wut.txt&#039;);
+			await posts.uploads.dissociate(pid, &#039;/files/wut.txt&#039;);
+
+			const userUploads = await db.getSortedSetMembers(`uid:${uid}:uploads`);
+			assert.strictEqual(userUploads.includes(&#039;/files/wut.txt&#039;), false);
+		});
+	});
+
+	describe(&#039;.dissociateAll()&#039;, () =&gt; {
+		it(&#039;should remove all images from a post\&#039;s maintained list of uploads&#039;, async () =&gt; {
+			await posts.uploads.dissociateAll(pid);
+			const uploads = await posts.uploads.list(pid);
+
+			assert.equal(uploads.length, 0);
+		});
+	});
+
+	describe(&#039;Dissociation on purge&#039;, () =&gt; {
+		it(&#039;should not dissociate images on post deletion&#039;, async () =&gt; {
+			await posts.delete(purgePid, 1);
+			const uploads = await posts.uploads.list(purgePid);
+
+			assert.equal(uploads.length, 2);
+		});
+
+		it(&#039;should dissociate images on post purge&#039;, async () =&gt; {
+			await posts.purge(purgePid, 1);
+			const uploads = await posts.uploads.list(purgePid);
+
+			assert.equal(uploads.length, 0);
+		});
+	});
+
+	describe(&#039;Deletion from disk on purge&#039;, () =&gt; {
+		let postData;
+
+		beforeEach(async () =&gt; {
+			_recreateFiles();
+
+			({ postData } = await topics.post({
+				uid,
+				cid,
+				title: &#039;Testing deletion from disk on purge&#039;,
+				content: &#039;these images: ![alt text](/assets/uploads/files/abracadabra.png) and another ![alt text](/assets/uploads/files/test.bmp)&#039;,
+			}));
+		});
+
+		afterEach(async () =&gt; {
+			await topics.purge(postData.tid, uid);
+		});
+
+		it(&#039;should purge the images from disk if the post is purged&#039;, async () =&gt; {
+			await posts.purge(postData.pid, uid);
+			assert.strictEqual(await file.exists(path.resolve(nconf.get(&#039;upload_path&#039;), &#039;files&#039;, &#039;abracadabra.png&#039;)), false);
+			assert.strictEqual(await file.exists(path.resolve(nconf.get(&#039;upload_path&#039;), &#039;files&#039;, &#039;test.bmp&#039;)), false);
+		});
+
+		it(&#039;should leave the images behind if `preserveOrphanedUploads` is enabled&#039;, async () =&gt; {
+			meta.config.preserveOrphanedUploads = 1;
+
+			await posts.purge(postData.pid, uid);
+			assert.strictEqual(await file.exists(path.resolve(nconf.get(&#039;upload_path&#039;), &#039;files&#039;, &#039;abracadabra.png&#039;)), true);
+			assert.strictEqual(await file.exists(path.resolve(nconf.get(&#039;upload_path&#039;), &#039;files&#039;, &#039;test.bmp&#039;)), true);
+
+			delete meta.config.preserveOrphanedUploads;
+		});
+
+		it(&#039;should leave images behind if they are used in another post&#039;, async () =&gt; {
+			const { postData: secondPost } = await topics.post({
+				uid,
+				cid,
+				title: &#039;Second topic&#039;,
+				content: &#039;just abracadabra: ![alt text](/assets/uploads/files/abracadabra.png)&#039;,
+			});
+
+			await posts.purge(secondPost.pid, uid);
+			assert.strictEqual(await file.exists(path.resolve(nconf.get(&#039;upload_path&#039;), &#039;files&#039;, &#039;abracadabra.png&#039;)), true);
+		});
+	});
+
+	describe(&#039;.deleteFromDisk()&#039;, () =&gt; {
+		beforeEach(() =&gt; {
+			_recreateFiles();
+		});
+
+		it(&#039;should work if you pass in a string path&#039;, async () =&gt; {
+			await posts.uploads.deleteFromDisk(&#039;/files/abracadabra.png&#039;);
+			assert.strictEqual(await file.exists(path.resolve(nconf.get(&#039;upload_path&#039;), &#039;files/abracadabra.png&#039;)), false);
+		});
+
+		it(&#039;should throw an error if a non-string or non-array is passed&#039;, async () =&gt; {
+			try {
+				await posts.uploads.deleteFromDisk({
+					files: [&#039;/files/abracadabra.png&#039;],
+				});
+			} catch (err) {
+				assert(!!err);
+				assert.strictEqual(err.message, &#039;[[error:wrong-parameter-type, filePaths, object, array]]&#039;);
+			}
+		});
+
+		it(&#039;should delete the files passed in, from disk&#039;, async () =&gt; {
+			await posts.uploads.deleteFromDisk([&#039;/files/abracadabra.png&#039;, &#039;/files/shazam.jpg&#039;]);
+
+			const existsOnDisk = await Promise.all(_filenames.map(async (filename) =&gt; {
+				const fullPath = path.resolve(nconf.get(&#039;upload_path&#039;), &#039;files&#039;, filename);
+				return file.exists(fullPath);
+			}));
+
+			assert.deepStrictEqual(existsOnDisk, [false, false, true, true, true, true]);
+		});
+
+		it(&#039;should not delete files if they are not in `uploads/files/` (path traversal)&#039;, async () =&gt; {
+			const tmpFilePath = path.resolve(os.tmpdir(), `derp${utils.generateUUID()}`);
+			await fs.promises.appendFile(tmpFilePath, &#039;&#039;);
+			await posts.uploads.deleteFromDisk([&#039;../files/503.html&#039;, tmpFilePath]);
+
+			assert.strictEqual(await file.exists(path.resolve(nconf.get(&#039;upload_path&#039;), &#039;../files/503.html&#039;)), true);
+			assert.strictEqual(await file.exists(tmpFilePath), true);
+
+			await file.delete(tmpFilePath);
+		});
+
+		it(&#039;should delete files even if they are not orphans&#039;, async () =&gt; {
+			await topics.post({
+				uid,
+				cid,
+				title: &#039;To be orphaned&#039;,
+				content: &#039;this image is not an orphan: ![wut](/assets/uploads/files/wut.txt)&#039;,
+			});
+
+			assert.strictEqual(await posts.uploads.isOrphan(&#039;/files/wut.txt&#039;), false);
+			await posts.uploads.deleteFromDisk([&#039;/files/wut.txt&#039;]);
+
+			assert.strictEqual(await file.exists(path.resolve(nconf.get(&#039;upload_path&#039;), &#039;/files/wut.txt&#039;)), false);
+		});
+	});
+});
+
+describe(&#039;post uploads management&#039;, () =&gt; {
+	let topic;
+	let reply;
+	let uid;
+	let cid;
+
+	before(async () =&gt; {
+		_recreateFiles();
+
+		uid = await user.create({
+			username: &#039;uploads user&#039;,
+			password: &#039;abracadabra&#039;,
+			gdpr_consent: 1,
+		});
+
+		({ cid } = await categories.create({
+			name: &#039;Test Category&#039;,
+			description: &#039;Test category created by testing script&#039;,
+		}));
+
+		const topicPostData = await topics.post({
+			uid,
+			cid,
+			title: &#039;topic to test uploads with&#039;,
+			content: &#039;[abcdef](/assets/uploads/files/abracadabra.png)&#039;,
+		});
+
+		const replyData = await topics.reply({
+			uid,
+			tid: topicPostData.topicData.tid,
+			timestamp: Date.now(),
+			content: &#039;[abcdef](/assets/uploads/files/shazam.jpg)&#039;,
+		});
+
+		topic = topicPostData;
+		reply = replyData;
+	});
+
+	it(&#039;should automatically sync uploads on topic create and reply&#039;, (done) =&gt; {
+		db.sortedSetsCard([`post:${topic.topicData.mainPid}:uploads`, `post:${reply.pid}:uploads`], (err, lengths) =&gt; {
+			assert.ifError(err);
+			assert.strictEqual(lengths[0], 1);
+			assert.strictEqual(lengths[1], 1);
+			done();
+		});
+	});
+
+	it(&#039;should automatically sync uploads on post edit&#039;, async () =&gt; {
+		await posts.edit({
+			pid: reply.pid,
+			uid,
+			content: &#039;no uploads&#039;,
+		});
+		const uploads = await posts.uploads.list(reply.pid);
+		assert.strictEqual(true, Array.isArray(uploads));
+		assert.strictEqual(0, uploads.length);
+	});
+});
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

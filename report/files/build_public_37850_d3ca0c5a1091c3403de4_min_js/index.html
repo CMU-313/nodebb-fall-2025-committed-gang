@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/37850.d3ca0c5a1091c3403de4.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/37850.d3ca0c5a1091c3403de4.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">53.14</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">150</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">8.59</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.91</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[37850],
+	{
+		37850: (n) =&gt; {
+			function t(e) {
+				const a = {
+						className: &quot;number&quot;,
+						relevance: 0,
+						variants: [{ begin: &quot;[$][a-fA-F0-9]+&quot; }, e.NUMBER_MODE],
+					},
+					s = {
+						variants: [
+							{ match: [/(function|method)/, /\s+/, e.UNDERSCORE_IDENT_RE] },
+						],
+						scope: { 1: &quot;keyword&quot;, 3: &quot;title.function&quot; },
+					},
+					r = {
+						variants: [
+							{
+								match: [
+									/(class|interface|extends|implements)/,
+									/\s+/,
+									e.UNDERSCORE_IDENT_RE,
+								],
+							},
+						],
+						scope: { 1: &quot;keyword&quot;, 3: &quot;title.class&quot; },
+					};
+				return {
+					name: &quot;Monkey&quot;,
+					case_insensitive: !0,
+					keywords: {
+						keyword: [
+							&quot;public&quot;,
+							&quot;private&quot;,
+							&quot;property&quot;,
+							&quot;continue&quot;,
+							&quot;exit&quot;,
+							&quot;extern&quot;,
+							&quot;new&quot;,
+							&quot;try&quot;,
+							&quot;catch&quot;,
+							&quot;eachin&quot;,
+							&quot;not&quot;,
+							&quot;abstract&quot;,
+							&quot;final&quot;,
+							&quot;select&quot;,
+							&quot;case&quot;,
+							&quot;default&quot;,
+							&quot;const&quot;,
+							&quot;local&quot;,
+							&quot;global&quot;,
+							&quot;field&quot;,
+							&quot;end&quot;,
+							&quot;if&quot;,
+							&quot;then&quot;,
+							&quot;else&quot;,
+							&quot;elseif&quot;,
+							&quot;endif&quot;,
+							&quot;while&quot;,
+							&quot;wend&quot;,
+							&quot;repeat&quot;,
+							&quot;until&quot;,
+							&quot;forever&quot;,
+							&quot;for&quot;,
+							&quot;to&quot;,
+							&quot;step&quot;,
+							&quot;next&quot;,
+							&quot;return&quot;,
+							&quot;module&quot;,
+							&quot;inline&quot;,
+							&quot;throw&quot;,
+							&quot;import&quot;,
+							&quot;and&quot;,
+							&quot;or&quot;,
+							&quot;shl&quot;,
+							&quot;shr&quot;,
+							&quot;mod&quot;,
+						],
+						built_in: [
+							&quot;DebugLog&quot;,
+							&quot;DebugStop&quot;,
+							&quot;Error&quot;,
+							&quot;Print&quot;,
+							&quot;ACos&quot;,
+							&quot;ACosr&quot;,
+							&quot;ASin&quot;,
+							&quot;ASinr&quot;,
+							&quot;ATan&quot;,
+							&quot;ATan2&quot;,
+							&quot;ATan2r&quot;,
+							&quot;ATanr&quot;,
+							&quot;Abs&quot;,
+							&quot;Abs&quot;,
+							&quot;Ceil&quot;,
+							&quot;Clamp&quot;,
+							&quot;Clamp&quot;,
+							&quot;Cos&quot;,
+							&quot;Cosr&quot;,
+							&quot;Exp&quot;,
+							&quot;Floor&quot;,
+							&quot;Log&quot;,
+							&quot;Max&quot;,
+							&quot;Max&quot;,
+							&quot;Min&quot;,
+							&quot;Min&quot;,
+							&quot;Pow&quot;,
+							&quot;Sgn&quot;,
+							&quot;Sgn&quot;,
+							&quot;Sin&quot;,
+							&quot;Sinr&quot;,
+							&quot;Sqrt&quot;,
+							&quot;Tan&quot;,
+							&quot;Tanr&quot;,
+							&quot;Seed&quot;,
+							&quot;PI&quot;,
+							&quot;HALFPI&quot;,
+							&quot;TWOPI&quot;,
+						],
+						literal: [&quot;true&quot;, &quot;false&quot;, &quot;null&quot;],
+					},
+					illegal: /\/\*/,
+					contains: [
+						e.COMMENT(&quot;#rem&quot;, &quot;#end&quot;),
+						e.COMMENT(&quot;&#039;&quot;, &quot;$&quot;, { relevance: 0 }),
+						s,
+						r,
+						{ className: &quot;variable.language&quot;, begin: /\b(self|super)\b/ },
+						{
+							className: &quot;meta&quot;,
+							begin: /\s*#/,
+							end: &quot;$&quot;,
+							keywords: { keyword: &quot;if else elseif endif end then&quot; },
+						},
+						{ match: [/^\s*/, /strict\b/], scope: { 2: &quot;meta&quot; } },
+						{
+							beginKeywords: &quot;alias&quot;,
+							end: &quot;=&quot;,
+							contains: [e.UNDERSCORE_TITLE_MODE],
+						},
+						e.QUOTE_STRING_MODE,
+						a,
+					],
+				};
+			}
+			n.exports = t;
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/forum/topic-merge.f47251dca4e1631bb22e.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/forum/topic-merge.f47251dca4e1631bb22e.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">73.53</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">86.21</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">9.07</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[1091,2403,18593,34271,49897,69749,87212,92717,99127],{2403:(S,O,p)=&gt;{var x,g;x=[p(69749),p(29930),p(49897)],g=function(m,y,c){const f={};let o,u,v={};f.init=function(t){t=t||function(){},!o&amp;&amp;app.parseAndTranslate(&quot;modals/merge-topic&quot;,{},function(i){o=i,$(&quot;body&quot;).append(o),u=o.find(&quot;#merge_topics_confirm&quot;),o.find(&quot;#merge_topics_cancel&quot;).on(&quot;click&quot;,e),$(&quot;#content&quot;).on(&quot;click&quot;,&#039;[component=&quot;topic/select&quot;]&#039;,k),a(),u.on(&quot;click&quot;,function(){n(u)}),m.enableQuickSearch({searchElements:{inputEl:o.find(&quot;.topic-search-input&quot;),resultEl:o.find(&quot;.quick-search-container&quot;)},searchOptions:{in:&quot;titles&quot;},dropdown:{maxWidth:&quot;400px&quot;,maxHeight:&quot;350px&quot;}}),o.on(&quot;click&quot;,&quot;[data-tid]&quot;,function(){const s=$(this).attr(&quot;data-tid&quot;);return s&amp;&amp;f.addTopic(s),!1}),o.on(&quot;click&quot;,&quot;[data-remove-tid]&quot;,function(){const s=$(this).attr(&quot;data-remove-tid&quot;);return s&amp;&amp;f.removeTopic(s),!1}),t()})},f.addTopic=function(t,i){i=i||function(){},c.get(`/topics/${t}`,{}).then(function(s){const l=s?s.title:&quot;No title&quot;;v[t]=l,r(),a(),i()}).catch(y.error)},f.removeTopic=function(t){v[t]&amp;&amp;delete v[t],r(),a()};function k(t){if(!o)return;const i=$(this).parents(&#039;[component=&quot;category/topic&quot;]&#039;),s=i.hasClass(&quot;selected&quot;),l=i.attr(&quot;data-tid&quot;);return s?f.addTopic(l):f.removeTopic(l),t.preventDefault(),t.stopPropagation(),!1}function n(t){t.attr(&quot;disabled&quot;,!0);const i=Object.keys(v),s={};o.find(&quot;.merge-main-topic-radio&quot;).is(&quot;:checked&quot;)?s.mainTid=o.find(&quot;.merge-main-topic-select&quot;).val():o.find(&quot;.merge-new-title-radio&quot;).is(&quot;:checked&quot;)&amp;&amp;(s.newTopicTitle=o.find(&quot;.merge-new-title-input&quot;).val()),socket.emit(&quot;topics.merge&quot;,{tids:i,options:s},function(l,C){if(t.removeAttr(&quot;disabled&quot;),l)return y.error(l);ajaxify.go(&quot;/topic/&quot;+C),e()})}function a(){if(!o)return;const t=Object.keys(v);t.sort(function(s,l){return s-l});const i=t.map(function(s){return{tid:s,title:v[s]}});t.length?app.parseAndTranslate(&quot;modals/merge-topic&quot;,{config,topics:i},function(s){o.find(&quot;.topics-section&quot;).html(s.find(&quot;.topics-section&quot;).html()),o.find(&quot;.merge-main-topic-select&quot;).html(s.find(&quot;.merge-main-topic-select&quot;).html())}):(o.find(&quot;.topics-section&quot;).translateHtml(&quot;[[error:no-topics-selected]]&quot;),o.find(&quot;.merge-main-topic-select&quot;).html(&quot;&quot;))}function r(){Object.keys(v).length?u.removeAttr(&quot;disabled&quot;):u.attr(&quot;disabled&quot;,!0)}function e(){o&amp;&amp;(o.remove(),o=null),v={},$(&quot;#content&quot;).off(&quot;click&quot;,&#039;[component=&quot;topic/select&quot;]&#039;,k)}return f}.apply(O,x),g!==void 0&amp;&amp;(S.exports=g)},49897:(S,O,p)=&gt;{p.r(O),p.d(O,{del:()=&gt;r,get:()=&gt;u,head:()=&gt;v,patch:()=&gt;n,post:()=&gt;k,put:()=&gt;a});var x=p(91749),g=p.n(x),m=p(33530),y=p.n(m);const c=config.relative_path+&quot;/api/v3&quot;;async function f(e,t){if(e.url=e.url.startsWith(&quot;/api&quot;)?config.relative_path+e.url:c+e.url,typeof t==&quot;function&quot;){o(e).then(i=&gt;t(null,i),i=&gt;t(i));return}try{return await o(e)}catch(i){if(i.message===&quot;A valid login session was not found. Please log in and try again.&quot;){const{url:s}=await(0,x.fire)(&quot;filter:admin.reauth&quot;,{url:&quot;login&quot;});return(0,m.confirm)(&quot;[[error:api.reauth-required]]&quot;,l=&gt;{l&amp;&amp;ajaxify.go(s)})}throw i}}async function o(e){const{url:t}=e;delete e.url,e.data&amp;&amp;!(e.data instanceof FormData)&amp;&amp;(e.data=JSON.stringify(e.data||{}),e.headers[&quot;content-type&quot;]=&quot;application/json; charset=utf-8&quot;),{options:e}=await(0,x.fire)(&quot;filter:api.options&quot;,{options:e}),e.data&amp;&amp;(e.body=e.data,delete e.data);const i=await fetch(t,e),{headers:s}=i;if(s.get(&quot;x-redirect&quot;))return o({url:s.get(&quot;x-redirect&quot;),...e});const l=s.get(&quot;content-type&quot;),C=l&amp;&amp;l.startsWith(&quot;application/json&quot;);let d;if(e.method!==&quot;HEAD&quot;&amp;&amp;(C?d=await i.json():d=await i.text()),!i.ok)throw d?new Error(C?d.status.message:d):new Error(i.statusText);return C&amp;&amp;d&amp;&amp;d.hasOwnProperty(&quot;status&quot;)&amp;&amp;d.hasOwnProperty(&quot;response&quot;)?d.response:d}function u(e,t,i){return f({url:e+(t&amp;&amp;Object.keys(t).length?&quot;?&quot;+$.param(t):&quot;&quot;)},i)}function v(e,t,i){return f({url:e+(t&amp;&amp;Object.keys(t).length?&quot;?&quot;+$.param(t):&quot;&quot;),method:&quot;HEAD&quot;},i)}function k(e,t,i){return f({url:e,method:&quot;POST&quot;,data:t,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},i)}function n(e,t,i){return f({url:e,method:&quot;PATCH&quot;,data:t,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},i)}function a(e,t,i){return f({url:e,method:&quot;PUT&quot;,data:t,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},i)}function r(e,t,i){return f({url:e,method:&quot;DELETE&quot;,data:t,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},i)}},68636:(S,O,p)=&gt;{var x;x=function(){function g(){this._store={},this._keys=[]}g.prototype.isMock=!0,g.prototype.setItem=function(c,f){c=String(c),this._keys.indexOf(c)===-1&amp;&amp;this._keys.push(c),this._store[c]=f},g.prototype.getItem=function(c){return c=String(c),this._keys.indexOf(c)===-1?null:this._store[c]},g.prototype.removeItem=function(c){c=String(c),this._keys=this._keys.filter(function(f){return f!==c}),this._store[c]=null},g.prototype.clear=function(){this._keys=[],this._store={}},g.prototype.key=function(c){return c=parseInt(c,10)||0,this._keys[c]},Object.defineProperty&amp;&amp;Object.defineProperty(g.prototype,&quot;length&quot;,{get:function(){return this._keys.length}});let m;const y=Date.now().toString();try{if(m=window.localStorage,m.setItem(y,y),m.getItem(y)!==y)throw Error(&quot;localStorage behaved unexpectedly&quot;);return m.removeItem(y),m}catch(c){console.warn(c),console.warn(&quot;localStorage failed, falling back on sessionStorage&quot;);try{if(m=window.sessionStorage,m.setItem(y,y),m.getItem(y)!==y)throw Error(&quot;sessionStorage behaved unexpectedly&quot;);return m.removeItem(y),m}catch(f){return console.warn(f),console.warn(&quot;sessionStorage failed, falling back on memory storage&quot;),new g}}}.call(O,p,O,S),x!==void 0&amp;&amp;(S.exports=x)},69749:(S,O,p)=&gt;{var x,g;x=[p(17459),p(68636),p(91749),p(29930),p(89336)],g=function(m,y,c,f,o){const u={current:{}};u.init=function(n){if(!config.searchEnabled)return;n=n||{in:config.searchDefaultInQuick||&quot;titles&quot;},$(&#039;[component=&quot;search/form&quot;]&#039;).each((r,e)=&gt;{v($(e),n)})};function v(n,a){const r=n.find(&#039;[component=&quot;search/button&quot;]&#039;),e=n.find(&#039;[component=&quot;search/fields&quot;]&#039;),t=e.find(&#039;input[name=&quot;query&quot;]&#039;),i=e.find(&quot;#quick-search-container&quot;),s=e.hasClass(&quot;hidden&quot;),l=/^(@|acct:)?[\w-]+@.+$/;s&amp;&amp;e.off(&quot;focusout&quot;).on(&quot;focusout&quot;,function(){setTimeout(function(){e.find(&quot;:focus&quot;).length||(e.addClass(&quot;hidden&quot;),r.removeClass(&quot;hidden&quot;))},200)}),t.off(&quot;focus&quot;);const C={inputEl:t,resultEl:i};u.enableQuickSearch({searchOptions:a,searchElements:C}),r.off(&quot;click&quot;).on(&quot;click&quot;,function(d){return!config.loggedIn&amp;&amp;!app.user.privileges[&quot;search:content&quot;]?(f.alert({message:&quot;[[error:search-requires-login]]&quot;,timeout:3e3}),ajaxify.go(&quot;login&quot;),!1):(d.stopPropagation(),u.showAndFocusInput(n),!1)}),n.off(&quot;submit&quot;).on(&quot;submit&quot;,function(){const d=$(this).find(&#039;input[name=&quot;query&quot;]&#039;),w=u.getSearchPreferences();return w.term=d.val(),w.in=a.in,l.test(w.term)&amp;&amp;(w.in=&quot;users&quot;),c.fire(&quot;action:search.submit&quot;,{searchOptions:w,searchElements:C}),u.query(w,function(){d.val(&quot;&quot;),t.trigger(&quot;blur&quot;)}),!1})}u.enableQuickSearch=function(n){if(!config.searchEnabled||!app.user.privileges[&quot;search:content&quot;])return;const a=Object.assign({in:config.searchDefaultInQuick||&quot;titles&quot;},n.searchOptions),r=n.searchElements.resultEl,e=n.searchElements.inputEl;let t=e.val();const i=r.find(&quot;.filter-category&quot;);function s(){ajaxify.data.template.category&amp;&amp;ajaxify.data.cid&amp;&amp;m.translate(&quot;[[search:search-in-category, &quot;+ajaxify.data.name+&quot;]]&quot;,function(h){const E=$(&quot;&lt;div&gt;&lt;/div&gt;&quot;).html(h).text();i.find(&quot;.name&quot;).text(E)}),i.toggleClass(&quot;hidden&quot;,!(ajaxify.data.template.category&amp;&amp;ajaxify.data.cid))}function l(){n.searchOptions=Object.assign({},a),n.searchOptions.term=e.val(),s(),ajaxify.data.template.category&amp;&amp;ajaxify.data.cid&amp;&amp;i.find(&#039;input[type=&quot;checkbox&quot;]&#039;).is(&quot;:checked&quot;)&amp;&amp;(n.searchOptions.categories=[ajaxify.data.cid],n.searchOptions.searchChildren=!0),n.hideDuringSearch||(r.removeClass(&quot;hidden&quot;).find(&quot;.quick-search-results-container&quot;).html(&quot;&quot;),r.find(&quot;.loading-indicator&quot;).removeClass(&quot;hidden&quot;)),c.fire(&quot;action:search.quick.start&quot;,n),n.searchOptions.searchOnly=1,u.api(n.searchOptions,function(h){if(r.find(&quot;.loading-indicator&quot;).addClass(&quot;hidden&quot;),n.searchOptions.in===&quot;categories&quot;){if(!h.categories||n.hideOnNoMatches&amp;&amp;!h.categories.length)return r.addClass(&quot;hidden&quot;).find(&quot;.quick-search-results-container&quot;).html(&quot;&quot;);h.dropdown={maxWidth:&quot;400px&quot;,maxHeight:&quot;500px&quot;,...n.dropdown},app.parseAndTranslate(&quot;partials/quick-category-search-results&quot;,h,E=&gt;{E.length&amp;&amp;E.find(&quot;.timeago&quot;).timeago(),r.toggleClass(&quot;hidden&quot;,!E.length||!e.is(&quot;:focus&quot;)).find(&quot;.quick-search-results-container&quot;).html(E.length?E:&quot;&quot;),c.fire(&quot;action:search.quick.complete&quot;,{data:h,options:n})})}else{if(!h.posts||n.hideOnNoMatches&amp;&amp;!h.posts.length)return r.addClass(&quot;hidden&quot;).find(&quot;.quick-search-results-container&quot;).html(&quot;&quot;);h.posts.forEach(function(E){const T=$(&quot;&lt;div&gt;&quot;+E.content+&quot;&lt;/div&gt;&quot;).text(),A=e.val().toLowerCase().replace(/^in:topic-\d+/,&quot;&quot;),_=Math.max(0,T.toLowerCase().indexOf(A)-40);E.snippet=utils.escapeHTML((_&gt;0?&quot;...&quot;:&quot;&quot;)+T.slice(_,_+80)+(T.length-_&gt;80?&quot;...&quot;:&quot;&quot;))}),h.dropdown={maxWidth:&quot;400px&quot;,maxHeight:&quot;500px&quot;,...n.dropdown},app.parseAndTranslate(&quot;partials/quick-search-results&quot;,h,function(E){E.length&amp;&amp;E.find(&quot;.timeago&quot;).timeago(),r.toggleClass(&quot;hidden&quot;,!E.length||!e.is(&quot;:focus&quot;)).find(&quot;.quick-search-results-container&quot;).html(E.length?E:&quot;&quot;);const T=r.find(&quot;.quick-search-results .quick-search-title, .quick-search-results .snippet&quot;);u.highlightMatches(n.searchOptions.term,T),c.fire(&quot;action:search.quick.complete&quot;,{data:h,options:n})})}})}r.find(&#039;.filter-category input[type=&quot;checkbox&quot;]&#039;).on(&quot;change&quot;,function(){e.focus(),l()}),e.off(&quot;keyup&quot;).on(&quot;keyup&quot;,utils.debounce(function(){if(e.val().length&lt;3){r.addClass(&quot;hidden&quot;),t=e.val();return}if(e.val()!==t){if(t=e.val(),!e.is(&quot;:focus&quot;))return r.addClass(&quot;hidden&quot;);l()}},500)),r.on(&quot;mousedown&quot;,&quot;.quick-search-results &gt; *&quot;,function(){$(window).one(&quot;mouseup&quot;,function(){r.addClass(&quot;hidden&quot;)})});const C=e.parent(),d=r.parent();C.on(&quot;focusout&quot;,w),d.on(&quot;focusout&quot;,w);function w(){setTimeout(function(){!C.find(&quot;:focus&quot;).length&amp;&amp;!d.find(&quot;:focus&quot;).length&amp;&amp;!r.hasClass(&quot;hidden&quot;)&amp;&amp;r.addClass(&quot;hidden&quot;)},200)}let b=!1;c.on(&quot;action:ajaxify.end&quot;,function(){ajaxify.isCold()||(b=!0),r.addClass(&quot;hidden&quot;)}),e.on(&quot;focus&quot;,function(){const h=e.val();t=h,h&amp;&amp;r.find(&quot;#quick-search-results&quot;).children().length&amp;&amp;(s(),b?(l(),b=!1):r.removeClass(&quot;hidden&quot;),e[0].setSelectionRange(h.startsWith(&quot;in:topic&quot;)?h.indexOf(&quot; &quot;)+1:0,h.length))}),e.off(&quot;refresh&quot;).on(&quot;refresh&quot;,function(){l()})},u.showAndFocusInput=function(n){const a=n.parents(&quot;.dropdown-menu&quot;);if(a.length){const r=a.siblings(&quot;[data-bs-toggle]&quot;),e=o.Dropdown.getOrCreateInstance(r[0]);e&amp;&amp;e.show()}else n.find(&#039;[component=&quot;search/fields&quot;]&#039;).removeClass(&quot;hidden&quot;),n.find(&#039;[component=&quot;search/button&quot;]&#039;).addClass(&quot;hidden&quot;),n.find(&#039;[component=&quot;search/fields&quot;] input[name=&quot;query&quot;]&#039;).trigger(&quot;focus&quot;)},u.query=function(n,a){a=a||function(){},ajaxify.go(&quot;search?&quot;+k(n),a)},u.api=function(n,a){const r=config.relative_path+&quot;/api/search?&quot;+k(n);n.hasOwnProperty(&quot;searchOnly&quot;)&amp;&amp;delete n.searchOnly;const e=config.relative_path+&quot;/search?&quot;+k(n);$.get(r,function(t){t.url=e,a(t)})};function k(n){const a=n.in||&quot;titles&quot;,r=n.term.replace(/^[ ?#]*/,&quot;&quot;),e={...n,term:r,in:a};return c.fire(&quot;action:search.createQueryString&quot;,{query:e,data:n}),$.param(e)}return u.getSearchPreferences=function(){try{return JSON.parse(y.getItem(&quot;search-preferences&quot;)||&quot;{}&quot;)}catch(n){return console.error(n),{}}},u.highlightMatches=function(n,a){if(!n||!a.length)return;n=utils.escapeHTML(n.replace(/^&quot;/,&quot;&quot;).replace(/&quot;$/,&quot;&quot;).trim());const r=n.split(&quot; &quot;).filter(t=&gt;t.length&gt;1).map(function(t){return utils.escapeRegexChars(t)}).join(&quot;|&quot;),e=new RegExp(&quot;(&quot;+r+&quot;)&quot;,&quot;gi&quot;);a.each(function(){const t=$(this),i=[];t.find(&quot;*&quot;).each(function(){$(this).after(&quot;&lt;!-- &quot;+i.length+&quot; --&gt;&quot;),i.push($(&quot;&lt;div&gt;&lt;/div&gt;&quot;).append($(this)))}),t.html(t.html().replace(e,function(s,l){return&#039;&lt;strong class=&quot;search-match fw-bold text-decoration-underline&quot;&gt;&#039;+l+&quot;&lt;/strong&gt;&quot;})),i.forEach(function(s,l){t.html(t.html().replace(&quot;&lt;!-- &quot;+l+&quot; --&gt;&quot;,function(){return s.html()}))})}),$(&quot;.search-results .content&quot;).find(&quot;img:not(.not-responsive)&quot;).addClass(&quot;img-fluid&quot;)},u}.apply(O,x),g!==void 0&amp;&amp;(S.exports=g)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

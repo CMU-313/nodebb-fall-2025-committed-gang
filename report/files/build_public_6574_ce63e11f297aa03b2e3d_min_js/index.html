@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/6574.ce63e11f297aa03b2e3d.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/6574.ce63e11f297aa03b2e3d.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">75.78</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">108</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">30.87</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.32</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;
+(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[6574],
+	{
+		6574: (v, b, r) =&gt; {
+			var m, g;
+			((m = [r(91749), r(52473), r(49897), r(29930)]),
+				(g = function (s, A, c, t) {
+					const l = {};
+					let n, o, a;
+					((l.showFlagModal = function (e) {
+						((e.remote = URL.canParse(e.id) ? new URL(e.id).hostname : !1),
+							app.parseAndTranslate(&quot;modals/flag&quot;, e, function (f) {
+								((n = f),
+									n.on(&quot;hidden.bs.modal&quot;, function () {
+										n.remove();
+									}),
+									(o = n.find(&quot;#flag-post-commit&quot;)),
+									(a = n.find(&quot;#flag-reason-custom&quot;)),
+									n.on(&quot;click&quot;, &#039;input[name=&quot;flag-reason&quot;]&#039;, function () {
+										$(this).attr(&quot;id&quot;) === &quot;flag-reason-other&quot;
+											? (a.removeAttr(&quot;disabled&quot;),
+												a.val().length || o.attr(&quot;disabled&quot;, !0))
+											: (a.attr(&quot;disabled&quot;, !0), o.removeAttr(&quot;disabled&quot;));
+									}),
+									o.on(&quot;click&quot;, function () {
+										const i = $(&#039;input[name=&quot;flag-reason&quot;]:checked&#039;);
+										let d = i.val();
+										i.attr(&quot;id&quot;) === &quot;flag-reason-other&quot; &amp;&amp; (d = a.val());
+										const u = $(&#039;input[name=&quot;flag-notify-remote&quot;]&#039;).is(
+											&quot;:checked&quot;,
+										);
+										E(e.type, e.id, d, u);
+									}),
+									n.on(&quot;click&quot;, &quot;#flag-reason-other&quot;, function () {
+										a.focus();
+									}),
+									n.modal(&quot;show&quot;),
+									s.fire(&quot;action:flag.showModal&quot;, {
+										modalEl: n,
+										type: e.type,
+										id: e.id,
+										remote: e.remote,
+									}),
+									n.find(&quot;#flag-reason-custom&quot;).on(&quot;keyup blur change&quot;, y));
+							}));
+					}),
+						(l.resolve = function (e) {
+							c.put(`/flags/${e}`, { state: &quot;resolved&quot; })
+								.then(() =&gt; {
+									(t.success(&quot;[[flags:resolved]]&quot;),
+										s.fire(&quot;action:flag.resolved&quot;, { flagId: e }));
+								})
+								.catch(t.error);
+						}),
+						(l.rescind = function (e) {
+							c.del(`/flags/${e}/report`)
+								.then(() =&gt; {
+									(t.success(&quot;[[flags:report-rescinded]]&quot;),
+										s.fire(&quot;action:flag.rescinded&quot;, { flagId: e }));
+								})
+								.catch(t.error);
+						}),
+						(l.purge = function (e) {
+							c.del(`/flags/${e}`)
+								.then(() =&gt; {
+									(t.success(&quot;[[flags:purged]]&quot;),
+										s.fire(&quot;action:flag.purged&quot;, { flagId: e }));
+								})
+								.catch(t.error);
+						}));
+					function E(e, f, i, d = !1) {
+						if (!e || !f || !i) return;
+						const u = { type: e, id: f, reason: i, notifyRemote: d };
+						c.post(&quot;/flags&quot;, u, function (p, R) {
+							if (p) return t.error(p);
+							if (
+								(n.modal(&quot;hide&quot;),
+								t.success(&quot;[[flags:modal-submit-success]]&quot;),
+								e === &quot;post&quot;)
+							) {
+								const h = A.get(&quot;post&quot;, &quot;pid&quot;, f);
+								(h
+									.find(&#039;[component=&quot;post/flag&quot;]&#039;)
+									.addClass(&quot;hidden&quot;)
+									.parent()
+									.attr(&quot;hidden&quot;, &quot;&quot;),
+									h
+										.find(&#039;[component=&quot;post/already-flagged&quot;]&#039;)
+										.removeClass(&quot;hidden&quot;)
+										.parent()
+										.attr(&quot;hidden&quot;, null));
+							}
+							s.fire(&quot;action:flag.create&quot;, { flagId: R, data: u });
+						});
+					}
+					function y() {
+						n.find(&quot;#flag-reason-custom&quot;).val()
+							? o.removeAttr(&quot;disabled&quot;)
+							: o.attr(&quot;disabled&quot;, !0);
+					}
+					return l;
+				}.apply(b, m)),
+				g !== void 0 &amp;&amp; (v.exports = g));
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

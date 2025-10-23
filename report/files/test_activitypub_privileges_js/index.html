@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - test/activitypub/privileges.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>test/activitypub/privileges.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">75.15</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">207</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">17.84</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.97</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&#039;use strict&#039;;
+
+const assert = require(&#039;assert&#039;);
+const nconf = require(&#039;nconf&#039;);
+
+const db = require(&#039;../mocks/databasemock&#039;);
+const request = require(&#039;../../src/request&#039;);
+const user = require(&#039;../../src/user&#039;);
+const topics = require(&#039;../../src/topics&#039;);
+const posts = require(&#039;../../src/posts&#039;);
+const categories = require(&#039;../../src/categories&#039;);
+const privileges = require(&#039;../../src/privileges&#039;);
+const meta = require(&#039;../../src/meta&#039;);
+const install = require(&#039;../../src/install&#039;);
+const utils = require(&#039;../../src/utils&#039;);
+const activitypub = require(&#039;../../src/activitypub&#039;);
+
+const helpers = require(&#039;./helpers&#039;);
+
+describe.skip(&#039;Privilege logic for remote users/content (ActivityPub)&#039;, () =&gt; {
+	before(async () =&gt; {
+		meta.config.activitypubEnabled = 1;
+		// await install.giveWorldPrivileges();
+	});
+
+	describe(&#039;&quot;fediverse&quot; pseudo-user&#039;, () =&gt; {
+		describe(&#039;no privileges given&#039;, () =&gt; {
+			let uid;
+			let cid;
+			let topicData;
+			let postData;
+			let mainPid;
+			let handle;
+
+			before(async () =&gt; {
+				uid = await user.create({ username: utils.generateUUID() });
+				({ cid } = await categories.create({ name: utils.generateUUID() }));
+				({ topicData, postData } = await topics.post({
+					cid,
+					uid,
+					title: utils.generateUUID(),
+					content: utils.generateUUID(),
+				}));
+				handle = await categories.getCategoryField(cid, &#039;handle&#039;);
+				const privsToRemove = await privileges.categories.getGroupPrivilegeList();
+				await privileges.categories.rescind(privsToRemove, cid, [&#039;fediverse&#039;]);
+			});
+
+			describe(&#039;incoming requests&#039;, () =&gt; {
+				it(&#039;should not respond to a webfinger request to a category\&#039;s handle&#039;, async () =&gt; {
+					const response = await activitypub.helpers.query(`${handle}@${nconf.get(&#039;url_parsed&#039;).hostname}`);
+					assert.strictEqual(response, false);
+				});
+
+				it(&#039;should not respond to a request for the category actor&#039;, async () =&gt; {
+					await assert.rejects(
+						activitypub.get(&#039;uid&#039;, uid, `${nconf.get(&#039;url&#039;)}/category/${cid}`),
+						{ message: &#039;[[error:activitypub.get-failed]]&#039; }
+					);
+				});
+
+				it(&#039;should not respond to a request for a topic collection&#039;, async () =&gt; {
+					await assert.rejects(
+						activitypub.get(&#039;uid&#039;, uid, `${nconf.get(&#039;url&#039;)}/topic/${topicData.tid}`),
+						{ message: &#039;[[error:activitypub.get-failed]]&#039; }
+					);
+				});
+
+				it(&#039;should not respond to a request for a post&#039;, async () =&gt; {
+					await assert.rejects(
+						activitypub.get(&#039;uid&#039;, uid, `${nconf.get(&#039;url&#039;)}/post/${topicData.mainPid}`),
+						{ message: &#039;[[error:activitypub.get-failed]]&#039; }
+					);
+				});
+			});
+
+			describe(&#039;incoming activities&#039;, () =&gt; {
+				describe(&#039;Create(Note)&#039;, () =&gt; {
+					let note;
+					let activity;
+
+					before(async () =&gt; {
+						({ note } = helpers.mocks.note({
+							cc: [`${nconf.get(&#039;url&#039;)}/category/${cid}`],
+						}));
+						({ activity } = helpers.mocks.create(note));
+						await activitypub.inbox.create({ body: activity });
+					});
+
+					it(&#039;should not assert the note&#039;, async () =&gt; {
+						const exists = await posts.exists(note.id);
+						assert.strictEqual(exists, false);
+					});
+				});
+
+				describe(&#039;Update(Note)&#039;, () =&gt; {
+					let note;
+					let activity;
+
+					before(async () =&gt; {
+						({ note } = helpers.mocks.note({
+							cc: [`${nconf.get(&#039;url&#039;)}/category/${cid}`],
+						}));
+						({ activity } = helpers.mocks.create(note));
+						await privileges.categories.give([&#039;groups:topics:create&#039;], cid, [&#039;fediverse&#039;]);
+						await activitypub.inbox.create({ body: activity });
+					});
+
+					after(async () =&gt; {
+						await privileges.categories.rescind([&#039;groups:topics:create&#039;], cid, [&#039;fediverse&#039;]);
+					});
+
+					it(&#039;should assert the note&#039;, async () =&gt; {
+						const exists = await posts.exists(note.id);
+						assert.strictEqual(exists, true);
+					});
+
+					it(&#039;should not allow edits to the note&#039;, async () =&gt; {
+						const oldContent = note.content;
+						note.content = &#039;new content&#039;;
+						({ activity } = helpers.mocks.update({
+							object: note,
+						}));
+
+						await activitypub.inbox.update({ body: activity });
+
+						const postData = await posts.getPostData(note.id);
+						assert.strictEqual(postData.content, oldContent);
+						assert.strictEqual(postData.edited, 0);
+					});
+				});
+
+				describe(&#039;Delete(Note)&#039;, () =&gt; {
+					let note;
+					let activity;
+
+					before(async () =&gt; {
+						({ note } = helpers.mocks.note({
+							cc: [`${nconf.get(&#039;url&#039;)}/category/${cid}`],
+						}));
+						({ activity } = helpers.mocks.create(note));
+						await privileges.categories.give([&#039;groups:topics:create&#039;], cid, [&#039;fediverse&#039;]);
+						await activitypub.inbox.create({ body: activity });
+					});
+
+					after(async () =&gt; {
+						await privileges.categories.rescind([&#039;groups:topics:create&#039;], cid, [&#039;fediverse&#039;]);
+					});
+
+					it(&#039;should assert the note&#039;, async () =&gt; {
+						const exists = await posts.exists(note.id);
+						assert.strictEqual(exists, true);
+					});
+
+					it(&#039;should ignore remote deletion of said note&#039;, async () =&gt; {
+						({ activity } = helpers.mocks.delete({ object: note }));
+						await activitypub.inbox.delete({ body: activity });
+
+						const exists = await posts.exists(note.id);
+						assert.strictEqual(exists, true);
+					});
+				});
+			});
+
+			describe(&#039;outgoing requests&#039;, () =&gt; {
+				it(&#039;should not federate out a new post&#039;, async () =&gt; {
+
+				});
+
+				it(&#039;should not federate out a post edit&#039;, async () =&gt; {
+
+				});
+
+				it(&#039;should not federate out a post deletion&#039;, async () =&gt; {
+
+				});
+
+				it(&#039;should not federate out a post announce&#039;, async () =&gt; {
+
+				});
+			});
+		});
+
+		describe(&#039;regular privilege set&#039;, () =&gt; {
+			let cid;
+			let handle;
+
+			before(async () =&gt; {
+				({ cid } = await categories.create({ name: utils.generateUUID() }));
+				handle = await categories.getCategoryField(cid, &#039;handle&#039;);
+				const privsToRemove = await privileges.categories.getGroupPrivilegeList();
+			});
+
+			describe(&#039;groups:find&#039;, () =&gt; {
+				it(&#039;should return webfinger response to a category\&#039;s handle&#039;, async () =&gt; {
+					const { response, body } = await request.get(`${nconf.get(&#039;url&#039;)}/.well-known/webfinger?resource=acct:${handle}@${nconf.get(&#039;url_parsed&#039;).host}`);
+
+					assert(response);
+					assert.strictEqual(response.statusCode, 200);
+					assert(body.links &amp;&amp; body.links.length);
+					assert.strictEqual(body.subject, `acct:${handle}@${nconf.get(&#039;url_parsed&#039;).host}`);
+				});
+			});
+		});
+	});
+});
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

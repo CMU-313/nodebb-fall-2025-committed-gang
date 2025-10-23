@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/61117.33c0b41d7dc28df19c12.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/61117.33c0b41d7dc28df19c12.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">40.83</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">279</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">11.28</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">2.22</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[61117],
+	{
+		61117: (_) =&gt; {
+			function g(e) {
+				const S = e.regex,
+					i = /[\p{XID_Start}_]\p{XID_Continue}*/u,
+					l = [
+						&quot;and&quot;,
+						&quot;as&quot;,
+						&quot;assert&quot;,
+						&quot;async&quot;,
+						&quot;await&quot;,
+						&quot;break&quot;,
+						&quot;class&quot;,
+						&quot;continue&quot;,
+						&quot;def&quot;,
+						&quot;del&quot;,
+						&quot;elif&quot;,
+						&quot;else&quot;,
+						&quot;except&quot;,
+						&quot;finally&quot;,
+						&quot;for&quot;,
+						&quot;from&quot;,
+						&quot;global&quot;,
+						&quot;if&quot;,
+						&quot;import&quot;,
+						&quot;in&quot;,
+						&quot;is&quot;,
+						&quot;lambda&quot;,
+						&quot;nonlocal|10&quot;,
+						&quot;not&quot;,
+						&quot;or&quot;,
+						&quot;pass&quot;,
+						&quot;raise&quot;,
+						&quot;return&quot;,
+						&quot;try&quot;,
+						&quot;while&quot;,
+						&quot;with&quot;,
+						&quot;yield&quot;,
+					],
+					r = {
+						$pattern: /[A-Za-z]\w+|__\w+__/,
+						keyword: l,
+						built_in: [
+							&quot;__import__&quot;,
+							&quot;abs&quot;,
+							&quot;all&quot;,
+							&quot;any&quot;,
+							&quot;ascii&quot;,
+							&quot;bin&quot;,
+							&quot;bool&quot;,
+							&quot;breakpoint&quot;,
+							&quot;bytearray&quot;,
+							&quot;bytes&quot;,
+							&quot;callable&quot;,
+							&quot;chr&quot;,
+							&quot;classmethod&quot;,
+							&quot;compile&quot;,
+							&quot;complex&quot;,
+							&quot;delattr&quot;,
+							&quot;dict&quot;,
+							&quot;dir&quot;,
+							&quot;divmod&quot;,
+							&quot;enumerate&quot;,
+							&quot;eval&quot;,
+							&quot;exec&quot;,
+							&quot;filter&quot;,
+							&quot;float&quot;,
+							&quot;format&quot;,
+							&quot;frozenset&quot;,
+							&quot;getattr&quot;,
+							&quot;globals&quot;,
+							&quot;hasattr&quot;,
+							&quot;hash&quot;,
+							&quot;help&quot;,
+							&quot;hex&quot;,
+							&quot;id&quot;,
+							&quot;input&quot;,
+							&quot;int&quot;,
+							&quot;isinstance&quot;,
+							&quot;issubclass&quot;,
+							&quot;iter&quot;,
+							&quot;len&quot;,
+							&quot;list&quot;,
+							&quot;locals&quot;,
+							&quot;map&quot;,
+							&quot;max&quot;,
+							&quot;memoryview&quot;,
+							&quot;min&quot;,
+							&quot;next&quot;,
+							&quot;object&quot;,
+							&quot;oct&quot;,
+							&quot;open&quot;,
+							&quot;ord&quot;,
+							&quot;pow&quot;,
+							&quot;print&quot;,
+							&quot;property&quot;,
+							&quot;range&quot;,
+							&quot;repr&quot;,
+							&quot;reversed&quot;,
+							&quot;round&quot;,
+							&quot;set&quot;,
+							&quot;setattr&quot;,
+							&quot;slice&quot;,
+							&quot;sorted&quot;,
+							&quot;staticmethod&quot;,
+							&quot;str&quot;,
+							&quot;sum&quot;,
+							&quot;super&quot;,
+							&quot;tuple&quot;,
+							&quot;type&quot;,
+							&quot;vars&quot;,
+							&quot;zip&quot;,
+						],
+						literal: [
+							&quot;__debug__&quot;,
+							&quot;Ellipsis&quot;,
+							&quot;False&quot;,
+							&quot;None&quot;,
+							&quot;NotImplemented&quot;,
+							&quot;True&quot;,
+						],
+						type: [
+							&quot;Any&quot;,
+							&quot;Callable&quot;,
+							&quot;Coroutine&quot;,
+							&quot;Dict&quot;,
+							&quot;List&quot;,
+							&quot;Literal&quot;,
+							&quot;Generic&quot;,
+							&quot;Optional&quot;,
+							&quot;Sequence&quot;,
+							&quot;Set&quot;,
+							&quot;Tuple&quot;,
+							&quot;Type&quot;,
+							&quot;Union&quot;,
+						],
+					},
+					n = { className: &quot;meta&quot;, begin: /^(&gt;&gt;&gt;|\.\.\.) / },
+					s = {
+						className: &quot;subst&quot;,
+						begin: /\{/,
+						end: /\}/,
+						keywords: r,
+						illegal: /#/,
+					},
+					o = { begin: /\{\{/, relevance: 0 },
+					c = {
+						className: &quot;string&quot;,
+						contains: [e.BACKSLASH_ESCAPE],
+						variants: [
+							{
+								begin: /([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?&#039;&#039;&#039;/,
+								end: /&#039;&#039;&#039;/,
+								contains: [e.BACKSLASH_ESCAPE, n],
+								relevance: 10,
+							},
+							{
+								begin: /([uU]|[bB]|[rR]|[bB][rR]|[rR][bB])?&quot;&quot;&quot;/,
+								end: /&quot;&quot;&quot;/,
+								contains: [e.BACKSLASH_ESCAPE, n],
+								relevance: 10,
+							},
+							{
+								begin: /([fF][rR]|[rR][fF]|[fF])&#039;&#039;&#039;/,
+								end: /&#039;&#039;&#039;/,
+								contains: [e.BACKSLASH_ESCAPE, n, o, s],
+							},
+							{
+								begin: /([fF][rR]|[rR][fF]|[fF])&quot;&quot;&quot;/,
+								end: /&quot;&quot;&quot;/,
+								contains: [e.BACKSLASH_ESCAPE, n, o, s],
+							},
+							{ begin: /([uU]|[rR])&#039;/, end: /&#039;/, relevance: 10 },
+							{ begin: /([uU]|[rR])&quot;/, end: /&quot;/, relevance: 10 },
+							{ begin: /([bB]|[bB][rR]|[rR][bB])&#039;/, end: /&#039;/ },
+							{ begin: /([bB]|[bB][rR]|[rR][bB])&quot;/, end: /&quot;/ },
+							{
+								begin: /([fF][rR]|[rR][fF]|[fF])&#039;/,
+								end: /&#039;/,
+								contains: [e.BACKSLASH_ESCAPE, o, s],
+							},
+							{
+								begin: /([fF][rR]|[rR][fF]|[fF])&quot;/,
+								end: /&quot;/,
+								contains: [e.BACKSLASH_ESCAPE, o, s],
+							},
+							e.APOS_STRING_MODE,
+							e.QUOTE_STRING_MODE,
+						],
+					},
+					t = &quot;[0-9](_?[0-9])*&quot;,
+					d = `(\\b(${t}))?\\.(${t})|\\b(${t})\\.`,
+					a = `\\b|${l.join(&quot;|&quot;)}`,
+					b = {
+						className: &quot;number&quot;,
+						relevance: 0,
+						variants: [
+							{ begin: `(\\b(${t})|(${d}))[eE][+-]?(${t})[jJ]?(?=${a})` },
+							{ begin: `(${d})[jJ]?` },
+							{ begin: `\\b([1-9](_?[0-9])*|0+(_?0)*)[lLjJ]?(?=${a})` },
+							{ begin: `\\b0[bB](_?[01])+[lL]?(?=${a})` },
+							{ begin: `\\b0[oO](_?[0-7])+[lL]?(?=${a})` },
+							{ begin: `\\b0[xX](_?[0-9a-fA-F])+[lL]?(?=${a})` },
+							{ begin: `\\b(${t})[jJ](?=${a})` },
+						],
+					},
+					E = {
+						className: &quot;comment&quot;,
+						begin: S.lookahead(/# type:/),
+						end: /$/,
+						keywords: r,
+						contains: [
+							{ begin: /# type:/ },
+							{ begin: /#/, end: /\b\B/, endsWithParent: !0 },
+						],
+					},
+					p = {
+						className: &quot;params&quot;,
+						variants: [
+							{ className: &quot;&quot;, begin: /\(\s*\)/, skip: !0 },
+							{
+								begin: /\(/,
+								end: /\)/,
+								excludeBegin: !0,
+								excludeEnd: !0,
+								keywords: r,
+								contains: [&quot;self&quot;, n, b, c, e.HASH_COMMENT_MODE],
+							},
+						],
+					};
+				return (
+					(s.contains = [c, b, n]),
+					{
+						name: &quot;Python&quot;,
+						aliases: [&quot;py&quot;, &quot;gyp&quot;, &quot;ipython&quot;],
+						unicodeRegex: !0,
+						keywords: r,
+						illegal: /(&lt;\/|-&gt;|\?)|=&gt;/,
+						contains: [
+							n,
+							b,
+							{ begin: /\bself\b/ },
+							{ beginKeywords: &quot;if&quot;, relevance: 0 },
+							c,
+							E,
+							e.HASH_COMMENT_MODE,
+							{
+								match: [/\bdef/, /\s+/, i],
+								scope: { 1: &quot;keyword&quot;, 3: &quot;title.function&quot; },
+								contains: [p],
+							},
+							{
+								variants: [
+									{ match: [/\bclass/, /\s+/, i, /\s*/, /\(\s*/, i, /\s*\)/] },
+									{ match: [/\bclass/, /\s+/, i] },
+								],
+								scope: {
+									1: &quot;keyword&quot;,
+									3: &quot;title.class&quot;,
+									6: &quot;title.class.inherited&quot;,
+								},
+							},
+							{
+								className: &quot;meta&quot;,
+								begin: /^[\t ]*@/,
+								end: /(?=#)|$/,
+								contains: [b, p, c],
+							},
+						],
+					}
+				);
+			}
+			_.exports = g;
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

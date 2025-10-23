@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/24459.adddff8bc6569020278f.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/24459.adddff8bc6569020278f.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">74.40</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">223</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">45.31</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">2.47</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;
+(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[24459, 34405],
+	{
+		24459: (A, v, s) =&gt; {
+			var p, f;
+			((p = [s(34405), s(29930)]),
+				(f = function (h, g) {
+					const y = {};
+					let a;
+					y.init = async function (E) {
+						if (a) return;
+						const l = E.attr(&quot;data-pid&quot;);
+						let e = await socket.emit(&quot;posts.getEditors&quot;, { pid: l });
+						app.parseAndTranslate(
+							&quot;modals/manage-editors&quot;,
+							{ editors: e },
+							function (t) {
+								a = t;
+								const d = a.find(&quot;#manage_editors_commit&quot;);
+								($(&quot;body&quot;).append(a),
+									a.find(&quot;#manage_editors_cancel&quot;).on(&quot;click&quot;, u),
+									d.on(&quot;click&quot;, function () {
+										b(l);
+									}),
+									h.user(
+										a.find(&quot;#username&quot;),
+										{ filters: [&quot;notbanned&quot;] },
+										function (i, n) {
+											e.find(
+												(c) =&gt; String(c.uid) === String(n.item.user.uid),
+											) ||
+												(e.push(n.item.user),
+												app.parseAndTranslate(
+													&quot;modals/manage-editors&quot;,
+													&quot;editors&quot;,
+													{ editors: e },
+													function (c) {
+														(a.find(&#039;[component=&quot;topic/editors&quot;]&#039;).html(c),
+															a.find(&quot;#username&quot;).val(&quot;&quot;));
+													},
+												));
+										},
+									),
+									a.on(&quot;click&quot;, &quot;button.remove-user-icon&quot;, function () {
+										const i = $(this).parents(&quot;[data-uid]&quot;),
+											n = i.attr(&quot;data-uid&quot;);
+										((e = e.filter((o) =&gt; String(o.uid) !== String(n))),
+											i.remove());
+									}));
+							},
+						);
+					};
+					function b(E) {
+						const l = a
+							.find(&#039;[component=&quot;topic/editors&quot;]&gt;[data-uid]&#039;)
+							.map((e, t) =&gt; $(t).attr(&quot;data-uid&quot;))
+							.get();
+						socket.emit(&quot;posts.saveEditors&quot;, { pid: E, uids: l }, function (e) {
+							if (e) return g.error(e);
+							u();
+						});
+					}
+					function u() {
+						a &amp;&amp; (a.remove(), (a = null));
+					}
+					return y;
+				}.apply(v, p)),
+				f !== void 0 &amp;&amp; (A.exports = f));
+		},
+		34405: (A, v, s) =&gt; {
+			var p, f;
+			((p = [s(49897), s(29930), s(36e3), s(9787), s(35786)]),
+				(f = function (
+					h,
+					g,
+					{ Textcomplete: y },
+					{ TextareaEditor: a },
+					{ ContenteditableEditor: b },
+				) {
+					const u = {},
+						E = { delay: 200, appendTo: null };
+					((u.init = (e) =&gt; {
+						const t = { ...E, ...e },
+							{ input: d, onSelect: i } = t;
+						app.loadJQueryUI(function () {
+							d.autocomplete({
+								...t,
+								open: function () {
+									$(this).autocomplete(&quot;widget&quot;).css(&quot;z-index&quot;, 100005);
+								},
+								select: function (n, o) {
+									l(d, i, n, o);
+								},
+							});
+						});
+					}),
+						(u.user = function (e, t, d) {
+							(typeof t == &quot;function&quot; &amp;&amp; ((d = t), (t = {})),
+								(t = t || {}),
+								u.init({
+									input: e,
+									onSelect: d,
+									source: (i, n) =&gt; {
+										((t.query = i.term),
+											h.get(&quot;/api/users&quot;, t, function (o, c) {
+												if (o) return g.error(o);
+												if (c &amp;&amp; c.users) {
+													const m = c.users.map(function (r) {
+														const x = $(&quot;&lt;div&gt;&lt;/div&gt;&quot;).html(r.username).text();
+														return (
+															r &amp;&amp; {
+																label: x,
+																value: x,
+																user: {
+																	uid: r.uid,
+																	name: r.username,
+																	slug: r.userslug,
+																	username: r.username,
+																	userslug: r.userslug,
+																	displayname: r.displayname,
+																	picture: r.picture,
+																	banned: r.banned,
+																	&quot;icon:text&quot;: r[&quot;icon:text&quot;],
+																	&quot;icon:bgColor&quot;: r[&quot;icon:bgColor&quot;],
+																},
+															}
+														);
+													});
+													n(m);
+												}
+												$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;, &quot;false&quot;);
+											}));
+									},
+								}));
+						}),
+						(u.group = function (e, t) {
+							u.init({
+								input: e,
+								onSelect: t,
+								source: (d, i) =&gt; {
+									socket.emit(
+										&quot;groups.search&quot;,
+										{ query: d.term },
+										function (n, o) {
+											if (n) return g.error(n);
+											if (o &amp;&amp; o.length) {
+												const c = o.map(function (m) {
+													return (
+														m &amp;&amp; { label: m.name, value: m.name, group: m }
+													);
+												});
+												i(c);
+											}
+											$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;, &quot;false&quot;);
+										},
+									);
+								},
+							});
+						}),
+						(u.tag = function (e, t) {
+							u.init({
+								input: e,
+								onSelect: t,
+								delay: 100,
+								source: (d, i) =&gt; {
+									socket.emit(
+										&quot;topics.autocompleteTags&quot;,
+										{ query: d.term, cid: ajaxify.data.cid || 0 },
+										function (n, o) {
+											if (n) return g.error(n);
+											(o &amp;&amp; i(o),
+												$(&quot;.ui-autocomplete a&quot;).attr(&quot;data-ajaxify&quot;, &quot;false&quot;));
+										},
+									);
+								},
+							});
+						}));
+					function l(e, t, d, i) {
+						t = t || function () {};
+						const n = jQuery.Event(&quot;keypress&quot;);
+						((n.which = 13),
+							(n.keyCode = 13),
+							setTimeout(function () {
+								e.trigger(n);
+							}, 100),
+							t(d, i));
+					}
+					return (
+						(u.setup = function ({ element: e, strategies: t, options: d }) {
+							const i = e.get(0);
+							if (i) {
+								var n;
+								if (
+									(i.nodeName === &quot;TEXTAREA&quot; || i.nodeName === &quot;INPUT&quot;
+										? (n = new a(i))
+										: i.nodeName === &quot;DIV&quot; &amp;&amp;
+											i.getAttribute(&quot;contenteditable&quot;) === &quot;true&quot; &amp;&amp;
+											(n = new b(i)),
+									!n)
+								)
+									throw new Error(&quot;unknown target element type&quot;);
+								i.setAttribute(
+									&quot;dir&quot;,
+									document.querySelector(&quot;html&quot;).getAttribute(&quot;data-dir&quot;),
+								);
+								var o = new y(n, t, { dropdown: d });
+								return (
+									o.on(&quot;rendered&quot;, function () {
+										o.dropdown.items.length &amp;&amp; o.dropdown.items[0].activate();
+									}),
+									o
+								);
+							}
+						}),
+						u
+					);
+				}.apply(v, p)),
+				f !== void 0 &amp;&amp; (A.exports = f));
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/5947.a34e39c598ea5e293c4d.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/5947.a34e39c598ea5e293c4d.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">74.09</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">251</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">78.28</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">3.08</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[5947],
+	{
+		5947: function (b, S, _) {
+			var p, m;
+			/* NProgress, (c) 2013, 2014 Rico Sta. Cruz - http://ricostacruz.com/nprogress
+			 * @license MIT */ (function (t, s) {
+				((p = s),
+					(m = typeof p == &quot;function&quot; ? p.call(S, _, S, b) : p),
+					m !== void 0 &amp;&amp; (b.exports = m));
+			})(this, function () {
+				var t = {};
+				t.version = &quot;0.2.0&quot;;
+				var s = (t.settings = {
+					minimum: 0.08,
+					easing: &quot;ease&quot;,
+					positionUsing: &quot;&quot;,
+					speed: 200,
+					trickle: !0,
+					trickleRate: 0.02,
+					trickleSpeed: 800,
+					showSpinner: !0,
+					barSelector: &#039;[role=&quot;bar&quot;]&#039;,
+					spinnerSelector: &#039;[role=&quot;spinner&quot;]&#039;,
+					parent: &quot;body&quot;,
+					template:
+						&#039;&lt;div class=&quot;bar&quot; role=&quot;bar&quot;&gt;&lt;div class=&quot;peg&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=&quot;spinner&quot; role=&quot;spinner&quot;&gt;&lt;div class=&quot;spinner-icon&quot;&gt;&lt;/div&gt;&lt;/div&gt;&#039;,
+				});
+				((t.configure = function (e) {
+					var r, n;
+					for (r in e)
+						((n = e[r]), n !== void 0 &amp;&amp; e.hasOwnProperty(r) &amp;&amp; (s[r] = n));
+					return this;
+				}),
+					(t.status = null),
+					(t.set = function (e) {
+						var r = t.isStarted();
+						((e = y(e, s.minimum, 1)), (t.status = e === 1 ? null : e));
+						var n = t.render(!r),
+							o = n.querySelector(s.barSelector),
+							a = s.speed,
+							f = s.easing;
+						return (
+							n.offsetWidth,
+							w(function (i) {
+								(s.positionUsing === &quot;&quot; &amp;&amp;
+									(s.positionUsing = t.getPositioningCSS()),
+									g(o, T(e, a, f)),
+									e === 1
+										? (g(n, { transition: &quot;none&quot;, opacity: 1 }),
+											n.offsetWidth,
+											setTimeout(function () {
+												(g(n, {
+													transition: &quot;all &quot; + a + &quot;ms linear&quot;,
+													opacity: 0,
+												}),
+													setTimeout(function () {
+														(t.remove(), i());
+													}, a));
+											}, a))
+										: setTimeout(i, a));
+							}),
+							this
+						);
+					}),
+					(t.isStarted = function () {
+						return typeof t.status == &quot;number&quot;;
+					}),
+					(t.start = function () {
+						t.status || t.set(0);
+						var e = function () {
+							setTimeout(function () {
+								t.status &amp;&amp; (t.trickle(), e());
+							}, s.trickleSpeed);
+						};
+						return (s.trickle &amp;&amp; e(), this);
+					}),
+					(t.done = function (e) {
+						return !e &amp;&amp; !t.status
+							? this
+							: t.inc(0.3 + 0.5 * Math.random()).set(1);
+					}),
+					(t.inc = function (e) {
+						var r = t.status;
+						return r
+							? (typeof e != &quot;number&quot; &amp;&amp;
+									(e = (1 - r) * y(Math.random() * r, 0.1, 0.95)),
+								(r = y(r + e, 0, 0.994)),
+								t.set(r))
+							: t.start();
+					}),
+					(t.trickle = function () {
+						return t.inc(Math.random() * s.trickleRate);
+					}),
+					(function () {
+						var e = 0,
+							r = 0;
+						t.promise = function (n) {
+							return !n || n.state() === &quot;resolved&quot;
+								? this
+								: (r === 0 &amp;&amp; t.start(),
+									e++,
+									r++,
+									n.always(function () {
+										(r--, r === 0 ? ((e = 0), t.done()) : t.set((e - r) / e));
+									}),
+									this);
+						};
+					})(),
+					(t.render = function (e) {
+						if (t.isRendered()) return document.getElementById(&quot;nprogress&quot;);
+						k(document.documentElement, &quot;nprogress-busy&quot;);
+						var r = document.createElement(&quot;div&quot;);
+						((r.id = &quot;nprogress&quot;), (r.innerHTML = s.template));
+						var n = r.querySelector(s.barSelector),
+							o = e ? &quot;-100&quot; : v(t.status || 0),
+							a = document.querySelector(s.parent),
+							f;
+						return (
+							g(n, {
+								transition: &quot;all 0 linear&quot;,
+								transform: &quot;translate3d(&quot; + o + &quot;%,0,0)&quot;,
+							}),
+							s.showSpinner ||
+								((f = r.querySelector(s.spinnerSelector)), f &amp;&amp; E(f)),
+							a != document.body &amp;&amp; k(a, &quot;nprogress-custom-parent&quot;),
+							a.appendChild(r),
+							r
+						);
+					}),
+					(t.remove = function () {
+						(P(document.documentElement, &quot;nprogress-busy&quot;),
+							P(document.querySelector(s.parent), &quot;nprogress-custom-parent&quot;));
+						var e = document.getElementById(&quot;nprogress&quot;);
+						e &amp;&amp; E(e);
+					}),
+					(t.isRendered = function () {
+						return !!document.getElementById(&quot;nprogress&quot;);
+					}),
+					(t.getPositioningCSS = function () {
+						var e = document.body.style,
+							r =
+								&quot;WebkitTransform&quot; in e
+									? &quot;Webkit&quot;
+									: &quot;MozTransform&quot; in e
+										? &quot;Moz&quot;
+										: &quot;msTransform&quot; in e
+											? &quot;ms&quot;
+											: &quot;OTransform&quot; in e
+												? &quot;O&quot;
+												: &quot;&quot;;
+						return r + &quot;Perspective&quot; in e
+							? &quot;translate3d&quot;
+							: r + &quot;Transform&quot; in e
+								? &quot;translate&quot;
+								: &quot;margin&quot;;
+					}));
+				function y(e, r, n) {
+					return e &lt; r ? r : e &gt; n ? n : e;
+				}
+				function v(e) {
+					return (-1 + e) * 100;
+				}
+				function T(e, r, n) {
+					var o;
+					return (
+						s.positionUsing === &quot;translate3d&quot;
+							? (o = { transform: &quot;translate3d(&quot; + v(e) + &quot;%,0,0)&quot; })
+							: s.positionUsing === &quot;translate&quot;
+								? (o = { transform: &quot;translate(&quot; + v(e) + &quot;%,0)&quot; })
+								: (o = { &quot;margin-left&quot;: v(e) + &quot;%&quot; }),
+						(o.transition = &quot;all &quot; + r + &quot;ms &quot; + n),
+						o
+					);
+				}
+				var w = (function () {
+						var e = [];
+						function r() {
+							var n = e.shift();
+							n &amp;&amp; n(r);
+						}
+						return function (n) {
+							(e.push(n), e.length == 1 &amp;&amp; r());
+						};
+					})(),
+					g = (function () {
+						var e = [&quot;Webkit&quot;, &quot;O&quot;, &quot;Moz&quot;, &quot;ms&quot;],
+							r = {};
+						function n(i) {
+							return i
+								.replace(/^-ms-/, &quot;ms-&quot;)
+								.replace(/-([\da-z])/gi, function (u, c) {
+									return c.toUpperCase();
+								});
+						}
+						function o(i) {
+							var u = document.body.style;
+							if (i in u) return i;
+							for (
+								var c = e.length, d = i.charAt(0).toUpperCase() + i.slice(1), l;
+								c--;
+
+							)
+								if (((l = e[c] + d), l in u)) return l;
+							return i;
+						}
+						function a(i) {
+							return ((i = n(i)), r[i] || (r[i] = o(i)));
+						}
+						function f(i, u, c) {
+							((u = a(u)), (i.style[u] = c));
+						}
+						return function (i, u) {
+							var c = arguments,
+								d,
+								l;
+							if (c.length == 2)
+								for (d in u)
+									((l = u[d]),
+										l !== void 0 &amp;&amp; u.hasOwnProperty(d) &amp;&amp; f(i, d, l));
+							else f(i, c[1], c[2]);
+						};
+					})();
+				function C(e, r) {
+					var n = typeof e == &quot;string&quot; ? e : h(e);
+					return n.indexOf(&quot; &quot; + r + &quot; &quot;) &gt;= 0;
+				}
+				function k(e, r) {
+					var n = h(e),
+						o = n + r;
+					C(n, r) || (e.className = o.substring(1));
+				}
+				function P(e, r) {
+					var n = h(e),
+						o;
+					C(e, r) &amp;&amp;
+						((o = n.replace(&quot; &quot; + r + &quot; &quot;, &quot; &quot;)),
+						(e.className = o.substring(1, o.length - 1)));
+				}
+				function h(e) {
+					return (&quot; &quot; + (e.className || &quot;&quot;) + &quot; &quot;).replace(/\s+/gi, &quot; &quot;);
+				}
+				function E(e) {
+					e &amp;&amp; e.parentNode &amp;&amp; e.parentNode.removeChild(e);
+				}
+				return t;
+			});
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

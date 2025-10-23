@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/45595.c4d64ef90fbd0393f515.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/45595.c4d64ef90fbd0393f515.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">62.22</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">109</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">11.26</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">0.73</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[624, 45595],
+	{
+		624: (n) =&gt; {
+			function i(e) {
+				const t = e.regex,
+					r = e.inherit(e.QUOTE_STRING_MODE, { illegal: null }),
+					a = {
+						className: &quot;params&quot;,
+						begin: /\(/,
+						end: /\)/,
+						contains: [&quot;self&quot;, e.C_NUMBER_MODE, r],
+					},
+					o = e.COMMENT(/--/, /$/),
+					s = e.COMMENT(/\(\*/, /\*\)/, { contains: [&quot;self&quot;, o] }),
+					l = [o, s, e.HASH_COMMENT_MODE],
+					c = [
+						/apart from/,
+						/aside from/,
+						/instead of/,
+						/out of/,
+						/greater than/,
+						/isn&#039;t|(doesn&#039;t|does not) (equal|come before|come after|contain)/,
+						/(greater|less) than( or equal)?/,
+						/(starts?|ends|begins?) with/,
+						/contained by/,
+						/comes (before|after)/,
+						/a (ref|reference)/,
+						/POSIX (file|path)/,
+						/(date|time) string/,
+						/quoted form/,
+					],
+					p = [
+						/clipboard info/,
+						/the clipboard/,
+						/info for/,
+						/list (disks|folder)/,
+						/mount volume/,
+						/path to/,
+						/(close|open for) access/,
+						/(get|set) eof/,
+						/current date/,
+						/do shell script/,
+						/get volume settings/,
+						/random number/,
+						/set volume/,
+						/system attribute/,
+						/system info/,
+						/time to GMT/,
+						/(load|run|store) script/,
+						/scripting components/,
+						/ASCII (character|number)/,
+						/localized string/,
+						/choose (application|color|file|file name|folder|from list|remote application|URL)/,
+						/display (alert|dialog)/,
+					];
+				return {
+					name: &quot;AppleScript&quot;,
+					aliases: [&quot;osascript&quot;],
+					keywords: {
+						keyword:
+							&quot;about above after against and around as at back before beginning behind below beneath beside between but by considering contain contains continue copy div does eighth else end equal equals error every exit fifth first for fourth from front get given global if ignoring in into is it its last local me middle mod my ninth not of on onto or over prop property put ref reference repeat returning script second set seventh since sixth some tell tenth that the|0 then third through thru timeout times to transaction try until where while whose with without&quot;,
+						literal:
+							&quot;AppleScript false linefeed return pi quote result space tab true&quot;,
+						built_in:
+							&quot;alias application boolean class constant date file integer list number real record string text activate beep count delay launch log offset read round run say summarize write character characters contents day frontmost id item length month name paragraph paragraphs rest reverse running time version weekday word words year&quot;,
+					},
+					contains: [
+						r,
+						e.C_NUMBER_MODE,
+						{
+							className: &quot;built_in&quot;,
+							begin: t.concat(/\b/, t.either(...p), /\b/),
+						},
+						{ className: &quot;built_in&quot;, begin: /^\s*return\b/ },
+						{
+							className: &quot;literal&quot;,
+							begin:
+								/\b(text item delimiters|current application|missing value)\b/,
+						},
+						{
+							className: &quot;keyword&quot;,
+							begin: t.concat(/\b/, t.either(...c), /\b/),
+						},
+						{
+							beginKeywords: &quot;on&quot;,
+							illegal: /[${=;\n]/,
+							contains: [e.UNDERSCORE_TITLE_MODE, a],
+						},
+						...l,
+					],
+					illegal: /\/\/|-&gt;|=&gt;|\[\[/,
+				};
+			}
+			n.exports = i;
+		},
+		45595: (n, i, e) =&gt; {
+			function t() {
+				t.warned ||
+					((t.warned = !0),
+					console.log(
+						&#039;Deprecation (warning): Using file extension in specifier is deprecated, use &quot;highlight.js/lib/languages/applescript&quot; instead of &quot;highlight.js/lib/languages/applescript.js&quot;&#039;,
+					));
+			}
+			(t(), (n.exports = e(624)));
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

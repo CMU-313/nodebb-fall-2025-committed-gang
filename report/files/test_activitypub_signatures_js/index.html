@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - test/activitypub/signatures.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>test/activitypub/signatures.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">66.67</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">144</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">22.00</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.44</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&#039;use strict&#039;;
+
+const assert = require(&#039;assert&#039;);
+const nconf = require(&#039;nconf&#039;);
+const { createHash } = require(&#039;crypto&#039;);
+
+const user = require(&#039;../../src/user&#039;);
+const utils = require(&#039;../../src/utils&#039;);
+const db = require(&#039;../../src/database&#039;);
+const activitypub = require(&#039;../../src/activitypub&#039;);
+
+describe(&#039;http signature signing and verification&#039;, () =&gt; {
+	describe(&#039;.sign()&#039;, () =&gt; {
+		let uid;
+
+		before(async () =&gt; {
+			uid = await user.create({ username: utils.generateUUID().slice(0, 10) });
+		});
+
+		it(&#039;should create a key-pair for a user if the user does not have one already&#039;, async () =&gt; {
+			const endpoint = `${nconf.get(&#039;url&#039;)}/uid/${uid}/inbox`;
+			const keyData = await activitypub.getPrivateKey(&#039;uid&#039;, uid);
+			await activitypub.sign(keyData, endpoint);
+			const { publicKey, privateKey } = await db.getObject(`uid:${uid}:keys`);
+
+			assert(publicKey);
+			assert(privateKey);
+		});
+
+		it(&#039;should return an object with date, a null digest, and signature, if no payload is passed in&#039;, async () =&gt; {
+			const endpoint = `${nconf.get(&#039;url&#039;)}/uid/${uid}/inbox`;
+			const keyData = await activitypub.getPrivateKey(&#039;uid&#039;, uid);
+			const { date, digest, signature } = await activitypub.sign(keyData, endpoint);
+			const dateObj = new Date(date);
+
+			assert(signature);
+			assert(dateObj);
+			assert.strictEqual(digest, null);
+		});
+
+		it(&#039;should also return a digest hash if payload is passed in&#039;, async () =&gt; {
+			const endpoint = `${nconf.get(&#039;url&#039;)}/uid/${uid}/inbox`;
+			const payload = { foo: &#039;bar&#039; };
+			const keyData = await activitypub.getPrivateKey(&#039;uid&#039;, uid);
+			const { digest } = await activitypub.sign(keyData, endpoint, payload);
+			const hash = createHash(&#039;sha256&#039;);
+			hash.update(JSON.stringify(payload));
+			const checksum = hash.digest(&#039;base64&#039;);
+
+			assert(digest);
+			assert.strictEqual(digest, `SHA-256=${checksum}`);
+		});
+
+		it(&#039;should create a key for NodeBB itself if a uid of 0 is passed in&#039;, async () =&gt; {
+			const endpoint = `${nconf.get(&#039;url&#039;)}/uid/${uid}/inbox`;
+			const keyData = await activitypub.getPrivateKey(&#039;uid&#039;, 0);
+			await activitypub.sign(keyData, endpoint);
+			const { publicKey, privateKey } = await db.getObject(`uid:0:keys`);
+
+			assert(publicKey);
+			assert(privateKey);
+		});
+
+		it(&#039;should return headers with an appropriate key id uri&#039;, async () =&gt; {
+			const endpoint = `${nconf.get(&#039;url&#039;)}/uid/${uid}/inbox`;
+			const keyData = await activitypub.getPrivateKey(&#039;uid&#039;, uid);
+			const { signature } = await activitypub.sign(keyData, endpoint);
+			const [keyId] = signature.split(&#039;,&#039;);
+
+			assert(signature);
+			assert.strictEqual(keyId, `keyId=&quot;${nconf.get(&#039;url&#039;)}/uid/${uid}#key&quot;`);
+		});
+
+		it(&#039;should return the instance key id when uid is 0&#039;, async () =&gt; {
+			const endpoint = `${nconf.get(&#039;url&#039;)}/uid/${uid}/inbox`;
+			const keyData = await activitypub.getPrivateKey(&#039;uid&#039;, 0);
+			const { signature } = await activitypub.sign(keyData, endpoint);
+			const [keyId] = signature.split(&#039;,&#039;);
+
+			assert(signature);
+			assert.strictEqual(keyId, `keyId=&quot;${nconf.get(&#039;url&#039;)}/actor#key&quot;`);
+		});
+	});
+
+	describe(&#039;.verify()&#039;, () =&gt; {
+		let uid;
+		let username;
+		const baseUrl = nconf.get(&#039;relative_path&#039;);
+		const mockReqBase = {
+			method: &#039;GET&#039;,
+			// path: ...
+			baseUrl,
+			headers: {
+				// host: ...
+				// date: ...
+				// signature: ...
+				// digest: ...
+			},
+		};
+
+		before(async () =&gt; {
+			username = utils.generateUUID().slice(0, 10);
+			uid = await user.create({ username });
+		});
+
+		it(&#039;should return true when the proper signature and relevant headers are passed in&#039;, async () =&gt; {
+			const endpoint = `${nconf.get(&#039;url&#039;)}/user/${username}/inbox`;
+			const path = `/user/${username}/inbox`;
+			const keyData = await activitypub.getPrivateKey(&#039;uid&#039;, uid);
+			const signature = await activitypub.sign(keyData, endpoint);
+			const { host } = nconf.get(&#039;url_parsed&#039;);
+			const req = {
+				...mockReqBase,
+				...{
+					path,
+					headers: { ...signature, host },
+				},
+			};
+
+			const verified = await activitypub.verify(req);
+			assert.strictEqual(verified, true);
+		});
+
+		it(&#039;should return true when a digest is also passed in&#039;, async () =&gt; {
+			const endpoint = `${nconf.get(&#039;url&#039;)}/user/${username}/inbox`;
+			const path = `/user/${username}/inbox`;
+			const keyData = await activitypub.getPrivateKey(&#039;uid&#039;, uid);
+			const signature = await activitypub.sign(keyData, endpoint, { foo: &#039;bar&#039; });
+			const { host } = nconf.get(&#039;url_parsed&#039;);
+			const req = {
+				...mockReqBase,
+				...{
+					method: &#039;POST&#039;,
+					path,
+					headers: { ...signature, host },
+				},
+			};
+
+			const verified = await activitypub.verify(req);
+			assert.strictEqual(verified, true);
+		});
+	});
+});
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

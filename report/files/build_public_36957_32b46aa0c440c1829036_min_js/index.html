@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/36957.32b46aa0c440c1829036.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/36957.32b46aa0c440c1829036.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">48.38</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">247</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">14.96</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.82</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb = self.webpackChunknodebb || []).push([
+	[10722, 36957],
+	{
+		10722: (o) =&gt; {
+			function d(e) {
+				const t = e.regex,
+					s = e.COMMENT(&quot;//&quot;, &quot;$&quot;, { contains: [{ begin: /\\\n/ }] }),
+					u = &quot;decltype\\(auto\\)&quot;,
+					c = &quot;[a-zA-Z_]\\w*::&quot;,
+					E =
+						&quot;(&quot; +
+						u +
+						&quot;|&quot; +
+						t.optional(c) +
+						&quot;[a-zA-Z_]\\w*&quot; +
+						t.optional(&quot;&lt;[^&lt;&gt;]+&gt;&quot;) +
+						&quot;)&quot;,
+					a = {
+						className: &quot;type&quot;,
+						variants: [
+							{ begin: &quot;\\b[a-z\\d_]*_t\\b&quot; },
+							{ match: /\batomic_[a-z]{3,6}\b/ },
+						],
+					},
+					i = {
+						className: &quot;string&quot;,
+						variants: [
+							{
+								begin: &#039;(u8?|U|L)?&quot;&#039;,
+								end: &#039;&quot;&#039;,
+								illegal: &quot;\\n&quot;,
+								contains: [e.BACKSLASH_ESCAPE],
+							},
+							{
+								begin:
+									&quot;(u8?|U|L)?&#039;(&quot; +
+									&quot;\\\\(x[0-9A-Fa-f]{2}|u[0-9A-Fa-f]{4,8}|[0-7]{3}|\\S)&quot; +
+									&quot;|.)&quot;,
+								end: &quot;&#039;&quot;,
+								illegal: &quot;.&quot;,
+							},
+							e.END_SAME_AS_BEGIN({
+								begin: /(?:u8?|U|L)?R&quot;([^()\\ ]{0,16})\(/,
+								end: /\)([^()\\ ]{0,16})&quot;/,
+							}),
+						],
+					},
+					l = {
+						className: &quot;number&quot;,
+						variants: [
+							{ begin: &quot;\\b(0b[01&#039;]+)&quot; },
+							{
+								begin:
+									&quot;(-?)\\b([\\d&#039;]+(\\.[\\d&#039;]*)?|\\.[\\d&#039;]+)((ll|LL|l|L)(u|U)?|(u|U)(ll|LL|l|L)?|f|F|b|B)&quot;,
+							},
+							{
+								begin:
+									&quot;(-?)(\\b0[xX][a-fA-F0-9&#039;]+|(\\b[\\d&#039;]+(\\.[\\d&#039;]*)?|\\.[\\d&#039;]+)([eE][-+]?[\\d&#039;]+)?)&quot;,
+							},
+						],
+						relevance: 0,
+					},
+					r = {
+						className: &quot;meta&quot;,
+						begin: /#\s*[a-z]+\b/,
+						end: /$/,
+						keywords: {
+							keyword:
+								&quot;if else elif endif define undef warning error line pragma _Pragma ifdef ifndef include&quot;,
+						},
+						contains: [
+							{ begin: /\\\n/, relevance: 0 },
+							e.inherit(i, { className: &quot;string&quot; }),
+							{ className: &quot;string&quot;, begin: /&lt;.*?&gt;/ },
+							s,
+							e.C_BLOCK_COMMENT_MODE,
+						],
+					},
+					p = {
+						className: &quot;title&quot;,
+						begin: t.optional(c) + e.IDENT_RE,
+						relevance: 0,
+					},
+					g = t.optional(c) + e.IDENT_RE + &quot;\\s*\\(&quot;,
+					n = {
+						keyword: [
+							&quot;asm&quot;,
+							&quot;auto&quot;,
+							&quot;break&quot;,
+							&quot;case&quot;,
+							&quot;continue&quot;,
+							&quot;default&quot;,
+							&quot;do&quot;,
+							&quot;else&quot;,
+							&quot;enum&quot;,
+							&quot;extern&quot;,
+							&quot;for&quot;,
+							&quot;fortran&quot;,
+							&quot;goto&quot;,
+							&quot;if&quot;,
+							&quot;inline&quot;,
+							&quot;register&quot;,
+							&quot;restrict&quot;,
+							&quot;return&quot;,
+							&quot;sizeof&quot;,
+							&quot;struct&quot;,
+							&quot;switch&quot;,
+							&quot;typedef&quot;,
+							&quot;union&quot;,
+							&quot;volatile&quot;,
+							&quot;while&quot;,
+							&quot;_Alignas&quot;,
+							&quot;_Alignof&quot;,
+							&quot;_Atomic&quot;,
+							&quot;_Generic&quot;,
+							&quot;_Noreturn&quot;,
+							&quot;_Static_assert&quot;,
+							&quot;_Thread_local&quot;,
+							&quot;alignas&quot;,
+							&quot;alignof&quot;,
+							&quot;noreturn&quot;,
+							&quot;static_assert&quot;,
+							&quot;thread_local&quot;,
+							&quot;_Pragma&quot;,
+						],
+						type: [
+							&quot;float&quot;,
+							&quot;double&quot;,
+							&quot;signed&quot;,
+							&quot;unsigned&quot;,
+							&quot;int&quot;,
+							&quot;short&quot;,
+							&quot;long&quot;,
+							&quot;char&quot;,
+							&quot;void&quot;,
+							&quot;_Bool&quot;,
+							&quot;_Complex&quot;,
+							&quot;_Imaginary&quot;,
+							&quot;_Decimal32&quot;,
+							&quot;_Decimal64&quot;,
+							&quot;_Decimal128&quot;,
+							&quot;const&quot;,
+							&quot;static&quot;,
+							&quot;complex&quot;,
+							&quot;bool&quot;,
+							&quot;imaginary&quot;,
+						],
+						literal: &quot;true false NULL&quot;,
+						built_in:
+							&quot;std string wstring cin cout cerr clog stdin stdout stderr stringstream istringstream ostringstream auto_ptr deque list queue stack vector map set pair bitset multiset multimap unordered_set unordered_map unordered_multiset unordered_multimap priority_queue make_pair array shared_ptr abort terminate abs acos asin atan2 atan calloc ceil cosh cos exit exp fabs floor fmod fprintf fputs free frexp fscanf future isalnum isalpha iscntrl isdigit isgraph islower isprint ispunct isspace isupper isxdigit tolower toupper labs ldexp log10 log malloc realloc memchr memcmp memcpy memset modf pow printf putchar puts scanf sinh sin snprintf sprintf sqrt sscanf strcat strchr strcmp strcpy strcspn strlen strncat strncmp strncpy strpbrk strrchr strspn strstr tanh tan vfprintf vprintf vsprintf endl initializer_list unique_ptr&quot;,
+					},
+					_ = [r, a, s, e.C_BLOCK_COMMENT_MODE, l, i],
+					m = {
+						variants: [
+							{ begin: /=/, end: /;/ },
+							{ begin: /\(/, end: /\)/ },
+							{ beginKeywords: &quot;new throw return else&quot;, end: /;/ },
+						],
+						keywords: n,
+						contains: _.concat([
+							{
+								begin: /\(/,
+								end: /\)/,
+								keywords: n,
+								contains: _.concat([&quot;self&quot;]),
+								relevance: 0,
+							},
+						]),
+						relevance: 0,
+					},
+					b = {
+						begin: &quot;(&quot; + E + &quot;[\\*&amp;\\s]+)+&quot; + g,
+						returnBegin: !0,
+						end: /[{;=]/,
+						excludeEnd: !0,
+						keywords: n,
+						illegal: /[^\w\s\*&amp;:&lt;&gt;.]/,
+						contains: [
+							{ begin: u, keywords: n, relevance: 0 },
+							{
+								begin: g,
+								returnBegin: !0,
+								contains: [e.inherit(p, { className: &quot;title.function&quot; })],
+								relevance: 0,
+							},
+							{ relevance: 0, match: /,/ },
+							{
+								className: &quot;params&quot;,
+								begin: /\(/,
+								end: /\)/,
+								keywords: n,
+								relevance: 0,
+								contains: [
+									s,
+									e.C_BLOCK_COMMENT_MODE,
+									i,
+									l,
+									a,
+									{
+										begin: /\(/,
+										end: /\)/,
+										keywords: n,
+										relevance: 0,
+										contains: [&quot;self&quot;, s, e.C_BLOCK_COMMENT_MODE, i, l, a],
+									},
+								],
+							},
+							a,
+							s,
+							e.C_BLOCK_COMMENT_MODE,
+							r,
+						],
+					};
+				return {
+					name: &quot;C&quot;,
+					aliases: [&quot;h&quot;],
+					keywords: n,
+					disableAutodetect: !0,
+					illegal: &quot;&lt;/&quot;,
+					contains: [].concat(m, b, _, [
+						r,
+						{ begin: e.IDENT_RE + &quot;::&quot;, keywords: n },
+						{
+							className: &quot;class&quot;,
+							beginKeywords: &quot;enum class struct union&quot;,
+							end: /[{;:&lt;&gt;=]/,
+							contains: [{ beginKeywords: &quot;final class struct&quot; }, e.TITLE_MODE],
+						},
+					]),
+					exports: { preprocessor: r, strings: i, keywords: n },
+				};
+			}
+			o.exports = d;
+		},
+		36957: (o, d, e) =&gt; {
+			function t() {
+				t.warned ||
+					((t.warned = !0),
+					console.log(
+						&#039;Deprecation (warning): Using file extension in specifier is deprecated, use &quot;highlight.js/lib/languages/c&quot; instead of &quot;highlight.js/lib/languages/c.js&quot;&#039;,
+					));
+			}
+			(t(), (o.exports = e(10722)));
+		},
+	},
+]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/forum/ip-blacklist.3337cb05f599a1c757e8.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/forum/ip-blacklist.3337cb05f599a1c757e8.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">68.46</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">21.70</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">1.11</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[38300],{5068:(g,c,l)=&gt;{l.r(c),l.d(c,{init:()=&gt;p,setupAnalytics:()=&gt;b});var t=l(70106),d=l(81335),C=l.n(d),u=l(33530),k=l.n(u),n=l(29930);t.t1.register(t.ZT,t.PP,t.kc,t.No,t.FN,t.m_,t.dN);function p(){const o=$(&quot;#blacklist-rules&quot;);o.on(&quot;keyup&quot;,function(){$(&quot;#blacklist-rules-holder&quot;).val(o.val())}),$(&#039;[data-action=&quot;apply&quot;]&#039;).on(&quot;click&quot;,function(){socket.emit(&quot;blacklist.save&quot;,o.val(),function(a){if(a)return n.error(a);n.alert({type:&quot;success&quot;,alert_id:&quot;blacklist-saved&quot;,title:&quot;[[ip-blacklist:alerts.applied-success]]&quot;})})}),$(&#039;[data-action=&quot;test&quot;]&#039;).on(&quot;click&quot;,function(){socket.emit(&quot;blacklist.validate&quot;,{rules:o.val()},function(a,s){if(a)return n.error(a);d.render(&quot;admin/partials/blacklist-validate&quot;,s).then(function(e){u.alert(e)})})}),b()}function b(){const o=document.getElementById(&quot;blacklist:hourly&quot;),a=document.getElementById(&quot;blacklist:daily&quot;),s=utils.getHoursArray().map(function(i,r){return r%3?&quot;&quot;:i}),e=utils.getDaysArray().slice(-7).map(function(i,r){return r%3?&quot;&quot;:i});utils.isMobile()&amp;&amp;(t.t1.defaults.plugins.tooltip.enabled=!1);const f={&quot;blacklist:hourly&quot;:{labels:s,datasets:[{label:&quot;&quot;,fill:&quot;origin&quot;,tension:.25,backgroundColor:&quot;rgba(186,139,175,0.2)&quot;,borderColor:&quot;rgba(186,139,175,1)&quot;,pointBackgroundColor:&quot;rgba(186,139,175,1)&quot;,pointHoverBackgroundColor:&quot;#fff&quot;,pointBorderColor:&quot;#fff&quot;,pointHoverBorderColor:&quot;rgba(186,139,175,1)&quot;,data:ajaxify.data.analytics.hourly}]},&quot;blacklist:daily&quot;:{labels:e,datasets:[{label:&quot;&quot;,fill:&quot;origin&quot;,tension:.25,backgroundColor:&quot;rgba(151,187,205,0.2)&quot;,borderColor:&quot;rgba(151,187,205,1)&quot;,pointBackgroundColor:&quot;rgba(151,187,205,1)&quot;,pointHoverBackgroundColor:&quot;#fff&quot;,pointBorderColor:&quot;#fff&quot;,pointHoverBorderColor:&quot;rgba(151,187,205,1)&quot;,data:ajaxify.data.analytics.daily}]}},y={responsive:!0,scales:{y:{position:&quot;left&quot;,type:&quot;linear&quot;,beginAtZero:!0}}};new t.t1(o.getContext(&quot;2d&quot;),{type:&quot;line&quot;,data:f[&quot;blacklist:hourly&quot;],options:y}),new t.t1(a.getContext(&quot;2d&quot;),{type:&quot;line&quot;,data:f[&quot;blacklist:daily&quot;],options:y})}}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/forum/topic-move.d2b3686aadceb2dcc61d.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/forum/topic-move.d2b3686aadceb2dcc61d.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">72.75</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">68.40</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">5.52</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[1091,28310,34271,49888,49897,69185,86198,99127],{28310:(A,y,l)=&gt;{var g,m;g=[l(65348),l(29930),l(91749)],m=function(C,E,v){const a={};let r,t;a.init=function(e,n,o){r||(a.tids=e,a.currentCid=n,a.onComplete=o,a.moveAll=!e,i())};function i(){app.parseAndTranslate(&quot;modals/move-topic&quot;,{},function(e){r=e,$(&quot;body&quot;).append(r),(a.moveAll||a.tids&amp;&amp;a.tids.length&gt;1)&amp;&amp;r.find(&quot;.card-header&quot;).translateText(&quot;[[topic:move-topics]]&quot;);const n=r.find(&#039;[component=&quot;category-selector&quot;]&#039;);n.addClass(&quot;dropup&quot;),C.init(n,{onSelect:f,privilege:&quot;moderate&quot;}),r.find(&quot;#move_thread_commit&quot;).on(&quot;click&quot;,c),r.find(&quot;#move_topic_cancel&quot;).on(&quot;click&quot;,s)})}function f(e){t=e,r.find(&quot;#move_thread_commit&quot;).prop(&quot;disabled&quot;,!1)}function c(){const e=r.find(&quot;#move_thread_commit&quot;);if(!e.prop(&quot;disabled&quot;)&amp;&amp;t&amp;&amp;t.cid){e.prop(&quot;disabled&quot;,!0),s();let n=&quot;[[topic:topic-move-success, &quot;+t.name+&quot;]]&quot;;a.tids&amp;&amp;a.tids.length&gt;1?n=&quot;[[topic:topic-move-multiple-success, &quot;+t.name+&quot;]]&quot;:a.tids||(n=&quot;[[topic:topic-move-all-success, &quot;+t.name+&quot;]]&quot;);const o={tids:a.tids?a.tids.slice():null,cid:t.cid,currentCid:a.currentCid,onComplete:a.onComplete};if(config.undoTimeout&gt;0)return E.alert({alert_id:&quot;tids_move_&quot;+(a.tids?a.tids.join(&quot;-&quot;):&quot;all&quot;),title:&quot;[[topic:thread-tools.move]]&quot;,message:n,type:&quot;success&quot;,timeout:config.undoTimeout,timeoutfn:function(){u(o)},clickfn:function(d,h){delete h.timeoutfn,E.success(&quot;[[topic:topic-move-undone]]&quot;)}});u(o)}}function u(e){v.fire(&quot;action:topic.move&quot;,e),socket.emit(e.tids?&quot;topics.move&quot;:&quot;topics.moveAll&quot;,e,function(n){if(n)return E.error(n);typeof e.onComplete==&quot;function&quot;&amp;&amp;e.onComplete()})}function s(){r&amp;&amp;(r.remove(),r=null)}return a}.apply(y,g),m!==void 0&amp;&amp;(A.exports=m)},49897:(A,y,l)=&gt;{l.r(y),l.d(y,{del:()=&gt;s,get:()=&gt;t,head:()=&gt;i,patch:()=&gt;c,post:()=&gt;f,put:()=&gt;u});var g=l(91749),m=l.n(g),C=l(33530),E=l.n(C);const v=config.relative_path+&quot;/api/v3&quot;;async function a(e,n){if(e.url=e.url.startsWith(&quot;/api&quot;)?config.relative_path+e.url:v+e.url,typeof n==&quot;function&quot;){r(e).then(o=&gt;n(null,o),o=&gt;n(o));return}try{return await r(e)}catch(o){if(o.message===&quot;A valid login session was not found. Please log in and try again.&quot;){const{url:d}=await(0,g.fire)(&quot;filter:admin.reauth&quot;,{url:&quot;login&quot;});return(0,C.confirm)(&quot;[[error:api.reauth-required]]&quot;,h=&gt;{h&amp;&amp;ajaxify.go(d)})}throw o}}async function r(e){const{url:n}=e;delete e.url,e.data&amp;&amp;!(e.data instanceof FormData)&amp;&amp;(e.data=JSON.stringify(e.data||{}),e.headers[&quot;content-type&quot;]=&quot;application/json; charset=utf-8&quot;),{options:e}=await(0,g.fire)(&quot;filter:api.options&quot;,{options:e}),e.data&amp;&amp;(e.body=e.data,delete e.data);const o=await fetch(n,e),{headers:d}=o;if(d.get(&quot;x-redirect&quot;))return r({url:d.get(&quot;x-redirect&quot;),...e});const h=d.get(&quot;content-type&quot;),D=h&amp;&amp;h.startsWith(&quot;application/json&quot;);let p;if(e.method!==&quot;HEAD&quot;&amp;&amp;(D?p=await o.json():p=await o.text()),!o.ok)throw p?new Error(D?p.status.message:p):new Error(o.statusText);return D&amp;&amp;p&amp;&amp;p.hasOwnProperty(&quot;status&quot;)&amp;&amp;p.hasOwnProperty(&quot;response&quot;)?p.response:p}function t(e,n,o){return a({url:e+(n&amp;&amp;Object.keys(n).length?&quot;?&quot;+$.param(n):&quot;&quot;)},o)}function i(e,n,o){return a({url:e+(n&amp;&amp;Object.keys(n).length?&quot;?&quot;+$.param(n):&quot;&quot;),method:&quot;HEAD&quot;},o)}function f(e,n,o){return a({url:e,method:&quot;POST&quot;,data:n,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},o)}function c(e,n,o){return a({url:e,method:&quot;PATCH&quot;,data:n,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},o)}function u(e,n,o){return a({url:e,method:&quot;PUT&quot;,data:n,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},o)}function s(e,n,o){return a({url:e,method:&quot;DELETE&quot;,data:n,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},o)}},65348:(A,y,l)=&gt;{var g,m;g=[l(96349),l(33530),l(91749),l(17459)],m=function(C,E,v,a){const r={};return r.init=function(t,i){if(!t||!t.length)return;i=i||{};const f=i.onSelect||function(){};i.states=i.states||[&quot;watching&quot;,&quot;tracking&quot;,&quot;notwatching&quot;,&quot;ignoring&quot;],i.template=i.template||&quot;partials/category/selector-dropdown-left&quot;,v.fire(&quot;action:category.selector.options&quot;,{el:t,options:i}),C.init(t,i);const c={el:t,selectedCategory:null};t.on(&quot;click&quot;,&quot;[data-cid]&quot;,function(){const s=$(this);return s.hasClass(&quot;disabled&quot;)?!1:(c.selectCategory(s.attr(&quot;data-cid&quot;)),f(c.selectedCategory))});let u=c.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html();return a.translate(u,s=&gt;{u=s}),c.selectCategory=function(s){const e=c.el.find(&#039;[data-cid=&quot;&#039;+s+&#039;&quot;]&#039;);c.selectedCategory={cid:s,name:e.attr(&quot;data-name&quot;)},e.length?c.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(e.find(&#039;[component=&quot;category-markup&quot;]&#039;).html()):c.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(u)},c.getSelectedCategory=function(){return c.selectedCategory},c.getSelectedCid=function(){return c.selectedCategory?c.selectedCategory.cid:0},i.hasOwnProperty(&quot;selectedCategory&quot;)&amp;&amp;app.parseAndTranslate(i.template,{selectedCategory:i.selectedCategory},function(s){c.el.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html(s.find(&#039;[component=&quot;category-selector-selected&quot;]&#039;).html())}),c},r.modal=function(t){t=t||{},t.onSelect=t.onSelect||function(){},t.onSubmit=t.onSubmit||function(){},app.parseAndTranslate(&quot;admin/partials/categories/select-category&quot;,{message:t.message},function(i){const f=E.dialog({title:t.title||&quot;[[modules:composer.select-category]]&quot;,message:i,buttons:{save:{label:&quot;[[global:select]]&quot;,className:&quot;btn-primary&quot;,callback:u}}}),c=r.init(f.find(&#039;[component=&quot;category-selector&quot;]&#039;),t);function u(s){return s.preventDefault(),c.selectedCategory&amp;&amp;(t.onSubmit(c.selectedCategory),f.modal(&quot;hide&quot;)),!1}t.openOnLoad&amp;&amp;f.on(&quot;shown.bs.modal&quot;,function(){f.find(&quot;.dropdown-toggle&quot;).dropdown(&quot;toggle&quot;)}),f.find(&quot;form&quot;).on(&quot;submit&quot;,u)})},r}.apply(y,g),m!==void 0&amp;&amp;(A.exports=m)},96349:(A,y,l)=&gt;{var g,m;g=[l(29930),l(89336),l(49897)],m=function(C,E,v){const a={};return a.init=function(r,t){let i=t.defaultCategories||null;t=t||{},t.privilege=t.privilege||&quot;topics:read&quot;,t.states=t.states||[&quot;watching&quot;,&quot;tracking&quot;,&quot;notwatching&quot;,&quot;ignoring&quot;],t.cacheList=t.hasOwnProperty(&quot;cacheList&quot;)?t.cacheList:!0;let f=[];Array.isArray(t.localCategories)&amp;&amp;(f=t.localCategories.map(n=&gt;({...n})),i&amp;&amp;(i=[...f,...i])),t.selectedCids=t.selectedCids||ajaxify.data.selectedCids||[];const c=r.find(&#039;[component=&quot;category-selector-search&quot;]&#039;);if(!c.length)return;const u=c.parents(&#039;[component=&quot;category/dropdown&quot;]&#039;).length&gt;0||c.parents(&#039;[component=&quot;category-selector&quot;]&#039;).length&gt;0;r.on(&quot;show.bs.dropdown&quot;,function(){u&amp;&amp;c.removeClass(&quot;hidden&quot;);function n(){const o=c.find(&quot;input&quot;).val();o.length&gt;1||!o&amp;&amp;!i?s(o,function(d){i=t.cacheList&amp;&amp;(i||d),e(d)}):!o&amp;&amp;i&amp;&amp;e(i)}c.on(&quot;click&quot;,function(o){o.preventDefault(),o.stopPropagation()}),c.find(&quot;input&quot;).val(&quot;&quot;).on(&quot;keyup&quot;,utils.debounce(n,300)),n()}),r.on(&quot;shown.bs.dropdown&quot;,function(){[&quot;xs&quot;,&quot;sm&quot;].includes(utils.findBootstrapEnvironment())||c.find(&quot;input&quot;).focus()}),r.on(&quot;hide.bs.dropdown&quot;,function(){u&amp;&amp;c.addClass(&quot;hidden&quot;),c.off(&quot;click&quot;),c.find(&quot;input&quot;).off(&quot;keyup&quot;)});function s(n,o){v.get(&quot;/search/categories&quot;,{search:n,query:utils.params(),parentCid:t.parentCid||0,selectedCids:t.selectedCids,privilege:t.privilege,states:t.states,showLinks:t.showLinks},function(d,{categories:h}){if(d)return C.error(d);o(f.concat(h))})}function e(n){const o=t.selectedCids.map(String);n.forEach(function(d){d.selected=o.includes(String(d.cid))}),app.parseAndTranslate(t.template,{categoryItems:n.slice(0,200),selectedCategory:ajaxify.data.selectedCategory,allCategoriesUrl:ajaxify.data.allCategoriesUrl},function(d){r.find(&#039;[component=&quot;category/list&quot;]&#039;).html(d.find(&#039;[component=&quot;category/list&quot;]&#039;).html()),r.find(&#039;[component=&quot;category/list&quot;] [component=&quot;category/no-matches&quot;]&#039;).toggleClass(&quot;hidden&quot;,!!n.length);const h=E.Dropdown.getInstance(r.find(&quot;.dropdown-toggle&quot;).get(0));h&amp;&amp;h.update()})}},a}.apply(y,g),m!==void 0&amp;&amp;(A.exports=m)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

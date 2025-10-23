@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/modules/helpers.ed89fb0bd06613823841.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/modules/helpers.ed89fb0bd06613823841.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">71.14</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">17</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">47.39</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">5.02</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[15794,25432],{29869:b=&gt;{b.exports=function(d,u,a){u.setGlobal(&quot;true&quot;,!0),u.setGlobal(&quot;false&quot;,!1);const p=24*60*60*1e3,g={displayMenuItem:$,buildMetaTag:y,buildLinkTag:k,stringify:C,escape:I,stripTags:S,buildCategoryIcon:R,buildCategoryLabel:E,generateCategoryBackground:w,generateChildrenCategories:M,generateTopicClass:T,membershipBtn:A,spawnPrivilegeStates:D,localeToHTML:P,renderTopicImage:L,renderDigestAvatar:B,userAgentIcons:U,buildAvatar:W,increment:z,generateWroteReplied:H,generateRepliedTo:v,generateWrote:x,encodeURIComponent:N,isoTimeToLocaleString:G,shouldHideReplyContainer:_,humanReadableNumber:F,formattedNumber:q,txEscape:J,generatePlaceholderWave:K,register:Y,__escape:h};function h(e){return e}function $(e,t){const n=e.navigation[t];return!(!n||n.route.match(&quot;/users&quot;)&amp;&amp;e.user&amp;&amp;!e.user.privileges[&quot;view:users&quot;]||n.route.match(&quot;/tags&quot;)&amp;&amp;e.user&amp;&amp;!e.user.privileges[&quot;view:tags&quot;]||n.route.match(&quot;/groups&quot;)&amp;&amp;e.user&amp;&amp;!e.user.privileges[&quot;view:groups&quot;])}function y(e){const t=e.name?&#039;name=&quot;&#039;+e.name+&#039;&quot; &#039;:&quot;&quot;,n=e.property?&#039;property=&quot;&#039;+e.property+&#039;&quot; &#039;:&quot;&quot;,r=e.content?&#039;content=&quot;&#039;+e.content.replace(/\n/g,&quot; &quot;)+&#039;&quot; &#039;:&quot;&quot;;return&quot;&lt;meta &quot;+t+n+r+`/&gt;
+	`}function k(e){const t=[&quot;link&quot;,&quot;rel&quot;,&quot;as&quot;,&quot;type&quot;,&quot;href&quot;,&quot;sizes&quot;,&quot;title&quot;,&quot;crossorigin&quot;],[n,r,o,i,l,m,c,f]=t.map(s=&gt;e[s]?`${s}=&quot;${e[s]}&quot; `:&quot;&quot;);return&quot;&lt;link &quot;+n+r+o+i+m+c+l+f+`/&gt;
+	`}function C(e){return JSON.stringify(e).replace(/&amp;/gm,&quot;&amp;amp;&quot;).replace(/&lt;/gm,&quot;&amp;lt;&quot;).replace(/&gt;/gm,&quot;&amp;gt;&quot;).replace(/&quot;/g,&quot;&amp;quot;&quot;)}function I(e){return d.escapeHTML(e)}function S(e){return d.stripHTMLTags(e)}function R(e,t,n){return e?`&lt;span class=&quot;icon d-inline-flex justify-content-center align-items-center align-middle ${n}&quot; style=&quot;${w(e)} width:${t}; height: ${t}; font-size: ${parseInt(t,10)/2}px;&quot;&gt;${e.icon?`&lt;i class=&quot;fa fa-fw ${e.icon}&quot;&gt;&lt;/i&gt;`:&quot;&quot;}&lt;/span&gt;`:&quot;&quot;}function E(e,t=&quot;a&quot;,n=&quot;&quot;){if(!e)return&quot;&quot;;const r=t===&quot;a&quot;?`href=&quot;${a}/category/${e.slug}&quot;`:&quot;&quot;;return`&lt;${t} ${r} class=&quot;badge px-1 text-truncate text-decoration-none ${n}&quot; style=&quot;color: ${e.color};background-color: ${e.bgColor};border-color: ${e.bgColor}!important; max-width: 70vw;&quot;&gt;
+			${e.icon&amp;&amp;e.icon!==&quot;fa-nbb-none&quot;?`&lt;i class=&quot;fa fa-fw ${e.icon}&quot;&gt;&lt;/i&gt;`:&quot;&quot;}
+			${e.name}
+		&lt;/${t}&gt;`}function w(e){if(!e)return&quot;&quot;;const t=[];return e.bgColor&amp;&amp;(t.push(&quot;background-color: &quot;+e.bgColor),t.push(`border-color: ${e.bgColor}!important`)),e.color&amp;&amp;t.push(&quot;color: &quot;+e.color),e.backgroundImage&amp;&amp;(t.push(&quot;background-image: url(&quot;+e.backgroundImage+&quot;)&quot;),e.imageClass&amp;&amp;t.push(&quot;background-size: &quot;+e.imageClass)),t.join(&quot;; &quot;)+&quot;;&quot;}function M(e){let t=&quot;&quot;;return!e||!e.children||!e.children.length||(e.children.forEach(function(n){if(n&amp;&amp;!n.isSection){const r=n.link?n.link:a+&quot;/category/&quot;+n.slug;t+=&#039;&lt;span class=&quot;category-children-item float-start&quot;&gt;&lt;div role=&quot;presentation&quot; class=&quot;icon float-start&quot; style=&quot;&#039;+w(n)+&#039;&quot;&gt;&lt;i class=&quot;fa fa-fw &#039;+n.icon+&#039;&quot;&gt;&lt;/i&gt;&lt;/div&gt;&lt;a href=&quot;&#039;+r+&#039;&quot;&gt;&lt;small&gt;&#039;+n.name+&quot;&lt;/small&gt;&lt;/a&gt;&lt;/span&gt;&quot;}}),t=t&amp;&amp;&#039;&lt;span class=&quot;category-children&quot;&gt;&#039;+t+&quot;&lt;/span&gt;&quot;),t}function T(e){return[&quot;locked&quot;,&quot;pinned&quot;,&quot;deleted&quot;,&quot;unread&quot;,&quot;scheduled&quot;].filter(n=&gt;!!e[n]).join(&quot; &quot;)}function A(e,t=&quot;&quot;){return e.isMember&amp;&amp;e.name!==&quot;administrators&quot;?`&lt;button class=&quot;btn btn-danger ${t}&quot; data-action=&quot;leave&quot; data-group=&quot;${e.displayName}&quot; ${e.disableLeave?&quot; disabled&quot;:&quot;&quot;}&gt;&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt; [[groups:membership.leave-group]]&lt;/button&gt;`:e.isPending&amp;&amp;e.name!==&quot;administrators&quot;?`&lt;button class=&quot;btn btn-warning disabled ${t}&quot;&gt;&lt;i class=&quot;fa fa-clock-o&quot;&gt;&lt;/i&gt; [[groups:membership.invitation-pending]]&lt;/button&gt;`:e.isInvited?`&lt;button class=&quot;btn btn-warning&quot; data-action=&quot;rejectInvite&quot; data-group=&quot;${e.displayName}&quot;&gt;[[groups:membership.reject]]&lt;/button&gt;&lt;button class=&quot;btn btn-success&quot; data-action=&quot;acceptInvite&quot; data-group=&quot;${e.name}&quot;&gt;&lt;i class=&quot;fa fa-plus&quot;&gt;&lt;/i&gt; [[groups:membership.accept-invitation]]&lt;/button&gt;`:!e.disableJoinRequests&amp;&amp;e.name!==&quot;administrators&quot;?`&lt;button class=&quot;btn btn-success ${t}&quot; data-action=&quot;join&quot; data-group=&quot;${e.displayName}&quot;&gt;&lt;i class=&quot;fa fa-plus&quot;&gt;&lt;/i&gt; [[groups:membership.join-group]]&lt;/button&gt;`:&quot;&quot;}function D(e,t,n,r){const o=[];for(const[i,l]of Object.entries(n))o.push({name:i,state:l,type:r[i]});return o.map(function(i){const l=[&quot;groups:moderate&quot;,&quot;groups:posts:upvote&quot;,&quot;groups:posts:downvote&quot;,&quot;groups:local:login&quot;,&quot;groups:group:create&quot;],m=[&quot;groups:find&quot;,&quot;groups:read&quot;,&quot;groups:topics:read&quot;,&quot;groups:view:users&quot;,&quot;groups:view:tags&quot;,&quot;groups:view:groups&quot;],c=[&quot;groups:moderate&quot;];let f=[&quot;groups:view:users&quot;,&quot;groups:find&quot;,&quot;groups:read&quot;,&quot;groups:topics:read&quot;,&quot;groups:topics:create&quot;,&quot;groups:topics:reply&quot;,&quot;groups:topics:tag&quot;,&quot;groups:posts:edit&quot;,&quot;groups:posts:history&quot;,&quot;groups:posts:delete&quot;,&quot;groups:posts:upvote&quot;,&quot;groups:posts:downvote&quot;,&quot;groups:topics:delete&quot;];e===-1&amp;&amp;(f=f.slice(3));const s=t===&quot;guests&quot;&amp;&amp;(l.includes(i.name)||i.name.startsWith(&quot;groups:admin:&quot;))||t===&quot;spiders&quot;&amp;&amp;!m.includes(i.name)||t===&quot;fediverse&quot;&amp;&amp;!f.includes(i.name)||t===&quot;Global Moderators&quot;&amp;&amp;c.includes(i.name);return`
+				&lt;td data-privilege=&quot;${i.name}&quot; data-value=&quot;${i.state}&quot; data-type=&quot;${i.type}&quot;&gt;
+					&lt;div class=&quot;form-check text-center&quot;&gt;
+						&lt;input class=&quot;form-check-input float-none${s?&#039; d-none&quot;&#039;:&quot;&quot;}&quot; autocomplete=&quot;off&quot; type=&quot;checkbox&quot;${i.state?&quot; checked&quot;:&quot;&quot;}${s?&#039; disabled=&quot;disabled&quot; aria-diabled=&quot;true&quot;&#039;:&quot;&quot;} /&gt;
+					&lt;/div&gt;
+				&lt;/td&gt;
+			`}).join(&quot;&quot;)}function P(e,t){return e=e||t||&quot;en-GB&quot;,e.replace(&quot;_&quot;,&quot;-&quot;)}function L(e){return e.thumb?&#039;&lt;img src=&quot;&#039;+e.thumb+&#039;&quot; class=&quot;img-circle user-img&quot; title=&quot;&#039;+e.user.displayname+&#039;&quot; /&gt;&#039;:&#039;&lt;img component=&quot;user/picture&quot; data-uid=&quot;&#039;+e.user.uid+&#039;&quot; src=&quot;&#039;+e.user.picture+&#039;&quot; class=&quot;user-img&quot; title=&quot;&#039;+e.user.displayname+&#039;&quot; /&gt;&#039;}function B(e){return e.teaser?e.teaser.user.picture?&#039;&lt;img style=&quot;vertical-align: middle; width: 32px; height: 32px; border-radius: 50%;&quot; src=&quot;&#039;+e.teaser.user.picture+&#039;&quot; title=&quot;&#039;+e.teaser.user.username+&#039;&quot; /&gt;&#039;:&#039;&lt;div style=&quot;vertical-align: middle; width: 32px; height: 32px; line-height: 32px; font-size: 16px; background-color: &#039;+e.teaser.user[&quot;icon:bgColor&quot;]+&#039;; color: white; text-align: center; display: inline-block; border-radius: 50%;&quot;&gt;&#039;+e.teaser.user[&quot;icon:text&quot;]+&quot;&lt;/div&gt;&quot;:e.user.picture?&#039;&lt;img style=&quot;vertical-align: middle; width: 32px; height: 32px; border-radius: 50%;&quot; src=&quot;&#039;+e.user.picture+&#039;&quot; title=&quot;&#039;+e.user.username+&#039;&quot; /&gt;&#039;:&#039;&lt;div style=&quot;vertical-align: middle; width: 32px; height: 32px; line-height: 32px; font-size: 16px; background-color: &#039;+e.user[&quot;icon:bgColor&quot;]+&#039;; color: white; text-align: center; display: inline-block; border-radius: 50%;&quot;&gt;&#039;+e.user[&quot;icon:text&quot;]+&quot;&lt;/div&gt;&quot;}function U(e){let t=&quot;&quot;;switch(e.platform){case&quot;Linux&quot;:t+=&#039;&lt;i class=&quot;fa fa-fw fa-linux&quot;&gt;&lt;/i&gt;&#039;;break;case&quot;Microsoft Windows&quot;:t+=&#039;&lt;i class=&quot;fa fa-fw fa-windows&quot;&gt;&lt;/i&gt;&#039;;break;case&quot;Apple Mac&quot;:t+=&#039;&lt;i class=&quot;fa fa-fw fa-apple&quot;&gt;&lt;/i&gt;&#039;;break;case&quot;Android&quot;:t+=&#039;&lt;i class=&quot;fa fa-fw fa-android&quot;&gt;&lt;/i&gt;&#039;;break;case&quot;iPad&quot;:t+=&#039;&lt;i class=&quot;fa fa-fw fa-tablet&quot;&gt;&lt;/i&gt;&#039;;break;case&quot;iPod&quot;:case&quot;iPhone&quot;:t+=&#039;&lt;i class=&quot;fa fa-fw fa-mobile&quot;&gt;&lt;/i&gt;&#039;;break;default:t+=&#039;&lt;i class=&quot;fa fa-fw fa-question-circle&quot;&gt;&lt;/i&gt;&#039;;break}switch(e.browser){case&quot;Chrome&quot;:t+=&#039;&lt;i class=&quot;fa fa-fw fa-chrome&quot;&gt;&lt;/i&gt;&#039;;break;case&quot;Firefox&quot;:t+=&#039;&lt;i class=&quot;fa fa-fw fa-firefox&quot;&gt;&lt;/i&gt;&#039;;break;case&quot;Safari&quot;:t+=&#039;&lt;i class=&quot;fa fa-fw fa-safari&quot;&gt;&lt;/i&gt;&#039;;break;case&quot;IE&quot;:t+=&#039;&lt;i class=&quot;fa fa-fw fa-internet-explorer&quot;&gt;&lt;/i&gt;&#039;;break;case&quot;Edge&quot;:t+=&#039;&lt;i class=&quot;fa fa-fw fa-edge&quot;&gt;&lt;/i&gt;&#039;;break;default:t+=&#039;&lt;i class=&quot;fa fa-fw fa-question-circle&quot;&gt;&lt;/i&gt;&#039;;break}return t}function W(e,t,n,r,o){e||(e=this),r=r||&quot;&quot;;const i=new Map([[&quot;title&quot;,e.displayname],[&quot;data-uid&quot;,e.uid],[&quot;class&quot;,`avatar ${r}${n?&quot; avatar-rounded&quot;:&quot;&quot;}`]]),l=[`--avatar-size: ${t};`],m=f=&gt;Array.from(f).reduce((s,[Q,V])=&gt;(s+=` ${Q}=&quot;${V}&quot;`,s),&quot;&quot;);let c=&quot;&quot;;return e.picture&amp;&amp;(c+=`&lt;img${m(i)} alt=&quot;${e.displayname}&quot; loading=&quot;lazy&quot; component=&quot;${o||&quot;avatar/picture&quot;}&quot; src=&quot;${e.picture}&quot; style=&quot;${l.join(&quot; &quot;)}&quot; onError=&quot;this.remove()&quot; itemprop=&quot;image&quot; /&gt;`),c+=`&lt;span${m(i)} component=&quot;${o||&quot;avatar/icon&quot;}&quot; style=&quot;${l.join(&quot; &quot;)} background-color: ${e[&quot;icon:bgColor&quot;]}&quot;&gt;${e[&quot;icon:text&quot;]}&lt;/span&gt;`,c}function z(e,t){return String(e+parseInt(t,10))}function H(e,t){return e.toPid?v(e,t):x(e,t)}function v(e,t){const n=e.parent&amp;&amp;e.parent.displayname?e.parent.displayname:&quot;[[global:guest]]&quot;;return`[[topic:replied-to-user-${e.timestamp&lt;Date.now()-t*p?&quot;on&quot;:&quot;ago&quot;}, ${e.toPid}, ${a}/post/${encodeURIComponent(e.toPid)}, ${n}, ${a}/post/${encodeURIComponent(e.pid)}, ${e.timestampISO}]]`}function x(e,t){return`[[topic:wrote-${e.timestamp&lt;Date.now()-t*p?&quot;on&quot;:&quot;ago&quot;}, ${a}/post/${encodeURIComponent(e.pid)}, ${e.timestampISO}]]`}function N(e){return encodeURIComponent(e)}function G(e,t=&quot;en-GB&quot;){return new Date(e).toLocaleString([t],{dateStyle:&quot;short&quot;,timeStyle:&quot;short&quot;}).replace(/,/g,&quot;&amp;#44;&quot;)}function _(e){return!!(e.replies.count&lt;=0||e.replies.hasSingleImmediateReply)}function F(e,t=1){return d.makeNumberHumanReadable(e,t)}function q(e){return d.addCommas(e)}function J(e){return String(e).replace(/%/g,&quot;&amp;#37;&quot;).replace(/,/g,&quot;&amp;#44;&quot;)}function K(e){return e.map(n=&gt;n===&quot;divider&quot;?&#039;&lt;li class=&quot;dropdown-divider&quot;&gt;&lt;/li&gt;&#039;:`
+			&lt;li class=&quot;dropdown-item placeholder-wave&quot;&gt;
+				&lt;div class=&quot;placeholder&quot; style=&quot;width: 20px;&quot;&gt;&lt;/div&gt;
+				&lt;div class=&quot;placeholder col-${n}&quot;&gt;&lt;/div&gt;
+			&lt;/li&gt;`).join(&quot;&quot;)}function Y(){Object.keys(g).forEach(function(e){u.registerHelper(e,g[e])})}return g}},30076:(b,d,u)=&gt;{var a,p;const g=u(29869);a=[u(77918),u(81335)],p=function(h,$){return g(h,$,config.relative_path)}.apply(d,a),p!==void 0&amp;&amp;(b.exports=p)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

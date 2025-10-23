@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/forum/topic-diffs.06df0924cd37111ad347.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/forum/topic-diffs.06df0924cd37111ad347.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">73.57</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">54.98</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">3.55</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">&quot;use strict&quot;;(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[1091,12533,22765,34271,49897,92747,99127],{2269:(D,_)=&gt;{var f,u;f=[],u=function(){const h={},d=/-resized(\.[\w]+)?$/;return h.wrapImagesInLinks=function(m){m.find(&#039;[component=&quot;post/content&quot;] img:not(.emoji)&#039;).each(function(){h.wrapImageInLink($(this))})},h.wrapImageInLink=function(m){let i=m.attr(&quot;src&quot;)||&quot;&quot;;if(i!==&quot;about:blank&quot;&amp;&amp;!m.parent().is(&quot;a&quot;)){utils.isRelativeUrl(i)&amp;&amp;d.test(i)&amp;&amp;(i=i.replace(d,&quot;$1&quot;));const s=m.attr(&quot;alt&quot;)||&quot;&quot;,g=i.split(&quot;.&quot;).slice(1).pop(),E=s.split(&quot;/&quot;).pop(),r=E.split(&quot;.&quot;).slice(1).pop();m.wrap(&#039;&lt;a href=&quot;&#039;+i+&#039;&quot; &#039;+(!g&amp;&amp;r?&#039; download=&quot;&#039;+utils.escapeHTML(E)+&#039;&quot; &#039;:&quot;&quot;)+&#039; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;&#039;)}},h}.apply(_,f),u!==void 0&amp;&amp;(D.exports=u)},49897:(D,_,f)=&gt;{f.r(_),f.d(_,{del:()=&gt;a,get:()=&gt;E,head:()=&gt;r,patch:()=&gt;l,post:()=&gt;c,put:()=&gt;o});var u=f(91749),h=f.n(u),d=f(33530),m=f.n(d);const i=config.relative_path+&quot;/api/v3&quot;;async function s(t,n){if(t.url=t.url.startsWith(&quot;/api&quot;)?config.relative_path+t.url:i+t.url,typeof n==&quot;function&quot;){g(t).then(e=&gt;n(null,e),e=&gt;n(e));return}try{return await g(t)}catch(e){if(e.message===&quot;A valid login session was not found. Please log in and try again.&quot;){const{url:y}=await(0,u.fire)(&quot;filter:admin.reauth&quot;,{url:&quot;login&quot;});return(0,d.confirm)(&quot;[[error:api.reauth-required]]&quot;,b=&gt;{b&amp;&amp;ajaxify.go(y)})}throw e}}async function g(t){const{url:n}=t;delete t.url,t.data&amp;&amp;!(t.data instanceof FormData)&amp;&amp;(t.data=JSON.stringify(t.data||{}),t.headers[&quot;content-type&quot;]=&quot;application/json; charset=utf-8&quot;),{options:t}=await(0,u.fire)(&quot;filter:api.options&quot;,{options:t}),t.data&amp;&amp;(t.body=t.data,delete t.data);const e=await fetch(n,t),{headers:y}=e;if(y.get(&quot;x-redirect&quot;))return g({url:y.get(&quot;x-redirect&quot;),...t});const b=y.get(&quot;content-type&quot;),P=b&amp;&amp;b.startsWith(&quot;application/json&quot;);let p;if(t.method!==&quot;HEAD&quot;&amp;&amp;(P?p=await e.json():p=await e.text()),!e.ok)throw p?new Error(P?p.status.message:p):new Error(e.statusText);return P&amp;&amp;p&amp;&amp;p.hasOwnProperty(&quot;status&quot;)&amp;&amp;p.hasOwnProperty(&quot;response&quot;)?p.response:p}function E(t,n,e){return s({url:t+(n&amp;&amp;Object.keys(n).length?&quot;?&quot;+$.param(n):&quot;&quot;)},e)}function r(t,n,e){return s({url:t+(n&amp;&amp;Object.keys(n).length?&quot;?&quot;+$.param(n):&quot;&quot;),method:&quot;HEAD&quot;},e)}function c(t,n,e){return s({url:t,method:&quot;POST&quot;,data:n,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},e)}function l(t,n,e){return s({url:t,method:&quot;PATCH&quot;,data:n,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},e)}function o(t,n,e){return s({url:t,method:&quot;PUT&quot;,data:n,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},e)}function a(t,n,e){return s({url:t,method:&quot;DELETE&quot;,data:n,headers:{&quot;x-csrf-token&quot;:config.csrf_token}},e)}},92747:(D,_,f)=&gt;{var u,h;u=[f(49897),f(33530),f(29930),f(2269)],h=function(d,m,i){const s={},g={year:&quot;numeric&quot;,month:&quot;short&quot;,day:&quot;numeric&quot;,hour:&quot;numeric&quot;,minute:&quot;numeric&quot;};s.open=function(r){config.enablePostHistory&amp;&amp;d.get(`/posts/${encodeURIComponent(r)}/diffs`,{}).then(c=&gt;{E(c).then(l=&gt;{const o=m.dialog({title:&quot;[[topic:diffs.title]]&quot;,message:l,size:&quot;large&quot;,onEscape:!0,backdrop:!0});if(!c.timestamps.length)return;const a=o.find(&quot;select&quot;),t=o.find(&#039;button[data-action=&quot;restore&quot;]&#039;),n=o.find(&#039;button[data-action=&quot;delete&quot;]&#039;),e=o.find(&quot;ul.posts-list&quot;),y=o.find(&quot;.number-of-diffs strong&quot;);a.on(&quot;change&quot;,function(){s.load(r,this.value,e),t.prop(&quot;disabled&quot;,c.timestamps.indexOf(this.value)===0),n.prop(&quot;disabled&quot;,c.timestamps.indexOf(this.value)===0)}),t.on(&quot;click&quot;,function(){s.restore(r,a.val(),o)}),n.on(&quot;click&quot;,function(){s.delete(r,a.val(),a,y)}),o.on(&quot;shown.bs.modal&quot;,function(){s.load(r,a.val(),e),t.prop(&quot;disabled&quot;,!0),n.prop(&quot;disabled&quot;,!0)})})}).catch(i.error)},s.load=function(r,c,l){config.enablePostHistory&amp;&amp;d.get(`/posts/${encodeURIComponent(r)}/diffs/${c}`,{}).then(o=&gt;{o.deleted=!!parseInt(o.deleted,10),app.parseAndTranslate(&quot;partials/posts_list&quot;,&quot;posts&quot;,{posts:[o]},function(a){l.empty().append(a),l.find(&quot;.timeago&quot;).timeago()})}).catch(i.error)},s.restore=function(r,c,l){config.enablePostHistory&amp;&amp;d.put(`/posts/${encodeURIComponent(r)}/diffs/${c}`,{}).then(()=&gt;{l.modal(&quot;hide&quot;),i.success(&quot;[[topic:diffs.post-restored]]&quot;)}).catch(i.error)},s.delete=function(r,c,l,o){d.del(`/posts/${encodeURIComponent(r)}/diffs/${c}`).then(a=&gt;{E(a,&quot;diffs&quot;).then(t=&gt;{l.empty().append(t),l.trigger(&quot;change&quot;);const n=l.find(&quot;option&quot;).length;o.text(n),i.success(&quot;[[topic:diffs.deleted]]&quot;)})}).catch(i.error)};function E(r,c){return new Promise(l=&gt;{const o=[{diffs:r.revisions.map(function(a){const t=parseInt(a.timestamp,10);return{username:a.username,timestamp:t,pretty:new Date(t).toLocaleString(config.userLang.replace(&quot;_&quot;,&quot;-&quot;),g)}}),numDiffs:r.timestamps.length,editable:r.editable,deletable:r.deletable},function(a){l(a)}];c&amp;&amp;o.unshift(c),app.parseAndTranslate(&quot;modals/post-history&quot;,...o)})}return s}.apply(_,u),h!==void 0&amp;&amp;(D.exports=h)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

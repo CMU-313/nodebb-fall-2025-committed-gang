@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/templates/partials/mobile-nav.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/templates/partials/mobile-nav.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">67.77</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">307</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">72.28</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">6.51</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">
+(function (factory) {
+  if (typeof module === &#039;object&#039; &amp;&amp; module.exports) {
+    module.exports = factory();
+  } else if (typeof define === &#039;function&#039; &amp;&amp; define.amd) {
+    define(factory);
+  }
+})(function () {
+  function compiled(helpers, context, guard, iter, helper) {
+    var __escape = helpers.__escape;
+    var value = context;
+    return &quot;&lt;div class=\&quot;bottombar-nav p-2 text-dark bg-light d-flex justify-content-between align-items-center w-100\&quot;&gt;\n&lt;div class=\&quot;bottombar-nav-left d-flex gap-3 align-items-center\&quot;&gt;\n&lt;div&gt;\n&lt;a href=\&quot;#\&quot; role=\&quot;button\&quot; class=\&quot;nav-link d-flex justify-content-between align-items-center position-relative\&quot; data-bs-toggle=\&quot;dropdown\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;span class=\&quot;position-relative\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-lg fa-bars\&quot;&gt;&lt;/i&gt;\n&lt;span component=\&quot;unread/count\&quot; data-unread-url=\&quot;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;unreadUrl&#039;] : null)) + 
+      &quot;\&quot; class=\&quot;position-absolute top-0 start-100 translate-middle badge rounded-1 bg-primary &quot; + 
+      (guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;mobileUnread&#039;] : null) ?
+        &quot;&quot; :
+        &quot;hidden&quot;) + 
+      &quot;\&quot;&gt;&quot; + 
+      __escape(guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;mobileUnread&#039;] : null)) + 
+      &quot;&lt;/span&gt;\n&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul class=\&quot;navigation-dropdown dropdown-menu\&quot; role=\&quot;menu\&quot;&gt;\n&quot; + 
+      compiled.blocks[&#039;navigation&#039;](helpers, context, guard, iter, helper) + 
+      &quot;\n&lt;/ul&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;bottombar-nav-right d-flex gap-3 align-items-center\&quot;&gt;\n&lt;div&gt;\n&quot; + 
+      (guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;loggedIn&#039;] : null) ?
+        &quot;\n&lt;ul id=\&quot;logged-in-menu\&quot; class=\&quot;list-unstyled d-flex align-items-center w-100 gap-3 mb-0\&quot;&gt;\n&quot; + 
+          (guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;searchEnabled&#039;] : null) ?
+            &quot;\n&lt;li component=\&quot;sidebar/search\&quot; class=\&quot;nav-item m-0 search\&quot;&gt;\n&lt;a component=\&quot;search/button\&quot; id=\&quot;search-button\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; class=\&quot;nav-link text-truncate\&quot; data-bs-toggle=\&quot;dropdown\&quot; title=\&quot;[[global:header.search]]\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;i class=\&quot;fa fa-search fa-fw\&quot;&gt;&lt;/i&gt;\n&lt;span class=\&quot;nav-text visible-open px-2 fw-semibold\&quot;&gt;[[global:search]]&lt;/span&gt;\n&lt;/a&gt;\n&lt;div class=\&quot;search-dropdown dropdown-menu p-2 shadow\&quot; role=\&quot;menu\&quot;&gt;\n&lt;form component=\&quot;search/form\&quot; id=\&quot;search-form\&quot; class=\&quot;d-flex justify-content-end align-items-center\&quot; role=\&quot;search\&quot; method=\&quot;GET\&quot;&gt;\n&lt;div component=\&quot;search/fields\&quot; class=\&quot;d-flex flex-column w-100 &quot; + 
+              (guard((context != null &amp;&amp; context[&#039;config&#039;] != null &amp;&amp; context[&#039;config&#039;][&#039;theme&#039;] != null) ? context[&#039;config&#039;][&#039;theme&#039;][&#039;topMobilebar&#039;] : null) ?
+                &quot;flex-column-reverse gap-2&quot; :
+                &quot;&quot;) + 
+              &quot;\&quot; id=\&quot;search-fields\&quot;&gt;\n&lt;div id=\&quot;quick-search-container\&quot; class=\&quot;quick-search-container d-block hidden\&quot;&gt;\n&lt;div class=\&quot;form-check filter-category mb-2 ms-2\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; type=\&quot;checkbox\&quot; checked&gt;\n&lt;label class=\&quot;form-check-label name\&quot;&gt;&lt;/label&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;text-center loading-indicator\&quot;&gt;&lt;i class=\&quot;fa fa-spinner fa-spin\&quot;&gt;&lt;/i&gt;&lt;/div&gt;\n&lt;div class=\&quot;quick-search-results-container\&quot;&gt;&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;d-flex gap-1 input-container\&quot;&gt;\n&lt;input autocomplete=\&quot;off\&quot; type=\&quot;text\&quot; class=\&quot;form-control\&quot; placeholder=\&quot;[[global:search]]\&quot; name=\&quot;query\&quot; value=\&quot;\&quot; aria-label=\&quot;[[search:type-to-search]]\&quot;&gt;\n&lt;a class=\&quot;nav-link d-flex justify-content-center align-items-center advanced-search-link\&quot; href=\&quot;&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;relative_path&#039;] : null)) + 
+              &quot;/search\&quot; title=\&quot;[[search:advanced-search]]\&quot;&gt;\n&lt;i class=\&quot;fa fa-gears fa-fw text-muted\&quot;&gt;&lt;/i&gt;\n&lt;/a&gt;\n&lt;/div&gt;\n&lt;button type=\&quot;submit\&quot; class=\&quot;btn btn-outline-secondary hide\&quot;&gt;[[global:search]]&lt;/button&gt;\n&lt;/div&gt;\n&lt;/form&gt;\n&lt;/div&gt;\n&lt;/li&gt;\n&quot; :
+            &quot;&quot;) + 
+          &quot;\n&lt;li component=\&quot;notifications\&quot; class=\&quot;nav-item m-0 notifications\&quot;&gt;\n&lt;a data-bs-toggle=\&quot;dropdown\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; class=\&quot;nav-link d-flex gap-2 justify-content-between align-items-center position-relative\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot; aria-label=\&quot;[[global:header.notifications]]\&quot;&gt;\n&lt;span class=\&quot;d-flex gap-2 align-items-center text-nowrap truncate-open\&quot;&gt;\n&lt;span class=\&quot;position-relative\&quot;&gt;\n&lt;i component=\&quot;notifications/icon\&quot; class=\&quot;fa fa-fw &quot; + 
+          (guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;notification&#039;] : null) ?
+            &quot;fa-bell&quot; :
+            &quot;fa-bell-o&quot;) + 
+          &quot; unread-count\&quot; data-content=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;notification&#039;] : null)) + 
+          &quot;\&quot;&gt;&lt;/i&gt;\n&lt;span component=\&quot;notifications/count\&quot; class=\&quot;visible-closed position-absolute top-0 start-100 translate-middle badge rounded-1 bg-primary &quot; + 
+          (guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;notification&#039;] : null) ?
+            &quot;&quot; :
+            &quot;hidden&quot;) + 
+          &quot;\&quot;&gt;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;notification&#039;] : null)) + 
+          &quot;&lt;/span&gt;\n&lt;/span&gt;\n&lt;span class=\&quot;nav-text small visible-open fw-semibold truncate-text\&quot;&gt;[[global:header.notifications]]&lt;/span&gt;\n&lt;/span&gt;\n&lt;span component=\&quot;notifications/count\&quot; class=\&quot;visible-open badge rounded-1 bg-primary &quot; + 
+          (guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;notification&#039;] : null) ?
+            &quot;&quot; :
+            &quot;hidden&quot;) + 
+          &quot;\&quot;&gt;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;notification&#039;] : null)) + 
+          &quot;&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul class=\&quot;notifications-dropdown dropdown-menu p-1 shadow\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li&gt;\n&lt;div component=\&quot;notifications/list\&quot; class=\&quot;list-container notification-list overscroll-behavior-contain pe-1 ff-base ghost-scrollbar\&quot;&gt;\n&lt;div class=\&quot;mb-2 p-1\&quot;&gt;\n&lt;div class=\&quot;d-flex gap-1 justify-content-between\&quot;&gt;\n&lt;div class=\&quot;d-flex gap-2 flex-grow-1 placeholder-wave\&quot;&gt;\n&lt;div class=\&quot;placeholder\&quot; style=\&quot;width: 32px; height: 32px;\&quot;&gt;&lt;/div&gt;\n&lt;div class=\&quot;flex-grow-1\&quot;&gt;\n&lt;div class=\&quot;d-flex flex-column\&quot;&gt;\n&lt;div class=\&quot;text-sm\&quot;&gt;\n&lt;span class=\&quot;placeholder placeholder-sm col-4\&quot;&gt;&lt;/span&gt;\n&lt;span class=\&quot;placeholder placeholder-sm col-6\&quot;&gt;&lt;/span&gt;\n&lt;span class=\&quot;placeholder placeholder-sm col-7\&quot;&gt;&lt;/span&gt;\n&lt;span class=\&quot;placeholder placeholder-sm col-2\&quot;&gt;&lt;/span&gt;\n&lt;span class=\&quot;placeholder placeholder-sm col-5\&quot;&gt;&lt;/span&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;text-xs\&quot;&gt;\n&lt;div class=\&quot;placeholder placeholder-xs col-6\&quot;&gt;&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div&gt;\n&lt;button class=\&quot;mark-read btn btn-ghost btn-sm d-flex align-items-center justify-content-center flex-grow-0 flex-shrink-0 p-1\&quot; style=\&quot;width: 1.5rem; height: 1.5rem;\&quot;&gt;\n&lt;i class=\&quot;unread fa fa-2xs fa-circle text-primary\&quot;&gt;&lt;/i&gt;\n&lt;/button&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/li&gt;\n&lt;li class=\&quot;dropdown-divider\&quot;&gt;&lt;/li&gt;\n&lt;li&gt;\n&lt;div class=\&quot;d-flex justify-content-center gap-1 flex-wrap\&quot;&gt;\n&lt;a role=\&quot;button\&quot; href=\&quot;#\&quot; class=\&quot;btn btn-sm btn-light mark-all-read flex-fill text-nowrap text-truncate ff-secondary\&quot;&gt;&lt;i class=\&quot;fa fa-check-double\&quot;&gt;&lt;/i&gt; [[notifications:mark-all-read]]&lt;/a&gt;\n&lt;a class=\&quot;btn btn-sm btn-primary flex-fill text-nowrap text-truncate ff-secondary\&quot; href=\&quot;&quot; + 
+          __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+          &quot;/notifications\&quot;&gt;&lt;i class=\&quot;fa fa-list\&quot;&gt;&lt;/i&gt; [[notifications:see-all]]&lt;/a&gt;\n&lt;/div&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&quot; + 
+          (guard((context != null) ? context[&#039;canChat&#039;] : null) ?
+            &quot;\n&lt;li class=\&quot;nav-item m-0 chats\&quot;&gt;\n&lt;a data-bs-toggle=\&quot;dropdown\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; class=\&quot;nav-link d-flex gap-2 justify-content-between align-items-center position-relative\&quot; component=\&quot;chat/dropdown\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot; aria-label=\&quot;[[global:header.chats]]\&quot;&gt;\n&lt;span class=\&quot;d-flex gap-2 align-items-center text-nowrap truncate-open\&quot;&gt;\n&lt;span class=\&quot;position-relative\&quot;&gt;\n&lt;i component=\&quot;chat/icon\&quot; class=\&quot;fa fa-fw &quot; + 
+              (guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;chat&#039;] : null) ?
+                &quot;fa-comment&quot; :
+                &quot;fa-comment-o&quot;) + 
+              &quot; unread-count\&quot; data-content=\&quot;&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;chat&#039;] : null)) + 
+              &quot;\&quot;&gt;&lt;/i&gt;\n&lt;span component=\&quot;chat/count\&quot; class=\&quot;visible-closed position-absolute top-0 start-100 translate-middle badge rounded-1 bg-primary &quot; + 
+              (guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;chat&#039;] : null) ?
+                &quot;&quot; :
+                &quot;hidden&quot;) + 
+              &quot;\&quot;&gt;&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;chat&#039;] : null)) + 
+              &quot;&lt;/span&gt;\n&lt;/span&gt;\n&lt;span class=\&quot;nav-text small visible-open fw-semibold\&quot;&gt;[[global:header.chats]]&lt;/span&gt;\n&lt;/span&gt;\n&lt;span component=\&quot;chat/count\&quot; class=\&quot;visible-open badge rounded-1 bg-primary &quot; + 
+              (guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;chat&#039;] : null) ?
+                &quot;&quot; :
+                &quot;hidden&quot;) + 
+              &quot;\&quot;&gt;&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;unreadCount&#039;] != null) ? context[&#039;unreadCount&#039;][&#039;chat&#039;] : null)) + 
+              &quot;&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul class=\&quot;chats-dropdown dropdown-menu p-1 shadow\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li&gt;\n&lt;div component=\&quot;chat/list\&quot; class=\&quot;list-container chats-list overscroll-behavior-contain p-0 pe-1 ff-base ghost-scrollbar\&quot;&gt;\n&lt;div class=\&quot;rounded-1\&quot;&gt;\n&lt;div class=\&quot;d-flex gap-1 justify-content-between\&quot;&gt;\n&lt;div class=\&quot;dropdown-item p-2 d-flex gap-2 placeholder-wave\&quot;&gt;\n&lt;div class=\&quot;main-avatar\&quot;&gt;\n&lt;div class=\&quot;placeholder\&quot; style=\&quot;width: 32px; height: 32px;\&quot;&gt;&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;d-flex flex-grow-1 flex-column w-100\&quot;&gt;\n&lt;div class=\&quot;text-xs\&quot;&gt;&lt;div class=\&quot;placeholder col-3\&quot;&gt;&lt;/div&gt;&lt;/div&gt;\n&lt;div class=\&quot;text-sm\&quot;&gt;&lt;div class=\&quot;placeholder col-11\&quot;&gt;&lt;/div&gt;&lt;/div&gt;\n&lt;div class=\&quot;text-xs\&quot;&gt;&lt;div class=\&quot;placeholder col-4\&quot;&gt;&lt;/div&gt;&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div&gt;\n&lt;button class=\&quot;mark-read btn btn-ghost btn-sm d-flex align-items-center justify-content-center flex-grow-0 flex-shrink-0 p-1\&quot; style=\&quot;width: 1.5rem; height: 1.5rem;\&quot;&gt;\n&lt;i class=\&quot;unread fa fa-2xs fa-circle text-primary\&quot;&gt;&lt;/i&gt;\n&lt;/button&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/li&gt;\n&lt;li class=\&quot;dropdown-divider\&quot;&gt;&lt;/li&gt;\n&lt;li&gt;\n&lt;div class=\&quot;d-flex justify-content-center gap-1 flex-wrap\&quot;&gt;\n&lt;a component=\&quot;chats/mark-all-read\&quot; role=\&quot;button\&quot; href=\&quot;#\&quot; class=\&quot;btn btn-sm btn-light mark-all-read flex-fill text-nowrap text-truncate ff-secondary\&quot;&gt;&lt;i class=\&quot;fa fa-check-double\&quot;&gt;&lt;/i&gt; [[modules:chat.mark-all-read]]&lt;/a&gt;\n&lt;!-- on md and up see all chats button goes to last room --&gt;\n&lt;a class=\&quot;d-none d-md-inline btn btn-sm btn-primary flex-fill text-nowrap text-truncate ff-secondary\&quot; href=\&quot;&quot; + 
+              __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+              &quot;/user/&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;userslug&#039;] : null)) + 
+              &quot;/chats&quot; + 
+              (guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;lastRoomId&#039;] : null) ?
+                &quot;/&quot; + 
+                  __escape(guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;lastRoomId&#039;] : null)) :
+                &quot;&quot;) + 
+              &quot;\&quot;&gt;&lt;i class=\&quot;fa fa-list\&quot;&gt;&lt;/i&gt; [[modules:chat.see-all]]&lt;/a&gt;\n&lt;!-- on xs&amp;sm the see all chats button goes to the list of chats --&gt;\n&lt;a class=\&quot;d-inline d-md-none btn btn-sm btn-primary flex-fill text-nowrap text-truncate ff-secondary\&quot; href=\&quot;&quot; + 
+              __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+              &quot;/user/&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;userslug&#039;] : null)) + 
+              &quot;/chats\&quot;&gt;&lt;i class=\&quot;fa fa-list\&quot;&gt;&lt;/i&gt; [[modules:chat.see-all]]&lt;/a&gt;\n&lt;/div&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&quot; :
+            &quot;&quot;) + 
+          &quot;\n&lt;li component=\&quot;sidebar/drafts\&quot; class=\&quot;hidden nav-item m-0 drafts\&quot;&gt;\n&lt;a data-bs-toggle=\&quot;dropdown\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; class=\&quot;nav-link d-flex gap-2 justify-content-between align-items-center position-relative\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot; aria-label=\&quot;[[global:header.drafts]]\&quot;&gt;\n&lt;span class=\&quot;d-flex gap-2 align-items-center text-nowrap truncate-open\&quot;&gt;\n&lt;span class=\&quot;position-relative\&quot;&gt;\n&lt;i component=\&quot;drafts/icon\&quot; class=\&quot;fa fa-fw fa-pen-to-square unread-count\&quot;&gt;&lt;/i&gt;\n&lt;span component=\&quot;drafts/count\&quot; class=\&quot;visible-closed position-absolute top-0 start-100 translate-middle badge rounded-1 bg-primary hidden\&quot;&gt;0&lt;/span&gt;\n&lt;/span&gt;\n&lt;span class=\&quot;nav-text small visible-open fw-semibold\&quot;&gt;[[global:header.drafts]]&lt;/span&gt;\n&lt;/span&gt;\n&lt;span component=\&quot;drafts/count\&quot; class=\&quot;visible-open badge rounded-1 bg-primary hidden\&quot;&gt;0&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul class=\&quot;drafts-dropdown dropdown-menu p-1 shadow\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li&gt;\n&lt;div component=\&quot;drafts/list\&quot; class=\&quot;list-container draft-list list-unstyled d-flex flex-column overscroll-behavior-contain gap-1 pe-1 ghost-scrollbar\&quot;&gt;\n&lt;div class=\&quot;dropdown-item rounded-1 p-2 d-flex gap-2 placeholder-wave\&quot;&gt;\n&lt;div class=\&quot;d-flex flex-grow-1 flex-column w-100\&quot;&gt;\n&lt;div class=\&quot;text-xs placeholder col-3\&quot;&gt;&amp;nbsp;&lt;/div&gt;\n&lt;div class=\&quot;text-sm placeholder col-11\&quot;&gt;&amp;nbsp;&lt;/div&gt;\n&lt;div class=\&quot;text-xs placeholder col-4\&quot;&gt;&amp;nbsp;&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;hidden no-drafts text-center p-4 d-flex flex-column\&quot;&gt;\n&lt;div class=\&quot;p-4\&quot;&gt;&lt;i class=\&quot;fa-solid fa-wind fs-2 text-muted\&quot;&gt;&lt;/i&gt;&lt;/div&gt;\n&lt;div class=\&quot;text-xs fw-semibold text-muted\&quot;&gt;[[modules:composer.no-drafts]]&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;draft-item-container\&quot;&gt;\n&quot; + 
+          compiled.blocks[&#039;drafts&#039;](helpers, context, guard, iter, helper) + 
+          &quot;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;li id=\&quot;user_label\&quot; class=\&quot;nav-item m-0 usermenu\&quot;&gt;\n&lt;a component=\&quot;header/avatar\&quot; id=\&quot;user_dropdown\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; class=\&quot;nav-link d-flex gap-2 align-items-center text-truncate\&quot; data-bs-toggle=\&quot;dropdown\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot; aria-label=\&quot;[[user:user-menu]]\&quot;&gt;\n&quot; + 
+          __escape(helper(context, helpers, &#039;buildAvatar&#039;, [guard((context != null) ? context[&#039;user&#039;] : null), &quot;20px&quot;, guard((context != null) ? context[&#039;true&#039;] : null)])) + 
+          &quot;\n&lt;span id=\&quot;user-header-name\&quot; class=\&quot;nav-text small visible-open fw-semibold\&quot;&gt;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;username&#039;] : null)) + 
+          &quot;&lt;/span&gt;\n&lt;/a&gt;\n&lt;ul id=\&quot;user-control-list\&quot; component=\&quot;header/usercontrol\&quot; class=\&quot;overscroll-behavior-contain user-dropdown dropdown-menu shadow p-1 text-sm ff-base\&quot; role=\&quot;menu\&quot;&gt;\n&lt;li&gt;\n&lt;a class=\&quot;dropdown-item rounded-1 d-flex align-items-center gap-2\&quot; component=\&quot;header/profilelink\&quot; href=\&quot;&quot; + 
+          __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+          &quot;/user/&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;userslug&#039;] : null)) + 
+          &quot;\&quot; role=\&quot;menuitem\&quot; aria-label=\&quot;[[user:profile]]\&quot;&gt;\n&lt;span component=\&quot;user/status\&quot; class=\&quot;flex-shrink-0 border border-white border-2 rounded-circle status &quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;status&#039;] : null)) + 
+          &quot;\&quot;&gt;&lt;span class=\&quot;visually-hidden\&quot;&gt;[[global:&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;status&#039;] : null)) + 
+          &quot;]]&lt;/span&gt;&lt;/span&gt;\n&lt;span class=\&quot;fw-semibold\&quot; component=\&quot;header/username\&quot;&gt;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;username&#039;] : null)) + 
+          &quot;&lt;/span&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&lt;li role=\&quot;presentation\&quot; class=\&quot;dropdown-divider\&quot;&gt;&lt;/li&gt;\n&lt;li&gt;&lt;h6 class=\&quot;dropdown-header text-xs\&quot;&gt;[[global:status]]&lt;/h6&gt;&lt;/li&gt;\n&lt;li&gt;\n&lt;a href=\&quot;#\&quot; class=\&quot;dropdown-item rounded-1 user-status d-flex align-items-center gap-2 &quot; + 
+          (guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;online&#039;] : null) ?
+            &quot;selected&quot; :
+            &quot;&quot;) + 
+          &quot;\&quot; data-status=\&quot;online\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;span component=\&quot;user/status\&quot; class=\&quot;flex-shrink-0 border border-white border-2 rounded-circle status online\&quot;&gt;&lt;/span&gt;\n&lt;span class=\&quot;flex-grow-1\&quot;&gt;[[global:online]]&lt;/span&gt;\n&lt;i class=\&quot;fa-solid fa-check text-secondary flex-shrink-0\&quot; aria-label=\&quot;[[global:selected]]\&quot;&gt;&lt;/i&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;a href=\&quot;#\&quot; class=\&quot;dropdown-item rounded-1 user-status d-flex align-items-center gap-2 &quot; + 
+          (guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;away&#039;] : null) ?
+            &quot;selected&quot; :
+            &quot;&quot;) + 
+          &quot;\&quot; data-status=\&quot;away\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;span component=\&quot;user/status\&quot; class=\&quot;flex-shrink-0 border border-white border-2 rounded-circle status away\&quot;&gt;&lt;/span&gt;\n&lt;span class=\&quot;flex-grow-1\&quot;&gt;[[global:away]]&lt;/span&gt;\n&lt;i class=\&quot;fa-solid fa-check text-secondary flex-shrink-0\&quot;&gt;&lt;span class=\&quot;visually-hidden\&quot;&gt;[[global:selected]]&lt;/span&gt;&lt;/i&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;a href=\&quot;#\&quot; class=\&quot;dropdown-item rounded-1 user-status d-flex align-items-center gap-2 &quot; + 
+          (guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;dnd&#039;] : null) ?
+            &quot;selected&quot; :
+            &quot;&quot;) + 
+          &quot;\&quot; data-status=\&quot;dnd\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;span component=\&quot;user/status\&quot; class=\&quot;flex-shrink-0 border border-white border-2 rounded-circle status dnd\&quot;&gt;&lt;/span&gt;\n&lt;span class=\&quot;flex-grow-1\&quot;&gt;[[global:dnd]]&lt;/span&gt;\n&lt;i class=\&quot;fa-solid fa-check text-secondary flex-shrink-0\&quot;&gt;&lt;/i&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;a href=\&quot;#\&quot; class=\&quot;dropdown-item rounded-1 user-status d-flex align-items-center gap-2 &quot; + 
+          (guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;offline&#039;] : null) ?
+            &quot;selected&quot; :
+            &quot;&quot;) + 
+          &quot;\&quot; data-status=\&quot;offline\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;span component=\&quot;user/status\&quot; class=\&quot;flex-shrink-0 border border-white border-2 rounded-circle status offline\&quot;&gt;&lt;/span&gt;\n&lt;span class=\&quot;flex-grow-1\&quot;&gt;[[global:invisible]]&lt;/span&gt;\n&lt;i class=\&quot;fa-solid fa-check text-secondary flex-shrink-0\&quot;&gt;&lt;/i&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&lt;li role=\&quot;presentation\&quot; class=\&quot;dropdown-divider\&quot;&gt;&lt;/li&gt;\n&lt;li&gt;\n&lt;a class=\&quot;dropdown-item rounded-1 d-flex align-items-center gap-2\&quot; href=\&quot;&quot; + 
+          __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+          &quot;/user/&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;userslug&#039;] : null)) + 
+          &quot;/bookmarks\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-bookmark text-secondary\&quot;&gt;&lt;/i&gt; &lt;span&gt;[[user:bookmarks]]&lt;/span&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;a class=\&quot;dropdown-item rounded-1 d-flex align-items-center gap-2\&quot; component=\&quot;header/profilelink/edit\&quot; href=\&quot;&quot; + 
+          __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+          &quot;/user/&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;userslug&#039;] : null)) + 
+          &quot;/edit\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-edit text-secondary\&quot;&gt;&lt;/i&gt; &lt;span&gt;[[user:edit-profile]]&lt;/span&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;a class=\&quot;dropdown-item rounded-1 d-flex align-items-center gap-2\&quot; component=\&quot;header/profilelink/settings\&quot; href=\&quot;&quot; + 
+          __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+          &quot;/user/&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;user&#039;] != null) ? context[&#039;user&#039;][&#039;userslug&#039;] : null)) + 
+          &quot;/settings\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-gear text-secondary\&quot;&gt;&lt;/i&gt; &lt;span&gt;[[user:settings]]&lt;/span&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&quot; + 
+          (guard((context != null) ? context[&#039;showModMenu&#039;] : null) ?
+            &quot;\n&lt;li role=\&quot;presentation\&quot; class=\&quot;dropdown-divider\&quot;&gt;&lt;/li&gt;\n&lt;li&gt;&lt;h6 class=\&quot;dropdown-header text-xs\&quot;&gt;[[pages:moderator-tools]]&lt;/h6&gt;&lt;/li&gt;\n&lt;li&gt;\n&lt;a class=\&quot;dropdown-item rounded-1 d-flex align-items-center gap-2\&quot; href=\&quot;&quot; + 
+              __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+              &quot;/flags\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-flag text-secondary\&quot;&gt;&lt;/i&gt; &lt;span&gt;[[pages:flagged-content]]&lt;/span&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&lt;li&gt;\n&lt;a class=\&quot;dropdown-item rounded-1 d-flex align-items-center gap-2\&quot; href=\&quot;&quot; + 
+              __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+              &quot;/post-queue\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-list-alt text-secondary\&quot;&gt;&lt;/i&gt; &lt;span&gt;[[pages:post-queue]]&lt;/span&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&quot; + 
+              (guard((context != null) ? context[&#039;registrationQueueEnabled&#039;] : null) ?
+                &quot;\n&lt;li&gt;\n&lt;a class=\&quot;dropdown-item rounded-1 d-flex align-items-center gap-2\&quot; href=\&quot;&quot; + 
+                  __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+                  &quot;/registration-queue\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-list-alt text-secondary\&quot;&gt;&lt;/i&gt; &lt;span&gt;[[pages:registration-queue]]&lt;/span&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&quot; :
+                &quot;&quot;) + 
+              &quot;\n&lt;li&gt;\n&lt;a class=\&quot;dropdown-item rounded-1 d-flex align-items-center gap-2\&quot; href=\&quot;&quot; + 
+              __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+              &quot;/ip-blacklist\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-ban text-secondary\&quot;&gt;&lt;/i&gt; &lt;span&gt;[[pages:ip-blacklist]]&lt;/span&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&quot; :
+            &quot;\n&quot; + 
+              (guard((context != null) ? context[&#039;postQueueEnabled&#039;] : null) ?
+                &quot;\n&lt;li&gt;\n&lt;a class=\&quot;dropdown-item rounded-1 d-flex align-items-center gap-2\&quot; href=\&quot;&quot; + 
+                  __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+                  &quot;/post-queue\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-list-alt text-secondary\&quot;&gt;&lt;/i&gt; &lt;span&gt;[[pages:post-queue]]&lt;/span&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&quot; :
+                &quot;&quot;) + 
+              &quot;\n&quot;) + 
+          &quot;\n&lt;li role=\&quot;presentation\&quot; class=\&quot;dropdown-divider\&quot;&gt;&lt;/li&gt;\n&lt;li component=\&quot;user/logout\&quot;&gt;\n&lt;form method=\&quot;post\&quot; action=\&quot;&quot; + 
+          __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+          &quot;/logout\&quot; role=\&quot;menuitem\&quot;&gt;\n&lt;input type=\&quot;hidden\&quot; name=\&quot;_csrf\&quot; value=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;csrf_token&#039;] : null)) + 
+          &quot;\&quot;&gt;\n&lt;input type=\&quot;hidden\&quot; name=\&quot;noscript\&quot; value=\&quot;true\&quot;&gt;\n&lt;button type=\&quot;submit\&quot; class=\&quot;dropdown-item rounded-1 d-flex align-items-center gap-2\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-sign-out text-secondary\&quot;&gt;&lt;/i&gt;&lt;span&gt;[[global:logout]]&lt;/span&gt;\n&lt;/button&gt;\n&lt;/form&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&quot; :
+        &quot;\n&lt;ul id=\&quot;logged-out-menu\&quot; class=\&quot;list-unstyled d-flex w-100 gap-3 mb-0 logged-out-menu\&quot;&gt;\n&quot; + 
+          ((guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;searchEnabled&#039;] : null) &amp;&amp; guard((context != null &amp;&amp; context[&#039;user&#039;] != null &amp;&amp; context[&#039;user&#039;][&#039;privileges&#039;] != null) ? context[&#039;user&#039;][&#039;privileges&#039;][&#039;search:content&#039;] : null)) ?
+            &quot;\n&lt;li component=\&quot;sidebar/search\&quot; class=\&quot;nav-item mx-2 search\&quot;&gt;\n&lt;a component=\&quot;search/button\&quot; id=\&quot;search-button\&quot; href=\&quot;#\&quot; role=\&quot;button\&quot; class=\&quot;nav-link text-truncate\&quot; data-bs-toggle=\&quot;dropdown\&quot; title=\&quot;[[global:header.search]]\&quot; aria-haspopup=\&quot;true\&quot; aria-expanded=\&quot;false\&quot;&gt;\n&lt;i class=\&quot;fa fa-search fa-fw\&quot;&gt;&lt;/i&gt;\n&lt;span class=\&quot;nav-text visible-open px-2 fw-semibold\&quot;&gt;[[global:search]]&lt;/span&gt;\n&lt;/a&gt;\n&lt;div class=\&quot;search-dropdown dropdown-menu p-2 shadow\&quot; role=\&quot;menu\&quot;&gt;\n&lt;form component=\&quot;search/form\&quot; id=\&quot;search-form\&quot; class=\&quot;d-flex justify-content-end align-items-center\&quot; role=\&quot;search\&quot; method=\&quot;GET\&quot;&gt;\n&lt;div component=\&quot;search/fields\&quot; class=\&quot;d-flex flex-column w-100 &quot; + 
+              (guard((context != null &amp;&amp; context[&#039;config&#039;] != null &amp;&amp; context[&#039;config&#039;][&#039;theme&#039;] != null) ? context[&#039;config&#039;][&#039;theme&#039;][&#039;topMobilebar&#039;] : null) ?
+                &quot;flex-column-reverse gap-2&quot; :
+                &quot;&quot;) + 
+              &quot;\&quot; id=\&quot;search-fields\&quot;&gt;\n&lt;div id=\&quot;quick-search-container\&quot; class=\&quot;quick-search-container d-block hidden\&quot;&gt;\n&lt;div class=\&quot;form-check filter-category mb-2 ms-2\&quot;&gt;\n&lt;input class=\&quot;form-check-input\&quot; type=\&quot;checkbox\&quot; checked&gt;\n&lt;label class=\&quot;form-check-label name\&quot;&gt;&lt;/label&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;text-center loading-indicator\&quot;&gt;&lt;i class=\&quot;fa fa-spinner fa-spin\&quot;&gt;&lt;/i&gt;&lt;/div&gt;\n&lt;div class=\&quot;quick-search-results-container\&quot;&gt;&lt;/div&gt;\n&lt;/div&gt;\n&lt;div class=\&quot;d-flex gap-1 input-container\&quot;&gt;\n&lt;input autocomplete=\&quot;off\&quot; type=\&quot;text\&quot; class=\&quot;form-control\&quot; placeholder=\&quot;[[global:search]]\&quot; name=\&quot;query\&quot; value=\&quot;\&quot; aria-label=\&quot;[[search:type-to-search]]\&quot;&gt;\n&lt;a class=\&quot;nav-link d-flex justify-content-center align-items-center advanced-search-link\&quot; href=\&quot;&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;config&#039;] != null) ? context[&#039;config&#039;][&#039;relative_path&#039;] : null)) + 
+              &quot;/search\&quot; title=\&quot;[[search:advanced-search]]\&quot;&gt;\n&lt;i class=\&quot;fa fa-gears fa-fw text-muted\&quot;&gt;&lt;/i&gt;\n&lt;/a&gt;\n&lt;/div&gt;\n&lt;button type=\&quot;submit\&quot; class=\&quot;btn btn-outline-secondary hide\&quot;&gt;[[global:search]]&lt;/button&gt;\n&lt;/div&gt;\n&lt;/form&gt;\n&lt;/div&gt;\n&lt;/li&gt;\n&quot; :
+            &quot;&quot;) + 
+          &quot;\n&quot; + 
+          (guard((context != null) ? context[&#039;allowRegistration&#039;] : null) ?
+            &quot;\n&lt;li class=\&quot;nav-item mx-2\&quot; title=\&quot;[[global:register]]\&quot;&gt;\n&lt;a class=\&quot;nav-link\&quot; href=\&quot;&quot; + 
+              __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+              &quot;/register\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-user-plus\&quot;&gt;&lt;/i&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&quot; :
+            &quot;&quot;) + 
+          &quot;\n&lt;li class=\&quot;nav-item mx-2\&quot; title=\&quot;[[global:login]]\&quot;&gt;\n&lt;a class=\&quot;nav-link\&quot; href=\&quot;&quot; + 
+          __escape(guard((context != null) ? context[&#039;relative_path&#039;] : null)) + 
+          &quot;/login\&quot;&gt;\n&lt;i class=\&quot;fa fa-fw fa-sign-in\&quot;&gt;&lt;/i&gt;\n&lt;/a&gt;\n&lt;/li&gt;\n&lt;/ul&gt;\n&quot;) + 
+      &quot;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;&quot;;
+  }
+
+  compiled.blocks = {
+    &#039;navigation&#039;: function navigation(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null) ? context[&#039;navigation&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&quot; + 
+          (helper(context, helpers, &#039;displayMenuItem&#039;, [context, index]) ?
+            &quot;\n&lt;li class=\&quot;nav-item &quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;class&#039;] : null)) + 
+              (guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;dropdown&#039;] : null) ?
+                &quot; dropend&quot; :
+                &quot;&quot;) + 
+              &quot;\&quot; title=\&quot;&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;title&#039;] : null)) + 
+              &quot;\&quot;&gt;\n&lt;a class=\&quot;nav-link navigation-link px-3 py-2 &quot; + 
+              (guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;dropdown&#039;] : null) ?
+                &quot;dropdown-toggle&quot; :
+                &quot;&quot;) + 
+              &quot;\&quot; &quot; + 
+              (guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;dropdown&#039;] : null) ?
+                &quot; href=\&quot;#\&quot; role=\&quot;button\&quot; data-bs-toggle=\&quot;collapse\&quot; data-bs-target=\&quot;#collapse-target-&quot; + 
+                  __escape(index) + 
+                  &quot;\&quot; onclick=\&quot;event.stopPropagation();\&quot; &quot; :
+                &quot; href=\&quot;&quot; + 
+                  __escape(guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;route&#039;] : null)) + 
+                  &quot;\&quot;&quot;) + 
+              &quot; &quot; + 
+              (guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;id&#039;] : null) ?
+                &quot;id=\&quot;&quot; + 
+                  __escape(guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;id&#039;] : null)) + 
+                  &quot;\&quot;&quot; :
+                &quot;&quot;) + 
+              (guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;targetBlank&#039;] : null) ?
+                &quot; target=\&quot;_blank\&quot;&quot; :
+                &quot;&quot;) + 
+              &quot;&gt;\n&lt;span class=\&quot;d-inline-flex justify-content-between align-items-center w-100\&quot;&gt;\n&lt;span class=\&quot;text-nowrap\&quot;&gt;\n&quot; + 
+              (guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;iconClass&#039;] : null) ?
+                &quot;\n&lt;i class=\&quot;fa fa-fw &quot; + 
+                  __escape(guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;iconClass&#039;] : null)) + 
+                  &quot;\&quot; data-content=\&quot;&quot; + 
+                  __escape(guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;content&#039;] : null)) + 
+                  &quot;\&quot;&gt;&lt;/i&gt;\n&quot; :
+                &quot;&quot;) + 
+              &quot;\n&quot; + 
+              (guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;text&#039;] : null) ?
+                &quot;&lt;span class=\&quot;nav-text px-2 fw-semibold\&quot;&gt;&quot; + 
+                  __escape(guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;text&#039;] : null)) + 
+                  &quot;&lt;/span&gt;&quot; :
+                &quot;&quot;) + 
+              &quot;\n&lt;/span&gt;\n&lt;span component=\&quot;navigation/count\&quot; class=\&quot;badge rounded-1 bg-primary &quot; + 
+              (guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;content&#039;] : null) ?
+                &quot;&quot; :
+                &quot;hidden&quot;) + 
+              &quot;\&quot;&gt;&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;content&#039;] : null)) + 
+              &quot;&lt;/span&gt;\n&lt;/span&gt;\n&lt;/a&gt;\n&quot; + 
+              (guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;dropdown&#039;] : null) ?
+                &quot;\n&lt;div class=\&quot;ps-3\&quot;&gt;\n&lt;ul id=\&quot;collapse-target-&quot; + 
+                  __escape(index) + 
+                  &quot;\&quot; class=\&quot;collapse list-unstyled ps-3\&quot;&gt;\n&quot; + 
+                  __escape(guard((context != null &amp;&amp; context[&#039;navigation&#039;] != null &amp;&amp; context[&#039;navigation&#039;][key0] != null) ? context[&#039;navigation&#039;][key0][&#039;dropdownContent&#039;] : null)) + 
+                  &quot;\n&lt;/ul&gt;\n&lt;/div&gt;\n&quot; :
+                &quot;&quot;) + 
+              &quot;\n&lt;/li&gt;\n&quot; :
+            &quot;&quot;) + 
+          &quot;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    },
+    &#039;drafts&#039;: function drafts(helpers, context, guard, iter, helper) {
+      var __escape = helpers.__escape;
+      var value = context;
+      return iter(guard((context != null) ? context[&#039;drafts&#039;] : null), function each(key0, index, length, value) {
+        var key = key0;
+        return &quot;\n&quot; + 
+          (index === 0 ?
+            &quot;&quot; :
+            &quot;\n&lt;hr class=\&quot;my-1\&quot;/&gt;\n&quot;) + 
+          &quot;\n&lt;div data-save-id=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;save_id&#039;] : null)) + 
+          &quot;\&quot;&gt;\n&lt;div class=\&quot;d-flex gap-1 justify-content-between ff-base\&quot;&gt;\n&lt;a href=\&quot;#\&quot; class=\&quot;d-flex flex-column flex-grow-1 gap-2 justify-content-start align-items-start btn btn-ghost btn-sm ff-sans text-start\&quot; component=\&quot;drafts/open\&quot; data-save-id=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;save_id&#039;] : null)) + 
+          &quot;\&quot; role=\&quot;menuitem\&quot;&gt;\n&quot; + 
+          ((guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;action&#039;] : null) == &quot;topics.post&quot;) ?
+            &quot;\n&quot; + 
+              (guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;title&#039;] : null) ?
+                &quot;\n&lt;div class=\&quot;text text-xs fw-semibold line-clamp-2 text-break\&quot;&gt;&quot; + 
+                  __escape(guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;title&#039;] : null)) + 
+                  &quot;&lt;/div&gt;\n&quot; :
+                &quot;&quot;) + 
+              &quot;\n&quot; :
+            &quot;&quot;) + 
+          &quot;\n&quot; + 
+          ((guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;action&#039;] : null) == &quot;posts.reply&quot;) ?
+            &quot;\n&lt;div class=\&quot;text text-xs fw-semibold line-clamp-2 text-break\&quot;&gt;[[topic:composer.replying-to, \&quot;&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;title&#039;] : null)) + 
+              &quot;\&quot;]]&lt;/div&gt;\n&quot; :
+            &quot;&quot;) + 
+          &quot;\n&quot; + 
+          ((guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;action&#039;] : null) == &quot;posts.edit&quot;) ?
+            &quot;\n&lt;div class=\&quot;text text-xs fw-semibold line-clamp-2\&quot;&gt;[[topic:composer.editing-in, \&quot;&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;title&#039;] : null)) + 
+              &quot;\&quot;]]&lt;/div&gt;\n&quot; :
+            &quot;&quot;) + 
+          &quot;\n&quot; + 
+          (guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;text&#039;] : null) ?
+            &quot;\n&lt;div class=\&quot;text text-sm line-clamp-3 text-break\&quot;&gt;&quot; + 
+              __escape(guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;text&#039;] : null)) + 
+              &quot;&lt;/div&gt;\n&quot; :
+            &quot;&quot;) + 
+          &quot;\n&lt;div class=\&quot;timeago text-xs text-muted\&quot; title=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;timestampISO&#039;] : null)) + 
+          &quot;\&quot;&gt;&lt;/div&gt;\n&lt;/a&gt;\n&lt;div&gt;\n&lt;button component=\&quot;drafts/delete\&quot; data-save-id=\&quot;&quot; + 
+          __escape(guard((context != null &amp;&amp; context[&#039;drafts&#039;] != null &amp;&amp; context[&#039;drafts&#039;][key0] != null) ? context[&#039;drafts&#039;][key0][&#039;save_id&#039;] : null)) + 
+          &quot;\&quot; class=\&quot;btn btn-light btn-sm\&quot;&gt;\n&lt;i class=\&quot;unread fa fa-xs fa-trash text-secondary\&quot;&gt;&lt;/i&gt;\n&lt;/button&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&lt;/div&gt;\n&quot;;
+      }, function alt() {
+        return &quot;&quot;;
+      });
+    }
+  };
+
+  return compiled;
+})
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>

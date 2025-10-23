@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Plato - build/public/modules/composer-scheduler.850895fba00d10d523ce.min.js</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  <link href="../../assets/css/vendor/morris.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/bootstrap.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/font-awesome.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/vendor/codemirror.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato.css" rel="stylesheet" type="text/css">
+  <link href="../../assets/css/plato-file.css" rel="stylesheet" type="text/css">
+
+</head>
+
+<body>
+
+<div class="navbar navbar-fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="https://github.com/the-simian/es6-plato">ES6 Plato on Github</a>
+    <ul class="nav navbar-nav">
+      <li>
+        <a href="../../index.html">Report Home</a>
+      </li>
+      <li class="active">
+        <a href="display.html">Summary Display</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="jumbotron">
+  <div class="container">
+    <h1>build/public/modules/composer-scheduler.850895fba00d10d523ce.min.js</h1>
+  </div>
+</div>
+
+<div class="container aggregate-stats">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Maintainability <a href="http://blogs.msdn.com/b/codeanalysis/archive/2007/11/20/maintainability-index-range-and-meaning.aspx"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="A value between 0 and 100 that represents the relative ease of maintaining the code. A high value means better maintainability." data-original-title="Maintainability Index"  data-container="body"></i></a></h2>
+      <p class="stat">71.72</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Lines of code <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h2>
+      <p class="stat">2</p>
+    </div>
+  </div>
+  <div class="row historical">
+    <div class="col-md-6">
+      <p id="chart_historical_maint" class="chart"></p>
+    </div>
+    <div class="col-md-6">
+      <p id="chart_historical_sloc" class="chart"></p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="header">Difficulty  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="The difficulty measure is related to the difficulty of the program to write or understand." data-original-title="Difficulty" data-container="body"></i></a></h2>
+      <p class="stat">41.97</p>
+    </div>
+    <div class="col-md-6">
+      <h2 class="header">Estimated Errors  <a href="http://en.wikipedia.org/wiki/Halstead_complexity_measures"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Halstead's delivered bugs is an estimate for the number of errors in the implementation." data-original-title="Delivered Bugs" data-container="body"></i></a></h2>
+      <p class="stat">2.25</p>
+    </div>
+  </div>
+</div>
+
+<div class="container charts">
+  <div class="row">
+    <h2 class="header">Function weight</h2>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <h3 class="chart-header">By Complexity <a href="http://en.wikipedia.org/wiki/Cyclomatic_complexity"><i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="This metric counts the number of distinct paths through a block of code. Lower values are better." data-original-title="Cyclomatic Complexity" data-container="body"></i></a></h3>
+      <div id="fn-by-complexity" class="stat"></div>
+    </div>
+    <div class="col-md-6">
+      <h3 class="chart-header">By SLOC  <i class="icon icon-info-sign" rel="popover" data-placement="top" data-trigger="hover" data-content="Source Lines of Code / Logical Lines of Code" data-original-title="SLOC/LSLOC" data-container="body"></i></h3>
+      <div id="fn-by-sloc" class="stat"></div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <textarea id="file-source" class="col-md-12">(self.webpackChunknodebb=self.webpackChunknodebb||[]).push([[4347],{59367:(r,g,a)=&gt;{&quot;use strict&quot;;var b,m;b=[a(81335),a(33530),a(29930),a(17459)],m=function(T,w,A,D){const o={},t={timestamp:0,open:!1,edit:!1,posts:{}};let p=[],y,f,v,h;const l={el:null,defaultText:&quot;&quot;,activeText:&quot;&quot;},i={el:null,icon:null,defaultText:&quot;&quot;,activeText:&quot;&quot;};let c,u;$(window).on(&quot;action:composer.activate&quot;,N),o.init=function(e,s){t.timestamp=0,t.posts=s,D.translateKeys([&quot;[[topic:composer.post-later]]&quot;,&quot;[[modules:composer.change-schedule-date]]&quot;]).then(n=&gt;{l.defaultText=n[0],l.activeText=n[1]}),p=e[0].querySelectorAll(&quot;.display-scheduler&quot;),y=e[0].querySelectorAll(&quot;.display-scheduler i&quot;),l.el=e[0].querySelector(&quot;.dropdown-item.display-scheduler&quot;),f=e[0].querySelector(&quot;.dropdown-item.cancel-scheduling&quot;),v=e.find(&#039;[component=&quot;composer/submit/container&quot;]&#039;),h=e.find(&#039;[component=&quot;composer/submit/options/container&quot;]&#039;),i.el=e[0].querySelector(&quot;.composer-submit:not(.btn-sm)&quot;),i.icon=i.el.querySelector(&quot;i&quot;),i.defaultText=i.el.lastChild.textContent,i.activeText=i.el.getAttribute(&quot;data-text-variant&quot;),f.addEventListener(&quot;click&quot;,x),p.forEach(n=&gt;n.addEventListener(&quot;click&quot;,S))},o.getTimestamp=function(){return!o.isActive()||isNaN(t.timestamp)?0:t.timestamp},o.isActive=function(){return t.timestamp&gt;0},o.isOpen=function(){return t.open},o.reset=function(){t.timestamp=0},o.onChangeCategory=function(e){O(e.privileges[&quot;topics:schedule&quot;]),d(!1);const s=e.privileges[&quot;topics:schedule&quot;]||h.attr(&quot;data-submit-options&quot;)&gt;0;v.find(&quot;.composer-submit&quot;).toggleClass(&quot;rounded-1&quot;,!s),h.toggleClass(&quot;hidden&quot;,!s),o.reset()};async function S(){const e=await T.render(&quot;modals/topic-scheduler&quot;);w.dialog({message:e,title:&quot;[[modules:composer.schedule-for]]&quot;,className:&quot;topic-scheduler&quot;,onShown:E,onHidden:C,onEscape:!0,buttons:{cancel:{label:t.timestamp?&quot;[[modules:composer.cancel-scheduling]]&quot;:&quot;[[modules:bootbox.cancel]]&quot;,className:(t.timestamp?&quot;btn-warning&quot;:&quot;btn-outline-secondary&quot;)+(t.edit?&quot; hidden&quot;:&quot;&quot;),callback:x},set:{label:&quot;[[modules:composer.set-schedule-date]]&quot;,className:&quot;btn-primary&quot;,callback:L}}})}function E(e){t.open=!0;const s=e.target.querySelector(&quot;.datetime-picker&quot;);c=s.querySelector(&#039;input[type=&quot;date&quot;]&#039;),u=s.querySelector(&#039;input[type=&quot;time&quot;]&#039;),k()}function C(){t.open=!1}function N(e,{post_uuid:s}){t.edit=!1;const n=t.posts[s];n&amp;&amp;n.isMain&amp;&amp;n.timestamp&gt;Date.now()&amp;&amp;(t.timestamp=n.timestamp,t.edit=!0,d())}function k(){const e=new Date,s=new Date(e.getTime()-e.getTimezoneOffset()*6e4).toJSON();if(c.setAttribute(&quot;min&quot;,s.slice(0,10)),u.setAttribute(&quot;min&quot;,s.slice(11,-8)),o.isActive()){const n=new Date(t.timestamp-e.getTimezoneOffset()*6e4).toJSON();c.value=n.slice(0,10),u.value=n.slice(11,-8)}}function L(){const e=c.value&amp;&amp;u.value,s=new Date(`${c.value} ${u.value}`).getTime();if(!e||isNaN(s)||s&lt;Date.now()){t.timestamp=0;const n=s&lt;Date.now()?&quot;[[error:scheduling-to-past]]&quot;:&quot;[[error:invalid-schedule-date]]&quot;;return A.alert({type:&quot;danger&quot;,timeout:3e3,title:&quot;&quot;,alert_id:&quot;post_error&quot;,message:n}),!1}t.timestamp||d(!0),t.timestamp=s}function x(){t.timestamp&amp;&amp;(d(!1),t.timestamp=0)}function d(e=!0){y.forEach(s=&gt;s.classList.toggle(&quot;active&quot;,e)),i.icon&amp;&amp;(i.icon.classList.toggle(&quot;fa-check&quot;,!e),i.icon.classList.toggle(&quot;fa-clock-o&quot;,e)),l.el&amp;&amp;(l.el.textContent=e?l.activeText:l.defaultText,f.classList.toggle(&quot;hidden&quot;,!e)),i.el.lastChild.textContent=e?i.activeText:i.defaultText}function O(e){p.forEach(s=&gt;s.classList.toggle(&quot;hidden&quot;,!e))}return o}.apply(g,b),m!==void 0&amp;&amp;(r.exports=m)},72573:(r,g,a)=&gt;{r.exports=a(59367)}}]);
+</textarea>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <p>.</p>
+  </div>
+</footer>
+
+<script type="text/html" id="complexity-popover-template">
+  <div class="complexity-notice">
+    Complexity : {{ complexity.cyclomatic }} <br>
+    Length : {{ complexity.halstead.length }} <br>
+    Difficulty : {{ complexity.halstead.difficulty.toFixed(2) }} <br>
+    Est # bugs : {{ complexity.halstead.bugs.toFixed(2) }}<br>
+  </div>
+</script>
+
+<script type="text/javascript" src="../../assets/scripts/bundles/core-bundle.js"></script>
+<script type="text/javascript" src="../../assets/scripts/bundles/codemirror.js"></script>
+<script type="text/javascript" src="../../assets/scripts/codemirror.markpopovertext.js"></script>
+<script type="text/javascript" src="report.js"></script>
+<script type="text/javascript" src="report.history.js"></script>
+<script type="text/javascript" src="../../assets/scripts/plato-file.js"></script>
+</body>
+</html>
