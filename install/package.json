@@ -14,7 +14,10 @@
         "lint": "eslint --cache ./nodebb .",
         "test": "nyc --reporter=html --reporter=text-summary mocha",
         "coverage": "nyc report --reporter=text-lcov > ./coverage/lcov.info",
-        "coveralls": "nyc report --reporter=text-lcov | coveralls && rm -r coverage"
+        "coveralls": "nyc report --reporter=text-lcov | coveralls && rm -r coverage", 
+        "build": "flow-remove-types src/ -d lib/",
+        "flow": "flow",
+        "prepublish": "npm run build"
     },
     "nyc": {
         "exclude": [
@@ -166,6 +169,8 @@
         "@stylistic/eslint-plugin-js": "4.4.0",
         "eslint-config-nodebb": "1.1.5",
         "eslint-plugin-import": "2.31.0",
+        "flow-bin": "^0.288.0",
+        "flow-remove-types": "^2.288.0",
         "grunt": "1.6.1",
         "grunt-contrib-watch": "1.1.0",
         "husky": "8.0.3",
