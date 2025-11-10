@@ -81,7 +81,6 @@
 		</div>
 
 		<div class="content text-break" component="post/content" itemprop="text">
-			{posts.content}
 			{posts.content}			
 			{{{if !posts.isEnglish }}}
 		        <div class="sensitive-content-message">
