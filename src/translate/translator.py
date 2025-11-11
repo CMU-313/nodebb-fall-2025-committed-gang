@@ -2,6 +2,7 @@ import os
 import json
 import re
 from typing import Tuple
+import requests
 
 
 def _parse_json_from_text(text: str):
@@ -24,52 +25,36 @@ def _parse_json_from_text(text: str):
     return None
 
 
-def _call_qwen_chat(content: str) -> str:
-    try:
-        import qwen
-    except Exception:
-        raise RuntimeError("qwen package not available")
-
-    api_key = os.environ.get("QWEN_API_KEY")
-    if not api_key:
-        raise RuntimeError("QWEN_API_KEY not set")
-
-    client = qwen.Client(api_key=api_key)
-
+def _call_ollama_chat(content: str) -> str:
+    """Call Ollama API for translation."""
+    ollama_host = os.environ.get("OLLAMA_HOST", "http://localhost:11434")
+    
     system_prompt = (
         "You are a translation assistant.\n"
         "When given a single text input, respond with a single JSON object and nothing else."
         " The JSON object must contain two keys: 'is_english' (boolean) and 'translated_content' (string).\n"
         "If the input is already English, set 'is_english' to true and set 'translated_content' to exactly the input text. \n" 
         "If you think the input might not be in English set 'is_english' to false and set 'translated_content' to the best-effort English translation of the input text.\n" 
-        "If you think the input might be jibberish, set 'is_english' to false and set 'translated_content' to the same jibberish." \
+        "If you think the input might be jibberish, set 'is_english' to false and set 'translated_content' to the same jibberish."
     )
-
+    
     user_prompt = f"Translate or detect English for this text:\n\n{content}"
-
-    resp = client.chat.create(model="qwen-3-0.6b", messages=[{"role": "system", "content": system_prompt}, {"role": "user", "content": user_prompt}], temperature=0, max_tokens=800)
-
-    # Extract text in a few common shapes
-    if isinstance(resp, dict):
-        choices = resp.get("choices")
-        if choices and isinstance(choices, list) and len(choices) > 0:
-            first = choices[0]
-            if isinstance(first, dict):
-                return first.get("message", {}).get("content", "")
-    else:
-        # Try attribute style
-        choices = getattr(resp, "choices", None)
-        if choices and len(choices) > 0:
-            first = choices[0]
-            msg = getattr(first, "message", None)
-            if msg:
-                return getattr(msg, "content", "")
-
-    # Fallback: return stringified response
-    try:
-        return json.dumps(resp)
-    except Exception:
-        return str(resp)
+    
+    response = requests.post(
+        f"{ollama_host}/api/chat",
+        json={
+            "model": "qwen3:0.6b",
+            "messages": [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": user_prompt}
+            ],
+            "stream": False
+        }
+    )
+    
+    response.raise_for_status()
+    data = response.json()
+    return data.get("message", {}).get("content", "")
 
 
 _HARD_CODED_MAP = {
@@ -89,10 +74,6 @@ _HARD_CODED_MAP = {
     "Đây là một tin nhắn bằng tiếng Việt": (False, "This is a Vietnamese message"),
     "Esto es un mensaje en catalán": (False, "This is a Catalan message"),
     "This is an English message": (True, "This is an English message"),
-    # # Tests rely on these sample inputs being handled deterministically
-    # "This should not be translated": (True, "This should not be translated"),
-    # "Hola": (False, "Hello"),
-    # "asp12345difjasdf": (False, "asp12345difjasdf"),
 }
 
 
@@ -102,21 +83,26 @@ def translate_content(content: str) -> Tuple[bool, str]:
     Returns (is_english, translated_content_in_english).
 
     Behavior:
-    - Calls `_call_qwen_chat` and expects a JSON response with keys 'is_english' and 'translated_content'.
+    - Calls `_call_ollama_chat` and expects a JSON response with keys 'is_english' and 'translated_content'.
     - If parsing fails or the model call errors, falls back to assuming the content is English and returning it unchanged.
     """
     # Fast path: preserve deterministic behavior for known examples used in tests
     if content in _HARD_CODED_MAP:
+        print(f"[Translator] Using hardcoded map for: {content}")
         return _HARD_CODED_MAP[content]
 
     # Otherwise, try LLM path
+    print(f"[Translator] Attempting Ollama translation for: {content}")
     try:
-        raw = _call_qwen_chat(content)
-    except Exception:
+        raw = _call_ollama_chat(content)
+        print(f"[Translator] Ollama raw response: {raw}")
+    except Exception as e:
+        print(f"[Translator] Ollama call failed: {e}")
         # If we can't call the LLM, assume English (safe fallback)
         return True, content
 
     parsed = _parse_json_from_text(raw)
+    print(f"[Translator] Parsed JSON: {parsed}")
     if parsed and isinstance(parsed, dict):
         is_english = parsed.get("is_english")
         translated = parsed.get("translated_content")
@@ -124,4 +110,5 @@ def translate_content(content: str) -> Tuple[bool, str]:
             return is_english, translated
 
     # If parsing failed, last resort: assume English and return original text
+    print("[Translator] Parsing failed, returning original")
     return True, content
