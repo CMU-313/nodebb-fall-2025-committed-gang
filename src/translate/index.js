@@ -3,10 +3,7 @@
 
 const translatorApi = module.exports;
 
-<<<<<<< HEAD
-// translatorApi.translate = function (postData) {
-// return ['is_english',postData];
-// };
+
 
 translatorApi.translate = async function (postData) {
 	console.log('[Translator] ===== FUNCTION CALLED =====');
