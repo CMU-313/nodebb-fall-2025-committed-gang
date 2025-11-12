@@ -267,17 +267,11 @@ get:
                           type: boolean
                       required:
                         - name
-                        - updated
-                        - latest
-                        - url
-                        - numInstalls
-                        - isCompatible
                         - id
                         - installed
                         - active
                         - isTheme
                         - version
-                        - license
                         - outdated
                   incompatible:
                     type: array
