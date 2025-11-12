@@ -23,6 +23,10 @@ module.exports = function (Posts) {
 		options.extraFields = options.hasOwnProperty('extraFields') ? options.extraFields : [];
 
 		const fields = ['pid', 'tid', 'toPid', 'url', 'content', 'sourceContent', 'uid', 'timestamp', 'deleted', 'upvotes', 'downvotes', 'replies', 'handle', 'isEnglish', 'translatedContent'].concat(options.extraFields);
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 		let posts = await Posts.getPostsFields(pids, fields);
 		posts = posts.filter(Boolean);
 		posts = await user.blocks.filter(uid, posts);

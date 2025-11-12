@@ -151,7 +151,11 @@ get:
                                   isEnglish:
                                     type: boolean
                                   translatedContent:
+<<<<<<< HEAD
                                     type: string   
+=======
+                                    type: string
+>>>>>>> main
                                   sourceContent:
                                     type: string
                                     nullable: true
